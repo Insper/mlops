@@ -1,0 +1,3 @@
+mkdocs
+pymdown-extensions
+git+https://github.com/insper-education/active-handout-plugins-py.git@latest

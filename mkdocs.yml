@@ -1,0 +1,24 @@
+INHERIT: active-handout.yml
+
+site_name: MLOps & Interviews
+
+extra:
+  custom_variables:
+    repo_aps: https://github.com/insper/mlops
+    repo_aps_git: https://github.com/insper/mlops.git
+
+extra_javascript:
+  - js/tabs.js
+  - js/termynal.js
+  - js/custom.js
+
+extra_css:
+    - css/termynal.css
+
+nav:
+  - 'Home': index.md
+  - about.md
+  - Content:
+    - "01 - Introduction":
+      - modules/01-intro/intro.md
+      - modules/01-intro/aps01.md
