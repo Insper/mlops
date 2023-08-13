@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>Intro - MLOps & Interviews</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '../../..';
+      
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
+      
+      
+      var dashboardEnabled = false;
+      var tagTree = {};
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../../../css/termynal.css">
+  </head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href="../../.."
+           title="MLOps &amp; Interviews"
+           class="ah-logo"
+           aria-label="MLOps & Interviews">
+          MLOps &amp; Interviews
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="../../..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../about/">About</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Content</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">01 - Introduction</span>
+    <ul>
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Intro</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#what-is-mlops">What is MLOps?</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#the-machine-learning-life-cycle">The Machine Learning Life Cycle</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#references">References</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../aps01/">Aps01</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                  
+                    <li>Content</li>
+                  
+                
+                  
+                    <li>01 - Introduction</li>
+                  
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<h1 id="introduction">Introduction</h1>
+<h2 id="what-is-mlops">What is MLOps?</h2>
+<p><strong>MLOps</strong> refers to <strong>Machine Learning Operations</strong>, which is a core component of Machine Learning engineering. MLOps focuses on optimizing the process of deploying machine learning models into a production environment as well as sustaining and tracking those models once live.</p>
+<p>The goal of MLOps is to automate and standardize machine learning workflows to improve efficiency, productivity, and model performance monitoring. To achieve that, it demands collaboration between data scientists, machine learning engineers, IT teams, etc.</p>
+<p>in essence:</p>
+<div class="admonition note">
+<p class="admonition-title">MLOps is all about...</p>
+<p>Taking Machine Learning Models to <strong>production</strong>!</p>
+</div>
+<p>Lets rewrite that in a non technical way!</p>
+<div class="admonition example">
+<p class="admonition-title">MLOps is all about...</p>
+<p>Provide ways for ML to generate <strong>value to the business</strong> on an ongoing basis!</p>
+</div>
+<h2 id="the-machine-learning-life-cycle">The Machine Learning Life Cycle</h2>
+<div class="admonition exercise choice tag-choice-exercise" data-answer-idx="1" data-slug="modules/01-intro/intro/choice_1" id="choice_1_0">
+<p class="admonition-title">Question 1</p>
+<form class="exercise-form">
+<p>ML projects only involve data processing and model training.</p>
+<div class="form-elements">
+<div class="alternative-set">
+  
+<label class="alternative">
+  <div class="content">
+    <input type="radio" name="data" value="0" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
+    True
+  </div>
+</label>
+
+<label class="alternative">
+  <div class="content">
+    <input type="radio" name="data" value="1" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
+    False
+  </div>
+</label>
+
+</div>
+<input class="ah-button ah-button--primary" type="submit" name="sendButton" value="Enviar" disabled />
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Resposta</p>
+<p>It is normal to think that ML projects only involve data processing and model training. But there are others relevant concerns to take in consideration!</p>
+</div>
+</div>
+<p>Lets take a look at the ML Life Cycle!</p>
+<p><img alt="" src="../ml_lifecycle.png" /></p>
+<p>The machine learning life cycle begins with <strong>planning</strong>. At this initial stage, objectives are defined to identify the specific problem or task that machine learning could help solve. This involves understanding the business or project goals and what type of insights or predictions are needed from deployed models. Careful planning at the start helps set clear expectations, avoiding wasting efforts on projects with inadequate data or unrealistic goals.</p>
+<p>Is also import to do <strong>data collection and preprocessing</strong>. This involves gathering large amounts of data from various sources such as databases, websites, APIs, and sensor readings. The data needs to be properly formatted, cleaned of any anomalies or inconsistencies, and have missing values imputed. Features also need to be extracted or engineered from the raw data. This processed data is then used to build machine learning models.</p>
+<p>Once the data is prepared, the next step is to divide it into training and test sets. The training set is used to <strong>develop machine learning models</strong> by exposing various algorithms to patterns in the labeled data. Popular algorithms such as decision trees, random forests, support vector machines, neural networks, etc. are applied to automatically learn from the training examples. Their parameters are tuned through iterative training to minimize error and optimize performance. The test set is used to evaluate how well the trained models generalize to new unseen data. The top performing models are selected for deployment.</p>
+<p>After a model has been selected, it needs to be <strong>deployed</strong> as a machine learning application or service. It can be integrated into existing software systems and utilized to make predictions on live data streams in a <strong>production environment</strong>. Once in operation, its performance also needs to be continuously <strong>monitored</strong> for accuracy and drifts over time. The data collection and model development cycles may need to be revisited to keep improving the capabilities of the learning systems. This marks the completion of one iteration of the machine learning life cycle.</p>
+<p>Take a look at a more realistic picture of ML life cycle inside an average organization today:</p>
+<p><img alt="" src="../realistic_lifecycle.png" /></p>
+<p>It involves many different people with completely different skill sets and who are often using entirely different tools.</p>
+<div class="admonition danger">
+<p>In this course, we will focus less on model development, assuming that this is already covered in other Insper courses, and <strong>more</strong> on <strong>model deploying and monitoring</strong>.</p>
+</div>
+<h2 id="references">References</h2>
+<ul>
+<li>Image The Machine Learning Life Cycle: <a href="https://images.datacamp.com/image/upload/v1664812812/Machine_Learning_Lifecycle_2ffa5897a7.png">https://images.datacamp.com/image/upload/v1664812812/Machine_Learning_Lifecycle_2ffa5897a7.png</a></li>
+<li>Introducing MLOps. Chapter 1.</li>
+<li>Practical MLOps. Chapter 1.</li>
+<li>POE and ChatGPT.</li>
+</ul>
+<!-- Why do companies invest in Data Science?
+How to extract maximum value from ML models?
+
+What could possible go wrong?
+What problems should a Machine Learning Engenner step up to solve?
+What you wish is different from what you get!
+
+A lot of attention on ML models!
+
+ML System = Code + Data = Hyperparameters -->
+
+
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+            <a href="../../../about/"
+               class="ah-prev"
+               title="About">
+              <span class="nav-label">Anterior</span>
+              <span class="nav-title">About</span>
+            </a>
+          
+          
+            <a href="../aps01/"
+               class="ah-next"
+               title="Aps01">
+              <span class="nav-label">Próximo</span>
+              <span class="nav-title">Aps01</span>
+            </a>
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="../../../js/tabs.js"></script><script src="../../../js/termynal.js"></script><script src="../../../js/custom.js"></script>
+    
+  </body>
+</html>
