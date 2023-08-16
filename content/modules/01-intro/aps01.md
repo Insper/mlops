@@ -121,6 +121,7 @@ Use a tool of your preference to create an isolated Python environment.
 </div>
 
 - On Linux/macOS:
+
 <div class="termy">
 
     ```console
@@ -129,6 +130,11 @@ Use a tool of your preference to create an isolated Python environment.
     ```
 
 </div>
+
+<br>
+
+!!! Danger "Important!"
+    Remember to add your **env** folder (`mlops` in the example) to `.gitignore`
 
 ## Task 01: Opening
 
