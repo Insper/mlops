@@ -252,9 +252,6 @@ from fastapi import FastAPI, Body
 
 @app.post("/predict")
 async def predict(
-    """
-    Route to make predictions!
-    """
     person: Annotated[
         Person,
         Body(
@@ -273,6 +270,9 @@ async def predict(
         ),
     ],
 ):
+    """
+    Route to make predictions!
+    """
     ohe = load_encoder()
     model = load_model()
 
