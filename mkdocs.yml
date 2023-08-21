@@ -25,3 +25,7 @@ nav:
       - modules/01-intro/aps01.md
     - "02 - Deploy: first try!":
       - modules/02-api/api_deploy.md
+    - "03 - Batch prediction":
+      - modules/03-batch/intro.md
+      - modules/03-batch/data_formats.md
+      - modules/03-batch/practicing.md

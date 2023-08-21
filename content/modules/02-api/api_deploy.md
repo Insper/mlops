@@ -489,7 +489,7 @@ Especially for larger models, this can represent a good performance improvement.
 
 <b>That is all for today!</b>
 
-# References
+## References
 - Image: https://www.redhat.com/rhdc/managed-files/styles/wysiwyg_full_width/private/API-page-graphic.png?itok=RRsvST-
 - Introduction to MLOps. Chapter 6.
 - Designing Machine Learning Systems. Chapter 7.
