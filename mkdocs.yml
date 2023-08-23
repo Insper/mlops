@@ -26,6 +26,12 @@ nav:
     - "02 - Deploy: first try!":
       - modules/02-api/api_deploy.md
     - "03 - Batch prediction":
-      - modules/03-batch/intro.md
-      - modules/03-batch/data_formats.md
-      - modules/03-batch/practicing.md
+      - "Part 1":
+        - modules/03-batch/intro.md
+        - modules/03-batch/data_formats.md
+        - modules/03-batch/practicing.md
+      - "Part 2":
+        - modules/03-batch/sql.md
+        - modules/03-batch/db_tool.md
+        - modules/03-batch/dot_env.md
+        - modules/03-batch/aps02_sql.md
