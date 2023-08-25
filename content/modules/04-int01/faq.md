@@ -16,7 +16,7 @@
 
 1. *Who will play the role of interviewer?*
 
-    ou and your partner will alternate, sometimes being the interviewer, sometimes being the interviewee.
+    You and your partner will alternate, sometimes being the interviewer, sometimes being the interviewee.
 
 1. *Should the interviewer create questions on the fly?*
 
