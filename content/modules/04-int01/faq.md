@@ -34,6 +34,10 @@
 
     At first, no. You may need to draw on the walls!
 
+1. *Will I be able to google during the interview?*
+
+    No.
+
 ## Interview subject
 
 We will focus mainly on the subjects studied in the previous classes:
