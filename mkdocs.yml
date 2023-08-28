@@ -37,3 +37,4 @@ nav:
         - modules/03-batch/aps02_sql.md
     - "04 - Interview 01":
       - modules/04-int01/faq.md
+      - modules/04-int01/int01.md
