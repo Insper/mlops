@@ -7,4 +7,4 @@ The deadline assumes the end of the day (*11:59:59 PM*), unless otherwise specif
 | Start Date | Assignment                          | Deadline |
 |------------|-------------------------------------|----------|
 | Aug-14     | [Aps01](modules/01-intro/aps01.md)  | Aug-20   |
-| Aug-23     | [Aps02](modules/03-batch/aps02_sql.md)  | Aug-29   |
+| Aug-23     | [Aps02](modules/03-batch/aps02_sql.md)  | Sep-03   |

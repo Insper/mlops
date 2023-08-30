@@ -38,3 +38,7 @@ nav:
     - "04 - Interview 01":
       - modules/04-int01/faq.md
       - modules/04-int01/int01.md
+    - "05 - Docker":
+      - modules/05-docker/intro.md
+      - modules/05-docker/s3.md
+      - modules/05-docker/docker.md

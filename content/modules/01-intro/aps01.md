@@ -158,13 +158,13 @@ Now you must configure the repository according to some standards. Let's create 
 
 Think that all the repositories of the company should follow this organization pattern.
 
-!!! exercise
+!!! exercise "Question"
     Let's organize the **data** resources. You must:
 
     1. Create a folder called `data`
     1. Move data files to this folder
 
-!!! exercise
+!!! exercise "Question"
     For **notebooks**:
 
     1. Create a folder called `notebooks`
@@ -174,7 +174,7 @@ Think that all the repositories of the company should follow this organization p
 
 Every code on this project is on a single notebook. We are going to split it considering the different functionalities provided.
 
-!!! exercise
+!!! exercise "Question"
     Now you must:
 
     1. Create a folder called `src`
@@ -192,7 +192,7 @@ Also, when the model is in use (making predictions), the target variable is not 
 
 In this activity, consider that whenever training needs to be redone, there will be a `bank.csv` file with updated data in the `data` folder.
 
-!!! exercise
+!!! exercise "Question"
     Let's simulate the prediction data. Now you must:
 
     1. Copy the `data/bank.csv` file to a new `data/bank_predict.csv` file. This new file must not have the **target** column
@@ -206,12 +206,12 @@ At this point, you have a repository:
 
 ## Task 05: Readme
 
-!!! exercise
+!!! exercise "Question"
     Create a `README.md` with some basic informations of the project
 
 ## Task 06: Dependencies
 
-!!! exercise
+!!! exercise "Question"
     Create a `requirements.txt` with all the libs used on the project.
 
 
@@ -242,10 +242,10 @@ Then, create a folder structure similar to:
 !!! info "Info!"
     The `.gitkeep` are empty files created to allow empty folders to be in the template
 
-!!! exercise
+!!! exercise "Question"
     Create a `README.md` (root directory) with some basic informations of the template repository
 
-!!! exercise
+!!! exercise "Question"
     Create the `cookiecutter.json` with the content:
 
     ```json
@@ -256,21 +256,21 @@ Then, create a folder structure similar to:
     }
     ```
 
-!!! exercise
+!!! exercise "Question"
     Create the `.gitignore` inside `{ {cookiecutter.directory_name} }` with the files to be ignored by default in future projects.
 
-!!! exercise
+!!! exercise "Question"
     Create the `README.md` inside `{ {cookiecutter.directory_name} }` with the default **README** for future projects. Be creative!
 
     ![](readme_ex.png)
 
-!!! exercise
+!!! exercise "Question"
     Create basic python files in `src` folder.
 
-!!! exercise
+!!! exercise "Question"
     You can also leave some notebooks with basic code for exploratory data analysis.
 
-!!! exercise
+!!! exercise "Question"
     Commit and push your changes to Github!
 
 
