@@ -548,7 +548,60 @@
 <p>Try to create a query that generates a table with all the days and fields needed for prediction:</p>
 <p><img alt="" src="../predict_dates.png" /></p>
 <p>Then, save these lines in a new table <code>"scoring_ml_YOUR_INSPER_USERNAME"</code> on schema <code>sales_analytics</code>. In Python, iterate over these records calling and storing your model's predictions!</p>
+<div class="admonition danger">
 <p>Remember to delete old records from this table every time you make predictions.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Important!</p>
+<p>When running the prediction, you'll need the data in the same format as the training.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"></th>
+<th style="text-align: right;">store_id</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">month</th>
+<th style="text-align: right;">day</th>
+<th style="text-align: right;">weekday</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5000</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5000</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5001</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5001</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+<p>You can build the previous table already in the expected format (with columns of day, month, year, weekday) or just leave it with the complete date and make transformations (using Python or SQL) just before making the predictions.</p>
+</div>
 </div>
 <div class="admonition exercise self-progress" data-slug="modules/03-batch/aps02_sql/exercise_5" id="exercise_5_0">
 <p class="admonition-title">Question 6</p>

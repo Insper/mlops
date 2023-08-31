@@ -384,18 +384,27 @@
 <p><img alt="" src="../dbeaver_all_dbs.png" /></p>
 </div>
 <h2 id="ddl-data-definition-language">DDL - Data Definition Language</h2>
-<p>Create the base used in the previous class. Here is the DDL from the <code>item_sale</code> table:</p>
-<div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">item_sale</span><span class="p">;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">item_sale</span><span class="w"> </span><span class="p">(</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="n">store_id</span><span class="w"> </span><span class="nb">integer</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="n">client_id</span><span class="w"> </span><span class="nb">integer</span><span class="p">,</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="n">product_id</span><span class="w"> </span><span class="nb">integer</span><span class="p">,</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="n">date_sale</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="n">price</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">);</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">item_sale_store_id_idx</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">sales</span><span class="p">.</span><span class="n">item_sale</span><span class="w"> </span><span class="p">(</span><span class="n">store_id</span><span class="p">,</span><span class="n">date_sale</span><span class="p">);</span>
+<p>Create the database used in the previous class. Here is the DDL from the <code>item_sale</code> table:</p>
+<div class="admonition danger">
+<p class="admonition-title">Important!</p>
+<p>If the schemas and tables were created correctly, this change is a mere deploy information.</p>
+</div>
+<div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">sales_analytics</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">sales</span><span class="p">.</span><span class="n">item_sale</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">sales</span><span class="p">.</span><span class="n">item_sale</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="n">store_id</span><span class="w"> </span><span class="nb">integer</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="n">client_id</span><span class="w"> </span><span class="nb">integer</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="n">product_id</span><span class="w"> </span><span class="nb">integer</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="n">date_sale</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="n">price</span><span class="w"> </span><span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">);</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">item_sale_store_id_idx</span><span class="p">;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">item_sale_store_id_idx</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">sales</span><span class="p">.</span><span class="n">item_sale</span><span class="w"> </span><span class="p">(</span><span class="n">store_id</span><span class="p">,</span><span class="n">date_sale</span><span class="p">);</span>
 </code></pre></div>
 <p>Inserts in this table can be done with:</p>
 <div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">sales</span><span class="p">.</span><span class="n">item_sale</span>
@@ -409,7 +418,7 @@
 <div class="admonition exercise self-progress" data-slug="modules/05-docker/docker/exercise_1" id="exercise_1_0">
 <p class="admonition-title">Question 1</p>
 <form class="exercise-form">
-<p>Change the <a href="../03-batch/aps02_sql">project</a> from the <a href="../03-batch/aps02_sql">previous class</a> to use your Docker base.</p>
+<p>Change the <a href="../../03-batch/aps02_sql/">project</a> from the <a href="../../03-batch/aps02_sql/">previous class</a> to use your PostgreSQL service running on Docker (replacing the server provided by the professor).</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
@@ -419,7 +428,7 @@
 <div class="admonition exercise self-progress" data-slug="modules/05-docker/docker/exercise_2" id="exercise_2_0">
 <p class="admonition-title">Question 2</p>
 <form class="exercise-form">
-<p>Also execute the DDL for the other views and tables that you used.</p>
+<p>Also, execute (in the PostgreSQL Docker) the <strong>DDL</strong>  to create other views and tables that you used.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
@@ -429,7 +438,7 @@
 <div class="admonition danger">
 <p class="admonition-title">Attention!</p>
 <p>If the schemas and tables were created correctly, this change is a mere deploy information.</p>
-<p>So, changes in the <code>.env</code> and <strong>nothing in the code</strong>!</p>
+<p>So, we will have changes in the <code>.env</code> and <strong>nothing in the code</strong>!</p>
 </div>
 
 
