@@ -41,11 +41,17 @@ PORT: 5100
 
 ## DDL - Data Definition Language
 
-Create the base used in the previous class. Here is the DDL from the `item_sale` table:
+Create the database used in the previous class. Here is the DDL from the `item_sale` table:
+
+!!! danger "Important!"
+    If the schemas and tables were created correctly, this change is a mere deploy information.
 
 ```sql
-DROP TABLE IF EXISTS item_sale;
-CREATE TABLE item_sale (
+CREATE SCHEMA IF NOT EXISTS sales;
+CREATE SCHEMA IF NOT EXISTS sales_analytics;
+
+DROP TABLE IF EXISTS sales.item_sale;
+CREATE TABLE sales.item_sale (
   id SERIAL PRIMARY KEY,
   store_id integer,
   client_id integer,
@@ -54,7 +60,9 @@ CREATE TABLE item_sale (
   price decimal(10,2)
 );
 
-CREATE INDEX item_sale_store_id_idx ON sales.item_sale (store_id,date_sale);
+
+DROP INDEX IF EXISTS item_sale_store_id_idx;
+CREATE INDEX IF NOT EXISTS item_sale_store_id_idx ON sales.item_sale (store_id,date_sale);
 ```
 
 Inserts in this table can be done with:
@@ -70,12 +78,12 @@ VALUES
 ```
 
 !!! exercise "Question"
-    Change the [project](../03-batch/aps02_sql) from the [previous class](../03-batch/aps02_sql) to use your Docker base.
+    Change the [project](../03-batch/aps02_sql.md) from the [previous class](../03-batch/aps02_sql.md) to use your PostgreSQL service running on Docker (replacing the server provided by the professor).
 
 !!! exercise "Question"
-    Also execute the DDL for the other views and tables that you used.
+    Also, execute (in the PostgreSQL Docker) the **DDL**  to create other views and tables that you used.
 
 !!! danger "Attention!"
     If the schemas and tables were created correctly, this change is a mere deploy information.
     
-    So, changes in the `.env` and **nothing in the code**!
+    So, we will have changes in the `.env` and **nothing in the code**!

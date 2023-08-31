@@ -2,7 +2,7 @@
 
 ## Create folder
 
-Use your template, created in [class 01](../../01-intro/aps01/#task-07-create-a-template), to create a new folder for today's class. You can use any name (I chose `p03-batch`).
+Use your template, created in [class 01](../01-intro/aps01.md#task-07-create-a-template), to create a new folder for today's class. You can use any name (I chose `p03-batch`).
 
 !!! danger "Atention"
     If you didn't do this part of the activity, create the folders manually.

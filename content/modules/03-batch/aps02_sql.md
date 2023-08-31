@@ -113,7 +113,20 @@ In this activity, let's assume that:
 
     Then, save these lines in a new table `"scoring_ml_YOUR_INSPER_USERNAME"` on schema `sales_analytics`. In Python, iterate over these records calling and storing your model's predictions!
 
-    Remember to delete old records from this table every time you make predictions.
+    !!! danger ""
+        Remember to delete old records from this table every time you make predictions.
+
+    !!! info "Important!"
+        When running the prediction, you'll need the data in the same format as the training.
+
+        |    |   store_id |   year |   month |   day |   weekday |
+        |---:|-----------:|-------:|--------:|------:|----------:|
+        |  0 |       5000 |   2023 |       8 |     2 |         2 |
+        |  0 |       5000 |   2023 |       8 |     3 |         3 |
+        |  0 |       5001 |   2023 |       8 |     2 |         2 |
+        |  0 |       5001 |   2023 |       8 |     3 |         3 |
+
+        You can build the previous table already in the expected format (with columns of day, month, year, weekday) or just leave it with the complete date and make transformations (using Python or SQL) just before making the predictions.
 
 !!! exercise "Question"
     Change your prediction code to meet the requested requirements.
