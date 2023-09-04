@@ -384,7 +384,7 @@
 <h2 id="what-is-rabbitmq">What is RabbitMQ?</h2>
 <p>RabbitMQ is a popular open-source message broker that simplifies <strong>messaging</strong> between distributed systems via <em>AMQP</em> (Advanced Message Queuing Protocol) and other protocols in a scalable and reliable manner.</p>
 <h2 id="tutorial">Tutorial</h2>
-<p>Let's practice and learn how to use RabbitMQ! We will implement the <strong>producer-consumer</strong> model (seen in the Sistmemas-Hardware-Software course).</p>
+<p>Let's practice and learn how to use RabbitMQ! We will implement the <strong>producer-consumer</strong> model (seen in the Sistemas-Hardware-Software course).</p>
 <p><img alt="" src="../producer_consumer.png" /></p>
 <p>In this model, one or more applications will produce messages, which must be processed asynchronously by one or more consumer applications.</p>
 <div class="admonition info">
@@ -425,7 +425,6 @@
 <h3 id="instantiate-rabbitmq">Instantiate RabbitMQ</h3>
 <h4 id="create-docker-composeyml">Create <code>docker-compose.yml</code></h4>
 <p>Let's start a RabbitMQ service using Docker.</p>
-<p>Vamos criar um arquivo <code>docker-compose.yml</code> com o seguinte conteúdo:</p>
 <p>Let's create a <code>docker-compose.yml</code> file with the following content:</p>
 <div class="language-yaml highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">services</span><span class="p">:</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">rabbitmq</span><span class="p">:</span>
