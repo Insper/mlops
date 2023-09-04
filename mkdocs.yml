@@ -42,3 +42,6 @@ nav:
       - modules/05-docker/intro.md
       - modules/05-docker/s3.md
       - modules/05-docker/docker.md
+    - "05 - Message Broker":
+      - modules/06-message-broker/intro.md
+      - modules/06-message-broker/rabbitmq.md
