@@ -6,7 +6,7 @@ RabbitMQ is a popular open-source message broker that simplifies **messaging** b
 
 ## Tutorial
 
-Let's practice and learn how to use RabbitMQ! We will implement the **producer-consumer** model (seen in the Sistmemas-Hardware-Software course).
+Let's practice and learn how to use RabbitMQ! We will implement the **producer-consumer** model (seen in the Sistemas-Hardware-Software course).
 
 ![](producer_consumer.png)
 
@@ -46,8 +46,6 @@ Let's start with the producer!
 #### Create `docker-compose.yml`
 
 Let's start a RabbitMQ service using Docker.
-
-Vamos criar um arquivo `docker-compose.yml` com o seguinte conteúdo:
 
 Let's create a `docker-compose.yml` file with the following content:
 
