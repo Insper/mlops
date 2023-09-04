@@ -35,7 +35,7 @@ Let's start with the producer!
 ??? Answer
     ```python
     while True:
-        msg = input("Type a massage: ")
+        msg = input("Type a message: ")
 
         if msg == "exit":
             break
@@ -136,7 +136,7 @@ channel = connection.channel()
 channel.queue_declare(queue="chitchat", durable=True)
 
 while True:
-    msg = input("Type a massage: ")
+    msg = input("Type a message: ")
 
     if msg == "exit":
         # Close connection
