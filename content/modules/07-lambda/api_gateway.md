@@ -23,7 +23,7 @@ import string
 
 load_dotenv()
 
-function_name = "" # Example: sayHello_<INSPER_USERNAME>
+lambda_function_name = "" # Example: sayHello_<INSPER_USERNAME>
 api_gateway_name = "" # Example: api_hello_<INSPER_USERNAME>"
 
 id_num = "".join(random.choices(string.digits, k=7))
