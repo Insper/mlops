@@ -45,3 +45,7 @@ nav:
     - "06 - Message Broker":
       - modules/06-message-broker/intro.md
       - modules/06-message-broker/rabbitmq.md
+    - "07 - Lambda Functions":
+      - modules/07-lambda/aws_lambda.md
+      - modules/07-lambda/lambda_practicing.md
+      - modules/07-lambda/api_gateway.md
