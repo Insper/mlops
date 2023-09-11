@@ -27,7 +27,7 @@ Remeber the ML lifecycle from last class:
     - [ ] Data preparation
     - [ ] Model Evaluation
 
-    !!! answer "Answer"
+    !!! answer "Answer!"
         This decision depends on how the model will be used. It is usually possible to have a vision of this during the planning phase. It's something that can be rethought and changed, but generally knowing the company's problem (and the target variable to be predicted) already gives us an idea which style of deployment will generate more value for the business.
 
 ## What are APIs?

@@ -46,6 +46,11 @@ nav:
       - modules/06-message-broker/intro.md
       - modules/06-message-broker/rabbitmq.md
     - "07 - Lambda Functions":
-      - modules/07-lambda/aws_lambda.md
-      - modules/07-lambda/lambda_practicing.md
-      - modules/07-lambda/api_gateway.md
+      - "Part 1":
+        - modules/07-lambda/aws_lambda.md
+        - modules/07-lambda/lambda_practicing.md
+        - modules/07-lambda/api_gateway.md
+      - "Part 2":
+        - modules/07-lambda/sentiment_analysis.md
+        - modules/07-lambda/sa_lambda_function.md
+        - modules/07-lambda/lambda_layer.md
