@@ -10,7 +10,7 @@ Let's create a lambda function that uses the `textblob` library to return the po
     - The received sentence itself
     - The polarity returned by `TextBlob`
     - The feeling of the sentence.
-        - If the polarity is below `0.8`, consider it as negative sentiment.
+        - If the polarity is below `-0.8`, consider it as negative sentiment.
         - If the polarity is between `-0.8` and `0.2`, consider it neutral sentiment.
         - If the polarity is above `0.2`, consider it as positive sentiment.
 
