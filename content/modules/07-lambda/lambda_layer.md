@@ -364,7 +364,7 @@ api_gateway = boto3.client(
 )
 
 
-response = api_gateway.get_apis()
+response = api_gateway.get_apis(MaxResults="2000")
 api_gateway_id = None
 for item in response["Items"]:
     if item["Name"] == api_gateway_name:

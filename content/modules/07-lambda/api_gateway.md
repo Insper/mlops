@@ -85,7 +85,7 @@ api_gateway = boto3.client(
     region_name=os.getenv("AWS_REGION"),
 )
 
-response = api_gateway.get_apis()
+response = api_gateway.get_apis(MaxResults="2000")
 
 # Show APIs name and endpoint
 print("APIs:")
