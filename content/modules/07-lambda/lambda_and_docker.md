@@ -60,7 +60,7 @@ Our goal is to deploy this function with Docker + Lambda.
     RUN pip install -r requirements.txt
 
     # Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
-    CMD [ "lambda_function.handler" ]
+    CMD [ "lambda_function.hello_from_docker" ]
     ```
 
 Let's name the image `lambda-ex-image` and give it the `test` tag:
@@ -90,7 +90,7 @@ Let's make a request with:
 <div class="termy">
 
 ```console
-$ curl "http://localhost:9500/2023-09-12/functions/function/invocations" -d '{}'
+$ curl "http://localhost:9500/2015-03-31/functions/function/invocations" -d '{}'
 ```
 
 </div>
@@ -262,3 +262,8 @@ print(f"Function ARN: {response['FunctionArn']}")
     Use the codes from the previous class as a reference and test the function.
 
 Proceed to the APS!
+
+## References
+
+- https://docs.aws.amazon.com/lambda/latest/dg/python-image.html#python-image-instructions
+- https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html

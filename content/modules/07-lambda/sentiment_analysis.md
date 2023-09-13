@@ -42,7 +42,7 @@ It can be applied to analyze feedback, reviews, survey responses, social media p
 
     !!! answer "Answer!"
 
-        One of the simplest ways is to create fixed rules. For example, count how many times a word like `disappointed`. A high occurrence may indicate negativity!
+        One of the simplest ways is to create fixed rules. For example, count how many times a word like `disappointed` occurs in text. A high occurrence may indicate negativity!
 
         Another way is to create two lists of words: one of *negative* words and another of *positive* words. We count how many words we have from each list in the sentence we are analyzing, and if we have more positive words, we say the text has positive sentiment, otherwise we say it has negative sentiment.
 
