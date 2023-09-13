@@ -173,7 +173,7 @@ Let's authenticate and login to ECR using the Docker CLI:
 <div class="termy">
 
 ```console
-$ aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin <AWS_ACCOUNT_ID>.dkr.ecr.us-east-2.amazonaws.com
+$ aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com
 ```
 
 </div>
@@ -186,7 +186,7 @@ Then, we will run the `docker tag` command to tag our local Docker image into yo
 <div class="termy">
 
 ```console
-$ docker tag lambda-ex-image:test <REPOSITORY_URI>:latest
+$ docker tag lambda-ex-image:test REPOSITORY_URI:latest
 ```
 
 </div>
@@ -201,7 +201,7 @@ And push image to ECR with:
 <div class="termy">
 
 ```console
-$ docker push 789828965675.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-macielcv:latest
+$ docker push REPOSITORY_URI.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-macielcv:latest
 ```
 
 </div>
