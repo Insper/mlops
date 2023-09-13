@@ -54,3 +54,7 @@ nav:
         - modules/07-lambda/sentiment_analysis.md
         - modules/07-lambda/sa_lambda_function.md
         - modules/07-lambda/lambda_layer.md
+      - "Part 3":
+        - modules/07-lambda/lambda_quotas.md
+        - modules/07-lambda/lambda_and_docker.md
+        - modules/07-lambda/aps03_lambda.md
