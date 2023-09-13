@@ -677,7 +677,7 @@
 </div>
 <div class="termy">
 
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">$ </span>aws<span class="w"> </span>ecr<span class="w"> </span>get-login-password<span class="w"> </span>--region<span class="w"> </span>us-east-2<span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>login<span class="w"> </span>--username<span class="w"> </span>AWS<span class="w"> </span>--password-stdin<span class="w"> </span>&lt;AWS_ACCOUNT_ID&gt;.dkr.ecr.us-east-2.amazonaws.com
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">$ </span>aws<span class="w"> </span>ecr<span class="w"> </span>get-login-password<span class="w"> </span>--region<span class="w"> </span>us-east-2<span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>login<span class="w"> </span>--username<span class="w"> </span>AWS<span class="w"> </span>--password-stdin<span class="w"> </span>AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com
 </code></pre></div>
 
 </div>
@@ -689,7 +689,7 @@
 </div>
 <div class="termy">
 
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">$ </span>docker<span class="w"> </span>tag<span class="w"> </span>lambda-ex-image:test<span class="w"> </span>&lt;REPOSITORY_URI&gt;:latest
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">$ </span>docker<span class="w"> </span>tag<span class="w"> </span>lambda-ex-image:test<span class="w"> </span>REPOSITORY_URI:latest
 </code></pre></div>
 
 </div>
@@ -702,7 +702,7 @@ And push image to ECR with:</p>
 </div>
 <div class="termy">
 
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">$ </span>docker<span class="w"> </span>push<span class="w"> </span><span class="m">789828965675</span>.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-macielcv:latest
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">$ </span>docker<span class="w"> </span>push<span class="w"> </span>REPOSITORY_URI.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-macielcv:latest
 </code></pre></div>
 
 </div>
