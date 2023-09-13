@@ -195,13 +195,13 @@ $ docker tag lambda-ex-image:test REPOSITORY_URI:latest
 And push image to ECR with:
 
 !!! danger "Atention!"
-    Provide the `<REPOSITORY_URI>` from before
+    Provide the `<AWS_ACCOUNT_ID>` from before
 
 
 <div class="termy">
 
 ```console
-$ docker push REPOSITORY_URI.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-macielcv:latest
+$ docker push AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-macielcv:latest
 ```
 
 </div>
