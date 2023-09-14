@@ -116,6 +116,14 @@
 
             
               
+  
+    <li>
+      <a href="../../../contributions/">Contributions</a>
+    </li>
+  
+
+            
+              
   <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Content</span>
     <ul>
@@ -682,7 +690,8 @@
 
 </div>
 
-<p>Then, we will run the <code>docker tag</code> command to tag our local Docker image into your Amazon ECR repository as the <strong>latest</strong> version by doing:</p>
+<p><br>
+Then, we will run the <code>docker tag</code> command to tag our local Docker image into your Amazon ECR repository as the <strong>latest</strong> version by doing:</p>
 <div class="admonition danger">
 <p class="admonition-title">Atention!</p>
 <p>Provide the <code>&lt;REPOSITORY_URI&gt;</code> from before</p>
@@ -698,11 +707,11 @@
 And push image to ECR with:</p>
 <div class="admonition danger">
 <p class="admonition-title">Atention!</p>
-<p>Provide the <code>&lt;AWS_ACCOUNT_ID&gt;</code> from before</p>
+<p>Provide the <code>&lt;AWS_ACCOUNT_ID&gt;</code> and repository name (<code>test1-mlops-INSPER_USERNAME</code>) from before</p>
 </div>
 <div class="termy">
 
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">$ </span>docker<span class="w"> </span>push<span class="w"> </span>AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-macielcv:latest
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">$ </span>docker<span class="w"> </span>push<span class="w"> </span>AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-INSPER_USERNAME:latest
 </code></pre></div>
 
 </div>
@@ -712,7 +721,8 @@ And push image to ECR with:</p>
 <p>To do this, run:</p>
 <div class="admonition danger">
 <p class="admonition-title">Atention!</p>
-<p>Change the <code>function_name</code> and <code>image_uri</code></p>
+<p>Change the <code>function_name</code> and <code>image_uri</code>.</p>
+<p>The <code>image_uri</code> will follow the pattern <code>&lt;repositoryUri&gt;:&lt;imageTag&gt;</code>, for example: <code>123456789012.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-joaoxr:latest</code></p>
 </div>
 <div class="language-python highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">boto3</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">import</span> <span class="nn">os</span>

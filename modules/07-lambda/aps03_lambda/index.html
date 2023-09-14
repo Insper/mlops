@@ -116,6 +116,14 @@
 
             
               
+  
+    <li>
+      <a href="../../../contributions/">Contributions</a>
+    </li>
+  
+
+            
+              
   <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Content</span>
     <ul>
@@ -535,6 +543,18 @@
 <p class="admonition-title">Question 4</p>
 <form class="exercise-form">
 <p>Create the <code>Dockerfile</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip! 1</p>
+<p>In order to install <code>lightgbm</code>, you will need to install some dependencies on the system. So, before <code>RUN pip install -r requirements.txt</code> you can add:</p>
+<div class="language-docker highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c"># Install system dependencies</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">RUN</span><span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libstdc++<span class="w"> </span>cmake<span class="w"> </span>gcc-c++<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>yum<span class="w"> </span>clean<span class="w"> </span>all<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/cache/yum
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c"># Install the specified packages</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+</div>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
