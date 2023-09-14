@@ -31,6 +31,19 @@ Our goal is to transform the `predict` route from class 02 into a lambda functio
 !!! exercise "Question"
     Create the `Dockerfile`
 
+    !!! tip "Tip!"
+        In order to install `lightgbm`, you will need to install some dependencies on the system. So, before `RUN pip install -r requirements.txt` you can add:
+
+        ```docker
+        # Install system dependencies
+        RUN yum install -y libstdc++ cmake gcc-c++ && \
+            yum clean all && \
+            rm -rf /var/cache/yum
+
+        # Install the specified packages
+        RUN pip install -r requirements.txt
+        ```
+
 !!! exercise "Question"
     Create the Docker image
 

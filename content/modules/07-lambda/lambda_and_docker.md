@@ -178,6 +178,7 @@ $ aws ecr get-login-password --region us-east-2 | docker login --username AWS --
 
 </div>
 
+<br>
 Then, we will run the `docker tag` command to tag our local Docker image into your Amazon ECR repository as the **latest** version by doing:
 
 !!! danger "Atention!"
@@ -195,13 +196,13 @@ $ docker tag lambda-ex-image:test REPOSITORY_URI:latest
 And push image to ECR with:
 
 !!! danger "Atention!"
-    Provide the `<AWS_ACCOUNT_ID>` from before
+    Provide the `<AWS_ACCOUNT_ID>` and repository name (`test1-mlops-INSPER_USERNAME`) from before
 
 
 <div class="termy">
 
 ```console
-$ docker push AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-macielcv:latest
+$ docker push AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-INSPER_USERNAME:latest
 ```
 
 </div>
@@ -214,7 +215,9 @@ Now we can create the lambda function from the image already stored in the ECR.
 To do this, run:
 
 !!! danger "Atention!"
-    Change the `function_name` and `image_uri`
+    Change the `function_name` and `image_uri`.
+
+    The `image_uri` will follow the pattern `<repositoryUri>:<imageTag>`, for example: `123456789012.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-joaoxr:latest`
 
 ```python
 import boto3

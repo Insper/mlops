@@ -19,6 +19,7 @@ nav:
   - 'Home': index.md
   - about.md
   - deadlines.md
+  - contributions.md
   - Content:
     - "01 - Introduction":
       - modules/01-intro/intro.md
