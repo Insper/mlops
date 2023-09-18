@@ -59,3 +59,8 @@ nav:
         - modules/07-lambda/lambda_quotas.md
         - modules/07-lambda/lambda_and_docker.md
         - modules/07-lambda/aps03_lambda.md
+    - "08 - Queues":
+      - modules/08-queue/intro.md
+      - modules/08-queue/concurrent_execution.md
+      - modules/08-queue/sqs_practicing.md
+      - modules/08-queue/sqs_and_lambda.md

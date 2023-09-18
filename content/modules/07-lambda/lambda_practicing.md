@@ -139,7 +139,7 @@ print("Function ARN:", lambda_response["FunctionArn"])
 !!! exercise "Question"
     Rerun the code to display the existing functions in the account.
 
-    Check that your role was created correctly.
+    Check that your function was created correctly.
 
 ## Check if worked
 
