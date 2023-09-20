@@ -64,3 +64,5 @@ nav:
       - modules/08-queue/concurrent_execution.md
       - modules/08-queue/sqs_practicing.md
       - modules/08-queue/sqs_and_lambda.md
+    - "09 - Interview 02":
+      - modules/09-int02/int02.md

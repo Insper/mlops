@@ -40,7 +40,7 @@
 
 ## Interview subject
 
-We will focus mainly on the subjects studied in the previous classes:
+We will focus mainly on the subjects studied in the previous classes. For example, Interview 01 will focus on:
 
 - Introduction to MLOps
 - ML life cycle
