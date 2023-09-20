@@ -307,9 +307,9 @@ And test by sending any text to obtain its polarity:
 import requests
 
 # Change the endpoint
-url_endpoing = "https://xxxxxxxxxx.execute-api.us-east-2.amazonaws.com"
+url_endpoint = "https://xxxxxxxxxx.execute-api.us-east-2.amazonaws.com"
 
-url = f"{url_endpoing}/polarity"
+url = f"{url_endpoint}/polarity"
 
 # Change the phrase
 body = {"phrase": "This was the worst movie I watched this year, horrible!"}

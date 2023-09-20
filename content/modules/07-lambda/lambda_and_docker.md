@@ -261,9 +261,6 @@ print(f"Function ARN: {response['FunctionArn']}")
     
     Call the lambda function directly, without creating an API in API Gateway.
 
-!!! exercise "Question"
-    Use the codes from the previous class as a reference and test the function.
-
 Proceed to the APS!
 
 ## References
