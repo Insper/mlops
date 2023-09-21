@@ -65,7 +65,7 @@ Our goal is to transform the `predict` route from class 02 into a lambda functio
 !!! exercise "Question"
     Create an API Gateway and test it.
 
-    Leave an example in Python of how your API Gateway in the README of the delivery repository
+    Leave in the README an example of how to test your API Gateway (curl command or Python code).
 
 !!! exercise "Question"
     Commit and push: mission accomplished!

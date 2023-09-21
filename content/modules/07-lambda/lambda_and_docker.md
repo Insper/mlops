@@ -182,7 +182,12 @@ $ aws ecr get-login-password --region us-east-2 | docker login --username AWS --
 Then, we will run the `docker tag` command to tag our local Docker image into your Amazon ECR repository as the **latest** version by doing:
 
 !!! danger "Atention!"
-    Provide the `<REPOSITORY_URI>` from before
+    Provide the `<REPOSITORY_URI>` from before.
+
+    Example of `<REPOSITORY_URI>` (notice the `AWS_ACCOUNT_ID`, `AWS_REGION` and `REPOSITORY_NAME`):
+    
+    `AWS_ACCOUNT_ID.dkr.ecr.AWS_REGION.amazonaws.com/REPOSITORY_NAME`
+
 
 <div class="termy">
 
