@@ -66,3 +66,8 @@ nav:
       - modules/08-queue/sqs_and_lambda.md
     - "09 - Interview 02":
       - modules/09-int02/int02.md
+    - "10 - Documentation":
+      - modules/10-documentation/intro.md
+      - modules/10-documentation/code_documentation.md
+      - modules/10-documentation/fast_api_docs.md
+      - modules/10-documentation/ml_canvas.md
