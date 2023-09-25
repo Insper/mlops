@@ -70,7 +70,7 @@ Many **hate** and **postpone** documentation activities! Even the professor didn
         
         Furthermore, it is common for turnover to occur in data teams. Good documentation also ensures that the software is more about the **company** and less about the **scientists** (an ongoing project, where many people can act).
 
-## Audiance Factor
+## Audience Factor
 
 Consider your audience when making documentation decisions. Identify if they are **internal** or **external** to your organization and their level of knowledge about the product and domain.
 
