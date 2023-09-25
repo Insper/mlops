@@ -87,6 +87,7 @@ $ docker run -p 9500:8080 lambda-ex-image:test
 
 Let's make a request with:
 
+<p>
 <div class="termy">
 
 ```console
@@ -94,8 +95,19 @@ $ curl "http://localhost:9500/2015-03-31/functions/function/invocations" -d '{}'
 ```
 
 </div>
+</p>
 
-<br>
+If that doesn't work, try:
+<p>
+<div class="termy">
+
+```console
+$ curl "http://localhost:9500/2015-03-31/functions/function/invocations" -d "{}"
+```
+
+</div>
+</p>
+
 !!! tip "Tip!"
     If you prefer, make the request from Python with the `requests` library!
 
