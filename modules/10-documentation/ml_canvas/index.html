@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Intro - MLOps & Interviews</title>
+        <title>Ml canvas - MLOps & Interviews</title>
       
     
     <link rel="stylesheet"
@@ -129,34 +129,14 @@
     <ul>
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">01 - Introduction</span>
     <ul>
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Intro</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#what-is-mlops">What is MLOps?</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#the-machine-learning-life-cycle">The Machine Learning Life Cycle</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#references">References</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../01-intro/intro/">Intro</a>
     </li>
   
 
@@ -164,7 +144,7 @@
         
   
     <li>
-      <a href="../aps01/">Aps01</a>
+      <a href="../../01-intro/aps01/">Aps01</a>
     </li>
   
 
@@ -523,14 +503,14 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">10 - Documentation</span>
     <ul>
       
         
   
     <li>
-      <a href="../../10-documentation/intro/">Intro</a>
+      <a href="../intro/">Intro</a>
     </li>
   
 
@@ -538,7 +518,7 @@
         
   
     <li>
-      <a href="../../10-documentation/code_documentation/">Code documentation</a>
+      <a href="../code_documentation/">Code documentation</a>
     </li>
   
 
@@ -546,15 +526,35 @@
         
   
     <li>
-      <a href="../../10-documentation/fast_api_docs/">Fast api docs</a>
+      <a href="../fast_api_docs/">Fast api docs</a>
     </li>
   
 
       
         
   
-    <li>
-      <a href="../../10-documentation/ml_canvas/">Ml canvas</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Ml canvas</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#an-option">An option</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#tasks">Tasks!</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#references">References</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -581,7 +581,7 @@
                   
                 
                   
-                    <li>01 - Introduction</li>
+                    <li>10 - Documentation</li>
                   
                 
                 <li></li>
@@ -591,80 +591,152 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="introduction">Introduction</h1>
-<h2 id="what-is-mlops">What is MLOps?</h2>
-<p><strong>MLOps</strong> refers to <strong>Machine Learning Operations</strong>, which is a core component of Machine Learning engineering. MLOps focuses on optimizing the process of deploying machine learning models into a production environment as well as sustaining and tracking those models once live.</p>
-<p>The goal of MLOps is to automate and standardize machine learning workflows to improve efficiency, productivity, and model performance monitoring. To achieve that, it demands collaboration between data scientists, machine learning engineers, IT teams, etc.</p>
-<p>in essence:</p>
-<div class="admonition note">
-<p class="admonition-title">MLOps is all about...</p>
-<p>Taking Machine Learning Models to <strong>production</strong>!</p>
-</div>
-<p>Lets rewrite that in a non technical way!</p>
-<div class="admonition example">
-<p class="admonition-title">MLOps is all about...</p>
-<p>Provide ways for ML to generate <strong>value to the business</strong> on an ongoing basis!</p>
-</div>
-<h2 id="the-machine-learning-life-cycle">The Machine Learning Life Cycle</h2>
-<div class="admonition exercise choice tag-choice-exercise" data-answer-idx="1" data-slug="modules/01-intro/intro/choice_1" id="choice_1_0">
-<p class="admonition-title">Question 1</p>
+<h1 id="ml-canvas">ML Canvas</h1>
+<p>We saw in previous topics how to document code in ML projects.</p>
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="modules/10-documentation/ml_canvas/long_1" id="long_1_0">
+<p class="admonition-title">Question 1<button class="editable-button"></button></p>
 <form class="exercise-form">
-<p>ML projects only involve data processing and model training.</p>
+<p>If you were to use or maintain a ML product, what other aspects, besides the source code, would you want to know?</p>
 <div class="form-elements">
-<div class="alternative-set">
-  
-<label class="alternative">
-  <div class="content">
-    <input type="radio" name="data" value="0" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
-    True
-  </div>
-</label>
+<div class="grow-wrap"><textarea name="data"></textarea></div>
 
-<label class="alternative">
-  <div class="content">
-    <input type="radio" name="data" value="1" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
-    False
-  </div>
-</label>
-
-</div>
-<input class="ah-button ah-button--primary" type="submit" name="sendButton" value="Enviar" disabled />
+<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
 </div>
 </form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Resposta</p>
-<p>It is normal to think that ML projects only involve data processing and model training. But there are others relevant concerns to take in consideration!</p>
 </div>
+<p>An ML product is much more than the source code that generates the models and APIs. Taking into account the life cycle of the models, it is important to know the value proposition generated by the model, who the end user is, how they will use it the model, what the data sources will be, etc.</p>
+<p>Documenting these questions will not only support the long-term survival of the model, but also ensure that these questions have been asked and check whether there is alignment between the business and data science areas.</p>
+<h2 id="an-option">An option</h2>
+<p>Instead of generating long and purposeless documentation, it is more appropriate to be concise and focus on the information that really matters to users and maintainers of the model.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip! 1</p>
+<p>When documenting, it is important to think about how to generate the most value with the least effort.</p>
 </div>
-<p>Lets take a look at the ML Life Cycle!</p>
-<p><img alt="" src="../ml_lifecycle.png" /></p>
-<p>The machine learning life cycle begins with <strong>planning</strong>. At this initial stage, objectives are defined to identify the specific problem or task that machine learning could help solve. This involves understanding the business or project goals and what type of insights or predictions are needed from deployed models. Careful planning at the start helps set clear expectations, avoiding wasting efforts on projects with inadequate data or unrealistic goals.</p>
-<p>Is also import to do <strong>data collection and preprocessing</strong>. This involves gathering large amounts of data from various sources such as databases, websites, APIs, and sensor readings. The data needs to be properly formatted, cleaned of any anomalies or inconsistencies, and have missing values imputed. Features also need to be extracted or engineered from the raw data. This processed data is then used to build machine learning models.</p>
-<p>Once the data is prepared, the next step is to divide it into training and test sets. The training set is used to <strong>develop machine learning models</strong> by exposing various algorithms to patterns in the labeled data. Popular algorithms such as decision trees, random forests, support vector machines, neural networks, etc. are applied to automatically learn from the training examples. Their parameters are tuned through iterative training to minimize error and optimize performance. The test set is used to evaluate how well the trained models generalize to new unseen data. The top performing models are selected for deployment.</p>
-<p>After a model has been selected, it needs to be <strong>deployed</strong> as a machine learning application or service. It can be integrated into existing software systems and utilized to make predictions on live data streams in a <strong>production environment</strong>. Once in operation, its performance also needs to be continuously <strong>monitored</strong> for accuracy and drifts over time. The data collection and model development cycles may need to be revisited to keep improving the capabilities of the learning systems. This marks the completion of one iteration of the machine learning life cycle.</p>
-<p>Take a look at a more realistic picture of ML life cycle inside an average organization today:</p>
-<p><img alt="" src="../realistic_lifecycle.png" /></p>
-<p>It involves many different people with completely different skill sets and who are often using entirely different tools.</p>
-<div class="admonition danger">
-<p>In this course, we will focus less on model development, assuming that this is already covered in other Insper courses, and <strong>more</strong> on <strong>model deploying and monitoring</strong>.</p>
+<p>One option for documenting ML projects is using a <em>canvas</em>. In this case, the one provided by ownml.co.</p>
+<p><img alt="" src="../ml_canvas_ex.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">ML Canvas!</p>
+<p>This ML Canvas consists of a single page of concise product information!</p>
+</div>
+<p>ML Canvas documentation suggestions include:</p>
+<ul>
+<li>
+<p><strong>Prediction task</strong>: Type of task? Entity on which predictions are made? Possible outcomes? Wait time before observation?</p>
+</li>
+<li>
+<p><strong>Decisions</strong>: How are predictions turned into proposed value for the end-user? Mention parameters of the process / application that does that.</p>
+</li>
+<li>
+<p><strong>Value proposition</strong>: Who is the end-user? What are their objectives? How will they benefit from the ML system? Mention workflow/interfaces.</p>
+</li>
+<li>
+<p><strong>Data colection</strong>: Strategy for initial train set &amp; continuous update. Mention collection rate, holdout on production entities, cost/constraints to observe outcomes.</p>
+</li>
+<li>
+<p><strong>Data sources</strong>: Where can we get (raw) information on entities and observed outcomes? Mention database tables, API methods, websites to scrape, etc.</p>
+</li>
+<li>
+<p><strong>Impact simulations</strong>: Can models be deployed? Which test data to assess performance? Cost/gain values for (in)correct decisions? Fairness constraint?</p>
+</li>
+<li>
+<p><strong>Making predictions</strong>: When do we make real-time / batch pred.? Time available for this + featurization + post-processing? Compute target?</p>
+</li>
+<li>
+<p><strong>Building models</strong>: How many prod models are needed? When would we update? Time available for this (including featurization and analysis)?</p>
+</li>
+<li>
+<p><strong>Features</strong>: Input representations available at prediction time, extracted from raw data sources.</p>
+</li>
+<li>
+<p><strong>Monitoring</strong>: Metrics to quantify value creation and measure the ML system’s impact in production (on end-users and business)?</p>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip! 2</p>
+<p>Not everything in this documentation will make sense in every project.</p>
+<p>You can remove topics or add others that you consider relevant!</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Important!</p>
+<p>Some topics, such as <strong>monitoring</strong>, will still be studied in the course. You can ignore it for now!</p>
+</div>
+<h2 id="tasks">Tasks!</h2>
+<div class="admonition exercise self-progress" data-slug="modules/10-documentation/ml_canvas/exercise_1" id="exercise_1_0">
+<p class="admonition-title">Question 2</p>
+<form class="exercise-form">
+<p>Create a copy of your <a href="../../03-batch/aps02_sql/"><strong>APS 02</strong></a> project directory and call it <code>10-docs-batch</code>.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/10-documentation/ml_canvas/exercise_2" id="exercise_2_0">
+<p class="admonition-title">Question 3</p>
+<form class="exercise-form">
+<p>Review the source codes avaiable at <code>10-docs-batch</code>.</p>
+<p>Refactor variables an methods identifiers where advisable.</p>
+<p>Comment code where advisable.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/10-documentation/ml_canvas/exercise_3" id="exercise_3_0">
+<p class="admonition-title">Question 4</p>
+<form class="exercise-form">
+<p>Document the source codes avaiable at <code>10-docs-batch</code> using <code>sphinx</code>.</p>
+<p>Remember to write <em>docstrings</em> for methods and classes.</p>
+<p>Generate documentation in <em>HTML</em> format! Check the result.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/10-documentation/ml_canvas/exercise_4" id="exercise_4_0">
+<p class="admonition-title">Question 5</p>
+<form class="exercise-form">
+<p>Build an ML Canvas for this project. You can propose new topics in Canvas and ignore what we haven't covered yet.</p>
+<p>Check the <code>ml_canvas.pdf</code>, <code>ml_canvas.odt</code> and <code>ml_canvas.docx</code> files available in this course’s repository.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise long tag-text-exercise tag-long-text editable" data-slug="modules/10-documentation/ml_canvas/long_2" id="long_2_0">
+<p class="admonition-title">Question 6<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>List some reasons to make/not make a <code>README.md</code> in the repository containing all the ML Canvas information.</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+</div>
+</form>
+</div>
+<div class="admonition exercise long tag-text-exercise tag-long-text editable" data-slug="modules/10-documentation/ml_canvas/long_3" id="long_3_0">
+<p class="admonition-title">Question 7<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>Research and propose a suitable <code>README.md</code> for this project. Justify your decisions.</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+</div>
+</form>
 </div>
 <h2 id="references">References</h2>
 <ul>
-<li>Image The Machine Learning Life Cycle: <a href="https://images.datacamp.com/image/upload/v1664812812/Machine_Learning_Lifecycle_2ffa5897a7.png">https://images.datacamp.com/image/upload/v1664812812/Machine_Learning_Lifecycle_2ffa5897a7.png</a></li>
-<li>Introducing MLOps. Chapter 1.</li>
-<li>Practical MLOps. Chapter 1.</li>
-<li>POE and ChatGPT.</li>
+<li>Living Documentation. Martraire, C.</li>
+<li>Pipes figure 1.9 from Living Documentation. Martraire, C.</li>
+<li>The product is Docs. Gales, C.</li>
+<li>Documentation of Machine Learning Software. Hashemi et. al.</li>
+<li><a href="https://www.sphinx-doc.org/">https://www.sphinx-doc.org/</a></li>
+<li><a href="https://swimm.io/learn/code-collaboration/comments-in-code-best-practices-and-mistakes-to-avoid">https://swimm.io/learn/code-collaboration/comments-in-code-best-practices-and-mistakes-to-avoid</a></li>
 </ul>
-<!-- Why do companies invest in Data Science?
-How to extract maximum value from ML models?
-
-What could possible go wrong?
-What problems should a Machine Learning Engenner step up to solve?
-What you wish is different from what you get!
-
-A lot of attention on ML models!
-
-ML System = Code + Data = Hyperparameters -->
 
 
 </section>
@@ -674,20 +746,13 @@ ML System = Code + Data = Hyperparameters -->
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../../../contributions/"
+            <a href="../fast_api_docs/"
                class="ah-prev"
-               title="Contributions">
+               title="Fast api docs">
               <span class="nav-label">Anterior</span>
-              <span class="nav-title">Contributions</span>
+              <span class="nav-title">Fast api docs</span>
             </a>
           
-          
-            <a href="../aps01/"
-               class="ah-next"
-               title="Aps01">
-              <span class="nav-label">Próximo</span>
-              <span class="nav-title">Aps01</span>
-            </a>
           
         </div>
       </footer>
