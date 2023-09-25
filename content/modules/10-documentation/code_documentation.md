@@ -215,6 +215,11 @@ With **autodoc**, you don't need to copy and paste documentation into your Sphin
     In the `docs/conf.py` file, replace the `extensions = []` line with:
 
     ```python
+    import sys
+    import os
+
+    sys.path.insert(0, os.path.abspath("../src"))
+
     extensions = ["sphinx.ext.autodoc"]
     ```
 

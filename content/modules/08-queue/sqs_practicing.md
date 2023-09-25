@@ -191,7 +191,7 @@ for message in response.get("Messages", []):
 ```
 
 !!! exercise "Question"
-    Run the Python code to reade messages from queue.
+    Run the Python code to read messages from queue.
     
     Check whether the number of messages in the queue changes.
 
