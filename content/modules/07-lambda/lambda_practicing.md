@@ -66,7 +66,7 @@ lambda_client = boto3.client(
 
 
 # Call the list_functions API to retrieve all Lambda functions
-response = lambda_client.list_functions()
+response = lambda_client.list_functions(MaxItems=1000)
 
 # Extract the list of Lambda functions from the response
 functions = response["Functions"]

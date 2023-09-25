@@ -36,7 +36,7 @@ Notice that the *handler* sends a fixed message `"I can send messages to SQS!"`.
     Save this code to `lambda_send_sqs.py` and compress it to `lambda_send_sqs.zip`
 
 !!! exercise "Question"
-    Before creating the lambda function, create a queue `lambda_destination_queue_<INSPER_USERNAME`
+    Before creating the lambda function, create a queue `lambda_destination_queue_INSPER_USERNAME`
 
 To create the lambda function, use:
 
@@ -44,7 +44,7 @@ To create the lambda function, use:
     Change the:
     
     - `function_name` variable.
-    - `DESTINATION_SQS_URL` to the SQS URL returned before.
+    - `DESTINATION_SQS_URL` to the SQS URL of the destination queue (`"lambda_destination_queue_INSPER_USERNAME"`).
 
 
 
@@ -133,7 +133,7 @@ def lambda_handler(event, context):
         You can use a Docker image instead of ZIP files!
 
 !!! exercise "Question"
-    Before creating the lambda function, create a queue `lambda_origin_queue_<INSPER_USERNAME`
+    Before creating the lambda function, create a queue `lambda_origin_queue_INSPER_USERNAME`
 
 To create the lambda function, use:
 
@@ -141,8 +141,8 @@ To create the lambda function, use:
     Change the:
     
     - `function_name` variable.
-    - `queue_name` to "lambda_origin_queue_<INSPER_USERNAME>"
-    - `DESTINATION_SQS_URL` to the SQS URL returned before.
+    - `queue_name` to `"lambda_origin_queue_INSPER_USERNAME"`
+    - `DESTINATION_SQS_URL` to the SQS URL of the destination queue (`"lambda_destination_queue_INSPER_USERNAME"`).
 
 ```python
 import os
@@ -154,8 +154,10 @@ load_dotenv()
 # Lambda function name: read_write_sqs_<INSPER_USERNAME>
 function_name = ""
 
+# Origin queue: lambda_origin_queue_INSPER_USERNAME
 queue_name = ""
 
+# Destination queue URL
 environment_variables = {
     "DESTINATION_SQS_URL": "",
 }
