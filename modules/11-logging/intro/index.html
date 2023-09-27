@@ -312,38 +312,14 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">06 - Message Broker</span>
     <ul>
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Intro</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#introduction">Introduction</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#message-broker_1">Message Broker</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#advantages">Advantages</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#alternatives">Alternatives</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../06-message-broker/intro/">Intro</a>
     </li>
   
 
@@ -351,7 +327,7 @@
         
   
     <li>
-      <a href="../rabbitmq/">Rabbitmq</a>
+      <a href="../../06-message-broker/rabbitmq/">Rabbitmq</a>
     </li>
   
 
@@ -568,14 +544,34 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">11 - Logging</span>
     <ul>
       
         
   
-    <li>
-      <a href="../../11-logging/intro/">Intro</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Intro</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#warming-up">Warming up</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#logging-importance">Logging Importance</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#references">References</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -583,7 +579,7 @@
         
   
     <li>
-      <a href="../../11-logging/python_logging/">Python logging</a>
+      <a href="../python_logging/">Python logging</a>
     </li>
   
 
@@ -591,7 +587,7 @@
         
   
     <li>
-      <a href="../../11-logging/read_aws_logs/">Read aws logs</a>
+      <a href="../read_aws_logs/">Read aws logs</a>
     </li>
   
 
@@ -599,7 +595,7 @@
         
   
     <li>
-      <a href="../../11-logging/write_logs_to_s3/">Write logs to s3</a>
+      <a href="../write_logs_to_s3/">Write logs to s3</a>
     </li>
   
 
@@ -626,7 +622,7 @@
                   
                 
                   
-                    <li>06 - Message Broker</li>
+                    <li>11 - Logging</li>
                   
                 
                 <li></li>
@@ -636,76 +632,106 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="message-broker">Message Broker</h1>
-<h2 id="introduction">Introduction</h2>
-<p>An ML application will usually be made up of several interconnected parts. We have already seen in previous classes how to create an API, so applications that need prediction by an ML model can access a specific route.</p>
-<p>We have also seen that a model can read data and write prediction results to a DBMS (database management system).</p>
-<h2 id="message-broker_1">Message Broker</h2>
-<p>Today we will see how to work with <strong>message brokers</strong>. A message broker is a middleware software component that allows applications to exchange messages asynchronously. It acts as an intermediary to route messages between publishers and subscribers.</p>
-<p>Think, for example, of an ML model that analyzes a store's delivery data for complaint prevention.</p>
-<p><img alt="" src="../example_delivery.png" /></p>
-<p>Suppose that, for some deliveries, he recommends sending a message explaining the situation (reason for the delay). This sending (Telegram, Email, WhatsApp) will not be done by the ML model and will require calling an extra application.</p>
-<p>An alternative is to add the model's predict result to a queue, so that the sending application (Telegram, Email, WhatsApp) handles the messages according to their availability. The application responsible for managing this queue is the <strong>message broker</strong>.</p>
-<div class="admonition exercise short tag-short-text tag-text-exercise editable" data-slug="modules/06-message-broker/intro/short_1" id="short_1_0">
+<h1 id="logging">Logging</h1>
+<h2 id="warming-up">Warming up</h2>
+<p>Analyze the following code:</p>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/11-logging/intro/long_1" id="long_1_0">
 <p class="admonition-title">Question 1<button class="editable-button"></button></p>
 <form class="exercise-form">
-<p>Could the message broker be used to create a queue of JSON from customers for a model to process? For example:
-<div class="language-JSON highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">&quot;job&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;entrepreneur&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">&quot;marital&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;married&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">&quot;education&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;primary&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">&quot;balance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">558</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">&quot;housing&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">186</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">&quot;campaign&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
-</code></pre></div></p>
+<p>Run the code and enter the values <code>3</code> and <code>2</code>. What happens?</p>
 <div class="form-elements">
-<input type="text" value="" name="data"/>
+<div class="grow-wrap"><textarea name="data"></textarea></div>
 
 <input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
 </div>
 </form>
 <div class="admonition answer no-indent">
+<p class="admonition-title">Answer!</p>
+<p><code>3.0</code> is printed in <code>stdout</code> (terminal).</p>
+</div>
+</div>
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/11-logging/intro/long_2" id="long_2_0">
+<p class="admonition-title">Question 2<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>Run the code and enter the values <code>6</code> and <code>0</code>. What happens?</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Answer!</p>
+<p>An exception occurs, which is displayed in the terminal.</p>
+</div>
+</div>
+<div class="admonition exercise choice tag-choice-exercise" data-answer-idx="1" data-slug="modules/11-logging/intro/choice_1" id="choice_1_0">
+<p class="admonition-title">Question 3</p>
+<form class="exercise-form">
+<p>So the exception is also printed to stdout?</p>
+<div class="form-elements">
+<div class="alternative-set">
+  
+<label class="alternative">
+  <div class="content">
+    <input type="radio" name="data" value="0" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
+    True
+  </div>
+</label>
+
+<label class="alternative">
+  <div class="content">
+    <input type="radio" name="data" value="1" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
+    False
+  </div>
+</label>
+
+</div>
+<input class="ah-button ah-button--primary" type="submit" name="sendButton" value="Enviar" disabled />
+</div>
+</form>
+<div class="admonition answer no-indent">
 <p class="admonition-title">Resposta</p>
-<p>Yes! In general, the message broker does not care about the actual message content or format.Messages can contain serialized objects, JSON strings, binary files - essentially any type of content that can be serialized into a byte stream.</p>
+<p>It is printed to <code>stderr</code>. In this case, <code>stdout</code> and <code>stderr</code> are both pointing to the terminal, but it could be different.</p>
+<p>Run the code and check:
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Open a file in write mode to redirect stderr</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;error_output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">file</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Now check the content of <code>error_output.txt</code> file.</p>
 </div>
 </div>
-<h2 id="advantages">Advantages</h2>
-<p>The main advantages of using message brokers are:</p>
+<h2 id="logging-importance">Logging Importance</h2>
+<p>Logging refers to the practice of <strong>recording events</strong> or <strong>messages</strong> from a software application, system, or device into a file or a centralized logging system.</p>
+<p>Logging and monitoring are fundamental pillars of <strong>DevOps</strong> principles, playing a vital role in ensuring robust ML practices. It allows developers and data scientists to <strong>track</strong> the execution flow of an ML system, identify errors, and diagnose issues.</p>
+<p>By logging relevant information, such as intermediate results, input data, and model predictions, it becomes easier to understand the <strong>behavior of the ML system</strong> and pinpoint the source of any problems.</p>
+<p>In today's complex production infrastructures, which often involve multiple models deployed across multiple servers, effectively monitoring a live system, with or without machine learning components, entails <strong>collecting</strong> and <strong>aggregating</strong> data about its states. This highlights the increasing importance of having a robust logging system in place.</p>
+<div class="admonition info">
+<p class="admonition-title">Important!</p>
+<p>Every <strong>successful machine learning project</strong> incorporates a <strong>data feedback</strong> loop, where <strong>valuable information</strong> from the <strong>production</strong> environment is fed back to the model prototyping environment to <strong>enhance its performance</strong>.</p>
+</div>
+<p>Advance to the next topic. Let's explore some logging options!</p>
+<h2 id="references">References</h2>
 <ul>
-<li>
-<p>Asynchronous communication: messages can be sent and received asynchronously. This allows work to be queued when systems are <strong>overloaded</strong> and prevents failures from stopping the flow of work.</p>
-</li>
-<li>
-<p>Decoupling of services/applications: a message broker allows different parts of a distributed system to communicate <strong>without the need of direct knowledge</strong> of each other.</p>
-</li>
-<li>
-<p>Scalability: more <strong>consumers/producers can be added easily</strong> without modifying code as load increases.</p>
-</li>
-<li>
-<p>Reliability: message brokers guarantee at-least-once delivery of messages, so <strong>messages aren't lost if a receiver fails</strong>.</p>
-</li>
-<li>
-<p>Durability: messages can <strong>survive recipient or broker failures</strong> through persistent storage and retries.</p>
-</li>
-<li>
-<p>Location transparency: services remain <strong>agnostic to location or availability</strong> of other services using the broker.</p>
-</li>
-<li>
-<p>Manageability: brokers provide <strong>centralized tools for administration</strong>, monitoring and management of messaging infrastructure.</p>
-</li>
+<li>Practical MLOps. Chapter 6.</li>
+<li>Introducing MLOps. Chapter 7.</li>
+<li><a href="https://docs.python.org/3/howto/logging-cookbook.html">https://docs.python.org/3/howto/logging-cookbook.html</a></li>
+<li><a href="https://docs.python.org/3.10/library/logging.html">https://docs.python.org/3.10/library/logging.html</a></li>
 </ul>
-<h2 id="alternatives">Alternatives</h2>
-<p>There are several message broker that we could use, such as:</p>
-<ul>
-<li>RabbitMQ</li>
-<li>Apache Kafka</li>
-<li>Azure Service Bus</li>
-<li>AWS SQS/SNS</li>
-</ul>
-<p>In this class, we will work with RabbitMQ.</p>
 
 
 </section>
@@ -715,19 +741,19 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../../05-docker/docker/"
+            <a href="../../10-documentation/ml_canvas/"
                class="ah-prev"
-               title="Docker">
+               title="Ml canvas">
               <span class="nav-label">Anterior</span>
-              <span class="nav-title">Docker</span>
+              <span class="nav-title">Ml canvas</span>
             </a>
           
           
-            <a href="../rabbitmq/"
+            <a href="../python_logging/"
                class="ah-next"
-               title="Rabbitmq">
+               title="Python logging">
               <span class="nav-label">Próximo</span>
-              <span class="nav-title">Rabbitmq</span>
+              <span class="nav-title">Python logging</span>
             </a>
           
         </div>
