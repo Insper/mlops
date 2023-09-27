@@ -1,7 +1,7 @@
 # Python Logging
 
 !!! exercise text long "Question"
-    Do you thing that `print` function could be used for logging?
+    Do you think that `print` function could be used for logging?
 
     !!! answer "Answer!"
         `print` is not suitable for comprehensive logging in production or professional software development! We want something more powerful!
