@@ -5,8 +5,8 @@
 Analyze the following code:
 
 ```python
-a = input()
-b = input()
+a = int(input())
+b = int(input())
 
 print(a / b)
 ```
@@ -15,7 +15,7 @@ print(a / b)
     Run the code and enter the values `3` and `2`. What happens?
 
     !!! answer "Answer!"
-        `3.0` is printed in `stdout` (terminal).
+        `1.5` is printed in `stdout` (terminal).
 
 !!! exercise text long "Question"
     Run the code and enter the values `6` and `0`. What happens?
