@@ -71,3 +71,8 @@ nav:
       - modules/10-documentation/code_documentation.md
       - modules/10-documentation/fast_api_docs.md
       - modules/10-documentation/ml_canvas.md
+    - "11 - Logging":
+      - modules/11-logging/intro.md
+      - modules/11-logging/python_logging.md
+      - modules/11-logging/read_aws_logs.md
+      - modules/11-logging/write_logs_to_s3.md
