@@ -124,10 +124,10 @@ Let's create a new **job** in the github action workflow.
         needs: build-and-test
         runs-on: ubuntu-latest
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_LAMBDA_ROLE_ARN: ${{ secrets.AWS_LAMBDA_ROLE_ARN }}
+          AWS_ACCESS_KEY_ID: {% raw %}${{ secrets.AWS_ACCESS_KEY_ID }}{% endraw %}
+          AWS_SECRET_ACCESS_KEY: {% raw %}${{ secrets.AWS_SECRET_ACCESS_KEY }}{% endraw %}
+          AWS_REGION: {% raw %}${{ secrets.AWS_REGION }}{% endraw %}
+          AWS_LAMBDA_ROLE_ARN: {% raw %}${{ secrets.AWS_LAMBDA_ROLE_ARN }}{% endraw %}
         steps:
 
           - name: Checkout code
