@@ -624,6 +624,39 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">12 - CI/CD</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../12-ci-cd/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../12-ci-cd/testing/">Testing</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../12-ci-cd/auto_deploy/">Auto deploy</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -822,17 +855,19 @@
 <p>The AWS CLI can be used to interact with AWS via the command line, similar to what we are doing with <code>boto3</code> in Python.</p>
 <p>For now, we will use the AWS CLI to enable authentication to <code>docker</code>.</p>
 <p>After installing, run and provide the authentication keys for our account.</p>
+<p>
 <div class="termy">
 
 <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">$ </span>aws<span class="w"> </span>configure
 </code></pre></div>
 
 </div>
-<p><br></p>
+</p>
+
 <p>Let's authenticate and login to ECR using the Docker CLI:</p>
 <div class="admonition danger">
 <p class="admonition-title">Atention!</p>
-<p>Change the <code>&lt;AWS_ACCOUNT_ID&gt;</code>, for example <code>123456789012</code></p>
+<p>Change the <code>&lt;AWS_ACCOUNT_ID&gt;</code> for the <code>&lt;AWS_ACCOUNT_ID&gt;</code> used during classes, for example <code>123456789012</code></p>
 </div>
 <div class="termy">
 
@@ -860,14 +895,18 @@ Then, we will run the <code>docker tag</code> command to tag our local Docker im
 And push image to ECR with:</p>
 <div class="admonition danger">
 <p class="admonition-title">Atention!</p>
-<p>Provide the <code>&lt;AWS_ACCOUNT_ID&gt;</code> and repository name (<code>test1-mlops-INSPER_USERNAME</code>) from before</p>
+<p>Provide the <code>&lt;REPOSITORY_URI&gt;</code> from before.</p>
+<p>Example of <code>&lt;REPOSITORY_URI&gt;</code> (notice the <code>AWS_ACCOUNT_ID</code>, <code>AWS_REGION</code> and <code>REPOSITORY_NAME</code>):</p>
+<p><code>AWS_ACCOUNT_ID.dkr.ecr.AWS_REGION.amazonaws.com/REPOSITORY_NAME</code></p>
 </div>
+<p>
 <div class="termy">
 
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">$ </span>docker<span class="w"> </span>push<span class="w"> </span>AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-INSPER_USERNAME:latest
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">$ </span>docker<span class="w"> </span>push<span class="w"> </span>REPOSITORY_URI:latest
 </code></pre></div>
 
 </div>
+</p>
 
 <h2 id="create-function_1">Create Function</h2>
 <p>Now we can create the lambda function from the image already stored in the ECR.</p>
@@ -876,6 +915,10 @@ And push image to ECR with:</p>
 <p class="admonition-title">Atention!</p>
 <p>Change the <code>function_name</code> and <code>image_uri</code>.</p>
 <p>The <code>image_uri</code> will follow the pattern <code>&lt;repositoryUri&gt;:&lt;imageTag&gt;</code>, for example: <code>123456789012.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-joaoxr:latest</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip! 2</p>
+<p>You can copy the <code>image_uri</code> from the last <code>docker push</code> command!</p>
+</div>
 </div>
 <div class="language-python highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span> <span class="nn">boto3</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">import</span> <span class="nn">os</span>
@@ -883,8 +926,8 @@ And push image to ECR with:</p>
 <a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">load_dotenv</span><span class="p">()</span>
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Provide function name: </span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="n">function_name</span> <span class="o">=</span> <span class="s2">&quot;ex_docker_&lt;INSPER_USERNAME&gt;&quot;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Provide function name: &quot;ex_docker_&lt;INSPER_USERNAME&gt;&quot;</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="n">function_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
 <a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># Provide Image URI from before</span>
 <a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="n">image_uri</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
