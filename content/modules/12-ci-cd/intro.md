@@ -2,7 +2,7 @@
 
 ## Introduction
 
-**CI/CD** is a short for **Continuous Integration** and **Continuous Delivery** (or **Deployment**) and represents a modern approach to agile software development. It encompasses a set of practices and tools aimed at releasing applications **more frequently** and **efficiently****, while maintaining high quality and **minimizing risks****.
+**CI/CD** is a short for **Continuous Integration** and **Continuous Delivery** (or **Deployment**) and represents a modern approach to agile software development. It encompasses a set of practices and tools aimed at releasing applications **more frequently** and **efficiently**, while maintaining high quality and **minimizing risks**.
 
 ![](ci-cd-flow-desktop.png)
 
@@ -11,7 +11,7 @@
 
 ## Continuous Integration
 
-In modern software development, it is commom to have multiple developers or data scientists working simultaneously on different features within the same ML application.
+In modern software development, it is common to have multiple developers or data scientists working simultaneously on different features within the same ML application.
 
 !!! exercise text long "Question"
     How do you think it would be if an organization has to consolidate all the branch's source code, with project modifications made by data scientists, in a single day?
