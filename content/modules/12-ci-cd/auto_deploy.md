@@ -98,54 +98,54 @@ Let's create a new **job** in the github action workflow.
     ```yaml
     name: An example of action with two jobs - one for testing, one for aws lambda deploy
     on:
-    push:
+      push:
         branches:
-        - main
+          - main
     jobs:
-    build-and-test:
+      build-and-test:
         runs-on: ubuntu-latest
         steps:
 
-        - name: Checkout code
+          - name: Checkout code
             uses: actions/checkout@v3
 
-        - name: Set up Python
+          - name: Set up Python
             uses: actions/setup-python@v3
             with:
-            python-version: '3.10'
+              python-version: '3.10'
 
-        - name: Install dependencies
+          - name: Install dependencies
             run: pip install -r requirements.txt
 
-        - name: Run tests
+          - name: Run tests
             run: pytest
 
-    deploy-to-aws:
+      deploy-to-aws:
         needs: build-and-test
         runs-on: ubuntu-latest
         env:
-        AWS_ACCESS_KEY_ID:  {% raw %}${{ secrets.AWS_ACCESS_KEY_ID }}{% endraw %}
-        AWS_SECRET_ACCESS_KEY:  {% raw %}${{ secrets.AWS_SECRET_ACCESS_KEY }}{% endraw %}
-        AWS_REGION:  {% raw %}${{ secrets.AWS_REGION }}{% endraw %}
-        AWS_LAMBDA_ROLE_ARN:  {% raw %}${{ secrets.AWS_LAMBDA_ROLE_ARN }}{% endraw %}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_LAMBDA_ROLE_ARN: ${{ secrets.AWS_LAMBDA_ROLE_ARN }}
         steps:
 
-        - name: Checkout code
+          - name: Checkout code
             uses: actions/checkout@v3
 
-        - name: Zip Python file
+          - name: Zip Python file
             run: |
-            zip -j word_count.zip src/word_count.py
+              zip -j word_count.zip src/word_count.py
 
-        - name: Set up Python
+          - name: Set up Python
             uses: actions/setup-python@v3
             with:
-            python-version: '3.10'
+              python-version: '3.10'
 
-        - name: Install dependencies
+          - name: Install dependencies
             run: pip install -r deploy/requirements_deploy.txt
 
-        - name: Run deploy file
+          - name: Run deploy file
             run: python deploy/create_function.py
 
     ```

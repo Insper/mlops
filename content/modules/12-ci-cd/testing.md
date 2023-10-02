@@ -154,26 +154,26 @@ The actions to be performed are stored in the `.github/workflows` folder in the 
     ```yaml
     name: An example of an automatic testing action
     on:
-    push:
+      push:
         branches:
-        - main
+          - main
     jobs:
-    build-and-test:
+      build-and-test:
         runs-on: ubuntu-latest
         steps:
 
-        - name: Checkout code
+          - name: Checkout code
             uses: actions/checkout@v3
 
-        - name: Set up Python
+          - name: Set up Python
             uses: actions/setup-python@v3
             with:
-            python-version: '3.10'
+              python-version: '3.10'
 
-        - name: Install dependencies
+          - name: Install dependencies
             run: pip install -r requirements.txt
 
-        - name: Run tests
+          - name: Run tests
             run: pytest
     ```
 
