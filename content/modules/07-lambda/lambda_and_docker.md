@@ -168,6 +168,7 @@ For now, we will use the AWS CLI to enable authentication to `docker`.
 
 After installing, run and provide the authentication keys for our account.
 
+<p>
 <div class="termy">
 
 ```console
@@ -175,12 +176,12 @@ $ aws configure
 ```
 
 </div>
-<br>
+</p>
 
 Let's authenticate and login to ECR using the Docker CLI:
 
 !!! danger "Atention!"
-    Change the `<AWS_ACCOUNT_ID>`, for example `123456789012`
+    Change the `<AWS_ACCOUNT_ID>` for the `<AWS_ACCOUNT_ID>` used during classes, for example `123456789012`
 
 <div class="termy">
 
@@ -213,17 +214,22 @@ $ docker tag lambda-ex-image:test REPOSITORY_URI:latest
 And push image to ECR with:
 
 !!! danger "Atention!"
-    Provide the `<AWS_ACCOUNT_ID>` and repository name (`test1-mlops-INSPER_USERNAME`) from before
+    Provide the `<REPOSITORY_URI>` from before.
+
+    Example of `<REPOSITORY_URI>` (notice the `AWS_ACCOUNT_ID`, `AWS_REGION` and `REPOSITORY_NAME`):
+    
+    `AWS_ACCOUNT_ID.dkr.ecr.AWS_REGION.amazonaws.com/REPOSITORY_NAME`
 
 
+<p>
 <div class="termy">
 
 ```console
-$ docker push AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-INSPER_USERNAME:latest
+$ docker push REPOSITORY_URI:latest
 ```
 
 </div>
-
+</p>
 
 ## Create Function
 
@@ -236,6 +242,9 @@ To do this, run:
 
     The `image_uri` will follow the pattern `<repositoryUri>:<imageTag>`, for example: `123456789012.dkr.ecr.us-east-2.amazonaws.com/test1-mlops-joaoxr:latest`
 
+    !!! tip "Tip!"
+        You can copy the `image_uri` from the last `docker push` command!
+
 ```python
 import boto3
 import os
@@ -243,8 +252,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Provide function name: 
-function_name = "ex_docker_<INSPER_USERNAME>"
+# Provide function name: "ex_docker_<INSPER_USERNAME>"
+function_name = ""
 
 # Provide Image URI from before
 image_uri = ""

@@ -2,6 +2,8 @@ INHERIT: active-handout.yml
 
 site_name: MLOps & Interviews
 
+
+
 extra:
   custom_variables:
     repo_aps: https://github.com/insper/mlops
@@ -76,3 +78,7 @@ nav:
       - modules/11-logging/python_logging.md
       - modules/11-logging/read_aws_logs.md
       - modules/11-logging/write_logs_to_s3.md
+    - "12 - CI/CD":
+      - modules/12-ci-cd/intro.md
+      - modules/12-ci-cd/testing.md
+      - modules/12-ci-cd/auto_deploy.md
