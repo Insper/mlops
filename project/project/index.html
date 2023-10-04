@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Dot env - MLOps & Interviews</title>
+        <title>Project - MLOps & Interviews</title>
       
     
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
-    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
     <script>
       // SETUP GLOBAL CONSTANTS
-      var base_url = '../../..';
+      var base_url = '../..';
       
       var telemetryEnabled = false;
       var backendUrl = "";
@@ -46,9 +46,9 @@
     <script src="https://unpkg.com/htmx.org@1.8.4"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-    <script src="../../../assets/js/main.js"></script>
+    <script src="../../assets/js/main.js"></script>
     
-    <link rel="stylesheet" href="../../../css/termynal.css">
+    <link rel="stylesheet" href="../../css/termynal.css">
   </head>
   <body>
     <div class="ah-main-container">
@@ -60,7 +60,7 @@
   <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
 </svg>
         </button>
-        <a href="../../.."
+        <a href="../.."
            title="MLOps &amp; Interviews"
            class="ah-logo"
            aria-label="MLOps & Interviews">
@@ -94,7 +94,7 @@
               
   
     <li>
-      <a href="../../..">Home</a>
+      <a href="../..">Home</a>
     </li>
   
 
@@ -102,7 +102,7 @@
               
   
     <li>
-      <a href="../../../about/">About</a>
+      <a href="../../about/">About</a>
     </li>
   
 
@@ -110,7 +110,7 @@
               
   
     <li>
-      <a href="../../../deadlines/">Deadlines</a>
+      <a href="../../deadlines/">Deadlines</a>
     </li>
   
 
@@ -118,21 +118,49 @@
               
   
     <li>
-      <a href="../../../contributions/">Contributions</a>
+      <a href="../../contributions/">Contributions</a>
     </li>
   
 
             
               
   
-    <li>
-      <a href="../../../project/project/">Project</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Project</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#main-goal">Main Goal</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#major-tasks">Major Tasks</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#groups">Groups</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#rubrics">Rubrics</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#deadlines">Deadlines</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
             
               
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Content</span>
     <ul>
       
@@ -144,7 +172,7 @@
         
   
     <li>
-      <a href="../../01-intro/intro/">Intro</a>
+      <a href="../../modules/01-intro/intro/">Intro</a>
     </li>
   
 
@@ -152,7 +180,7 @@
         
   
     <li>
-      <a href="../../01-intro/aps01/">Aps01</a>
+      <a href="../../modules/01-intro/aps01/">Aps01</a>
     </li>
   
 
@@ -169,7 +197,7 @@
         
   
     <li>
-      <a href="../../02-api/api_deploy/">Api deploy</a>
+      <a href="../../modules/02-api/api_deploy/">Api deploy</a>
     </li>
   
 
@@ -179,7 +207,7 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">03 - Batch prediction</span>
     <ul>
       
@@ -191,7 +219,7 @@
         
   
     <li>
-      <a href="../intro/">Intro</a>
+      <a href="../../modules/03-batch/intro/">Intro</a>
     </li>
   
 
@@ -199,7 +227,7 @@
         
   
     <li>
-      <a href="../data_formats/">Data formats</a>
+      <a href="../../modules/03-batch/data_formats/">Data formats</a>
     </li>
   
 
@@ -207,7 +235,7 @@
         
   
     <li>
-      <a href="../practicing/">Practicing</a>
+      <a href="../../modules/03-batch/practicing/">Practicing</a>
     </li>
   
 
@@ -217,14 +245,14 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Part 2</span>
     <ul>
       
         
   
     <li>
-      <a href="../sql/">Sql</a>
+      <a href="../../modules/03-batch/sql/">Sql</a>
     </li>
   
 
@@ -232,31 +260,7 @@
         
   
     <li>
-      <a href="../db_tool/">Db tool</a>
-    </li>
-  
-
-      
-        
-  
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Dot env</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#dot-example">Dot Example!</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#reading-env">Reading .env</a>
-              </li>
-            
-        
-      </ul>
+      <a href="../../modules/03-batch/db_tool/">Db tool</a>
     </li>
   
 
@@ -264,7 +268,15 @@
         
   
     <li>
-      <a href="../aps02_sql/">Aps02 sql</a>
+      <a href="../../modules/03-batch/dot_env/">Dot env</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../modules/03-batch/aps02_sql/">Aps02 sql</a>
     </li>
   
 
@@ -285,7 +297,7 @@
         
   
     <li>
-      <a href="../../04-int01/faq/">Faq</a>
+      <a href="../../modules/04-int01/faq/">Faq</a>
     </li>
   
 
@@ -293,7 +305,7 @@
         
   
     <li>
-      <a href="../../04-int01/int01/">Int01</a>
+      <a href="../../modules/04-int01/int01/">Int01</a>
     </li>
   
 
@@ -310,7 +322,7 @@
         
   
     <li>
-      <a href="../../05-docker/intro/">Intro</a>
+      <a href="../../modules/05-docker/intro/">Intro</a>
     </li>
   
 
@@ -318,7 +330,7 @@
         
   
     <li>
-      <a href="../../05-docker/s3/">S3</a>
+      <a href="../../modules/05-docker/s3/">S3</a>
     </li>
   
 
@@ -326,7 +338,7 @@
         
   
     <li>
-      <a href="../../05-docker/docker/">Docker</a>
+      <a href="../../modules/05-docker/docker/">Docker</a>
     </li>
   
 
@@ -343,7 +355,7 @@
         
   
     <li>
-      <a href="../../06-message-broker/intro/">Intro</a>
+      <a href="../../modules/06-message-broker/intro/">Intro</a>
     </li>
   
 
@@ -351,7 +363,7 @@
         
   
     <li>
-      <a href="../../06-message-broker/rabbitmq/">Rabbitmq</a>
+      <a href="../../modules/06-message-broker/rabbitmq/">Rabbitmq</a>
     </li>
   
 
@@ -373,7 +385,7 @@
         
   
     <li>
-      <a href="../../07-lambda/aws_lambda/">Aws lambda</a>
+      <a href="../../modules/07-lambda/aws_lambda/">Aws lambda</a>
     </li>
   
 
@@ -381,7 +393,7 @@
         
   
     <li>
-      <a href="../../07-lambda/lambda_practicing/">Lambda practicing</a>
+      <a href="../../modules/07-lambda/lambda_practicing/">Lambda practicing</a>
     </li>
   
 
@@ -389,7 +401,7 @@
         
   
     <li>
-      <a href="../../07-lambda/api_gateway/">Api gateway</a>
+      <a href="../../modules/07-lambda/api_gateway/">Api gateway</a>
     </li>
   
 
@@ -406,7 +418,7 @@
         
   
     <li>
-      <a href="../../07-lambda/sentiment_analysis/">Sentiment analysis</a>
+      <a href="../../modules/07-lambda/sentiment_analysis/">Sentiment analysis</a>
     </li>
   
 
@@ -414,7 +426,7 @@
         
   
     <li>
-      <a href="../../07-lambda/sa_lambda_function/">Sa lambda function</a>
+      <a href="../../modules/07-lambda/sa_lambda_function/">Sa lambda function</a>
     </li>
   
 
@@ -422,7 +434,7 @@
         
   
     <li>
-      <a href="../../07-lambda/lambda_layer/">Lambda layer</a>
+      <a href="../../modules/07-lambda/lambda_layer/">Lambda layer</a>
     </li>
   
 
@@ -439,7 +451,7 @@
         
   
     <li>
-      <a href="../../07-lambda/lambda_quotas/">Lambda quotas</a>
+      <a href="../../modules/07-lambda/lambda_quotas/">Lambda quotas</a>
     </li>
   
 
@@ -447,7 +459,7 @@
         
   
     <li>
-      <a href="../../07-lambda/lambda_and_docker/">Lambda and docker</a>
+      <a href="../../modules/07-lambda/lambda_and_docker/">Lambda and docker</a>
     </li>
   
 
@@ -455,7 +467,7 @@
         
   
     <li>
-      <a href="../../07-lambda/aps03_lambda/">Aps03 lambda</a>
+      <a href="../../modules/07-lambda/aps03_lambda/">Aps03 lambda</a>
     </li>
   
 
@@ -476,7 +488,7 @@
         
   
     <li>
-      <a href="../../08-queue/intro/">Intro</a>
+      <a href="../../modules/08-queue/intro/">Intro</a>
     </li>
   
 
@@ -484,7 +496,7 @@
         
   
     <li>
-      <a href="../../08-queue/concurrent_execution/">Concurrent execution</a>
+      <a href="../../modules/08-queue/concurrent_execution/">Concurrent execution</a>
     </li>
   
 
@@ -492,7 +504,7 @@
         
   
     <li>
-      <a href="../../08-queue/sqs_practicing/">Sqs practicing</a>
+      <a href="../../modules/08-queue/sqs_practicing/">Sqs practicing</a>
     </li>
   
 
@@ -500,7 +512,7 @@
         
   
     <li>
-      <a href="../../08-queue/sqs_and_lambda/">Sqs and lambda</a>
+      <a href="../../modules/08-queue/sqs_and_lambda/">Sqs and lambda</a>
     </li>
   
 
@@ -517,7 +529,7 @@
         
   
     <li>
-      <a href="../../09-int02/int02/">Int02</a>
+      <a href="../../modules/09-int02/int02/">Int02</a>
     </li>
   
 
@@ -534,7 +546,7 @@
         
   
     <li>
-      <a href="../../10-documentation/intro/">Intro</a>
+      <a href="../../modules/10-documentation/intro/">Intro</a>
     </li>
   
 
@@ -542,7 +554,7 @@
         
   
     <li>
-      <a href="../../10-documentation/code_documentation/">Code documentation</a>
+      <a href="../../modules/10-documentation/code_documentation/">Code documentation</a>
     </li>
   
 
@@ -550,7 +562,7 @@
         
   
     <li>
-      <a href="../../10-documentation/fast_api_docs/">Fast api docs</a>
+      <a href="../../modules/10-documentation/fast_api_docs/">Fast api docs</a>
     </li>
   
 
@@ -558,7 +570,7 @@
         
   
     <li>
-      <a href="../../10-documentation/ml_canvas/">Ml canvas</a>
+      <a href="../../modules/10-documentation/ml_canvas/">Ml canvas</a>
     </li>
   
 
@@ -575,7 +587,7 @@
         
   
     <li>
-      <a href="../../11-logging/intro/">Intro</a>
+      <a href="../../modules/11-logging/intro/">Intro</a>
     </li>
   
 
@@ -583,7 +595,7 @@
         
   
     <li>
-      <a href="../../11-logging/python_logging/">Python logging</a>
+      <a href="../../modules/11-logging/python_logging/">Python logging</a>
     </li>
   
 
@@ -591,7 +603,7 @@
         
   
     <li>
-      <a href="../../11-logging/read_aws_logs/">Read aws logs</a>
+      <a href="../../modules/11-logging/read_aws_logs/">Read aws logs</a>
     </li>
   
 
@@ -599,7 +611,7 @@
         
   
     <li>
-      <a href="../../11-logging/write_logs_to_s3/">Write logs to s3</a>
+      <a href="../../modules/11-logging/write_logs_to_s3/">Write logs to s3</a>
     </li>
   
 
@@ -616,7 +628,7 @@
         
   
     <li>
-      <a href="../../12-ci-cd/intro/">Intro</a>
+      <a href="../../modules/12-ci-cd/intro/">Intro</a>
     </li>
   
 
@@ -624,7 +636,7 @@
         
   
     <li>
-      <a href="../../12-ci-cd/testing/">Testing</a>
+      <a href="../../modules/12-ci-cd/testing/">Testing</a>
     </li>
   
 
@@ -632,7 +644,7 @@
         
   
     <li>
-      <a href="../../12-ci-cd/auto_deploy/">Auto deploy</a>
+      <a href="../../modules/12-ci-cd/auto_deploy/">Auto deploy</a>
     </li>
   
 
@@ -654,18 +666,6 @@
             <ul class="ah-breadcrumbs">
               
                 
-                  
-                    <li>Content</li>
-                  
-                
-                  
-                    <li>03 - Batch prediction</li>
-                  
-                
-                  
-                    <li>Part 2</li>
-                  
-                
                 <li></li>
             </ul>
             
@@ -673,63 +673,46 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="env-file"><code>.env</code> File</h1>
-<p>A <code>.env</code> is a <strong>environment file</strong>, a plain text file commonly used in software development projects. It serves as a configuration file that stores environment variables.</p>
+<h1 id="mlops-project">MLOps Project</h1>
+<h2 id="main-goal">Main Goal</h2>
+<p>The MLOps project will involve taking an existing Machine Learning model and <strong>operationalizing</strong> it to be deployed and monitored in a <strong>production environment</strong>. This process will require several key steps to prepare the model for production.</p>
+<h2 id="major-tasks">Major Tasks</h2>
+<p>The first major task will be to search for and acquire the necessary <strong>data</strong> and <strong>code</strong> to build and train a ML model. You have a few options for sourcing this initial model code and data. One approach would be to search for and utilize a model you previously developed and trained during another ML or Data Science course offered through Insper. This has the benefit of leveraging work you have already completed and are familiar with.</p>
+<p>Alternatively, you could search online repositories like Kaggle to find <strong>pre-existing Jupyter notebooks</strong> containing example code to train models. <strong>Kaggle</strong> is a rich source for finding well documented sample notebooks covering common ML tasks and algorithms. When selecting a notebook, aim to choose one focused on a standard classification or regression problem with clearly documented code to load data, preprocess features, train a model, and evaluate results.</p>
+<p>Once you have located suitable code and data to train a baseline ML model, the next step will be to run the notebook code locally and train a model on your own machine. This will validate that you understand the code and can successfully replicate the model training process. Make sure to document any issues or modifications required along the way.</p>
 <div class="admonition info">
-<p class="admonition-title">Info!</p>
-<p>Environment variables are key-value pairs that hold <strong>sensitive</strong> or environment-specific information, such as:</p>
+<p class="admonition-title">Important!</p>
+<p>While the initial model building may seem like the mostinteresting part, this course is focused on MLOps practices.</p>
+<p>So having a simple, functional model upfront allows us to dive deeply into <strong>operationalizing</strong> ML in a production setting.</p>
+</div>
+<p>With a trained model in hand, the real work of the MLOps project will begin! Your concern will be <strong>turning this model into an ML product</strong> and later tasks will involve:</p>
 <ul>
-<li>API keys</li>
-<li>Access tokens</li>
-<li>Database credentials</li>
-<li>Other configuration settings.</li>
+<li>Documenting the model</li>
+<li>Organizing the repository</li>
+<li>Code refactoring</li>
+<li>Model deployment</li>
+<li>Model monitoring</li>
+<li>Automation</li>
+<li>Etc.</li>
 </ul>
-</div>
-<p>The <code>.env</code> file plays a crucial role in separating sensitive or environment-specific data from the source code.</p>
-<p>By storing such information in a separate file, developers can easily manage different configurations for various environments (e.g., development, staging, production) <strong>without modifying the codebase</strong>.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip! 1</p>
-<p>Stop hardcoding configuration values in source code. Use <code>.env</code> instead!</p>
-</div>
-<p>This approach <strong>enhances security</strong> and simplifies the deployment process.</p>
+<p>Until the <strong>operationalization</strong> of this model is <strong>optimal</strong>!</p>
+<h2 id="groups">Groups</h2>
+<p>The project can be developed individually or in pairs.</p>
+<h3 id="accept-assignment">Accept Assignment</h3>
+<p>All deliveries will be made via github classroom.</p>
+<p>Click <a href="https://classroom.github.com/a/Oy7-RDIY"><strong>Here</strong></a> to accept assignment.</p>
 <div class="admonition danger">
-<p class="admonition-title">Never commit!</p>
-<p><code>.env</code> files must remain outside of version control systems (e.g., github, gitlab, bitbucket), preventing accidental exposure!</p>
+<p class="admonition-title">Attention</p>
+<p>The first member creates the group, while the second just joins the group.</p>
 </div>
-<h2 id="dot-example">Dot Example!</h2>
-<p>It is recommended to create an <code>.env.example</code> file, this must be <strong>committed in the repository</strong>. It must contain <strong>all the environment variables</strong> necessary to start the application or model, but with <strong>dummy values</strong>.</p>
-<p>This way, whoever is going to deploy the ML application, will know what to configure so that the application starts successfully!</p>
-<p>A <code>.env.example</code> file:
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go">DB_HOST=&quot;1.2.3.4&quot;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">DB_PORT=1122</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="go">DB_USERNAME=&quot;some_username&quot;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">DB_PASSWORD=abc123</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go">DB_DATABASE=&quot;some_db&quot;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="go">GITHUB_TOKEN_ACCESS=&quot;ghp_123412341234123412341234123412341234&quot;</span>
-</code></pre></div></p>
-<h2 id="reading-env">Reading <code>.env</code></h2>
-<p>Install de lib:</p>
-<div class="termy">
-
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>python-dotenv
-</code></pre></div>
-
-</div>
-
-<p><br>
-So environment variables can be read in Python with:</p>
-<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">os</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Reading .env and creating environment variables</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">load_dotenv</span><span class="p">()</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Reading environment variable</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">host</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DB_HOST&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Using environment variable</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
-</code></pre></div>
+<h2 id="rubrics">Rubrics</h2>
+<p>To be released!</p>
+<h2 id="deadlines">Deadlines</h2>
+<ul>
+<li><strong>Oct 18</strong>: Create group and repository.</li>
+<li><strong>Nov 10</strong>: Partial delivery. The model to be operated must have been chosen. The data and code that generate the model (a first dirty version) must be presented. Create a release on github.com with evidence that the task was accomplished.</li>
+<li><strong>Nov 29</strong>: Final delivery. In this delivery, it will be necessary to add a report and a short video describing the implemented project and its functionalities. </li>
+</ul>
 
 
 </section>
@@ -739,26 +722,26 @@ So environment variables can be read in Python with:</p>
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../db_tool/"
+            <a href="../../contributions/"
                class="ah-prev"
-               title="Db tool">
+               title="Contributions">
               <span class="nav-label">Anterior</span>
-              <span class="nav-title">Db tool</span>
+              <span class="nav-title">Contributions</span>
             </a>
           
           
-            <a href="../aps02_sql/"
+            <a href="../../modules/01-intro/intro/"
                class="ah-next"
-               title="Aps02 sql">
+               title="Intro">
               <span class="nav-label">Próximo</span>
-              <span class="nav-title">Aps02 sql</span>
+              <span class="nav-title">Intro</span>
             </a>
           
         </div>
       </footer>
     </div>
     
-      <script src="../../../js/tabs.js"></script><script src="../../../js/termynal.js"></script><script src="../../../js/custom.js"></script>
+      <script src="../../js/tabs.js"></script><script src="../../js/termynal.js"></script><script src="../../js/custom.js"></script>
     
   </body>
 </html>
