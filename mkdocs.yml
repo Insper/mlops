@@ -22,6 +22,7 @@ nav:
   - about.md
   - deadlines.md
   - contributions.md
+  - project/project.md
   - Content:
     - "01 - Introduction":
       - modules/01-intro/intro.md

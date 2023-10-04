@@ -18,7 +18,7 @@ Students will need to submit some assignments:
 
 ## Exams
 
-The interview assigments (`INT`) are like exams. Besides that, there will be no exams, neither classes during the intermediate and final assessment week of Insper's calendar.
+The interview assignments (`INT`) are like exams. Besides that, there will be no exams, neither classes during the intermediate and final assessment week of Insper's calendar.
 
 ## Requirements.txt!
 

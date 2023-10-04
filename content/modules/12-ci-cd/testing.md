@@ -206,7 +206,7 @@ push:
     branches:
     - main
 ```
-- To define a job, that is a group of steps that are executed together as part of a workflow run, we do:
+- To define a job, which is a group of steps that are executed together as part of a workflow run, we do:
 ```yaml
 jobs:
 build-and-test:
