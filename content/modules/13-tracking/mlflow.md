@@ -64,7 +64,7 @@ Before including MLflow resources in our project, let's consider the following s
         """
         Resample data to keep balance between target classes.
 
-        The function uses the resample function to downsample the minority class to match the majority class.
+        The function uses the resample function to downsample the majority class to match the minority class.
 
         Args:
             data (pd.DataFrame): DataFrame
@@ -170,7 +170,7 @@ Before including MLflow resources in our project, let's consider the following s
         y_pred = model.predict(X_test)
         print(f"Accuracy score: {accuracy_score(y_test, y_pred):.2f}")
         print(f"Precision score: {precision_score(y_test, y_pred):.2f}")
-        print(f"Recall score: {accuracy_score(y_test, y_pred):.2f}")
+        print(f"Recall score: {recall_score(y_test, y_pred):.2f}")
         print(f"F1 score: {f1_score(y_test, y_pred):.2f}")
 
         conf_mat = confusion_matrix(y_test, y_pred, labels=model.classes_)
