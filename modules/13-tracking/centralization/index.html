@@ -750,7 +750,7 @@
             <section class="progress-section show">
 <h1 id="centralization">Centralization</h1>
 <p>In the last class we saw how to use <em>MLflow</em> to track experiments.</p>
-<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/13-tracking/centralization/short_1" id="short_1_0">
+<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/13-tracking/centralization/short_1" id="short_1_0">
 <p class="admonition-title">Question 1<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Where was the information about the runs (metrics, parameters, artifacts) stored?</p>
@@ -765,7 +765,7 @@
 <p>In a <code>mlruns</code> folder created by <em>MLflow</em>.</p>
 </div>
 </div>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="modules/13-tracking/centralization/long_2" id="long_2_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/13-tracking/centralization/long_2" id="long_2_0">
 <p class="admonition-title">Question 2<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>How will local storage of experiments impact a project developed by multiple ML scientists and engineers?</p>
@@ -781,7 +781,7 @@
 </div>
 </div>
 <p>It would be appropriate to keep information about experiments centrally. Thus, whenever an experiment is carried out by a data scientist, the result will be available for analysis by others.</p>
-<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/13-tracking/centralization/short_3" id="short_3_0">
+<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/13-tracking/centralization/short_3" id="short_3_0">
 <p class="admonition-title">Question 3<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Can you think of any solution to store metrics and parameter data centrally?</p>
@@ -796,7 +796,7 @@
 <p>In a relational database!</p>
 </div>
 </div>
-<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/13-tracking/centralization/short_4" id="short_4_0">
+<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/13-tracking/centralization/short_4" id="short_4_0">
 <p class="admonition-title">Question 4<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Can you think of any solution to store artifacts, such as images and files, centrally?</p>
@@ -827,6 +827,7 @@
 <div class="admonition danger">
 <p class="admonition-title">Important</p>
 <p>Replace <code>INSPER_USERNAME</code> with your Insper username!</p>
+<p>When creating the database, use the <strong>tablespace</strong> <code>Default</code> instead of <code>pg_default</code>.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip! 1</p>
