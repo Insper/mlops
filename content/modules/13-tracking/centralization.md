@@ -85,7 +85,9 @@ Now let's start a local MLflow server that will connect to the database and the 
         Replace `INSPER-USERNAME` with your Insper username to configure S3 Bucket name properly.
 
     !!! danger "Important"
-        Fill in the database credentials provided by the professor: `USERNAME`, `PASSWORD`, `HOST`, `PORT` and `DATABASE`.
+        Fill in the database credentials provided by the professor: `USERNAME`, `PASSWORD`, `HOST`, `PORT`.
+        
+        For the `DATABASE`, use the one created by you, following the pattern `mlflow_INSPER_USERNAME`.
 
     <p>
     <div class="termy">
