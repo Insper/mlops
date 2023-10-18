@@ -58,7 +58,7 @@ Let's do a first example using Python Script.
         zip_to_deploy = f.read()
 
     lambda_response = lambda_client.create_function(
-        FunctionName="function_name",
+        FunctionName=function_name,
         Runtime="python3.10",
         Role=lambda_role_arn,
         Handler="word_count.word_count_handler",
