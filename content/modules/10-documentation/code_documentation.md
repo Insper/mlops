@@ -168,6 +168,16 @@ Let's see a first version of the generated documentation. To do this, call `make
 !!! tip "Tip!"
     If you are on Windows, run the `make.bat` script.
 
+    <p>
+    <div class="termy">
+
+        ```console
+        $ ./make.bat html
+        ```
+
+    </div>
+    </p>
+
 !!! exercise "Question"
     Open the file `_build/html/index.html` to see a first version of the documentation.
 
@@ -214,6 +224,9 @@ With **autodoc**, you don't need to copy and paste documentation into your Sphin
 !!! exercise "Question"
     In the `docs/conf.py` file, replace the `extensions = []` line with:
 
+    !!! danger "Attention!"
+       The Python lines (imports and sys.path.insert) also need to be added!
+
     ```python
     import sys
     import os
@@ -246,7 +259,7 @@ Rebuild and check the result:
 <div class="termy">
 
     ```console
-    $ sphinx-apidoc -o ./ ../src/
+    $ make html
     ```
 
 </div>

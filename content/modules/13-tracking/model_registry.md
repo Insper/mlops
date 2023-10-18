@@ -200,7 +200,7 @@ To test whether the model is functional, we can use *CURL* or `python requests`.
     Response: {"predictions": [0, 0]}
     ```
 
-Note that an API was generated for the model, but at no point was it necessary to specify the  and other settings! MLflow helped us in another stage of the model life cycle!
+Note that an API was generated for the model, but at no point was it necessary to specify the route and other settings! MLflow helped us in another stage of the model life cycle!
 
 # References
 - https://mlflow.org/docs/latest/model-registry.html
