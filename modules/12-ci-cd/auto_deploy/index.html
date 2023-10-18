@@ -808,7 +808,7 @@
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="n">zip_to_deploy</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
 <a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">lambda_response</span> <span class="o">=</span> <span class="n">lambda_client</span><span class="o">.</span><span class="n">create_function</span><span class="p">(</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="n">FunctionName</span><span class="o">=</span><span class="s2">&quot;function_name&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="n">FunctionName</span><span class="o">=</span><span class="n">function_name</span><span class="p">,</span>
 <a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="n">Runtime</span><span class="o">=</span><span class="s2">&quot;python3.10&quot;</span><span class="p">,</span>
 <a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="n">Role</span><span class="o">=</span><span class="n">lambda_role_arn</span><span class="p">,</span>
 <a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="n">Handler</span><span class="o">=</span><span class="s2">&quot;word_count.word_count_handler&quot;</span><span class="p">,</span>
@@ -932,7 +932,7 @@
 <p>See more <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions"><strong>Here</strong></a> and <a href="https://docs.github.com/en/actions/learn-github-actions/variables"><strong>Here</strong></a>.</p>
 <p>In order to find the repository secrets configuration, go to the repository site on github / settings / Secrets and variables / Actions.</p>
 <p><img alt="" src="../repo_secrets.png" /></p>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="modules/12-ci-cd/auto_deploy/long_1" id="long_1_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/12-ci-cd/auto_deploy/long_1" id="long_1_0">
 <p class="admonition-title">Question 5<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>In our workflow, which information could be variables and which needs to be secret?</p>
