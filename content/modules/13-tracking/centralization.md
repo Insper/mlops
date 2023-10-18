@@ -48,6 +48,8 @@ The MLFlow server could also run centrally (like on an EC2 instance). However, w
     !!! danger "Important"
         Replace `INSPER_USERNAME` with your Insper username!
 
+        When creating the database, use the **tablespace** `Default` instead of `pg_default`.
+
     !!! tip "Tip!"
         When creating the connection in DBeaver, in the second tab `"PostgreSQL"`, check the `"Show all databases"` option.
 
