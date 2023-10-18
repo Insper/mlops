@@ -113,6 +113,9 @@ Let's configure the copy of the previous class project to connect to the server 
 !!! exercise "Question"
     Change the code in the `train.py` file, in the `main` function, so that it uses the MLFlow server URL:
 
+    !!! danger "Attention!"
+        Add the line with `mlflow.set_tracking_uri` and keep the others!
+
     ```python
     def main():
         mlflow.set_tracking_uri("http://localhost:5000")
