@@ -84,5 +84,9 @@ nav:
       - modules/12-ci-cd/testing.md
       - modules/12-ci-cd/auto_deploy.md
     - "13 - Tracking":
-      - modules/13-tracking/intro.md
-      - modules/13-tracking/mlflow.md
+      - "Part 1":
+        - modules/13-tracking/intro.md
+        - modules/13-tracking/mlflow.md
+      - "Part 2":
+        - modules/13-tracking/centralization.md
+        - modules/13-tracking/model_registry.md
