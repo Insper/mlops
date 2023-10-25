@@ -2,7 +2,7 @@
 
 ## Classification
 
-Some performance metris used for classification problems are:
+Some performance metrics used for classification problems are:
 
 - **Accuracy**: Accuracy measures the proportion of **correctly classified** instances out of the **total number** of instances.
 
@@ -50,7 +50,7 @@ $$
 
 ## Regression
 
-Some performance metris used for regression problems are:
+Some performance metrics used for regression problems are:
 
 - **Mean Absolute Error** (MAE): MAE measures the average absolute difference between the predicted and actual values. It provides a straightforward measure of the model's overall performance.
 
