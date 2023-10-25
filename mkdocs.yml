@@ -92,3 +92,8 @@ nav:
         - modules/13-tracking/model_registry.md
     - "14 - Interview 03":
       - modules/14-int03/int03.md
+    - "15 - Monitoring":
+      - modules/15-monitoring/intro.md
+      - modules/15-monitoring/metrics.md
+      - modules/15-monitoring/model_degradation.md
+      - modules/15-monitoring/data_drift_methods.md
