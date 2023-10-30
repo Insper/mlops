@@ -988,21 +988,6 @@
 <p>No!</p>
 </div>
 </div>
-<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/15-monitoring/data_drift_ml/short_4" id="short_4_0">
-<p class="admonition-title">Question 5<button class="editable-button"></button></p>
-<form class="exercise-form">
-<p>When comparing the <strong>distributions</strong> of features from set 0 versus set 1, would you expect to find significant differences?</p>
-<div class="form-elements">
-<input type="text" value="" name="data"/>
-
-<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
-</div>
-</form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Resposta</p>
-<p>No!</p>
-</div>
-</div>
 <p>So, imagine that a <code>Set</code> column was created identifying whether the dataset row was drawn into set one or set 2:</p>
 <table>
 <thead>
@@ -1072,7 +1057,7 @@
 </table>
 <p>Now, if a classification model is built (for example, <strong>Random Forest</strong>) that uses the <code>Set</code> variable as target and the other columns as features.</p>
 <div class="admonition exercise choice tag-choice-exercise" data-answer-idx="1" data-slug="modules/15-monitoring/data_drift_ml/choice_1" id="choice_1_0">
-<p class="admonition-title">Question 6</p>
+<p class="admonition-title">Question 5</p>
 <form class="exercise-form">
 <p>What would be the expected <strong>accuracy</strong> for this model?</p>
 <div class="form-elements">
@@ -1259,7 +1244,7 @@
 <p>Let's extend this concept and try to understand its real application. Imagine that now we have two sets of data captured at different moments in time (<em>Set January</em> and <em>Set April</em>), with a separation of a few months between them.</p>
 <p>What would happen if we repeated the experiment? Now trying to create a classifier that predicts whether the data was captured in <strong>January</strong> or <strong>April</strong>.</p>
 <div class="admonition exercise choice tag-choice-exercise" data-answer-idx="1" data-slug="modules/15-monitoring/data_drift_ml/choice_2" id="choice_2_0">
-<p class="admonition-title">Question 7</p>
+<p class="admonition-title">Question 6</p>
 <form class="exercise-form">
 <p>What would happen to <strong>accuracy</strong> if there was no <strong>data drift</strong>?</p>
 <div class="form-elements">
@@ -1296,7 +1281,7 @@
 </div>
 </div>
 <div class="admonition exercise choice tag-choice-exercise" data-answer-idx="2" data-slug="modules/15-monitoring/data_drift_ml/choice_3" id="choice_3_0">
-<p class="admonition-title">Question 8</p>
+<p class="admonition-title">Question 7</p>
 <form class="exercise-form">
 <p>What would happen to <strong>accuracy</strong> if there was <strong>data drift</strong>?</p>
 <div class="form-elements">
@@ -1333,8 +1318,8 @@
 <p>So an increase in the accuracy of this model indicates the presence of little or a lot of <strong>data drift</strong>.</p>
 </div>
 </div>
-<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/15-monitoring/data_drift_ml/short_5" id="short_5_0">
-<p class="admonition-title">Question 9<button class="editable-button"></button></p>
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/15-monitoring/data_drift_ml/short_4" id="short_4_0">
+<p class="admonition-title">Question 8<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>At what value for accuracy should we be concerned and take action?</p>
 <div class="form-elements">
@@ -1351,30 +1336,42 @@
 <h2 id="simulate-that">Simulate that!</h2>
 <p>Let's create a model based on just one feature, simulate <strong>data drift</strong> on this feature and check if we can identify the occurrence of <strong>data drift</strong> with ML (Random Forest, but you can test with other models).</p>
 <p>Let's generate the data for the dataset for <strong>January</strong> and <strong>April</strong>.</p>
+<div class="admonition danger">
+<p class="admonition-title">New file!</p>
+<p>Paste the following code to a new file: <code>src/data_drift_sim.py</code>.</p>
+</div>
 <div class="language-python highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1">#Set distributions</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">avg_january</span> <span class="o">=</span> <span class="mf">0.0</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">std_january</span> <span class="o">=</span> <span class="mf">1.0</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">avg_april</span> <span class="o">=</span> <span class="mf">0.0</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="n">std_april</span> <span class="o">=</span> <span class="mf">1.0</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="c1"># Generate data from two distributions</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="n">data_jan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">avg_january</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">std_january</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">data_apr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">avg_april</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">std_april</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
-<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="c1"># Plot histograms of the two distributions</span>
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_jan</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data January&quot;</span><span class="p">)</span>
-<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_apr</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data April&quot;</span><span class="p">)</span>
-<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Feature Value&quot;</span><span class="p">)</span>
-<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
-<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histogram of Data train and Data production&quot;</span><span class="p">)</span>
-<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;ks_test_ex.png&quot;</span><span class="p">)</span>
-<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="n">accuracy_score</span><span class="p">,</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    <span class="n">confusion_matrix</span><span class="p">,</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="n">ConfusionMatrixDisplay</span><span class="p">,</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="p">)</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1">#Set distributions</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="n">avg_january</span> <span class="o">=</span> <span class="mf">0.0</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">std_january</span> <span class="o">=</span> <span class="mf">1.0</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="n">avg_april</span> <span class="o">=</span> <span class="mf">0.0</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="n">std_april</span> <span class="o">=</span> <span class="mf">1.0</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="c1"># Generate data from two distributions</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="n">data_jan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">avg_january</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">std_january</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="n">data_apr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">avg_april</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">std_april</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="c1"># Plot histograms of the two distributions</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_jan</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data January&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_apr</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data April&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Feature Value&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histogram of Data train and Data production&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;ks_test_ex.png&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p>Now we transform to DataFrame:</p>
 <div class="language-python highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">df_jan</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;feature&quot;</span><span class="p">:</span> <span class="n">data_jan</span><span class="p">,</span> <span class="s2">&quot;set&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_jan</span><span class="p">)})</span>
@@ -1409,8 +1406,8 @@
 <a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="p">)</span>
 <a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="n">conf_mat_disp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </code></pre></div>
-<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/15-monitoring/data_drift_ml/short_6" id="short_6_0">
-<p class="admonition-title">Question 10<button class="editable-button"></button></p>
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/15-monitoring/data_drift_ml/short_5" id="short_5_0">
+<p class="admonition-title">Question 9<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Why does the accuracy remain close to <code>50%</code>?</p>
 <div class="form-elements">
@@ -1432,7 +1429,7 @@
 </div>
 </div>
 <div class="admonition exercise self-progress" data-slug="modules/15-monitoring/data_drift_ml/exercise_2" id="exercise_2_0">
-<p class="admonition-title">Question 11</p>
+<p class="admonition-title">Question 10</p>
 <form class="exercise-form">
 <p>Change the distribution parameters to create differences between the simulated data for January and April:</p>
 <div class="language-python highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">#Set distributions</span>
