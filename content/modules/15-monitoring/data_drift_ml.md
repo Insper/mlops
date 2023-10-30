@@ -9,7 +9,7 @@ Well, maybe all this ML has left us confused. So let's learn by example, calmly!
 
 ## Churn Database
 
-For the experiment, we will use simulated data and also the *churn* database presented in class [13-tracking/mlflow/](../../13-tracking/mlflow/).
+For the experiment, we will use simulated data and also the *churn* database presented in class [13-tracking/mlflow/](../13-tracking/mlflow.md).
 
 A sample of the database:
 
@@ -60,12 +60,6 @@ The experiment will involve **randomly** selecting the rows from this dataset an
         Basically, there should be no significant differences (except some random effect), as the data were extracted randomly from the original database.
 
         Remember the **CLT** (central limit theorem) seen in the second semester (data science). We are using 50% of the dataset that has thousands of elements, which should produce a good representation!
-
-!!! exercise text short "Question"
-    When comparing the **distributions** of features from set 0 versus set 1, would you expect to find significant differences?
-
-    !!! answer "Answer"
-        No!
 
 !!! exercise text short "Question"
     When comparing the **distributions** of features from set 0 versus set 1, would you expect to find significant differences?
@@ -312,9 +306,20 @@ Let's create a model based on just one feature, simulate **data drift** on this 
 
 Let's generate the data for the dataset for **January** and **April**.
 
+!!! danger "New file!"
+    Paste the following code to a new file: `src/data_drift_sim.py`.
+
 ```python
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import (
+    accuracy_score,
+    confusion_matrix,
+    ConfusionMatrixDisplay,
+)
 
 #Set distributions
 avg_january = 0.0
