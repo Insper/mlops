@@ -21,7 +21,7 @@ Instead of randomly splitting the samples to build the **training** and **test**
 
 ## Check Degradation
 
-To check the degradation of the model over time in advance**, before the model is in production, what can be done is:
+To check the degradation of the model over time **in advance**, before the model is in production, what can be done is:
 
 !!! danger ""
     Calculate the accuracy **per day** (consider the time granularity used in the project) and project it in a bar graph so that the expected degradation is visible.
