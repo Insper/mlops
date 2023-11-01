@@ -51,6 +51,9 @@ Some important steps:
 !!! exercise "Question!"
     Create a bucket on S3 with the pattern name `mlops-dvc-INSPERUSERNAME`
 
+    !!! warning ""
+        Check [**HERE**](../11-logging/write_logs_to_s3.md#create-bucket) if you need help with bucket creation.
+
 !!! exercise "Question!"
     Configure S3 storage:
 

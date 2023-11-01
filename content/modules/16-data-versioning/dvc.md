@@ -24,6 +24,9 @@ In this class we will explore [DVC](https://dvc.org/), an open-source version co
 !!! exercise "Question!"
     Create a private repository to be used in the experiment and clone it on your machine.
 
+    !!! info ""
+        If you create a public repository the `dvc` will also work! It's just a recommendation that it be a private repository.
+
 !!! danger "Important!"
     Access the repository folder and work from there!
 
