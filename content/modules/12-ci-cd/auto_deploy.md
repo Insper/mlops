@@ -91,6 +91,10 @@ Let's do a first example using Python Script.
 
 Let's create a new **job** in the github action workflow.
 
+!!! danger "Attention!"
+    Check if your branch name is `main`.
+
+    Change if necessary.
 
 !!! exercise "Question"
     To do this, update the `.github/workflows/test_workflow.yaml` file:
