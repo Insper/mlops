@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Intro - MLOps & Interviews</title>
+        <title>S3 storage - MLOps & Interviews</title>
       
     
     <link rel="stylesheet"
@@ -179,39 +179,19 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">03 - Batch prediction</span>
     <ul>
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Part 1</span>
     <ul>
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Intro</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#remembering-online-prediction">Remembering Online prediction</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#what-is-batch-prediction">What is batch prediction?</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#doing-batch-prediction">Doing batch prediction</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../03-batch/intro/">Intro</a>
     </li>
   
 
@@ -219,7 +199,7 @@
         
   
     <li>
-      <a href="../data_formats/">Data formats</a>
+      <a href="../../03-batch/data_formats/">Data formats</a>
     </li>
   
 
@@ -227,7 +207,7 @@
         
   
     <li>
-      <a href="../practicing/">Practicing</a>
+      <a href="../../03-batch/practicing/">Practicing</a>
     </li>
   
 
@@ -244,7 +224,7 @@
         
   
     <li>
-      <a href="../sql/">Sql</a>
+      <a href="../../03-batch/sql/">Sql</a>
     </li>
   
 
@@ -252,7 +232,7 @@
         
   
     <li>
-      <a href="../db_tool/">Db tool</a>
+      <a href="../../03-batch/db_tool/">Db tool</a>
     </li>
   
 
@@ -260,7 +240,7 @@
         
   
     <li>
-      <a href="../dot_env/">Dot env</a>
+      <a href="../../03-batch/dot_env/">Dot env</a>
     </li>
   
 
@@ -268,7 +248,7 @@
         
   
     <li>
-      <a href="../aps02_sql/">Aps02 sql</a>
+      <a href="../../03-batch/aps02_sql/">Aps02 sql</a>
     </li>
   
 
@@ -797,14 +777,14 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">16 - Data versioning</span>
     <ul>
       
         
   
     <li>
-      <a href="../../16-data-versioning/intro/">Intro</a>
+      <a href="../intro/">Intro</a>
     </li>
   
 
@@ -812,15 +792,31 @@
         
   
     <li>
-      <a href="../../16-data-versioning/dvc/">Dvc</a>
+      <a href="../dvc/">Dvc</a>
     </li>
   
 
       
         
   
-    <li>
-      <a href="../../16-data-versioning/s3_storage/">S3 storage</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">S3 storage</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#practicing">Practicing!</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#references">References</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -847,11 +843,7 @@
                   
                 
                   
-                    <li>03 - Batch prediction</li>
-                  
-                
-                  
-                    <li>Part 1</li>
+                    <li>16 - Data versioning</li>
                   
                 
                 <li></li>
@@ -861,174 +853,123 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="batch-prediction">Batch Prediction</h1>
-<h2 id="remembering-online-prediction">Remembering <strong>Online</strong> prediction</h2>
-<p>In the last class, we saw how to deploy a model using RESTful APIs.</p>
-<div class="admonition exercise choice tag-choice-exercise" data-answer-idx="2" data-slug="modules/03-batch/intro/choice_1" id="choice_1_0">
-<p class="admonition-title">Question 1</p>
+<h1 id="dvc-s3">DVC + S3</h1>
+<p>It is possible to use <em>dvc</em> with a <em>remote</em> pointing to an <strong>S3</strong> bucket.</p>
+<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/16-data-versioning/s3_storage/short_1" id="short_1_0">
+<p class="admonition-title">Question! 1<button class="editable-button"></button></p>
 <form class="exercise-form">
-<p>Select the sentence that best explains when to use of <em>online deployment</em>.</p>
+<p>Point out at least one advantage of using <strong>S3</strong> as storage instead of a local folder.</p>
 <div class="form-elements">
-<div class="alternative-set">
-  
-<label class="alternative">
-  <div class="content">
-    <input type="radio" name="data" value="1" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
-    When predictions are needed hours, days or years from now.
-  </div>
-</label>
+<input type="text" value="" name="data"/>
 
-<label class="alternative">
-  <div class="content">
-    <input type="radio" name="data" value="0" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
-    For asynchronous workflows where the model takes a long time to generate each prediction
-  </div>
-</label>
-
-<label class="alternative">
-  <div class="content">
-    <input type="radio" name="data" value="3" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
-    It doesn't matter the way you deploy!
-  </div>
-</label>
-
-<label class="alternative">
-  <div class="content">
-    <input type="radio" name="data" value="2" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
-    If you need instant or real-time prediction
-  </div>
-</label>
-
-</div>
-<input class="ah-button ah-button--primary" type="submit" name="sendButton" value="Enviar" disabled />
+<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
 </div>
 </form>
 <div class="admonition answer no-indent">
-<p class="admonition-title">Resposta</p>
-<p><strong>Online</strong> prediction is when predictions are generated and returned as soon as <em>requests</em> for these predictions are received by the service. We usually do it because this instant or real-time prediction is needed!</p>
-<p><img alt="" src="../api_predict.png" /></p>
-<p>Some examples where it could be usefull:</p>
+<p class="admonition-title">Answer!</p>
 <ul>
-<li>Making time-critical predictions like detecting fraud moments after a transaction occurs</li>
-<li>Provide real-time recommendations: movies, ads, products</li>
-<li>Run sentiment analysis during chatbot conversations.</li>
+<li>
+<p>It facilitates collaboration between data scientists since information is centralized.</p>
+</li>
+<li>
+<p>S3 is scalable, whereas local files can exceed the disk's storage capacity.</p>
+</li>
+<li>
+<p>S3 is also durable and secure, with data replication capabilities.</p>
+</li>
 </ul>
 </div>
 </div>
-<p>In the next classes, we will revisit this category of model deployment (<strong>online</strong>), making it more robust. For now, let's look at the <strong>batch prediction</strong> category!</p>
-<h2 id="what-is-batch-prediction">What is batch prediction?</h2>
-<p>In this deployment category, the trained model is applied to previously collected, static datasets stored in files or databases, rather than real-time streaming data.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The predictions are generated periodically or whenever triggered.</p>
-<p>We will deal with scheduling in the next classes.</p>
+<h2 id="practicing">Practicing!</h2>
+<p>Create another repository and repeat the procedures from the previous handout.</p>
+<p>Some important steps:</p>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/s3_storage/exercise_1" id="exercise_1_0">
+<p class="admonition-title">Question! 2</p>
+<form class="exercise-form">
+<p>Init <em>DVC</em>, download and track data:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>dvc<span class="w"> </span>init
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">$ </span>dvc<span class="w"> </span>get-url<span class="w"> </span>https://mlops-material.s3.us-east-2.amazonaws.com/data_v0.csv<span class="w">  </span>data/data.csv
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">$ </span>dvc<span class="w"> </span>add<span class="w"> </span>data/data.csv
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
 </div>
-<p>Batch prediction is suitable for non-real time predictive tasks like:</p>
-<ul>
-<li>Price forecasting</li>
-<li>Customer churn</li>
-<li>Store assortment</li>
-</ul>
-<p>where results <em>aren't needed instantly</em>.</p>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/s3_storage/exercise_2" id="exercise_2_0">
+<p class="admonition-title">Question! 3</p>
+<form class="exercise-form">
+<p>Git commit:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>data/data.csv.dvc<span class="w"> </span>data/.gitignore
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add data to project&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="gp">$ </span>git<span class="w"> </span>push
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/s3_storage/exercise_3" id="exercise_3_0">
+<p class="admonition-title">Question! 4</p>
+<form class="exercise-form">
+<p>Create a bucket on S3 with the pattern name <code>mlops-dvc-INSPERUSERNAME</code></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/s3_storage/exercise_4" id="exercise_4_0">
+<p class="admonition-title">Question! 5</p>
+<form class="exercise-form">
+<p>Configure S3 storage:</p>
 <div class="admonition danger">
-<p class="admonition-title">Planning!</p>
-<p>Note that the deployment category to be used depends a lot on how the model will be used.</p>
-<p>For example, a pricing model could either need <strong>batch</strong> predictions (suppose the price will be printed on a flyer) or real-time <strong>online</strong> (if the price changes a lot and will be used on a website, varying according to customer behavior).</p>
-<p>Whenever possible, align this clearly with the customer at the planning stage of the model lifecycle!</p>
+<p class="admonition-title">Attention!</p>
+<p>Change the bucket name in <code>mlops-dvc-INSPERUSERNAME</code></p>
 </div>
-<h2 id="doing-batch-prediction">Doing batch prediction</h2>
-<p>In the first class, when we saw how to standardize a data science project, there were specific folders for data storage, notebooks and source code.</p>
-<p><img alt="" src="../ds_project_data_folder.png" /></p>
-<div class="admonition exercise short tag-short-text tag-text-exercise editable" data-slug="modules/03-batch/intro/short_1" id="short_1_0">
-<p class="admonition-title">Question 2<button class="editable-button"></button></p>
-<form class="exercise-form">
-<p>Would the <code>data.csv</code> file be used during training? How would you deal with data?</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>dvc<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>myremote<span class="w"> </span>s3://mlops-dvc-INSPERUSERNAME
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="gp">$ </span>dvc<span class="w"> </span>remote<span class="w"> </span>default<span class="w"> </span>myremote
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="gp">$ </span>dvc<span class="w"> </span>push
+</code></pre></div>
+<p></div>
+</p></p>
 <div class="form-elements">
-<input type="text" value="" name="data"/>
-
-<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
 </div>
 </form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Resposta</p>
-<p>If the model doensn't exists, we need data to train it! So, probably yes!</p>
 </div>
-</div>
-<div class="admonition exercise short tag-short-text tag-text-exercise editable" data-slug="modules/03-batch/intro/short_2" id="short_2_0">
-<p class="admonition-title">Question 3<button class="editable-button"></button></p>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/s3_storage/exercise_5" id="exercise_5_0">
+<p class="admonition-title">Question! 6</p>
 <form class="exercise-form">
-<p>During the phase of model construction, would this <code>data.csv</code> file change? Explain it.</p>
+<p>Check the contents of the bucket and ensure that the data was actually stored!</p>
 <div class="form-elements">
-<input type="text" value="" name="data"/>
-
-<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
 </div>
 </form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Resposta</p>
-<p>You may find that the data is not enough in volume or that you need new features to achieve the design goals.</p>
-<p>Assuming enough data, it would be transformed (feature engineering, feature selection) but would remain the same during training in the phase of model construction.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Attention!</p>
+<p>After finishing the class, delete the bucket you created!</p>
 </div>
-<div class="admonition exercise long tag-long-text tag-text-exercise editable" data-slug="modules/03-batch/intro/long_3" id="long_3_0">
-<p class="admonition-title">Question 4<button class="editable-button"></button></p>
-<form class="exercise-form">
-<p>After model deployment:</p>
+<h2 id="references">References</h2>
 <ul>
-<li>Will the model need to be retrained?</li>
-<li>Will it be retrained in the same data?</li>
+<li>ML complexity image: <a href="https://dvc.org/static/d40892521e2fff94dac9e59693f366df/5cd1d/data-ver-complex.webp">https://dvc.org/static/d40892521e2fff94dac9e59693f366df/5cd1d/data-ver-complex.webp</a></li>
+<li>Versions image: <a href="https://dvc.org/static/39d86590fa8ead1cd1247c883a8cf2c0/aa619/project-versions.webp">https://dvc.org/static/39d86590fa8ead1cd1247c883a8cf2c0/aa619/project-versions.webp</a></li>
 </ul>
-<p>Explain yourself!</p>
-<div class="form-elements">
-<div class="grow-wrap"><textarea name="data"></textarea></div>
-
-<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
-</div>
-</form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Resposta</p>
-<p>Yes for the first, no for the second!</p>
-<p>It will be necessary to retrain if the model can lose performance over time (it almost certainly will).</p>
-<p>We'll deal with retraining in the next classes, but it's important to start thinking about it!</p>
-</div>
-</div>
-<div class="admonition exercise long tag-long-text tag-text-exercise editable" data-slug="modules/03-batch/intro/long_4" id="long_4_0">
-<p class="admonition-title">Question 5<button class="editable-button"></button></p>
-<form class="exercise-form">
-<p>What about when we deploy the model and need predict?</p>
-<p>Assuming that the model reads a batch of data from a file, would it be the same file used for training?</p>
-<p>Justify your answer.</p>
-<div class="form-elements">
-<div class="grow-wrap"><textarea name="data"></textarea></div>
-
-<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
-</div>
-</form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Resposta</p>
-<p>Absolutely not! In the first class we did this for simplicity. We would like to make predictions on new data.</p>
-</div>
-</div>
-<div class="admonition exercise long tag-long-text tag-text-exercise editable" data-slug="modules/03-batch/intro/long_5" id="long_5_0">
-<p class="admonition-title">Question 6<button class="editable-button"></button></p>
-<form class="exercise-form">
-<p>What about when we deploy the model and need predict?</p>
-<p>Assuming that the model reads a batch of data from a file called <code>predict.csv</code>, would this file remain the same (have the same records) every time the predict script is called?</p>
-<p>Justify your answer.</p>
-<div class="form-elements">
-<div class="grow-wrap"><textarea name="data"></textarea></div>
-
-<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
-</div>
-</form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Resposta</p>
-<p>No. Assuming that the whole file has been predicted, the next time that the prediction script is called, we would like to indicate a new file or that the <code>predict.csv</code> file has new data.</p>
-</div>
-</div>
-<p>So, in order to do batch prediction, we need to worry about <strong>getting data</strong>!</p>
-<p><img alt="" src="../data_predict_output.png" /></p>
-<p>So let's talk about <strong>data formats</strong> and <strong>data sources</strong>. Advance to the next topic!</p>
 
 
 </section>
@@ -1038,20 +979,13 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../../02-api/api_deploy/"
+            <a href="../dvc/"
                class="ah-prev"
-               title="Api deploy">
+               title="Dvc">
               <span class="nav-label">Anterior</span>
-              <span class="nav-title">Api deploy</span>
+              <span class="nav-title">Dvc</span>
             </a>
           
-          
-            <a href="../data_formats/"
-               class="ah-next"
-               title="Data formats">
-              <span class="nav-label">Próximo</span>
-              <span class="nav-title">Data formats</span>
-            </a>
           
         </div>
       </footer>

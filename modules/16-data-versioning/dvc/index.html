@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>Dvc - MLOps & Interviews</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '../../..';
+      
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
+      
+      
+      var dashboardEnabled = false;
+      var tagTree = {};
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../../../css/termynal.css">
+  </head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href="../../.."
+           title="MLOps &amp; Interviews"
+           class="ah-logo"
+           aria-label="MLOps & Interviews">
+          MLOps &amp; Interviews
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="../../..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../about/">About</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../deadlines/">Deadlines</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../contributions/">Contributions</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../project/project/">Project</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Content</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">01 - Introduction</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../01-intro/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../01-intro/aps01/">Aps01</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">02 - Deploy: first try!</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../02-api/api_deploy/">Api deploy</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">03 - Batch prediction</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 1</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../03-batch/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/data_formats/">Data formats</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/practicing/">Practicing</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../03-batch/sql/">Sql</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/db_tool/">Db tool</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/dot_env/">Dot env</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/aps02_sql/">Aps02 sql</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">04 - Interview 01</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../04-int01/faq/">Faq</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../04-int01/int01/">Int01</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">05 - Docker</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../05-docker/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../05-docker/s3/">S3</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../05-docker/docker/">Docker</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">06 - Message Broker</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../06-message-broker/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../06-message-broker/rabbitmq/">Rabbitmq</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">07 - Lambda Functions</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 1</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/aws_lambda/">Aws lambda</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/lambda_practicing/">Lambda practicing</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/api_gateway/">Api gateway</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/sentiment_analysis/">Sentiment analysis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/sa_lambda_function/">Sa lambda function</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/lambda_layer/">Lambda layer</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 3</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/lambda_quotas/">Lambda quotas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/lambda_and_docker/">Lambda and docker</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/aps03_lambda/">Aps03 lambda</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">08 - Queues</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../08-queue/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../08-queue/concurrent_execution/">Concurrent execution</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../08-queue/sqs_practicing/">Sqs practicing</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../08-queue/sqs_and_lambda/">Sqs and lambda</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">09 - Interview 02</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../09-int02/int02/">Int02</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">10 - Documentation</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../10-documentation/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../10-documentation/code_documentation/">Code documentation</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../10-documentation/fast_api_docs/">Fast api docs</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../10-documentation/ml_canvas/">Ml canvas</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">11 - Logging</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../11-logging/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../11-logging/python_logging/">Python logging</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../11-logging/read_aws_logs/">Read aws logs</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../11-logging/write_logs_to_s3/">Write logs to s3</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">12 - CI/CD</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../12-ci-cd/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../12-ci-cd/testing/">Testing</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../12-ci-cd/auto_deploy/">Auto deploy</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">13 - Tracking</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 1</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../13-tracking/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../13-tracking/mlflow/">Mlflow</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../13-tracking/centralization/">Centralization</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../13-tracking/model_registry/">Model registry</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">14 - Interview 03</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../14-int03/int03/">Int03</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">15 - Monitoring</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 1</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../15-monitoring/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../15-monitoring/metrics/">Metrics</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../15-monitoring/model_degradation/">Model degradation</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../15-monitoring/data_drift_methods/">Data drift methods</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../15-monitoring/data_drift_ml/">Data drift ml</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../15-monitoring/performance_degradation/">Performance degradation</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">16 - Data versioning</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Dvc</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#an-alternative">An Alternative</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#create-repository">Create repository</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#install-dvc">Install dvc</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#use-dvc">Use dvc</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#remotes">Remotes</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#checkout-to-version">Checkout to version</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../s3_storage/">S3 storage</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                  
+                    <li>Content</li>
+                  
+                
+                  
+                    <li>16 - Data versioning</li>
+                  
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<h1 id="dvc-data-versioning-control">DVC: Data Versioning Control</h1>
+<p>Let's learn how to use tools for <strong>data versioning</strong>.</p>
+<p>We already know the most famous versioning tool: <code>git</code>!</p>
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/16-data-versioning/dvc/long_1" id="long_1_0">
+<p class="admonition-title">Question! 1<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>Do you think we can we use <code>git</code> to version our <strong>parquets</strong> and <strong>CSVs</strong>? Explain whether or not this is a good idea.</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Answer!</p>
+<p>It is possible, but it is not the best approach. Git is primarily designed for versioning <strong>source code</strong> and text-based files, it doesn't provide efficient storage and diffing capabilities for large and frequently changing binary files used in ML.</p>
+</div>
+</div>
+<h2 id="an-alternative">An Alternative</h2>
+<p>In this class we will explore <a href="https://dvc.org/">DVC</a>, an open-source version control system for Data Science and ML projects. DVC provides a <strong>git-like experience</strong> to organize your data, models, and experiments.</p>
+<div class="admonition info">
+<p class="admonition-title">From the DVC creators</p>
+<p><em>DVC</em> is a tool for data science that takes advantage of existing software engineering toolset.</p>
+<p>It helps ML teams manage <strong>large datasets</strong>, <strong>make projects reproducible</strong>, and <strong>collaborate better</strong>.</p>
+</div>
+<h2 id="create-repository">Create repository</h2>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_1" id="exercise_1_0">
+<p class="admonition-title">Question! 2</p>
+<form class="exercise-form">
+<p>Create a private repository to be used in the experiment and clone it on your machine.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Important!</p>
+<p>Access the repository folder and work from there!</p>
+</div>
+<h2 id="install-dvc">Install <code>dvc</code></h2>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_2" id="exercise_2_0">
+<p class="admonition-title">Question! 3</p>
+<form class="exercise-form">
+<p>Create (or activate) a virtual environment to be used in class.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_3" id="exercise_3_0">
+<p class="admonition-title">Question! 4</p>
+<form class="exercise-form">
+<p>After activating the environment, we install <code>dvc</code> with:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;dvc[s3]&quot;</span>
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<h2 id="use-dvc">Use <code>dvc</code></h2>
+<p>Let's initialize <code>dvc</code> in our repository.</p>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_4" id="exercise_4_0">
+<p class="admonition-title">Question! 5</p>
+<form class="exercise-form">
+<p>Make sure you are at the root of the repository and run:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>dvc<span class="w"> </span>init
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<p>Then, we can use <code>dvc</code> to download a dataset.</p>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_5" id="exercise_5_0">
+<p class="admonition-title">Question! 6</p>
+<form class="exercise-form">
+<p>To download a dataset, run:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>dvc<span class="w"> </span>get-url<span class="w"> </span>https://mlops-material.s3.us-east-2.amazonaws.com/data_v0.csv<span class="w">  </span>data/data.csv
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip! 1</p>
+<p>You could have used any tool (curl, wget) to download this file.</p>
+<p>If this file was in a <strong>git repository</strong>, you could use <code>dvg get</code> instead of <code>dvc get-url</code>.</p>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_6" id="exercise_6_0">
+<p class="admonition-title">Question! 7</p>
+<form class="exercise-form">
+<p>Then we configure <code>dvc</code> to track the <code>data/data.csv</code> file with:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">$ </span>dvc<span class="w"> </span>add<span class="w"> </span>data/data.csv
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_7" id="exercise_7_0">
+<p class="admonition-title">Question! 8</p>
+<form class="exercise-form">
+<p>And commit changes with:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>data/data.csv.dvc<span class="w"> </span>data/.gitignore
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add data to project&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="gp">$ </span>git<span class="w"> </span>push
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise choice tag-choice-exercise" data-answer-idx="1" data-slug="modules/16-data-versioning/dvc/choice_1" id="choice_1_0">
+<p class="admonition-title">Question 9</p>
+<form class="exercise-form">
+<p>Go to github.com and check out their repository. Browse the file structure and check which dvc files we don't commonly have in our repositories. Can you find the <code>data.csv</code> file?</p>
+<div class="form-elements">
+<div class="alternative-set">
+  
+<label class="alternative">
+  <div class="content">
+    <input type="radio" name="data" value="0" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
+    Yes
+  </div>
+</label>
+
+<label class="alternative">
+  <div class="content">
+    <input type="radio" name="data" value="1" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
+    No
+  </div>
+</label>
+
+</div>
+<input class="ah-button ah-button--primary" type="submit" name="sendButton" value="Enviar" disabled />
+</div>
+</form>
+</div>
+<h2 id="remotes">Remotes</h2>
+<p>In <em>DVC</em>, <strong>remotes</strong> refer to the storage locations where you can store and retrieve your data, models, and other artifacts.</p>
+<p>For this we can use, among other alternatives, a local folder or an S3 bucket.</p>
+<p>First we will use a local folder.</p>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_8" id="exercise_8_0">
+<p class="admonition-title">Question! 10</p>
+<form class="exercise-form">
+<p>Create a folder <code>dvcstore</code> anywhere <strong>outside the repository folder</strong> and save its path:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>mkdir<span class="w"> </span>/home/user/dvcstore
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_9" id="exercise_9_0">
+<p class="admonition-title">Question! 11</p>
+<form class="exercise-form">
+<p>Let's configure <em>DVC</em> to use this folder as remote storage:</p>
+<div class="admonition danger">
+<p class="admonition-title">Attention!</p>
+<p>Change <code>/home/user/dvcstore</code> to the path of the previously created folder!</p>
+</div>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">$ </span>dvc<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>-d<span class="w"> </span>myremote<span class="w"> </span>/home/user/dvcstore
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_10" id="exercise_10_0">
+<p class="admonition-title">Question! 12</p>
+<form class="exercise-form">
+<p>To upload data to the storage, run:</p>
+<div class="admonition warning">
+<p class="admonition-title">Attention!</p>
+<p>Out of curiosity, check that your storage folder is empty before running!</p>
+</div>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">$ </span>dvc<span class="w"> </span>push
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="admonition warning">
+<p class="admonition-title">Attention!</p>
+<p>Check that your storage folder is not empty after running!</p>
+</div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<h3 id="testing-the-remote">Testing the remote</h3>
+<p>To check if <em>DVC</em> is actually tracking the file, let's simulate a deletion and restoration of the <code>data/data.csv</code> base.</p>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_11" id="exercise_11_0">
+<p class="admonition-title">Question! 13</p>
+<form class="exercise-form">
+<p>To do this, run:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">$ </span>rm<span class="w"> </span>-rf<span class="w"> </span>.dvc/cache
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="gp">$ </span>rm<span class="w"> </span>-f<span class="w"> </span>data/data.csv
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_12" id="exercise_12_0">
+<p class="admonition-title">Question! 14</p>
+<form class="exercise-form">
+<p>Check that the file has indeed been <strong>deleted</strong></p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">$ </span>ls<span class="w"> </span>-la<span class="w"> </span>data/
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_13" id="exercise_13_0">
+<p class="admonition-title">Question! 15</p>
+<form class="exercise-form">
+<p>To restore the file we can do:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">$ </span>dvc<span class="w"> </span>pull
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_14" id="exercise_14_0">
+<p class="admonition-title">Question! 16</p>
+<form class="exercise-form">
+<p>Check that the file has indeed been <strong>restaured</strong></p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">$ </span>ls<span class="w"> </span>-la<span class="w"> </span>data/
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<h2 id="checkout-to-version">Checkout to version</h2>
+<p>When developing with <code>git</code>, it is common to do <em>checkout</em> to explore a specific version of the software to be developed.</p>
+<p>With <em>DVC</em>, we added the ability to maintain <strong>data versioning</strong>, without necessarily using the repository as storage.</p>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_15" id="exercise_15_0">
+<p class="admonition-title">Question! 17</p>
+<form class="exercise-form">
+<p>Let's ensure that all changes so far have been committed.</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;version 0&quot;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="gp">$ </span>git<span class="w"> </span>push
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<p>To make it easier to understand, let's create a <em>tag</em>:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip! 2</p>
+<p>A git tag is a named reference to a specific commit in a Git repository.</p>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_16" id="exercise_16_0">
+<p class="admonition-title">Question! 18</p>
+<form class="exercise-form">
+<p>To create the tag <code>v0.0.0</code>, run:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">$ </span>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v0.0.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Release version 0.0.0&quot;</span>
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<p>Let's simulate that the data scientist identified the need to add new features to improve the model's performance.</p>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_17" id="exercise_17_0">
+<p class="admonition-title">Question! 19</p>
+<form class="exercise-form">
+<p>A new file has been prepared by the professor and can be downloaded with:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">$ </span>dvc<span class="w"> </span>get-url<span class="w"> </span>--force<span class="w"> </span>https://mlops-material.s3.us-east-2.amazonaws.com/data_v1.csv<span class="w">  </span>data/data.csv
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Attention!</p>
+<p>After downloading, open the file <code>data/data.csv</code> and see that it has more columns than the previous version!</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Attention!</p>
+<p>create a new <code>src/train.py</code> file to simulate some source code addition:</p>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># simulate trainning. No need to add source code!</span>
+</code></pre></div>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_18" id="exercise_18_0">
+<p class="admonition-title">Question! 20</p>
+<form class="exercise-form">
+<p>Commit the changes, both in <code>git</code> and <code>dvc</code>:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gp">$ </span>dvc<span class="w"> </span>commit<span class="w"> </span>data/data.csv
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="gp">$ </span>dvc<span class="w"> </span>push
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;version 1&quot;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="gp">$ </span>git<span class="w"> </span>push
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_19" id="exercise_19_0">
+<p class="admonition-title">Question! 21</p>
+<form class="exercise-form">
+<p>Create a new <code>v0.0.1</code> tag with:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gp">$ </span>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v0.0.1<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Release version 0.0.1&quot;</span>
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<p>Now we can switch between versions, checking out both <code>git</code> and <code>dvc</code>. This way, both the source code and the data are versioned!</p>
+<p><img alt="" src="../project-versions.webp" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Attention!</p>
+<p>Keep the file  <code>data/data.csv</code> open in VSCode and split your screen. This way you will be able to observe the modifications in the file as soon as the <code>checkout</code> occurs in <em>DVC</em>!</p>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_20" id="exercise_20_0">
+<p class="admonition-title">Question! 22</p>
+<form class="exercise-form">
+<p>To switch to version <code>v0.0.0</code> do:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>v0.0.0
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="gp">$ </span>dvc<span class="w"> </span>checkout
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Attention!</p>
+<p>Check if the <code>data/data.csv</code> file has been restored to the previous version.</p>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/16-data-versioning/dvc/exercise_21" id="exercise_21_0">
+<p class="admonition-title">Question! 23</p>
+<form class="exercise-form">
+<p>To switch to version <code>v0.0.1</code> do:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>v0.0.1
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="gp">$ </span>dvc<span class="w"> </span>checkout
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Attention!</p>
+<p>Repeat these last two steps a few times and check both the repository and the data being changed!</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Important</p>
+<p>It is not mandatory to use <code>git tag</code>. You could checkout directly to a commit.</p>
+<p>We use the tag just to standardize and have a named commit!</p>
+</div>
+
+
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+            <a href="../intro/"
+               class="ah-prev"
+               title="Intro">
+              <span class="nav-label">Anterior</span>
+              <span class="nav-title">Intro</span>
+            </a>
+          
+          
+            <a href="../s3_storage/"
+               class="ah-next"
+               title="S3 storage">
+              <span class="nav-label">Próximo</span>
+              <span class="nav-title">S3 storage</span>
+            </a>
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="../../../js/tabs.js"></script><script src="../../../js/termynal.js"></script><script src="../../../js/custom.js"></script>
+    
+  </body>
+</html>
