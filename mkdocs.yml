@@ -102,6 +102,10 @@ nav:
         - modules/15-monitoring/data_drift_ml.md
         - modules/15-monitoring/performance_degradation.md
     - "16 - Data versioning":
-      - modules/16-data-versioning/intro.md
-      - modules/16-data-versioning/dvc.md
-      - modules/16-data-versioning/s3_storage.md
+      - "Part 1":
+        - modules/16-data-versioning/intro.md
+        - modules/16-data-versioning/dvc.md
+        - modules/16-data-versioning/s3_storage.md
+      - "Part 2":
+        - modules/16-data-versioning/pipelines.md
+        - modules/16-data-versioning/practicing.md

@@ -141,7 +141,7 @@ Let's see how to automate the execution of tests using *github actions*.
 
 ### Create Github Action
 
-Let's create a **directed acyclic graph** or **pipeline** with the sequence of steps to verify the tests in our repository.
+Let's create a **directed acyclic graph (DAG)** or **pipeline** with the sequence of steps to verify the tests in our repository.
 
 The actions to be performed are stored in the `.github/workflows` folder in the repository root and are represented in **YAML** format.
 
