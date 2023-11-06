@@ -245,7 +245,7 @@ Let's check if everything is working? To do this, let's run both files and check
     <div class="termy">
 
     ```console
-    $ python preproc.py
+    $ python src preproc.py
     ```
 
     </div>
@@ -261,7 +261,7 @@ Let's check if everything is working? To do this, let's run both files and check
     <div class="termy">
 
     ```console
-    $ python train.py
+    $ python src/train.py
     ```
 
     </div>
