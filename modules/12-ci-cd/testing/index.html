@@ -810,6 +810,11 @@
     <ul>
       
         
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 1</span>
+    <ul>
+      
+        
   
     <li>
       <a href="../../16-data-versioning/intro/">Intro</a>
@@ -831,6 +836,35 @@
       <a href="../../16-data-versioning/s3_storage/">S3 storage</a>
     </li>
   
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../16-data-versioning/pipelines/">Pipelines</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../16-data-versioning/practicing/">Practicing</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
 
       
     </ul>
@@ -1041,7 +1075,7 @@
 <p>Failing tests is a good indication that the code should not have been submitted and should not be deployed!</p>
 </div>
 <h3 id="create-github-action">Create Github Action</h3>
-<p>Let's create a <strong>directed acyclic graph</strong> or <strong>pipeline</strong> with the sequence of steps to verify the tests in our repository.</p>
+<p>Let's create a <strong>directed acyclic graph (DAG)</strong> or <strong>pipeline</strong> with the sequence of steps to verify the tests in our repository.</p>
 <p>The actions to be performed are stored in the <code>.github/workflows</code> folder in the repository root and are represented in <strong>YAML</strong> format.</p>
 <div class="admonition info">
 <p class="admonition-title">Info!</p>
@@ -1199,7 +1233,7 @@ Note that we defined that the task must be executed in an <code>ubuntu</code> co
 </div>
 </form>
 </div>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="modules/12-ci-cd/testing/long_1" id="long_1_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/12-ci-cd/testing/long_1" id="long_1_0">
 <p class="admonition-title">Question 15<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Will the commits be ignored on action fail?</p>
