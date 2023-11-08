@@ -514,6 +514,22 @@ Let's run the pipeline and check the results produced.
         
         The *stage* of `train` has not changed but depends on the *stage* of *preproc*, then `train` also needs to be executed.
 
+
+!!! tip "Tip!"
+    To view the *DAG* in the terminal, run:
+
+    <p>
+    <div class="termy">
+
+    ```console
+    $ dvc dag
+    ```
+
+    </div>
+    </p>
+
+    Try it yourself!
+
 The combination of *DVC* data versioning features with its *pipeline* management capabilities provides data scientists with a powerful tool that provides easy execution of experiments, while being able to reproduce and audit results.
 
 That's all for today!
