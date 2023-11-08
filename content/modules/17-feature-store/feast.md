@@ -32,7 +32,7 @@ It aims to provide a scalable and reliable platform for feature storage, retriev
 Let's create a `feast` project with:
 
 !!! exercise "Question!"
-    Make sure you are at the folder you wnat to store this class and run:
+    Make sure you are at the folder you want to store this class and run:
 
     <p>
     <div class="termy">

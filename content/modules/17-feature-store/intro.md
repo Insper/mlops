@@ -11,14 +11,14 @@ For example, the average purchase ticket, total sales, place of residence of a c
 In software development, we talk a lot about **reuse**.
 
 !!! exercise text long "Question!"
-    Explain, in your own words, what **code reuse**.
+    Explain, in your own words, what **code reuse** is.
 
     !!! answer "Answer!"
         It is the use of **existing software**, or software knowledge, to **build new software**. It involves creating software components in a modular and reusable manner so that they can be easily incorporated into different projects without the need to reinvent or rebuild the same functionality. Reuse can lead to **faster development** cycles and **reduced costs**.
 
 With the use version control and code Organization, among other, code reuse is facilitated and can also occur in ML projects. After all, ML projects also involve a lot of programming.
 
-However, data is an important part in the development of ML projects. The efficient management and governance of data play a crucial role in ensuring the its success.
+However, data is an important part in the development of ML projects. The efficient management and governance of data play a crucial role in ensuring project success.
 
 !!! exercise text long "Question!"
     How can we guarantee the reuse and availability of features in ML projects?
