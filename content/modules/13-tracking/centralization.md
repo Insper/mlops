@@ -43,7 +43,7 @@ The MLFlow server could also run centrally (like on an EC2 instance). However, w
 ## Create Database
 
 !!! exercise "Question"
-    Using the database credentials provided by the teacher, make a connection to the database using DBeaver and create a database with the name following the pattern `mlflow_INSPER_USERNAME`.
+    Using the database credentials provided by the professor, make a connection to the database using DBeaver and create a database with the name following the pattern `mlflow_INSPER_USERNAME`.
 
     !!! danger "Important"
         Replace `INSPER_USERNAME` with your Insper username!

@@ -112,3 +112,6 @@ nav:
     - "17 - Feature store":
       - modules/17-feature-store/intro.md
       - modules/17-feature-store/feast.md
+    - "18 - Sagemaker":
+      - modules/18-sagemaker/intro.md
+      - modules/18-sagemaker/sagemaker.md
