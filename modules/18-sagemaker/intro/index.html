@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Aps02 sql - MLOps & Interviews</title>
+        <title>Intro - MLOps & Interviews</title>
       
     
     <link rel="stylesheet"
@@ -179,7 +179,7 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">03 - Batch prediction</span>
     <ul>
       
@@ -191,7 +191,7 @@
         
   
     <li>
-      <a href="../intro/">Intro</a>
+      <a href="../../03-batch/intro/">Intro</a>
     </li>
   
 
@@ -199,7 +199,7 @@
         
   
     <li>
-      <a href="../data_formats/">Data formats</a>
+      <a href="../../03-batch/data_formats/">Data formats</a>
     </li>
   
 
@@ -207,7 +207,7 @@
         
   
     <li>
-      <a href="../practicing/">Practicing</a>
+      <a href="../../03-batch/practicing/">Practicing</a>
     </li>
   
 
@@ -217,14 +217,14 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Part 2</span>
     <ul>
       
         
   
     <li>
-      <a href="../sql/">Sql</a>
+      <a href="../../03-batch/sql/">Sql</a>
     </li>
   
 
@@ -232,7 +232,7 @@
         
   
     <li>
-      <a href="../db_tool/">Db tool</a>
+      <a href="../../03-batch/db_tool/">Db tool</a>
     </li>
   
 
@@ -240,47 +240,15 @@
         
   
     <li>
-      <a href="../dot_env/">Dot env</a>
+      <a href="../../03-batch/dot_env/">Dot env</a>
     </li>
   
 
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Aps02 sql</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#before-starting">Before starting</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#configure-assignment-repository">Configure assignment repository</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#task-0-create-analytical-table">TASK 0: Create analytical table</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#task-1-query-file-for-analytical-table">TASK 1: Query file for analytical table</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#task-2-exporting-predictions">TASK 2: Exporting predictions</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#task-3-a-new-view">TASK 3: A new View!</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../03-batch/aps02_sql/">Aps02 sql</a>
     </li>
   
 
@@ -901,14 +869,22 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">18 - Sagemaker</span>
     <ul>
       
         
   
-    <li>
-      <a href="../../18-sagemaker/intro/">Intro</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Intro</span>
+      <ul>
+        
+          
+            
+            
+        
+      </ul>
     </li>
   
 
@@ -916,7 +892,7 @@
         
   
     <li>
-      <a href="../../18-sagemaker/sagemaker/">Sagemaker</a>
+      <a href="../sagemaker/">Sagemaker</a>
     </li>
   
 
@@ -943,11 +919,7 @@
                   
                 
                   
-                    <li>03 - Batch prediction</li>
-                  
-                
-                  
-                    <li>Part 2</li>
+                    <li>18 - Sagemaker</li>
                   
                 
                 <li></li>
@@ -957,276 +929,15 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="aps-02">APS 02</h1>
-<p>In this assignment, we are going to create a new version of the work from the <a href="../practicing/">last class (Click!)</a>.</p>
+<h1 id="aws-sagemaker">AWS Sagemaker</h1>
+<p>In the first classes, we explored alternatives for ML deployment, both on-premise and in the cloud. The use of cloud services, Docker, and serverless resources allows developers to have fewer concerns about infrastructure and to focus more on product development.</p>
+<p>We learned that the ML lifecycle involves various challenges associated with model development, training, and deployment. Libraries, tracking tools, model registries, data versioning, and more aim to facilitate different stages of this cycle, and any assistance is welcome!</p>
+<p>Today, we will work with AWS SageMaker, which provides a complete end-to-end workflow for ML. It makes it easier for developers and data scientists to build, train, and deploy ML models.</p>
 <div class="admonition info">
-<p class="admonition-title">What will change?!</p>
-<p>All data will be read and written from PostgreSQL.</p>
+<p class="admonition-title">From the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html">AWS</a></p>
+<p>Amazon SageMaker is a fully managed <strong>machine learning service</strong>. With SageMaker, data scientists and developers can quickly and easily build and train machine learning models, and then directly deploy them into a production-ready hosted environment.</p>
 </div>
-<h2 id="before-starting">Before starting</h2>
-<h3 id="accept-assignment">Accept assignment</h3>
-<p>All assignments delivery will be made using Git repositories. Access the link below to accept the invitation and start working on the second assignment.</p>
-<p><a class="ah-button" href="https://classroom.github.com/a/L0W-9jWI">Invitation link</a></p>
-<h2 id="configure-assignment-repository">Configure assignment repository</h2>
-<p>You must ensure that the repository has the required folder structure. Create by hand or use your template and then link to the assignment repository.</p>
-<p><img alt="" src="../folder_structure.png" /></p>
-<h2 id="task-0-create-analytical-table">TASK 0: Create analytical table</h2>
-<p>In DBeaver, try to create a <em>SQL query</em> that performs the necessary transformations in the data of the <code>item_sale</code> table, so that they are grouped and with the necessary fields for <em>model training</em>, as in the last class.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;"></th>
-<th style="text-align: right;">store_id</th>
-<th style="text-align: right;">total_sales</th>
-<th style="text-align: right;">year</th>
-<th style="text-align: right;">month</th>
-<th style="text-align: right;">day</th>
-<th style="text-align: right;">weekday</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">5000</td>
-<td style="text-align: right;">62895.6</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5000</td>
-<td style="text-align: right;">42351.1</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr>
-<td style="text-align: right;">...</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-</tr>
-<tr>
-<td style="text-align: right;">1636</td>
-<td style="text-align: right;">5005</td>
-<td style="text-align: right;">46246.3</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">4</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition tip">
-<p class="admonition-title">Tip! 1</p>
-<p>Start with a simple query like:</p>
-<div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">store_id</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">client_id</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">product_id</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">date_sale</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">price</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">.</span><span class="n">item_sale</span><span class="p">;</span>
-</code></pre></div>
-<p>Then make the necessary adjustments.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip! 2</p>
-<p>At first, use <strong>fixed dates</strong>, for example, assuming your model will use data from <code>2023-06-01</code> to <code>2023-06-30</code>.</p>
-</div>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Notice that the query must do all necessary transformations on the data.</p>
-</div>
-<div class="admonition exercise self-progress" data-slug="modules/03-batch/aps02_sql/exercise_1" id="exercise_1_0">
-<p class="admonition-title">Question 1</p>
-<form class="exercise-form">
-<p>The current day (today) will not have reliable base sales as they are still being made by customers. Adjust your query so that the data is:</p>
-<ul>
-<li>From the day before today</li>
-<li>Up to a <code>delta</code> in the past. Choose your <code>delta</code>, for example one years.</li>
-</ul>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
-</div>
-</form>
-</div>
-<div class="admonition danger">
-<p class="admonition-title">Important!</p>
-<p>Now "today" cannot be fixed in the query anymore, google for <code>CURRENT_DATE</code> + postgres and make the necessary adjustments!</p>
-</div>
-<h2 id="task-1-query-file-for-analytical-table">TASK 1: Query file for analytical table</h2>
-<p>We will no longer have <em>CSV</em> in the <code>data</code> folder!</p>
-<div class="admonition exercise self-progress" data-slug="modules/03-batch/aps02_sql/exercise_2" id="exercise_2_0">
-<p class="admonition-title">Question 2</p>
-<form class="exercise-form">
-<p>Create an <code>.env</code> file with the database access credentials.</p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
-</div>
-</form>
-</div>
-<div class="admonition exercise self-progress" data-slug="modules/03-batch/aps02_sql/exercise_3" id="exercise_3_0">
-<p class="admonition-title">Question 3</p>
-<form class="exercise-form">
-<p>Create a <code>data/train.sql</code> file containing the query from the previous task.</p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
-</div>
-</form>
-</div>
-<div class="admonition exercise self-progress" data-slug="modules/03-batch/aps02_sql/exercise_4" id="exercise_4_0">
-<p class="admonition-title">Question 4</p>
-<form class="exercise-form">
-<p>Change your program so that:</p>
-<ul>
-<li>The <code>data/train.sql</code> file is read as text.</li>
-<li>Database credencials are loaded from <code>.env</code> file.</li>
-<li>Text query is executed to return a Pandas DataFrame in the model retraining step.</li>
-</ul>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
-</div>
-</form>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Search how to:</p>
-<ul>
-<li>Create a PostgreSQL database connection in Python.</li>
-<li>How to read a Pandas DataFrame from a query and connection.</li>
-</ul>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">For now...</p>
-<p>For now, keep saving and reading the model in the <code>models</code> folder!</p>
-</div>
-<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/03-batch/aps02_sql/long_1" id="long_1_0">
-<p class="admonition-title">Question 5<button class="editable-button"></button></p>
-<form class="exercise-form">
-<p>Why should we avoid using <code>*</code> in production queries?</p>
-<p>Explain why making queries like this one is a bad practice:</p>
-<div class="language-sql highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">som_table</span>
-</code></pre></div>
-<div class="form-elements">
-<div class="grow-wrap"><textarea name="data"></textarea></div>
-
-<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
-</div>
-</form>
-</div>
-<h2 id="task-2-exporting-predictions">TASK 2: Exporting predictions</h2>
-<p>The way data predicted by the model are saved depends a lot on how the model is used.</p>
-<p>In this activity, let's assume that:</p>
-<ul>
-<li>The model always makes predictions from the current day to the next six days.</li>
-<li>The predictions are stored in another <code>schema</code> called <code>sales_analytics</code>.</li>
-<li>Old predictions are not stored. Whichever prediction script is run, the table that stores predictions should be cleared and only the predictions for the day through the next week should be kept in the table.</li>
-</ul>
-<div class="admonition bug">
-<p class="admonition-title">Challenge</p>
-<p>Try to create a query that generates a table with all the days and fields needed for prediction:</p>
-<p><img alt="" src="../predict_dates.png" /></p>
-<p>Then, save these lines in a new table <code>"scoring_ml_YOUR_INSPER_USERNAME"</code> on schema <code>sales_analytics</code>. In Python, iterate over these records calling and storing your model's predictions!</p>
-<div class="admonition danger">
-<p>Remember to delete old records from this table every time you make predictions.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Important!</p>
-<p>When running the prediction, you'll need the data in the same format as the training.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;"></th>
-<th style="text-align: right;">store_id</th>
-<th style="text-align: right;">year</th>
-<th style="text-align: right;">month</th>
-<th style="text-align: right;">day</th>
-<th style="text-align: right;">weekday</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">5000</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">5000</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">5001</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">5001</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-</tr>
-</tbody>
-</table>
-<p>You can build the previous table already in the expected format (with columns of day, month, year, weekday) or just leave it with the complete date and make transformations (using Python or SQL) just before making the predictions.</p>
-</div>
-</div>
-<div class="admonition exercise self-progress" data-slug="modules/03-batch/aps02_sql/exercise_5" id="exercise_5_0">
-<p class="admonition-title">Question 6</p>
-<form class="exercise-form">
-<p>Change your prediction code to meet the requested requirements.</p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
-</div>
-</form>
-</div>
-<h2 id="task-3-a-new-view">TASK 3: A new View!</h2>
-<p>Let's pass the code from <code>data/train.sql</code> to a view on the database.</p>
-<div class="admonition exercise self-progress" data-slug="modules/03-batch/aps02_sql/exercise_6" id="exercise_6_0">
-<p class="admonition-title">Question 7</p>
-<form class="exercise-form">
-<p>Create a view with the contents of <code>data/train.sql</code>. The view can be called <code>view_abt_train_YOUR_INSPER_USERNAME</code> an be on schema <code>sales_analytics</code>.</p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
-</div>
-</form>
-</div>
-<div class="admonition exercise self-progress" data-slug="modules/03-batch/aps02_sql/exercise_7" id="exercise_7_0">
-<p class="admonition-title">Question 8</p>
-<form class="exercise-form">
-<p>Change the query in <code>data/train.sql</code> to query the newly created view.</p>
-<p>DO NOT use <code>"SELECT *"</code>!!!</p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
-</div>
-</form>
-</div>
-<p>Submit the activity by the <a href="../../../deadlines/"><strong>deadline</strong></a>!</p>
+<p>In the upcoming topics, we will explore some solutions offered by SageMaker and the problems it solves. Since the platform is packed with numerous features, we will only be able to cover a portion of them in this class.</p>
 
 
 </section>
@@ -1236,19 +947,19 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../dot_env/"
+            <a href="../../17-feature-store/feast/"
                class="ah-prev"
-               title="Dot env">
+               title="Feast">
               <span class="nav-label">Anterior</span>
-              <span class="nav-title">Dot env</span>
+              <span class="nav-title">Feast</span>
             </a>
           
           
-            <a href="../../04-int01/faq/"
+            <a href="../sagemaker/"
                class="ah-next"
-               title="Faq">
+               title="Sagemaker">
               <span class="nav-label">Próximo</span>
-              <span class="nav-title">Faq</span>
+              <span class="nav-title">Sagemaker</span>
             </a>
           
         </div>
