@@ -84,6 +84,9 @@ In the output returned by the `aws sagemaker describe-notebook-instance` command
     
     Choose the *IAM user* login option and use the login information provided by the professor.
 
+    !!! danger "Attention!"
+        Ensure that the URL accessed starts with `https`. Depending on the browser, access may not occur if it is not `https`!
+
 !!! tip "Tip!"
     After accessing Jupyter Notebook, replace the end of the URL `/tree` with `/lab` if you want to access the Jupyter Lab version!
 
