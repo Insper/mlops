@@ -165,7 +165,7 @@ In this file we must configure the data sources. For now we will use data stored
 ## Apply changes
 
 !!! exercise "Question!"
-    To apply changes, run:
+    To apply the changes, navigate to the `experiment/feature_repo` folder and run the command:
 
     <p>
     <div class="termy">

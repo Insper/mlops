@@ -115,3 +115,5 @@ nav:
     - "18 - Sagemaker":
       - modules/18-sagemaker/intro.md
       - modules/18-sagemaker/sagemaker.md
+    - "19 - Interview 04":
+      - modules/19-int04/int04.md
