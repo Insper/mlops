@@ -44,7 +44,25 @@ Click [**Here**](https://classroom.github.com/a/Oy7-RDIY) to accept assignment.
 
 ## Rubrics
 
-To be released!
+- **I**:
+    - Did not deliver or project was far below expectations.
+
+- **D**:
+    - Delivered the project but it has errors (faulty codes or scripts) OR
+    - Did not deliver a video explaining the details of the project (problem, data, main MLOps details)
+
+- **C**:
+    - The project runs without errors AND
+    - The project repository and other resources are well organized AND
+    - The project is reproducible, i.e. there is good documentation of the project, source code and data.
+
+- **B** (two items), **A** (four items or more):
+    - Uses logging.
+    - There is a clear process for collecting (if applicable), storing, and preprocessing data.
+    - Performs data versioning or uses feature store.
+    - There is an automated pipeline to deploy the models to production.
+    - Monitors model performance in production.
+    - Deals with degradation in model performance over time.
 
 ## Deadlines
 
