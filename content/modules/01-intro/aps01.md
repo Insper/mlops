@@ -17,12 +17,15 @@ In this activity, we will work on producing a **repository template**, defining 
 
 All assignments delivery will be made using Git repositories. Access the link below to accept the invitation and start working on the first assignment.
 
-[Invitation link](https://classroom.github.com/a/UlzIvQ43){ .ah-button }
+[Invitation link](https://classroom.github.com/a/Gg947NZN){ .ah-button }
 
 !!! important
     You should have received a new private repository. Copy your repo address below. It will be used in the rest of the guide.
 
     ![](repo_ex.png)
+
+!!! danger "Atention"
+    Please note that **APS 01** is divided into **two assignments**! The link to the second part will be available later in the handout!
 
 ## Configure assignment repository
 
@@ -224,16 +227,19 @@ At this point, you have a repository:
     !!! answer "Answer"
         In production deployment, it's a good idea to track dependencies to maintain stability and reliability. Besides that, in some companies your will run in a cluster (spark) where all data scientists and machine learning engineers must to use the same library versions.
 
+!!! info "Important!"
+    From now on, we will develop part 02 of APS 01!
+
 ## Task 07: Create a template
 
 Now that we've defined a repository standard, it would be nice to reuse it in new projects.
 
 For that we will use `cookiecutter` to define a **template repository**. Then, when a new ML project is started, we will just use our template to start it.
 
-In order to do this, you will need to **create a new public repository**. Create a public repository on your own Github called, for example, `23-2-mlops-template`.
+In order to do this, you will need to [**Accept the part 2 of the assignment**](https://classroom.github.com/a/fNFOMYFt). We will use this repository as our ML repository template for new projects.
 
 !!! danger "Atention"
-    To deliver this part of the assignment, paste the link to the template repository in the `README.md` of your private repository of `APS01`. Remember to push this change!
+    Please note that **APS 01** is divided into **two assignments**!
 
 Then, create a folder structure similar to:
 
@@ -291,7 +297,7 @@ Then use the command:
 <div class="termy">
 
     ```console
-    $ cookiecutter https://github.com/your_user/your_template_repository --checkout main
+    $ cookiecutter https://github.com/insper-classroom/your_template_repository --checkout main
     ```
 
 </div>

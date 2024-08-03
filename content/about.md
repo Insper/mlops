@@ -4,9 +4,9 @@ We will learn how to **Take Machine Learning Models to Production**!
 
 ## Schedules
 
-- **Monday**: 09:45
-- **Wednesday**: 09:45
-- Office hours on **xxx** xx:xx PM - xx:xx PM (Teams)
+- **Monday**: 09:45 AM - 11:45 AM
+- **Wednesday**: 09:45 AM - 11:45 AM
+- Office hours on **Mondays** 02:00 PM - 03:30 PM (Teams)
 
 ## Deliverables
 
@@ -28,7 +28,7 @@ In order for you to absorb the most from the course activities, it is mandatory 
 - Cloud computing
 - Basic statistics
 
-It's a good idea to have already taken the Insper courses:
+The classes require a lot of autonomy. It's a good idea to have already taken the Insper courses of:
 
 - Cloud computing
 - Machine Learning
