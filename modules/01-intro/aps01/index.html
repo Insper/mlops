@@ -242,11 +242,15 @@
 <p>In this activity, we will work on producing a <strong>repository template</strong>, defining standars that should be used on future projects. Let's assume that git is used for code versioning.</p>
 <h2 id="accept-assignment">Accept assignment</h2>
 <p>All assignments delivery will be made using Git repositories. Access the link below to accept the invitation and start working on the first assignment.</p>
-<p><a class="ah-button" href="https://classroom.github.com/a/UlzIvQ43">Invitation link</a></p>
+<p><a class="ah-button" href="https://classroom.github.com/a/Gg947NZN">Invitation link</a></p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>You should have received a new private repository. Copy your repo address below. It will be used in the rest of the guide.</p>
 <p><img alt="" src="../repo_ex.png" /></p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Atention</p>
+<p>Please note that <strong>APS 01</strong> is divided into <strong>two assignments</strong>! The link to the second part will be available later in the handout!</p>
 </div>
 <h2 id="configure-assignment-repository">Configure assignment repository</h2>
 <p>The supporting code for this activity is public in the repository <a href="https://github.com/insper-classroom/mlops-aps01-marketing">APS 01 MLOps</a>. In this guide we will configure your private repository to go along with this public repo.</p>
@@ -478,13 +482,17 @@
 <p>In production deployment, it's a good idea to track dependencies to maintain stability and reliability. Besides that, in some companies your will run in a cluster (spark) where all data scientists and machine learning engineers must to use the same library versions.</p>
 </div>
 </div>
+<div class="admonition info">
+<p class="admonition-title">Important!</p>
+<p>From now on, we will develop part 02 of APS 01!</p>
+</div>
 <h2 id="task-07-create-a-template">Task 07: Create a template</h2>
 <p>Now that we've defined a repository standard, it would be nice to reuse it in new projects.</p>
 <p>For that we will use <code>cookiecutter</code> to define a <strong>template repository</strong>. Then, when a new ML project is started, we will just use our template to start it.</p>
-<p>In order to do this, you will need to <strong>create a new public repository</strong>. Create a public repository on your own Github called, for example, <code>23-2-mlops-template</code>.</p>
+<p>In order to do this, you will need to <a href="https://classroom.github.com/a/fNFOMYFt"><strong>Accept the part 2 of the assignment</strong></a>. We will use this repository as our ML repository template for new projects.</p>
 <div class="admonition danger">
 <p class="admonition-title">Atention</p>
-<p>To deliver this part of the assignment, paste the link to the template repository in the <code>README.md</code> of your private repository of <code>APS01</code>. Remember to push this change!</p>
+<p>Please note that <strong>APS 01</strong> is divided into <strong>two assignments</strong>!</p>
 </div>
 <p>Then, create a folder structure similar to:</p>
 <p><img alt="" src="../template_folder.png" /></p>
@@ -581,7 +589,7 @@
 <p>Then use the command:</p>
 <div class="termy">
 
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">$ </span>cookiecutter<span class="w"> </span>https://github.com/your_user/your_template_repository<span class="w"> </span>--checkout<span class="w"> </span>main
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">$ </span>cookiecutter<span class="w"> </span>https://github.com/insper-classroom/your_template_repository<span class="w"> </span>--checkout<span class="w"> </span>main
 </code></pre></div>
 
 </div>
