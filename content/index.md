@@ -1,6 +1,6 @@
 # Machine Learning Ops & Interviews
 
-Welcome to the Machine Learning Ops & Interviews (2023/2) material. Here you will find all the support material for the course, including links to deliver the assigments.
+Welcome to the Machine Learning Ops & Interviews (2024/2) material. Here you will find all the support material for the course, including links to deliver the assigments.
 
 ## Important Links
 
