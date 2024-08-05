@@ -1,4 +1,4 @@
-# Standards - Aps01
+# Standards - Aps01 - Part 1
 
 What is the size of a Data Science team? Considering data analysts, data engineers, data scientists, machine learning engineers, it is not uncommon for the professional count to reach hundreds. Across industries, companies are building [larger data science teams](https://www.statista.com/statistics/1136560/data-scientists-company-employment/) more and more.
 
@@ -13,6 +13,7 @@ It is certain that this team will have difficulties in generating business value
 
 In this activity, we will work on producing a **repository template**, defining standars that should be used on future projects. Let's assume that git is used for code versioning.
 
+
 ## Accept assignment
 
 All assignments delivery will be made using Git repositories. Access the link below to accept the invitation and start working on the first assignment.
@@ -25,7 +26,7 @@ All assignments delivery will be made using Git repositories. Access the link be
     ![](repo_ex.png)
 
 !!! danger "Atention"
-    Please note that **APS 01** is divided into **two assignments**! The link to the second part will be available later in the handout!
+    Please note that **APS 01** is divided into **two assignments**! The link to the second part will be available later in the **part 2** handout!
 
 ## Configure assignment repository
 
@@ -230,79 +231,109 @@ At this point, you have a repository:
 !!! info "Important!"
     From now on, we will develop part 02 of APS 01!
 
-## Task 07: Create a template
+## Release APS01 Part 1!
 
-Now that we've defined a repository standard, it would be nice to reuse it in new projects.
+It looks like you have completed the activities for the first part of the APS, so it's time to do the release!
 
-For that we will use `cookiecutter` to define a **template repository**. Then, when a new ML project is started, we will just use our template to start it.
+In this APS, we will use an automatic correction server.
 
-In order to do this, you will need to [**Accept the part 2 of the assignment**](https://classroom.github.com/a/fNFOMYFt). We will use this repository as our ML repository template for new projects.
+### Webhook configuration
 
-!!! danger "Atention"
-    Please note that **APS 01** is divided into **two assignments**!
+Go to the activities repository on GitHub and access the settings (e.g., https://github.com/insper-classroom/24-2-mlops-aps01-pedrods/settings). In the left menu, choose the **Webhooks** option and then the **Add webhook** option.
 
-Then, create a folder structure similar to:
+![](add_webhook.png)
 
-![](template_folder.png)
+You will need to fill in:
+
+- Payload URL: `http://xxxx.com/yyy` **Go to Blackboard to get the URL!**
+- Content type: `application/json`
+- Secret: leave it empty!
+- SSL verification: check `Enable SSL verification`
+- Which events would you like to trigger this webhook?: Choose `"Let me select individual events"` and then:
+    - Check ONLY the OPTION:
+        - `Branch or tag creation`
+    - Uncheck the OPTION:
+        - `Pushes`
+- Finally, leave the `Active` option checked.
+
+![](conf_webhook_1.png)
+[...]
+![](conf_webhook_2.png)
+
+With this, your repository can now be tested automatically!
+
+### Test Release
+
+With the repository cloned on your machine, open the terminal and launch any tag.
 
 !!! info "Info!"
-    The `.gitkeep` are empty files created to allow empty folders to be in the template
+    We will (intentionally) launch a tag for a non-existent activity!
 
-!!! exercise "Question"
-    Create a `README.md` (root directory) with some basic informations of the template repository
-
-!!! exercise "Question"
-    Create the `cookiecutter.json` with the content:
-
-    ```json
-    {
-        "directory_name": "project-name",
-        "author_name": "Your Name",
-        "compatible_python_versions": "^3.8"
-    }
-    ```
-
-!!! exercise "Question"
-    Create the `.gitignore` inside `{ {cookiecutter.directory_name} }` with the files to be ignored by default in future projects.
-
-!!! exercise "Question"
-    Create the `README.md` inside `{ {cookiecutter.directory_name} }` with the default **README** for future projects. Be creative!
-
-    ![](readme_ex.png)
-
-!!! exercise "Question"
-    Create basic python files in `src` folder.
-
-!!! exercise "Question"
-    You can also leave some notebooks with basic code for exploratory data analysis.
-
-!!! exercise "Question"
-    Commit and push your changes to Github!
-
-
-### Testing your template
-
-Install `cookiecutter`:
+Now, open the terminal in the root of the repository and type the following commands:
 
 <div class="termy">
 
     ```console
-    $ pip install cookiecutter
+    $ git add .
+
+    $ git commit -m "my cs repository"
+
+    $ git push
+
+    $ git tag -a aps99.1.1 -m "test tag"
+
+    $ git push origin aps99.1.1
     ```
 
 </div>
 
-Then use the command:
+### Go to your repository
+Access the issues tab of your repository on GitHub. You should find a response from the test, informing you that the activity does not exist!
+
+![](issues_list.png)
+
+Click on the issue to see an example of automatic feedback.
+
+![](issue_test.png)
+
+!!! info "Info!"
+    The creation of the issue indicates that our tag creations are triggering the test server!
+
+### Now, for real!
+
+!!! tip "Tip!"
+    If you need to create a new tag, increase the last number:
+
+    - `aps1.1.2`
+    - `aps1.1.3`
 
 <div class="termy">
 
     ```console
-    $ cookiecutter https://github.com/insper-classroom/your_template_repository --checkout main
+    $ git tag -a aps1.1.1 -m "test tag"
+
+    $ git push origin aps1.1.1
     ```
 
 </div>
+<br>
 
-Done! It should create the folders and files structure defined in the template.
+!!! exercise "To do!"
+    Check the repository for issues!
 
-!!! danger "Remember!"
-    Delivering the assignment is the same as pushing to the `main` branch of your private repository of `aps01`!
+### Update `README.md`
+
+Now we will update the `README.md` to show the current status of the tests in your repository. Edit your `README.md` and add an API call at the beginning, providing your GitHub username.
+
+!!! danger "Attention!"
+    Access Blackboard to find the API arguments!
+
+```console
+## Status dos testes
+
+![svg](httsp://<server-url>/webhook/svg/<semester>/<github_user>)
+```
+
+An Example:
+
+![](test_status.svg)

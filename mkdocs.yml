@@ -23,4 +23,5 @@ nav:
   - Content:
     - "01 - Introduction":
       - modules/01-intro/intro.md
-      - modules/01-intro/aps01.md
+      - modules/01-intro/aps01_part_1.md
+      - modules/01-intro/aps01_part_2.md
