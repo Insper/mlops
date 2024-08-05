@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>Aps01 part 2 - MLOps & Interviews</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '../../..';
+      
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
+      
+      
+      var dashboardEnabled = false;
+      var tagTree = {};
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../../../css/termynal.css">
+  </head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href="../../.."
+           title="MLOps &amp; Interviews"
+           class="ah-logo"
+           aria-label="MLOps & Interviews">
+          MLOps &amp; Interviews
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="../../..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../about/">About</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../deadlines/">Deadlines</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../contributions/">Contributions</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Content</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">01 - Introduction</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../aps01_part_1/">Aps01 part 1</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Aps01 part 2</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#accept-assignment">Accept assignment</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#task-01-create-a-template">Task 01: Create a template</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#release-aps01-part-2">Release APS01 Part 2!</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                  
+                    <li>Content</li>
+                  
+                
+                  
+                    <li>01 - Introduction</li>
+                  
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<h1 id="standards-aps01-part-2">Standards - Aps01 - Part 2</h1>
+<p>Now that we've defined a repository standard, it would be nice to reuse it in new projects.</p>
+<p>For that we will use <code>cookiecutter</code> to define a <strong>template repository</strong>. Then, when a new ML project is started, we will just use our template to start it.</p>
+<h2 id="accept-assignment">Accept assignment</h2>
+<p>In order to do this, you will need to <a href="https://classroom.github.com/a/fNFOMYFt"><strong>Accept the part 2 of the assignment</strong></a>. We will use this repository as our ML repository template for new projects.</p>
+<div class="admonition danger">
+<p class="admonition-title">Atention</p>
+<p>Please note that <strong>APS 01</strong> is divided into <strong>two assignments</strong>!</p>
+</div>
+<h2 id="task-01-create-a-template">Task 01: Create a template</h2>
+<p>Then, clone the repository in you machine and create a folder structure similar to:</p>
+<p><img alt="" src="../template_folder.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info!</p>
+<p>The <code>.gitkeep</code> are empty files created to allow empty folders to be in the template</p>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/01-intro/aps01_part_2/exercise_1" id="exercise_1_0">
+<p class="admonition-title">Question 1</p>
+<form class="exercise-form">
+<p>Create a <code>README.md</code> (root directory) with some basic informations of the template repository</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/01-intro/aps01_part_2/exercise_2" id="exercise_2_0">
+<p class="admonition-title">Question 2</p>
+<form class="exercise-form">
+<p>Create the <code>cookiecutter.json</code> with the content:</p>
+<div class="language-json highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;directory_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project-name&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;author_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Your Name&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;compatible_python_versions&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^3.8&quot;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</code></pre></div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/01-intro/aps01_part_2/exercise_3" id="exercise_3_0">
+<p class="admonition-title">Question 3</p>
+<form class="exercise-form">
+<p>Create the <code>.gitignore</code> inside <code>{ {cookiecutter.directory_name} }</code> with the files to be ignored by default in future projects.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/01-intro/aps01_part_2/exercise_4" id="exercise_4_0">
+<p class="admonition-title">Question 4</p>
+<form class="exercise-form">
+<p>Create the <code>README.md</code> inside <code>{ {cookiecutter.directory_name} }</code> with the default <strong>README</strong> for future projects. Be creative!</p>
+<p><img alt="" src="../readme_ex.png" /></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/01-intro/aps01_part_2/exercise_5" id="exercise_5_0">
+<p class="admonition-title">Question 5</p>
+<form class="exercise-form">
+<p>Create basic python files in <code>src</code> folder.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/01-intro/aps01_part_2/exercise_6" id="exercise_6_0">
+<p class="admonition-title">Question 6</p>
+<form class="exercise-form">
+<p>You can also leave some notebooks with basic code for exploratory data analysis.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/01-intro/aps01_part_2/exercise_7" id="exercise_7_0">
+<p class="admonition-title">Question 7</p>
+<form class="exercise-form">
+<p>Commit and push your changes to Github!</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<h3 id="task-02-testing-your-template">Task 02: Testing your template</h3>
+<p>Install <code>cookiecutter</code>:</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>cookiecutter
+</code></pre></div>
+
+</div>
+
+<p>Then use the command:</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>cookiecutter<span class="w"> </span>https://github.com/insper-classroom/your_template_repository<span class="w"> </span>--checkout<span class="w"> </span>main
+</code></pre></div>
+
+</div>
+
+<p>Done! It should create the folders and files structure defined in the template.</p>
+<div class="admonition danger">
+<p class="admonition-title">Remember!</p>
+<p>Delivering the assignment is the same as pushing to the <code>main</code> branch of your private repository of <code>aps01</code>!</p>
+</div>
+<h2 id="release-aps01-part-2">Release APS01 Part 2!</h2>
+<div class="admonition exercise self-progress" data-slug="modules/01-intro/aps01_part_2/exercise_8" id="exercise_8_0">
+<p class="admonition-title">Exercício 8</p>
+<form class="exercise-form">
+<p>In the repository created for part 2 of the APS, configure the webhook the same way as in part 1.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/01-intro/aps01_part_2/exercise_9" id="exercise_9_0">
+<p class="admonition-title">Exercício 9</p>
+<form class="exercise-form">
+<p>In the repository created for part 2 of the APS, configure the webhook the same way as in part 1.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/01-intro/aps01_part_2/exercise_10" id="exercise_10_0">
+<p class="admonition-title">Exercício 10</p>
+<form class="exercise-form">
+<p>In the repository for part 2, submit the activity by creating a <code>aps1.2.x</code> tag, replacing <code>x</code> with any number.</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">$ </span>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>aps1.2.1<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;release my template for autograding&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>aps1.2.1
+</code></pre></div>
+</div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/01-intro/aps01_part_2/exercise_11" id="exercise_11_0">
+<p class="admonition-title">Exercício 11</p>
+<form class="exercise-form">
+<p>Check the repository for issues and solve then!</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/01-intro/aps01_part_2/exercise_12" id="exercise_12_0">
+<p class="admonition-title">Exercício 12</p>
+<form class="exercise-form">
+<p>Check the test status API.</p>
+<p>Feel the Dopamine Release as you check that both APS1 activities are <strong><span style="color:green">green</span></strong>  and passing the tests!</p>
+<p><img alt="" src="../test_status_pass.svg" /></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Important!</p>
+<p>Each part of APS1 is configured in an all-or-nothing format. Each part contributes <code>5</code> to the grade (only if passed all tests for that part). Therefore, the possible grades are <code>0</code>, <code>5</code> (only one part completed), or <code>10</code>.</p>
+</div>
+
+
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+            <a href="../aps01_part_1/"
+               class="ah-prev"
+               title="Aps01 part 1">
+              <span class="nav-label">Anterior</span>
+              <span class="nav-title">Aps01 part 1</span>
+            </a>
+          
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="../../../js/tabs.js"></script><script src="../../../js/termynal.js"></script><script src="../../../js/custom.js"></script>
+    
+  </body>
+</html>
