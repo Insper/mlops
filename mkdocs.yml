@@ -25,3 +25,5 @@ nav:
       - modules/01-intro/intro.md
       - modules/01-intro/aps01_part_1.md
       - modules/01-intro/aps01_part_2.md
+    - "02 - Deploy: first try!":
+      - modules/02-api/api_deploy.md
