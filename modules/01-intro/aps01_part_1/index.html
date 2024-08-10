@@ -288,7 +288,7 @@
 </code></pre></div>
 
 </div>
-
+<p><br></p>
 <p>First let's add the remote repository of support files and download the <code>main</code> branch (which contains this semester's files)</p>
 <div class="termy">
 
@@ -298,16 +298,20 @@
 </code></pre></div>
 
 </div>
-
+<p><br></p>
 <p>Now let's add the repository of your assignment and send the support code:</p>
+<div class="admonition danger">
+<p class="admonition-title">Attention!</p>
+<p>In the next command, replace <code>your_private_repo_address</code> with the <strong>URL</strong> of your repository (SSH or https) created for this part of the activity.</p>
+</div>
 <div class="termy">
 
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>aps<span class="w"> </span>your_private_repo_addresss
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>aps<span class="w"> </span>your_private_repo_address
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>aps<span class="w"> </span>main
 </code></pre></div>
 
 </div>
-
+<p><br></p>
 <p>With that you should already have your local repository configured and pointing to two remote repositories:</p>
 <ul>
 <li><strong>insper</strong>: this repo contains all support code for <strong>aps01</strong>. It is shared across the room and no one is allowed to push it.</li>
@@ -321,7 +325,7 @@
 </code></pre></div>
 
 </div>
-
+<p><br></p>
 <p>Let's then embed the news in your local repository and push the new files to your private repo.</p>
 <div class="termy">
 
@@ -331,41 +335,41 @@
 </code></pre></div>
 
 </div>
-
+<p><br></p>
 <h2 id="configure-dev-environment">Configure dev environment</h2>
 <p>Use a tool of your preference to create an isolated Python environment.</p>
-<h3 id="with-conda">With <code>conda</code></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">With <code>conda</code></label><label for="__tabbed_1_2">With <code>venv</code></label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="termy">
-
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>mlops<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>mlops<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="gp">$ </span>conda<span class="w"> </span>activate<span class="w"> </span>mlops
 </code></pre></div>
-
+<p></div>
+<br></p>
 </div>
-
-<h3 id="with-venv">With <code>venv</code></h3>
-<ul>
-<li>On Windows:</li>
-</ul>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Windows</label><label for="__tabbed_2_2">On Linux/macOS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="termy">
-
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>mlops
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>mlops
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="gp">$ </span>mlops<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
 </code></pre></div>
-
 </div>
-
-<ul>
-<li>On Linux/macOS:</li>
-</ul>
+</div>
+<div class="tabbed-block">
 <div class="termy">
-
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>mlops
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>mlops
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>mlops/bin/activate
 </code></pre></div>
-
 </div>
-
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p><br></p>
 <div class="admonition danger">
 <p class="admonition-title">Important!</p>
@@ -380,7 +384,7 @@
 
 </div>
 
-<p>You you notice that everything was done in a single notebook. Data proccessing, analysis, model construction, etc.</p>
+<p>You you notice that everything was done in a single notebook. Data processing, analysis, model construction, etc.</p>
 <p>There are those who defend the software production inside notebooks. There is even the area of <strong>NDD</strong> (<a href="https://github.com/fastai/nbdev">Notebook-Driven Development</a>). It works when done right, but let's stay away from these people and take a more classical approach!</p>
 <h2 id="task-02-organizing">Task 02: Organizing</h2>
 <p>Now you must configure the repository according to some standards. Let's create specific folders for each type of resource used in the project.</p>
@@ -421,7 +425,7 @@
 <p>Now you must:</p>
 <ol>
 <li>Create a folder called <code>src</code></li>
-<li>Create a file <code>src/proccess.py</code> with all necessary code for data preprocessing. This code can generate a separeted file inside <code>data</code>.</li>
+<li>Create a file <code>src/process.py</code> with all necessary code for data preprocessing. This code can generate a separeted file inside <code>data</code>.</li>
 <li>Create a folder called <code>models</code></li>
 <li>Create a file <code>src/train.py</code> with all necessary code for model training. This code should export models to folder <code>models</code>.</li>
 </ol>
@@ -557,11 +561,49 @@
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
 <a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="gp">$ </span>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>aps99.1.1<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;test tag&quot;</span>
 <a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>aps99.1.1
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>aps<span class="w"> </span>aps99.1.1
 </code></pre></div>
 
 </div>
 
+<p><br></p>
+<div class="admonition danger">
+<p class="admonition-title">Attention!</p>
+<p>Make sure you are sending the tag to the correct remote.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">aps</label><label for="__tabbed_3_2">origin</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>If <code>git branch -avv</code> returns something similar to:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">$ </span>&lt;pre&gt;git<span class="w"> </span>branch<span class="w"> </span>-avv
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="go">* &lt;font color=&quot;#26A269&quot;&gt;main               &lt;/font&gt; 8b532b5 [&lt;font color=&quot;#12488B&quot;&gt;origin/main&lt;/font&gt;]</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="go">&lt;font color=&quot;#C01C28&quot;&gt;remotes/origin/main&lt;/font&gt; 8b532b5&lt;/pre&gt;</span>
+</code></pre></div>
+</div>
+<p>Then, push tag <code>aps99.1.1</code> to <code>aps</code> remote:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>aps<span class="w"> </span>aps99.1.1
+</code></pre></div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>If <code>git branch -avv</code> returns something similar to:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gp">$ </span>&lt;pre&gt;git<span class="w"> </span>branch<span class="w"> </span>-avv
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="go">* &lt;font color=&quot;#26A269&quot;&gt;main               &lt;/font&gt; 086ebe2 [&lt;font color=&quot;#12488B&quot;&gt;aps/main&lt;/font&gt;] aps01</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="go">&lt;font color=&quot;#C01C28&quot;&gt;remotes/aps/main   &lt;/font&gt; 086ebe2 aps01</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="go">&lt;font color=&quot;#C01C28&quot;&gt;remotes/insper/main&lt;/font&gt; 086ebe2 aps01&lt;/pre&gt;</span>
+</code></pre></div>
+</div>
+<p>Then, push tag <code>aps99.1.1</code> to <code>origin</code> remote:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>aps99.1.1
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <h3 id="go-to-your-repository">Go to your repository</h3>
 <p>Access the issues tab of your repository on GitHub. You should find a response from the test, informing you that the activity does not exist!</p>
 <p><img alt="" src="../issues_list.png" /></p>
@@ -582,9 +624,9 @@
 </div>
 <div class="termy">
 
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">$ </span>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>aps1.1.1<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;test tag&quot;</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>aps1.1.1
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">$ </span>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>aps1.1.1<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;test tag&quot;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>aps<span class="w"> </span>aps1.1.1
 </code></pre></div>
 
 </div>
@@ -605,9 +647,9 @@
 <p class="admonition-title">Attention!</p>
 <p>Access Blackboard to find the API arguments!</p>
 </div>
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">#</span><span class="c1"># Status dos testes</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="go">![svg](httsp://&lt;server-url&gt;/webhook/svg/&lt;semester&gt;/&lt;github_user&gt;)</span>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp">#</span><span class="c1"># Status dos testes</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="go">![svg](https://&lt;server-url&gt;/webhook/svg/&lt;semester&gt;/&lt;github_user&gt;)</span>
 </code></pre></div>
 <p>An Example:</p>
 <p><img alt="" src="../test_status.svg" /></p>
