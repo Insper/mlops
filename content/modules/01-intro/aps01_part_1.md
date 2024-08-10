@@ -43,6 +43,7 @@ To get started, create a new folder for your delivery repository and initialize 
     ```
 
 </div>
+<br>
 
 First let's add the remote repository of support files and download the `main` branch (which contains this semester's files)
 
@@ -55,17 +56,22 @@ First let's add the remote repository of support files and download the `main` b
     ```
 
 </div>
+<br>
 
 Now let's add the repository of your assignment and send the support code:
+
+!!! danger "Attention!"
+    In the next command, replace `your_private_repo_address` with the **URL** of your repository (SSH or https) created for this part of the activity.
 
 <div class="termy">
 
     ```console
-    $ git remote add aps your_private_repo_addresss
+    $ git remote add aps your_private_repo_address
     $ git push --set-upstream aps main
     ```
 
 </div>
+<br>
 
 With that you should already have your local repository configured and pointing to two remote repositories:
 
@@ -83,6 +89,7 @@ Let's start by downloading the news from the support repository:
     ```
 
 </div>
+<br>
 
 Let's then embed the news in your local repository and push the new files to your private repo.
 
@@ -95,45 +102,46 @@ Let's then embed the news in your local repository and push the new files to you
     ```
 
 </div>
+<br>
 
 ## Configure dev environment
 
 Use a tool of your preference to create an isolated Python environment.
 
-### With `conda`
+=== "With `conda`"
 
-<div class="termy">
+    <div class="termy">
 
     ```console
     $ conda create -n mlops python=3.10
     $ conda activate mlops
     ```
 
-</div>
+    </div>
+    <br>
 
+=== "With `venv`"
 
-### With `venv`
+    === "On Windows"
+        <div class="termy">
 
-- On Windows:
-<div class="termy">
+        ```console
+        $ python3 -m venv mlops
+        $ mlops\Scripts\activate
+        ```
 
-    ```console
-    $ python3 -m venv mlops
-    $ mlops\Scripts\activate
-    ```
+        </div>
 
-</div>
+    === "On Linux/macOS"
 
-- On Linux/macOS:
+        <div class="termy">
 
-<div class="termy">
+        ```console
+        $ python3 -m venv mlops
+        $ source mlops/bin/activate
+        ```
 
-    ```console
-    $ python3 -m venv mlops
-    $ source mlops/bin/activate
-    ```
-
-</div>
+        </div>
 
 <br>
 
@@ -152,7 +160,7 @@ Check the content of the `aps01` repository. Install the notebook package of you
 
 </div>
 
-You you notice that everything was done in a single notebook. Data proccessing, analysis, model construction, etc.
+You you notice that everything was done in a single notebook. Data processing, analysis, model construction, etc.
 
 There are those who defend the software production inside notebooks. There is even the area of **NDD** ([Notebook-Driven Development](https://github.com/fastai/nbdev)). It works when done right, but let's stay away from these people and take a more classical approach!
 
@@ -182,7 +190,7 @@ Every code on this project is on a single notebook. We are going to split it con
     Now you must:
 
     1. Create a folder called `src`
-    1. Create a file `src/proccess.py` with all necessary code for data preprocessing. This code can generate a separeted file inside `data`.
+    1. Create a file `src/process.py` with all necessary code for data preprocessing. This code can generate a separeted file inside `data`.
     1. Create a folder called `models`
     1. Create a file `src/train.py` with all necessary code for model training. This code should export models to folder `models`.
 
@@ -282,10 +290,66 @@ Now, open the terminal in the root of the repository and type the following comm
 
     $ git tag -a aps99.1.1 -m "test tag"
 
-    $ git push origin aps99.1.1
+    $ git push aps aps99.1.1
     ```
 
 </div>
+
+<br>
+!!! danger "Attention!"
+    Make sure you are sending the tag to the correct remote.
+
+    === "aps"
+
+        If `git branch -avv` returns something similar to:
+
+        <div class="termy">
+
+        ```console
+        $ <pre>git branch -avv
+        * <font color="#26A269">main               </font> 8b532b5 [<font color="#12488B">origin/main</font>]
+        <font color="#C01C28">remotes/origin/main</font> 8b532b5</pre>
+        ```
+
+        </div>
+
+        Then, push tag `aps99.1.1` to `aps` remote:
+
+        <div class="termy">
+
+        ```console
+        $ git push aps aps99.1.1
+        ```
+
+        </div>
+
+    
+
+    === "origin"
+
+        If `git branch -avv` returns something similar to:
+
+        <div class="termy">
+
+        ```console
+        $ <pre>git branch -avv
+        * <font color="#26A269">main               </font> 086ebe2 [<font color="#12488B">aps/main</font>] aps01
+        <font color="#C01C28">remotes/aps/main   </font> 086ebe2 aps01
+        <font color="#C01C28">remotes/insper/main</font> 086ebe2 aps01</pre>
+        ```
+
+        </div>
+
+        Then, push tag `aps99.1.1` to `origin` remote:
+
+        <div class="termy">
+
+        ```console
+        $ git push origin aps99.1.1
+        ```
+
+        </div>
+
 
 ### Go to your repository
 Access the issues tab of your repository on GitHub. You should find a response from the test, informing you that the activity does not exist!
@@ -312,7 +376,7 @@ Click on the issue to see an example of automatic feedback.
     ```console
     $ git tag -a aps1.1.1 -m "test tag"
 
-    $ git push origin aps1.1.1
+    $ git push aps aps1.1.1
     ```
 
 </div>
@@ -331,7 +395,7 @@ Now we will update the `README.md` to show the current status of the tests in yo
 ```console
 ## Status dos testes
 
-![svg](httsp://<server-url>/webhook/svg/<semester>/<github_user>)
+![svg](https://<server-url>/webhook/svg/<semester>/<github_user>)
 ```
 
 An Example:

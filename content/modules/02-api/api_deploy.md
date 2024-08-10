@@ -448,7 +448,7 @@ data = {
     "campaign": 2,
 }
 
-resp = req.post("http://localhost:8500/predict",
+resp = req.post("http://localhost:8900/predict",
                 json=data,
                 headers=headers)
 

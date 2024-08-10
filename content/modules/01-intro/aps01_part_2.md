@@ -42,8 +42,12 @@ Then, clone the repository in you machine and create a folder structure similar 
 
     ![](readme_ex.png)
 
+    Think about the useful information that is expected to be in the **README** of any and every project!
+
 !!! exercise "Question"
-    Create basic python files in `src` folder.
+    Create basic python files in `{ {cookiecutter.directory_name} }/src` folder.
+
+    These files would be generic files, extensively edited by developers who will use your template in many different projects. Just give a basic idea of ​​the pattern you expect data scientists to follow when doing preprocessing or model training.
 
 !!! exercise "Question"
     You can also leave some notebooks with basic code for exploratory data analysis.
