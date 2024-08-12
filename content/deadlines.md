@@ -6,4 +6,4 @@ The deadline assumes the end of the day (*11:59:59 PM*), unless otherwise specif
 
 | Start Date | Assignment                          | Deadline |
 |------------|-------------------------------------|----------|
-| Aug-05     | [Aps01](modules/01-intro/aps01_part_1.md)  | Aug-11   |
+| Aug-05     | [Aps01](modules/01-intro/aps01_part_1.md)  | Aug-15   |

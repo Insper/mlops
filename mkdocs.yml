@@ -20,10 +20,20 @@ nav:
   - about.md
   - deadlines.md
   - contributions.md
-  - Content:
+  - Classes:
     - "01 - Introduction":
-      - modules/01-intro/intro.md
-      - modules/01-intro/aps01_part_1.md
-      - modules/01-intro/aps01_part_2.md
+      - classes/01-intro/intro.md
+      - classes/01-intro/aps01_part_1.md
+      - classes/01-intro/aps01_part_2.md
     - "02 - Deploy: first try!":
-      - modules/02-api/api_deploy.md
+      - classes/02-api/api_deploy.md
+    - "03 - Batch prediction":
+      - "Part 1":
+        - classes/03-batch/intro.md
+        - classes/03-batch/data_formats.md
+        - classes/03-batch/practicing.md
+      # - "Part 2":
+      #   - classes/03-batch/sql.md
+      #   - classes/03-batch/db_tool.md
+      #   - classes/03-batch/dot_env.md
+      #   - classes/03-batch/aps02_sql.md
