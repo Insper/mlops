@@ -125,7 +125,7 @@
             
               
   <li class="ah-togglable-item opened">
-    <span class="ah-togglable-handle">Content</span>
+    <span class="ah-togglable-handle">Classes</span>
     <ul>
       
         
@@ -210,6 +210,48 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">03 - Batch prediction</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 1</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../03-batch/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/data_formats/">Data formats</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/practicing/">Practicing</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -224,7 +266,7 @@
               
                 
                   
-                    <li>Content</li>
+                    <li>Classes</li>
                   
                 
                   
@@ -248,7 +290,7 @@
 <h2 id="when-is-this-decision-made">When is this decision made?</h2>
 <p>Remeber the ML lifecycle from last class:</p>
 <p><img alt="" src="../../01-intro/ml_lifecycle.png" /></p>
-<div class="admonition exercise choice tag-choice-exercise" data-answer-idx="0" data-slug="modules/02-api/api_deploy/choice_1" id="choice_1_0">
+<div class="admonition exercise choice tag-choice-exercise" data-answer-idx="0" data-slug="classes/02-api/api_deploy/choice_1" id="choice_1_0">
 <p class="admonition-title">Question 1</p>
 <form class="exercise-form">
 <p>In which of these phases should the decision to deploy in <strong>batch</strong> or <strong>online</strong> be made?</p>
@@ -375,7 +417,7 @@ To test, go to <strong><a href="http://localhost:8900">http://localhost:8900</a>
 </div>
 
 <p>We are going to store in this folder the pickle of the models trained in the last class.</p>
-<div class="admonition exercise self-progress" data-slug="modules/02-api/api_deploy/exercise_1" id="exercise_1_0">
+<div class="admonition exercise self-progress" data-slug="classes/02-api/api_deploy/exercise_1" id="exercise_1_0">
 <p class="admonition-title">Exercício 2</p>
 <form class="exercise-form">
 <p>Copy the <code>ohe.pkl</code> and <code>model.pkl</code> files from the last class activity to the models folder of today's class.</p>
@@ -429,7 +471,7 @@ To test, go to <strong><a href="http://localhost:8900">http://localhost:8900</a>
 <a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>
 <a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;prediction&quot;</span><span class="p">:</span> <span class="s2">&quot;I can almost make predictions!&quot;</span><span class="p">}</span>
 </code></pre></div>
-<div class="admonition exercise self-progress" data-slug="modules/02-api/api_deploy/exercise_2" id="exercise_2_0">
+<div class="admonition exercise self-progress" data-slug="classes/02-api/api_deploy/exercise_2" id="exercise_2_0">
 <p class="admonition-title">Question 3</p>
 <form class="exercise-form">
 <div class="form-elements">
@@ -474,7 +516,7 @@ To test, go to <strong><a href="http://localhost:8900">http://localhost:8900</a>
 <a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
 <a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;prediction&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">pred</span><span class="p">)}</span>
 </code></pre></div>
-<div class="admonition exercise self-progress" data-slug="modules/02-api/api_deploy/exercise_3" id="exercise_3_0">
+<div class="admonition exercise self-progress" data-slug="classes/02-api/api_deploy/exercise_3" id="exercise_3_0">
 <p class="admonition-title">Exercício 4</p>
 <form class="exercise-form">
 <p>Complete the remaining fields of the <strong>Person</strong> class in the <code>main.py</code> file. Remember to import BaseModel at the beginning of <code>main.py</code>!</p>
@@ -677,7 +719,7 @@ To test, go to <strong><a href="http://localhost:8900">http://localhost:8900</a>
 <a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
 <a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
-<div class="admonition exercise self-progress" data-slug="modules/02-api/api_deploy/exercise_4" id="exercise_4_0">
+<div class="admonition exercise self-progress" data-slug="classes/02-api/api_deploy/exercise_4" id="exercise_4_0">
 <p class="admonition-title">Exercício 5</p>
 <form class="exercise-form">
 <p>Edit and run the code above. Try a <strong>valid</strong> and an <strong>invalid</strong> token!</p>
@@ -729,6 +771,13 @@ To test, go to <strong><a href="http://localhost:8900">http://localhost:8900</a>
               <span class="nav-title">Aps01 part 2</span>
             </a>
           
+          
+            <a href="../../03-batch/intro/"
+               class="ah-next"
+               title="Intro">
+              <span class="nav-label">Próximo</span>
+              <span class="nav-title">Intro</span>
+            </a>
           
         </div>
       </footer>

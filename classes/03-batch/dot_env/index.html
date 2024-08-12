@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>MLOps & Interviews</title>
+        <title>Dot env - MLOps & Interviews</title>
       
     
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
     <script>
       // SETUP GLOBAL CONSTANTS
-      var base_url = '.';
+      var base_url = '../../..';
       
       var telemetryEnabled = false;
       var backendUrl = "";
@@ -46,9 +46,9 @@
     <script src="https://unpkg.com/htmx.org@1.8.4"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../../../assets/js/main.js"></script>
     
-    <link rel="stylesheet" href="css/termynal.css">
+    <link rel="stylesheet" href="../../../css/termynal.css">
   </head>
   <body>
     <div class="ah-main-container">
@@ -60,7 +60,7 @@
   <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
 </svg>
         </button>
-        <a href="."
+        <a href="../../.."
            title="MLOps &amp; Interviews"
            class="ah-logo"
            aria-label="MLOps & Interviews">
@@ -93,20 +93,8 @@
             
               
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Home</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#important-links">Important Links</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../..">Home</a>
     </li>
   
 
@@ -114,7 +102,7 @@
               
   
     <li>
-      <a href="about/">About</a>
+      <a href="../../../about/">About</a>
     </li>
   
 
@@ -122,7 +110,7 @@
               
   
     <li>
-      <a href="deadlines/">Deadlines</a>
+      <a href="../../../deadlines/">Deadlines</a>
     </li>
   
 
@@ -130,7 +118,7 @@
               
   
     <li>
-      <a href="contributions/">Contributions</a>
+      <a href="../../../contributions/">Contributions</a>
     </li>
   
 
@@ -148,7 +136,7 @@
         
   
     <li>
-      <a href="classes/01-intro/intro/">Intro</a>
+      <a href="../../01-intro/intro/">Intro</a>
     </li>
   
 
@@ -156,7 +144,7 @@
         
   
     <li>
-      <a href="classes/01-intro/aps01_part_1/">Aps01 part 1</a>
+      <a href="../../01-intro/aps01_part_1/">Aps01 part 1</a>
     </li>
   
 
@@ -164,7 +152,7 @@
         
   
     <li>
-      <a href="classes/01-intro/aps01_part_2/">Aps01 part 2</a>
+      <a href="../../01-intro/aps01_part_2/">Aps01 part 2</a>
     </li>
   
 
@@ -181,7 +169,7 @@
         
   
     <li>
-      <a href="classes/02-api/api_deploy/">Api deploy</a>
+      <a href="../../02-api/api_deploy/">Api deploy</a>
     </li>
   
 
@@ -203,7 +191,7 @@
         
   
     <li>
-      <a href="classes/03-batch/intro/">Intro</a>
+      <a href="../intro/">Intro</a>
     </li>
   
 
@@ -211,7 +199,7 @@
         
   
     <li>
-      <a href="classes/03-batch/data_formats/">Data formats</a>
+      <a href="../data_formats/">Data formats</a>
     </li>
   
 
@@ -219,7 +207,7 @@
         
   
     <li>
-      <a href="classes/03-batch/practicing/">Practicing</a>
+      <a href="../practicing/">Practicing</a>
     </li>
   
 
@@ -252,14 +240,63 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="machine-learning-ops-interviews">Machine Learning Ops &amp; Interviews</h1>
-<p>Welcome to the Machine Learning Ops &amp; Interviews (2024/2) material. Here you will find all the support material for the course, including links to deliver the assigments.</p>
-<h2 id="important-links">Important Links</h2>
+<h1 id="env-file"><code>.env</code> File</h1>
+<p>A <code>.env</code> is a <strong>environment file</strong>, a plain text file commonly used in software development projects. It serves as a configuration file that stores environment variables.</p>
+<div class="admonition info">
+<p class="admonition-title">Info!</p>
+<p>Environment variables are key-value pairs that hold <strong>sensitive</strong> or environment-specific information, such as:</p>
 <ul>
-<li><a href="https://insper.blackboard.com/webapps/blackboard/execute/announcement?method=search&amp;context=course&amp;course_id=_42465_1&amp;handle=cp_announcements&amp;mode=cpview">Blackboard</a>: primarily used for sending notifications!. </li>
-<li><a href="about/">Course rules</a>: you will find the criteria for approval. Read with attention!</li>
-<li><a href="http://portaldoprofessor.insper.edu.br/wp-content/uploads/2015/02/CALEND%C3%81RIO-ACAD%C3%8AMICO-2024-1.pdf">Calendar</a>: Insper's calendar (may be out of date).</li>
+<li>API keys</li>
+<li>Access tokens</li>
+<li>Database credentials</li>
+<li>Other configuration settings.</li>
 </ul>
+</div>
+<p>The <code>.env</code> file plays a crucial role in separating sensitive or environment-specific data from the source code.</p>
+<p>By storing such information in a separate file, developers can easily manage different configurations for various environments (e.g., development, staging, production) <strong>without modifying the codebase</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip! 1</p>
+<p>Stop hardcoding configuration values in source code. Use <code>.env</code> instead!</p>
+</div>
+<p>This approach <strong>enhances security</strong> and simplifies the deployment process.</p>
+<div class="admonition danger">
+<p class="admonition-title">Never commit!</p>
+<p><code>.env</code> files must remain outside of version control systems (e.g., github, gitlab, bitbucket), preventing accidental exposure!</p>
+</div>
+<h2 id="dot-example">Dot Example!</h2>
+<p>It is recommended to create an <code>.env.example</code> file, this must be <strong>committed in the repository</strong>. It must contain <strong>all the environment variables</strong> necessary to start the application or model, but with <strong>dummy values</strong>.</p>
+<p>This way, whoever is going to deploy the ML application, will know what to configure so that the application starts successfully!</p>
+<p>A <code>.env.example</code> file:
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go">DB_HOST=&quot;1.2.3.4&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">DB_PORT=1122</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="go">DB_USERNAME=&quot;some_username&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">DB_PASSWORD=abc123</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go">DB_DATABASE=&quot;some_db&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="go">GITHUB_TOKEN_ACCESS=&quot;ghp_123412341234123412341234123412341234&quot;</span>
+</code></pre></div></p>
+<h2 id="reading-env">Reading <code>.env</code></h2>
+<p>Install de lib:</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>python-dotenv
+</code></pre></div>
+
+</div>
+
+<p><br>
+So environment variables can be read in Python with:</p>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Reading .env and creating environment variables</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">load_dotenv</span><span class="p">()</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Reading environment variable</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">host</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DB_HOST&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Using environment variable</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+</code></pre></div>
 
 
 </section>
@@ -270,18 +307,11 @@
         <div class="ah-footer-nav">
           
           
-            <a href="about/"
-               class="ah-next"
-               title="About">
-              <span class="nav-label">Próximo</span>
-              <span class="nav-title">About</span>
-            </a>
-          
         </div>
       </footer>
     </div>
     
-      <script src="js/tabs.js"></script><script src="js/termynal.js"></script><script src="js/custom.js"></script>
+      <script src="../../../js/tabs.js"></script><script src="../../../js/termynal.js"></script><script src="../../../js/custom.js"></script>
     
   </body>
 </html>
