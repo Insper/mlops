@@ -5,7 +5,7 @@ What is the size of a Data Science team? Considering data analysts, data enginee
 So let's assume that the odds are high that you won't work alone on a data team. Imagine if each professional developed their models in a completely different way, without any:
 
 - Language standards
-- Libraries standards
+- Libraries standards (which libraries and which versions)
 - Code organization standards
 - Concerns about the resources needed to deploy the models.
 
@@ -159,8 +159,27 @@ Check the content of the `aps01` repository. Install the notebook package of you
     ```
 
 </div>
+<br>
 
-You you notice that everything was done in a single notebook. Data processing, analysis, model construction, etc.
+You you notice that everything was done in a single notebook. Data proccessing, analysis, model construction, etc.
+
+!!! exercise "Question"
+    Read and execute each command in the `everything.ipynb` notebook, trying to understand the function of each code created by the data scientist.
+
+!!! exercise text long "Question"
+    Explain, in general terms, what is the model predicting?
+
+    !!! answer "Answer"
+        To understant more about the data and model, access the links avaiable at the end of the notebook.
+
+        - https://www.kaggle.com/datasets/janiobachmann/bank-marketing-dataset
+        - https://www.kaggle.com/code/enesztrk/bank-credit-analysis-classification
+
+!!! exercise text long "Question"
+    Considering the `everything.ipynb` notebook, what is the **target variable** used in training the model?
+
+    !!! answer "Answer"
+        The target variable is `deposit`.
 
 There are those who defend the software production inside notebooks. There is even the area of **NDD** ([Notebook-Driven Development](https://github.com/fastai/nbdev)). It works when done right, but let's stay away from these people and take a more classical approach!
 

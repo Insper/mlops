@@ -236,7 +236,7 @@ async def predict(person: Person):
 !!! exercise
     Complete the remaining fields of the **Person** class in the `main.py` file. Remember to import BaseModel at the beginning of `main.py`!
 
-Return to http://localhost:8900/docs in your browser and test the `predict` route, adding the JSON content you saw earlier!
+Return to **http://localhost:8900/docs** in your browser and test the `predict` route, adding the JSON content you saw earlier!
 
 ![](try_predict.png)
 
@@ -330,13 +330,13 @@ The function and the route (I removed the example for simplicity):
 def get_username_for_token(token):
     if token == "abc123":
         return "pedro1"
-    return ""
+    return None
 
 async def validate_token(credentials: HTTPAuthorizationCredentials = Depends(bearer)):
     token = credentials.credentials
 
     username = get_username_for_token(token)
-    if username == "":
+    if not username:
         raise HTTPException(status_code=401, detail="Invalid token")
 
     return {"username": username}
@@ -365,14 +365,14 @@ bearer = HTTPBearer()
 def get_username_for_token(token):
     if token == "abc123":
         return "pedro1"
-    return ""
+    return None
 
 
 async def validate_token(credentials: HTTPAuthorizationCredentials = Depends(bearer)):
     token = credentials.credentials
 
     username = get_username_for_token(token)
-    if username == "":
+    if not username:
         raise HTTPException(status_code=401, detail="Invalid token")
 
     return {"username": username}
@@ -468,10 +468,15 @@ We can configure so that models are opened when the API starts:
 ```python
 ml_models = {}
 
-@app.on_event("startup")
-async def startup_event():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     ml_models["ohe"] = load_encoder()
     ml_models["models"] = load_model()
+    yield
+    ml_models.clear()
+
+
+app = FastAPI(lifespan=lifespan)
 ```
 
 So, the predict route would now have:
