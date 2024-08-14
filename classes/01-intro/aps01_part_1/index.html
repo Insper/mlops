@@ -342,7 +342,7 @@
 <p>So let's assume that the odds are high that you won't work alone on a data team. Imagine if each professional developed their models in a completely different way, without any:</p>
 <ul>
 <li>Language standards</li>
-<li>Libraries standards</li>
+<li>Libraries standards (which libraries and which versions)</li>
 <li>Code organization standards</li>
 <li>Concerns about the resources needed to deploy the models.</li>
 </ul>
@@ -466,14 +466,58 @@
 </code></pre></div>
 
 </div>
+<p><br></p>
+<p>You you notice that everything was done in a single notebook. Data proccessing, analysis, model construction, etc.</p>
+<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_1" id="exercise_1_0">
+<p class="admonition-title">Question 1</p>
+<form class="exercise-form">
+<p>Read and execute each command in the <code>everything.ipynb</code> notebook, trying to understand the function of each code created by the data scientist.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/01-intro/aps01_part_1/long_1" id="long_1_0">
+<p class="admonition-title">Question 2<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>Explain, in general terms, what is the model predicting?</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
 
-<p>You you notice that everything was done in a single notebook. Data processing, analysis, model construction, etc.</p>
+<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Resposta</p>
+<p>To understant more about the data and model, access the links avaiable at the end of the notebook.</p>
+<ul>
+<li><a href="https://www.kaggle.com/datasets/janiobachmann/bank-marketing-dataset">https://www.kaggle.com/datasets/janiobachmann/bank-marketing-dataset</a></li>
+<li><a href="https://www.kaggle.com/code/enesztrk/bank-credit-analysis-classification">https://www.kaggle.com/code/enesztrk/bank-credit-analysis-classification</a></li>
+</ul>
+</div>
+</div>
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/01-intro/aps01_part_1/long_2" id="long_2_0">
+<p class="admonition-title">Question 3<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>Considering the <code>everything.ipynb</code> notebook, what is the <strong>target variable</strong> used in training the model?</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Resposta</p>
+<p>The target variable is <code>deposit</code>.</p>
+</div>
+</div>
 <p>There are those who defend the software production inside notebooks. There is even the area of <strong>NDD</strong> (<a href="https://github.com/fastai/nbdev">Notebook-Driven Development</a>). It works when done right, but let's stay away from these people and take a more classical approach!</p>
 <h2 id="task-02-organizing">Task 02: Organizing</h2>
 <p>Now you must configure the repository according to some standards. Let's create specific folders for each type of resource used in the project.</p>
 <p>Think that all the repositories of the company should follow this organization pattern.</p>
-<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_1" id="exercise_1_0">
-<p class="admonition-title">Question 1</p>
+<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_2" id="exercise_2_0">
+<p class="admonition-title">Question 4</p>
 <form class="exercise-form">
 <p>Let's organize the <strong>data</strong> resources. You must:</p>
 <ol>
@@ -486,8 +530,8 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_2" id="exercise_2_0">
-<p class="admonition-title">Question 2</p>
+<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_3" id="exercise_3_0">
+<p class="admonition-title">Question 5</p>
 <form class="exercise-form">
 <p>For <strong>notebooks</strong>:</p>
 <ol>
@@ -502,8 +546,8 @@
 </div>
 <h2 id="task-03-split-notebook-code">Task 03: Split notebook code</h2>
 <p>Every code on this project is on a single notebook. We are going to split it considering the different functionalities provided.</p>
-<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_3" id="exercise_3_0">
-<p class="admonition-title">Question 3</p>
+<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_4" id="exercise_4_0">
+<p class="admonition-title">Question 6</p>
 <form class="exercise-form">
 <p>Now you must:</p>
 <ol>
@@ -523,8 +567,8 @@
 <p>Once the training algorithm, features and hyperparameters have been chosen, the final model to be deployed can be trained with a more complete set of data (and not just <code>X_train</code>). We will ignore this fact for now!</p>
 <p>Also, when the model is in use (making predictions), the target variable is not needed or does not exist. That is, we need specific data and scripts for prediction.</p>
 <p>In this activity, consider that whenever training needs to be redone, there will be a <code>bank.csv</code> file with updated data in the <code>data</code> folder.</p>
-<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_4" id="exercise_4_0">
-<p class="admonition-title">Question 4</p>
+<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_5" id="exercise_5_0">
+<p class="admonition-title">Question 7</p>
 <form class="exercise-form">
 <p>Let's simulate the prediction data. Now you must:</p>
 <ol>
@@ -543,8 +587,8 @@
 - With specific code files to train a model
 - With specific code files to use a model to make predictions</p>
 <h2 id="task-05-readme">Task 05: Readme</h2>
-<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_5" id="exercise_5_0">
-<p class="admonition-title">Question 5</p>
+<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_6" id="exercise_6_0">
+<p class="admonition-title">Question 8</p>
 <form class="exercise-form">
 <p>Create a <code>README.md</code> with some basic informations of the project</p>
 <div class="form-elements">
@@ -554,8 +598,8 @@
 </form>
 </div>
 <h2 id="task-06-dependencies">Task 06: Dependencies</h2>
-<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_6" id="exercise_6_0">
-<p class="admonition-title">Question 6</p>
+<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_7" id="exercise_7_0">
+<p class="admonition-title">Question 9</p>
 <form class="exercise-form">
 <p>Create a <code>requirements.txt</code> with all the libs used on the project.</p>
 <div class="form-elements">
@@ -565,7 +609,7 @@
 </form>
 </div>
 <div class="admonition exercise choice tag-choice-exercise" data-answer-idx="0" data-slug="classes/01-intro/aps01_part_1/choice_1" id="choice_1_0">
-<p class="admonition-title">Question 7</p>
+<p class="admonition-title">Question 10</p>
 <form class="exercise-form">
 <p>Should you set lib versions?</p>
 <div class="form-elements">
@@ -714,8 +758,8 @@
 
 </div>
 <p><br></p>
-<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_7" id="exercise_7_0">
-<p class="admonition-title">To do! 8</p>
+<div class="admonition exercise self-progress" data-slug="classes/01-intro/aps01_part_1/exercise_8" id="exercise_8_0">
+<p class="admonition-title">To do! 11</p>
 <form class="exercise-form">
 <p>Check the repository for issues!</p>
 <div class="form-elements">
