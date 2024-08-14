@@ -11,7 +11,7 @@
 
 ![](dbeaver.png)
 
-- [*pgAdmin - Click to Download!*]()
+- [*pgAdmin - Click to Download!*](https://www.pgadmin.org/download/)
 
 ![](pg_admin.webp)
 
