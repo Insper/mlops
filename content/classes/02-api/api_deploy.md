@@ -103,7 +103,7 @@ Inside `src`, start the api with the command:
 <div class="termy">
 
     ```console
-    $ uvicorn main:app --host 0.0.0.0 --port 8900 --workers 4
+    $ uvicorn main:app --host 0.0.0.0 --port 8900 --reload
     ```
 
 </div>
