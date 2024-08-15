@@ -37,3 +37,5 @@ nav:
         - classes/03-batch/db_tool.md
         - classes/03-batch/dot_env.md
         - classes/03-batch/aps02_sql.md
+    - "04 - Interview 01":
+      - classes/04-int01/faq.md
