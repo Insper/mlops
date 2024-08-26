@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>Celery - MLOps & Interviews</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '../../..';
+      
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
+      
+      
+      var dashboardEnabled = false;
+      var tagTree = {};
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../../../css/termynal.css">
+  </head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href="../../.."
+           title="MLOps &amp; Interviews"
+           class="ah-logo"
+           aria-label="MLOps & Interviews">
+          MLOps &amp; Interviews
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="../../..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../about/">About</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../deadlines/">Deadlines</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../contributions/">Contributions</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Classes</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">01 - Introduction</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../01-intro/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../01-intro/aps01_part_1/">Aps01 part 1</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../01-intro/aps01_part_2/">Aps01 part 2</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">02 - Deploy: first try!</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../02-api/api_deploy/">Api deploy</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">03 - Batch prediction</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 1</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../03-batch/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/data_formats/">Data formats</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/practicing/">Practicing</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../03-batch/sql/">Sql</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/db_tool/">Db tool</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/dot_env/">Dot env</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/aps02_sql/">Aps02 sql</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">04 - Interview 01</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../04-int01/faq/">Faq</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../04-int01/int01/">Int01</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">05 - Docker</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../05-docker/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../05-docker/s3/">S3</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../05-docker/docker/">Docker</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">06 - Message Broker</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../rabbitmq/">Rabbitmq</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Celery</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#install">Install</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#create-app">Create App</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#run-app">Run App</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#send-message">Send Message</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#celery-dashboard-flower">Celery Dashboard - Flower</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#horizontal-scaling">Horizontal Scaling</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#references">References</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                  
+                    <li>Classes</li>
+                  
+                
+                  
+                    <li>06 - Message Broker</li>
+                  
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<h1 id="celery">Celery</h1>
+<p><strong>Celery</strong> is an open-source <strong>distributed task queue system</strong> written in Python, designed to manage the execution of tasks asynchronously across multiple workers.</p>
+<div class="admonition info">
+<p class="admonition-title">Info!</p>
+<p>Celery is written in Python, but the protocol can be implemented in any language.</p>
+</div>
+<p>It operates on a <strong>producer-consumer model</strong>, where tasks are defined as units of work and are placed into a <strong>queue</strong>. These tasks are then picked up and processed by worker processes, which constantly monitor the task queue for new jobs.</p>
+<p>Celery uses a <strong>messaging broker</strong>, such as <strong>RabbitMQ</strong> or Redis, to facilitate communication between the client that initiates the task and the worker that executes it. This system allows for <strong>high availability</strong> and <strong>horizontal scaling</strong>, making it possible to distribute work efficiently across different threads or machines.</p>
+<p>Celery’s protocol can be implemented in various programming languages, enabling language interoperability and integration with diverse systems. For instance, Node.js and PHP have their own implementations, and HTTP endpoints can be used to connect Celery tasks with external services, further extending its versatility.</p>
+<p>To practice, let's redo our first exercise and understand what we get new with the use of Celery.</p>
+<h2 id="install">Install</h2>
+<p>Install Celery with:</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>celery
+</code></pre></div>
+
+</div>
+<p><br></p>
+<h2 id="create-app">Create App</h2>
+<p>Let's create a simple application to consume the messages. It will simply display the message on standard output.</p>
+<div class="admonition exercise self-progress" data-slug="classes/06-message-broker/celery/exercise_1" id="exercise_1_0">
+<p class="admonition-title">Question! 1</p>
+<form class="exercise-form">
+<p>But first, let's configure Celery. To do this, create a <code>celeryconfig.py</code> file containing the broker information (RabbitMQ):</p>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">broker_url</span> <span class="o">=</span> <span class="s2">&quot;amqp://myuser:mypassword@localhost:5672//&#39;&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">task_serializer</span> <span class="o">=</span> <span class="s2">&quot;json&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">accept_content</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">]</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">timezone</span> <span class="o">=</span> <span class="s2">&quot;UTC&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">enable_utc</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Update credentials!</p>
+<p>Update <code>myuser</code> and <code>mypassword</code> to your RabbitMQ credentials!</p>
+</div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/06-message-broker/celery/exercise_2" id="exercise_2_0">
+<p class="admonition-title">Question! 2</p>
+<form class="exercise-form">
+<p>Then create a <code>my_ml_app.py</code> file containing:</p>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">Celery</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">(</span><span class="s2">&quot;my_ml_app&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Load the Celery configuration from celeryconfig.py</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">app</span><span class="o">.</span><span class="n">config_from_object</span><span class="p">(</span><span class="s2">&quot;celeryconfig&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nd">@app</span><span class="o">.</span><span class="n">task</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a Prediction function&quot;&quot;&quot;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received:&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="k">return</span>
+</code></pre></div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Celery Task!</p>
+<p>Notice that the <code>predict</code> function is annotated as a Celery <strong>task</strong>.</p>
+<p>This task should be called every time a prediction is needed.</p>
+</div>
+<h2 id="run-app">Run App</h2>
+<p>To initialize the application, use:</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">$ </span>celery<span class="w"> </span>-A<span class="w"> </span>my_ml_app<span class="w"> </span>worker
+</code></pre></div>
+
+</div>
+<p><br></p>
+<div class="admonition exercise self-progress" data-slug="classes/06-message-broker/celery/exercise_3" id="exercise_3_0">
+<p class="admonition-title">Question! 3</p>
+<form class="exercise-form">
+<p>Initialize the application and check the queues created on the RabbitMQ dashboard.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<h2 id="send-message">Send Message</h2>
+<p>To send messages for prediction (simulation), let's create a file and call the Celery prediction task.</p>
+<div class="admonition exercise self-progress" data-slug="classes/06-message-broker/celery/exercise_4" id="exercise_4_0">
+<p class="admonition-title">Question! 4</p>
+<form class="exercise-form">
+<p>Then create a <code>use_ml_app.py</code> file containing:</p>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">my_ml_app</span> <span class="kn">import</span> <span class="n">predict</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">msg</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a message: &quot;</span><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="k">if</span> <span class="n">msg</span> <span class="o">==</span> <span class="s2">&quot;exit&quot;</span><span class="p">:</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="k">break</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="c1"># Call Celery task</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="n">msg</span><span class="p">}</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">predict</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</code></pre></div>
+<p>Notice that, for each message, a payload is sent to the prediction task.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/06-message-broker/celery/exercise_5" id="exercise_5_0">
+<p class="admonition-title">Question! 5</p>
+<form class="exercise-form">
+<p>Run the <code>use_ml_app.py</code> and send several messages.</p>
+<p>Check if these messages are consumed by the worker that makes the prediction. For each message you should get an output on the terminal (standard output)!</p>
+<div class="admonition danger">
+<p class="admonition-title">Important!</p>
+<p>Make sure your Cellery application (that makes the prediction) is running!</p>
+</div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<h2 id="celery-dashboard-flower">Celery Dashboard - Flower</h2>
+<p>Celery provides a Dashboard through which we can monitor the status of workers and the work queue. This functionality can be added by installing <code>Flower</code>:</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>flower
+</code></pre></div>
+
+</div>
+<p><br></p>
+<p>Install it, then initialize Flower with:</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">$ </span>celery<span class="w"> </span>-A<span class="w"> </span>my_ml_app<span class="w"> </span>flower
+</code></pre></div>
+
+</div>
+<p><br></p>
+<p>Access <strong><a href="http://0.0.0.0:5555">http://0.0.0.0:5555</a></strong> and browse the available options in the menu.</p>
+<p><img alt="" src="../flower_init.png" /></p>
+<h2 id="horizontal-scaling">Horizontal Scaling</h2>
+<p>Let's check out the horizontal scaling functionality. To do this, we will change the prediction code to simulate a long task.</p>
+<div class="admonition exercise self-progress" data-slug="classes/06-message-broker/celery/exercise_6" id="exercise_6_0">
+<p class="admonition-title">Question! 6</p>
+<form class="exercise-form">
+<p>Update the <code>my_ml_app.py</code> file to add a <code>sleep</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">Celery</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span> <span class="nn">time</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">(</span><span class="s2">&quot;my_ml_app&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># Load the Celery configuration from celeryconfig.py</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">app</span><span class="o">.</span><span class="n">config_from_object</span><span class="p">(</span><span class="s2">&quot;celeryconfig&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nd">@app</span><span class="o">.</span><span class="n">task</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a Slow Prediction function&quot;&quot;&quot;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received:&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="c1"># Simulate long task</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ended processing:&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>    <span class="k">return</span>
+</code></pre></div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<p>Let's initialize the application with a limit of up to 10 workers. If Celery identifies the need for more workers, they will be created automatically.</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">$ </span>celery<span class="w"> </span>-A<span class="w"> </span>my_ml_app<span class="w"> </span>worker<span class="w"> </span>--autoscale<span class="o">=</span><span class="m">10</span>,2
+</code></pre></div>
+
+</div>
+<p><br></p>
+<div class="admonition exercise self-progress" data-slug="classes/06-message-broker/celery/exercise_7" id="exercise_7_0">
+<p class="admonition-title">Question! 7</p>
+<form class="exercise-form">
+<p>Initialize the application with horizontal scaling.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/06-message-broker/celery/exercise_8" id="exercise_8_0">
+<p class="admonition-title">Question! 8</p>
+<form class="exercise-form">
+<p>Send several messages to the prediction queue.</p>
+<p>Check the number of workers and messages waiting for prediction on the Flower Dashboard.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://docs.celeryq.dev/en/stable/getting-started/index.html">https://docs.celeryq.dev/en/stable/getting-started/index.html</a></li>
+</ul>
+
+
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+            <a href="../rabbitmq/"
+               class="ah-prev"
+               title="Rabbitmq">
+              <span class="nav-label">Anterior</span>
+              <span class="nav-title">Rabbitmq</span>
+            </a>
+          
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="../../../js/tabs.js"></script><script src="../../../js/termynal.js"></script><script src="../../../js/custom.js"></script>
+    
+  </body>
+</html>
