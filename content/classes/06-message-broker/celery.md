@@ -34,7 +34,7 @@ Let's create a simple application to consume the messages. It will simply displa
     But first, let's configure Celery. To do this, create a `celeryconfig.py` file containing the broker information (RabbitMQ):
 
     ```python
-    broker_url = "amqp://myuser:mypassword@localhost:5672//'"
+    broker_url = "amqp://myuser:mypassword@localhost:5672//"
     task_serializer = "json"
     accept_content = ["json"]
     timezone = "UTC"
