@@ -22,14 +22,14 @@ An alternative is to add the model's predict result to a queue, so that the send
     Could the message broker be used to create a queue of JSON from customers for a model to process? For example:
     ```JSON
     {
-    "age": 42,
-    "job": "entrepreneur",
-    "marital": "married",
-    "education": "primary",
-    "balance": 558,
-    "housing": "yes",
-    "duration": 186,
-    "campaign": 2
+        "age": 42,
+        "job": "entrepreneur",
+        "marital": "married",
+        "education": "primary",
+        "balance": 558,
+        "housing": "yes",
+        "duration": 186,
+        "campaign": 2
     }
     ```
     !!! answer "Answer"
