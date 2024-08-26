@@ -44,9 +44,10 @@ nav:
       - classes/05-docker/intro.md
       - classes/05-docker/s3.md
       - classes/05-docker/docker.md
-    # - "06 - Message Broker":
-    #   - classes/06-message-broker/intro.md
-    #   - classes/06-message-broker/rabbitmq.md
+    - "06 - Message Broker":
+      - classes/06-message-broker/intro.md
+      - classes/06-message-broker/rabbitmq.md
+      - classes/06-message-broker/celery.md
     # - "07 - Lambda Functions":
     #   - "Part 1":
     #     - classes/07-lambda/aws_lambda.md

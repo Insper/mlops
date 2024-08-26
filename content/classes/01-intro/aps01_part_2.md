@@ -118,3 +118,6 @@ Done! It should create the folders and files structure defined in the template.
 
 !!! info "Important!"
     Each part of APS1 is configured in an all-or-nothing format. Each part contributes `5` to the grade (only if passed all tests for that part). Therefore, the possible grades are `0`, `5` (only one part completed), or `10`.
+
+## References
+- https://cookiecutter.readthedocs.io/en/1.7.2/README.html
