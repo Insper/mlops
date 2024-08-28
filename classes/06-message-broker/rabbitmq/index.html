@@ -471,7 +471,7 @@
 <p>Repeat until the user types <code>"exit"</code>.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -522,7 +522,7 @@
 <div class="form-elements">
 <div class="grow-wrap"><textarea name="data"></textarea></div>
 
-<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
 </div>
 </form>
 <div class="admonition answer no-indent">
@@ -544,7 +544,7 @@
 <p>Create your <code>docker-compose.yml</code>, change the ports or password if needed.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -560,7 +560,7 @@
 </div>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -574,7 +574,7 @@
 </div>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 <div class="admonition answer no-indent">
@@ -593,7 +593,7 @@
 <p>Make sure you can log in!</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -617,7 +617,7 @@
 <p>Create an <code>.env</code> file containing the <code>RABBIT_USERNAME</code> and <code>RABBIT_PASSWORD</code> variables.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -665,7 +665,7 @@
 <p><img alt="" src="../queue_chitchat.png" /></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -682,7 +682,7 @@
 <p>The <em>"Ready"</em> counter should increment with each new message.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -694,7 +694,7 @@
 <p>Create a <code>consumer.py</code> file.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -754,7 +754,7 @@
 </ul>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -765,7 +765,7 @@
 <p>Send new messages through <code>producer.py</code> and check if they are processed by different consumers.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -776,7 +776,7 @@
 <p>Check whether, between receipt and completion of consumption, if the <em>unacked</em> message counter is incremented in the RabbitMQ Dashboard.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -799,11 +799,11 @@
 <div class="form-elements">
 <div class="grow-wrap"><textarea name="data"></textarea></div>
 
-<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
 </div>
 </form>
 <div class="admonition answer no-indent">
-<p class="admonition-title">Resposta</p>
+<p class="admonition-title">Answer</p>
 <p>Due to <code>auto_ack=False</code>, if the consumer dies before notifying that the message was correctly processed, then the message is automatically redistributed to other consumers (or waits in the queue if there are no free consumers).</p>
 </div>
 </div>
@@ -814,7 +814,7 @@
 <div class="form-elements">
 <div class="grow-wrap"><textarea name="data"></textarea></div>
 
-<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
 </div>
 </form>
 </div>
@@ -846,7 +846,7 @@
 </div>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -869,7 +869,7 @@
 <p>Then, makes the prediction and prints the predicted value on the screen. </p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -883,7 +883,7 @@
 </ul>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -898,7 +898,7 @@
 </div>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -908,7 +908,7 @@
 <p>Create a new consumer to empty this second queue. Just display the consumed messages on the screen!</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
 </div>
 </form>
 </div>
@@ -931,7 +931,7 @@
             <a href="../intro/"
                class="ah-prev"
                title="Intro">
-              <span class="nav-label">Anterior</span>
+              <span class="nav-label">Previous</span>
               <span class="nav-title">Intro</span>
             </a>
           
@@ -939,7 +939,7 @@
             <a href="../celery/"
                class="ah-next"
                title="Celery">
-              <span class="nav-label">Próximo</span>
+              <span class="nav-label">Next</span>
               <span class="nav-title">Celery</span>
             </a>
           
