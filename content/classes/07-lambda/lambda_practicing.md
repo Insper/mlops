@@ -124,7 +124,7 @@ with open("my_lambda.zip", "rb") as f:
 
 lambda_response = lambda_client.create_function(
     FunctionName=function_name,
-    Runtime="python3.9",
+    Runtime="python3.10",
     Role=lambda_role_arn,
     Handler="my_lambda.say_hello", # Python file DOT handler function
     Code={"ZipFile": zip_to_deploy},

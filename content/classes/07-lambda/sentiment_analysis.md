@@ -15,7 +15,7 @@ Looking back at the examples we did, they involved a [*function that returned a 
 
 Let's use this class to build more complex examples using AWS Lambda!
 
-!!! progress "Click to continue"
+<!-- !!! progress "Click to continue" -->
 
 ## Sentiment Analysis
 
@@ -106,4 +106,5 @@ print(f"Polarity of text3: {blob3.polarity}")
 !!! tip "Tip!"
     Here it is the repository of textblob: https://github.com/sloria/textblob
 
-Run this code locally and test it with other sentences. Then proceed to the next topic.
+!!! exercise "Question"
+    Run this code locally and test it with other sentences. Then proceed to the next topic.

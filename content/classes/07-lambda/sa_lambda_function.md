@@ -2,6 +2,83 @@
 
 Let's create a lambda function that uses the `textblob` library to return the polarity of a text.
 
+But first, let's configure the AWS CLI so we have another way to interact with our resources created in AWS.
+
+## AWS CLI - Command Line Interface
+
+### Install
+
+[**Click Here**](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to install AWS CLI.
+
+### Configure
+
+Configure the region and credentials provided by the professor.
+
+<div class="termy">
+
+    ```console
+    $ aws configure --profile mlops
+    AWS Access Key ID [None]: ????????????
+    AWS Secret Access Key [None]: ????????????????????????????????
+    Default region name [None]: us-east-2
+    Default output format [None]: 
+    ```
+
+</div>
+<br>
+
+### Set profile
+
+To set a default profile, use:
+
+=== "Linux"
+
+    <div class="termy">
+
+    ```console
+    $ export AWS_PROFILE=mlops
+    ```
+
+    </div>
+    <br>
+
+=== "Windows CMD (Command Prompt)"
+
+    <div class="termy">
+
+    ```console
+    $ export AWS_PROFILE=mlops
+    ```
+
+    </div>
+    <br>
+
+=== "Windows PowerShell"
+
+    <div class="termy">
+
+    ```console
+    $ env:AWS_PROFILE = "mlops"
+    ```
+
+    </div>
+    <br>
+
+### Example: list Lambda functions
+
+You can now use the AWS CLI to create, list, or remove resources. For example, to list the names of lambda functions:
+
+<div class="termy">
+
+    ```console
+    $ aws lambda list-functions --query "Functions[*].FunctionName" --output text
+    ```
+
+</div>
+<br>
+
+From here on, you can research how to do with the AWS CLI what we did with `boto3` library.
+
 ## Create source code
 
 !!! exercise "Question"

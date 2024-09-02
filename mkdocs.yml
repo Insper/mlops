@@ -53,10 +53,10 @@ nav:
         - classes/07-lambda/aws_lambda.md
         - classes/07-lambda/lambda_practicing.md
         - classes/07-lambda/api_gateway.md
-    #   - "Part 2":
-    #     - classes/07-lambda/sentiment_analysis.md
-    #     - classes/07-lambda/sa_lambda_function.md
-    #     - classes/07-lambda/lambda_layer.md
+      - "Part 2":
+        - classes/07-lambda/sentiment_analysis.md
+        - classes/07-lambda/sa_lambda_function.md
+        - classes/07-lambda/lambda_layer.md
     #   - "Part 3":
     #     - classes/07-lambda/lambda_quotas.md
     #     - classes/07-lambda/lambda_and_docker.md
