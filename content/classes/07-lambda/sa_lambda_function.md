@@ -47,7 +47,7 @@ To set a default profile, use:
     <div class="termy">
 
     ```console
-    $ export AWS_PROFILE=mlops
+    $ set AWS_PROFILE=mlops
     ```
 
     </div>
