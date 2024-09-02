@@ -426,6 +426,39 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../sentiment_analysis/">Sentiment analysis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../sa_lambda_function/">Sa lambda function</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../lambda_layer/">Lambda layer</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -608,7 +641,7 @@
 <a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
 <a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="n">lambda_response</span> <span class="o">=</span> <span class="n">lambda_client</span><span class="o">.</span><span class="n">create_function</span><span class="p">(</span>
 <a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    <span class="n">FunctionName</span><span class="o">=</span><span class="n">function_name</span><span class="p">,</span>
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    <span class="n">Runtime</span><span class="o">=</span><span class="s2">&quot;python3.9&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    <span class="n">Runtime</span><span class="o">=</span><span class="s2">&quot;python3.10&quot;</span><span class="p">,</span>
 <a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>    <span class="n">Role</span><span class="o">=</span><span class="n">lambda_role_arn</span><span class="p">,</span>
 <a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>    <span class="n">Handler</span><span class="o">=</span><span class="s2">&quot;my_lambda.say_hello&quot;</span><span class="p">,</span> <span class="c1"># Python file DOT handler function</span>
 <a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    <span class="n">Code</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ZipFile&quot;</span><span class="p">:</span> <span class="n">zip_to_deploy</span><span class="p">},</span>
@@ -616,7 +649,7 @@
 <a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
 <a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Function ARN:&quot;</span><span class="p">,</span> <span class="n">lambda_response</span><span class="p">[</span><span class="s2">&quot;FunctionArn&quot;</span><span class="p">])</span>
 </code></pre></div>
-<div class="admonition exercise long tag-text-exercise tag-long-text editable" data-slug="classes/07-lambda/lambda_practicing/long_1" id="long_1_0">
+<div class="admonition exercise long tag-long-text tag-text-exercise editable" data-slug="classes/07-lambda/lambda_practicing/long_1" id="long_1_0">
 <p class="admonition-title">Question 6<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Run the Python code to create the function. Then write down the returned ARN</p>
