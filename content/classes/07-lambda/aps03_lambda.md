@@ -6,7 +6,7 @@ In this assignment, we are going to create a new version of the work from the [A
 
 All assignments delivery will be made using Git repositories. Access the link below to accept the invitation and start working on the third assignment.
 
-[Invitation link](https://classroom.github.com/a/7x8wM5Js){ .ah-button }
+[Invitation link](https://classroom.github.com/a/jqj9KSVX){ .ah-button }
 
 ## Clone repository
 
