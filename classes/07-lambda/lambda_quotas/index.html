@@ -124,7 +124,7 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Classes</span>
     <ul>
       
@@ -353,7 +353,7 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">07 - Lambda Functions</span>
     <ul>
       
@@ -423,6 +423,47 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Part 3</span>
+    <ul>
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Lambda quotas</span>
+      <ul>
+        
+          
+            
+            
+        
+      </ul>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../lambda_and_docker/">Lambda and docker</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../aps03_lambda/">Aps03 lambda</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -440,6 +481,18 @@
             <ul class="ah-breadcrumbs">
               
                 
+                  
+                    <li>Classes</li>
+                  
+                
+                  
+                    <li>07 - Lambda Functions</li>
+                  
+                
+                  
+                    <li>Part 3</li>
+                  
+                
                 <li></li>
             </ul>
             
@@ -450,7 +503,7 @@
 <h1 id="lambda-quotas">Lambda Quotas</h1>
 <p>In the last classes we saw how to create functions that run serverless, that is, we don't need to worry about the infrastructure needed to execute the functions.</p>
 <p>Ideally, we would like to run any function, with any time and memory requirement on AWS Lambda. But there are limits.</p>
-<div class="admonition exercise long tag-long-text tag-text-exercise editable" data-slug="classes/07-lambda/lambda_quotas/long_1" id="long_1_0">
+<div class="admonition exercise long tag-text-exercise tag-long-text editable" data-slug="classes/07-lambda/lambda_quotas/long_1" id="long_1_0">
 <p class="admonition-title">Question 1<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Do you know of any quotas that limit the execution of AWS lambda functions?</p>
@@ -466,7 +519,7 @@
 </div>
 </div>
 <p>Considering ML applications, it is common for them to use packages such as <code>sklearn</code>, <code>XGBoost</code>, <code>lightgbm</code>, <code>pandas</code>, etc. Since dependencies need to be packaged in ZIP, it is common to use hundreds of MiB or a few GiB.</p>
-<div class="admonition exercise short tag-short-text tag-text-exercise editable" data-slug="classes/07-lambda/lambda_quotas/short_2" id="short_2_0">
+<div class="admonition exercise short tag-text-exercise tag-short-text editable" data-slug="classes/07-lambda/lambda_quotas/short_2" id="short_2_0">
 <p class="admonition-title">Question 2<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Note the "Deployment package (.zip file archive) size" topic. What is the file size limit for a ZIP we want to deploy?</p>
@@ -478,10 +531,10 @@
 </form>
 <div class="admonition answer no-indent">
 <p class="admonition-title">Answer</p>
-<p>250MB</p>
+<p>50 MB (zipped, for direct upload), 250 MB (unzipped), 3 MB (console editor).</p>
 </div>
 </div>
-<div class="admonition exercise short tag-short-text tag-text-exercise editable" data-slug="classes/07-lambda/lambda_quotas/short_3" id="short_3_0">
+<div class="admonition exercise short tag-text-exercise tag-short-text editable" data-slug="classes/07-lambda/lambda_quotas/short_3" id="short_3_0">
 <p class="admonition-title">Question 3<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Is there any alternative that we have already seen in class to solve the problem?</p>
@@ -493,7 +546,7 @@
 </form>
 <div class="admonition answer no-indent">
 <p class="admonition-title">Answer</p>
-<p>We could split the code into several layer, but notice that there is also limits for number of function layers.</p>
+<p>We could split the code into several layers, but notice that there is also limits for number of function layers.</p>
 <p>Take a look at <strong>Container image code package size</strong> <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">quota</a>. Well, it turns out that we can also deploy functions to AWS lambda using containers! As the limit in this case is 10GB, we are able to deploy packages with dependencies larger than the ZIP limit.</p>
 </div>
 </div>
@@ -507,6 +560,20 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../lambda_layer/"
+               class="ah-prev"
+               title="Lambda layer">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Lambda layer</span>
+            </a>
+          
+          
+            <a href="../lambda_and_docker/"
+               class="ah-next"
+               title="Lambda and docker">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Lambda and docker</span>
+            </a>
           
         </div>
       </footer>
