@@ -4,7 +4,7 @@
 
 We saw in [previous classes](../05-docker/intro.md) why Docker is important for ML. In this class, we will see how to create Docker images and deploy Lambda functions from them.
 
-## Create Function
+## Create Source Code
 
 Consider the following lambda function code:
 
@@ -75,7 +75,9 @@ $ docker build --platform linux/amd64 -t lambda-ex-image:test .
 
 ## Test locally
 
-Before deploying, let's test the function locally Start the Docker image with the `docker run`` command.
+Before deploying, let's test the function locally.
+
+Start the Docker image with the `docker run` command:
 
 <div class="termy">
 
@@ -84,6 +86,7 @@ $ docker run -p 9500:8080 lambda-ex-image:test
 ```
 
 </div>
+<br>
 
 Let's make a request with:
 
@@ -97,7 +100,11 @@ $ curl "http://localhost:9500/2015-03-31/functions/function/invocations" -d '{}'
 </div>
 </p>
 
-If that doesn't work, try:
+!!! exercise "Question"
+    Check if you can get the expected return, as defined in the *handler* of the lambda function.
+
+If that doesn't work, try with double quotes:
+
 <p>
 <div class="termy">
 
@@ -111,9 +118,26 @@ $ curl "http://localhost:9500/2015-03-31/functions/function/invocations" -d "{}"
 !!! tip "Tip!"
     If you prefer, make the request from Python with the `requests` library!
 
+    ??? "Click to see"
+        ```python
+        import requests
+        import json
+
+        url = "http://localhost:9500/2015-03-31/functions/function/invocations"
+        data = {}
+
+        response = requests.post(url, json=data, timeout=2)
+
+        response_json = response.json()
+
+        print(f"Status code: {response.status_code}")
+        print("Response:")
+        print(json.dumps(response_json, indent=4))
+        ```
+
 ## Container Registry
 
-The Amazon Elastic Container Registry (ECR) is a fully managed service that allows you to store, manage, and deploy container images. With ECR, you can securely store and manage your Docker container images.
+The Amazon Elastic Container Registry (**ECR**) is a fully managed service that allows you to store, manage, and **deploy container images**. With **ECR**, you can securely store and manage your Docker container images.
 
 Let's upload our image to ECR. But first, we need to create a container repository:
 
@@ -122,42 +146,66 @@ Let's upload our image to ECR. But first, we need to create a container reposito
     
     Provide a name in the pattern `test1-mlops-<INSPER_USERNAME>`
 
-```python
-import boto3
-import os
-from dotenv import load_dotenv
+=== "With Python"
+    ```python
+    import boto3
+    import os
+    from dotenv import load_dotenv
 
-load_dotenv()
+    load_dotenv()
 
-# Provide a name like test1-mlops-<INSPER_USERNAME>
-repository_name = "test1-mlops-xxxxx"
+    # Provide a name like test1-mlops-<INSPER_USERNAME>
+    repository_name = "test1-mlops-xxxxx"
 
-# Create a Boto3 client for ECR
-ecr_client = boto3.client(
-    "ecr",
-    aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
-    aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
-    region_name=os.getenv("AWS_REGION"),
-)
+    # Create a Boto3 client for ECR
+    ecr_client = boto3.client(
+        "ecr",
+        aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+        aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+        region_name=os.getenv("AWS_REGION"),
+    )
 
-response = ecr_client.create_repository(
-    repositoryName=repository_name,
-    imageScanningConfiguration={"scanOnPush": True},
-    imageTagMutability="MUTABLE",
-)
+    response = ecr_client.create_repository(
+        repositoryName=repository_name,
+        imageScanningConfiguration={"scanOnPush": True},
+        imageTagMutability="MUTABLE",
+    )
 
-print(response)
+    print(response)
 
-print(f"\nrepositoryArn: {response['repository']['repositoryArn']}")
-print(f"repositoryUri: {response['repository']['repositoryUri']}")
-```
+    print(f"\nrepositoryArn: {response['repository']['repositoryArn']}")
+    print(f"repositoryUri: {response['repository']['repositoryUri']}")
+    ```
+
+=== "With AWS CLI"
+    If you want to use **AWS CLI**, remember to [**Activate MLOps Profile**](../sa_lambda_function/#aws-cli-command-line-interface:~:text=configure%20%2D%2Dprofile%20mlo-,Set%20profile)
+
+    <p>
+    <div class="termy">
+
+    ```console
+    $ repository_name="test1-mlops-xxxxxx"
+
+    $ aws ecr create-repository \
+        --repository-name "$repository_name" \
+        --image-scanning-configuration scanOnPush=true \
+        --image-tag-mutability MUTABLE \
+        --query 'repository.{repositoryArn:repositoryArn, repositoryUri:repositoryUri}' \
+        --output text
+
+    ```
+
+    </div>
+    </p>
 
 !!! info "Important!"
     Write down the `repositoryUri`
 
 ## Upload Image to ECR
 
-Before uploading our Docker image to ECR, we need to configure the AWS Command Line Interface (AWS CLI).
+Before uploading our Docker image to ECR, we need to configure the AWS Command Line Interface (AWS CLI). If you didn't, [**check this out in our previous class**](../sa_lambda_function/#aws-cli-command-line-interface).
+
+<!-- Before uploading our Docker image to ECR, we need to configure the AWS Command Line Interface (AWS CLI).
 
 !!! info "Install!"
     See how to install [Here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
@@ -176,7 +224,7 @@ $ aws configure
 ```
 
 </div>
-</p>
+</p> -->
 
 Let's authenticate and login to ECR using the Docker CLI:
 

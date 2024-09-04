@@ -57,10 +57,10 @@ nav:
         - classes/07-lambda/sentiment_analysis.md
         - classes/07-lambda/sa_lambda_function.md
         - classes/07-lambda/lambda_layer.md
-    #   - "Part 3":
-    #     - classes/07-lambda/lambda_quotas.md
-    #     - classes/07-lambda/lambda_and_docker.md
-    #     - classes/07-lambda/aps03_lambda.md
+      - "Part 3":
+        - classes/07-lambda/lambda_quotas.md
+        - classes/07-lambda/lambda_and_docker.md
+        - classes/07-lambda/aps03_lambda.md
     # - "08 - Queues":
     #   - classes/08-queue/intro.md
     #   - classes/08-queue/concurrent_execution.md

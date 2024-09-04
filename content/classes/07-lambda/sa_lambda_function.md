@@ -58,7 +58,7 @@ To set a default profile, use:
     <div class="termy">
 
     ```console
-    $ env:AWS_PROFILE = "mlops"
+    $ env:AWS_PROFILE="mlops"
     ```
 
     </div>
