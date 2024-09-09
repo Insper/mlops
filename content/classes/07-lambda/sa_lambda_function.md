@@ -173,7 +173,7 @@ with open("polarity.zip", "rb") as f:
 
 lambda_response = lambda_client.create_function(
     FunctionName=function_name,
-    Runtime="python3.10", # Change the runtime if you want!
+    Runtime="python3.12", # Change the runtime if you want!
     Role=lambda_role_arn,
     Handler="polarity.get_polarity",  # function get_polarity inside polarity.py
     Code={"ZipFile": zip_to_deploy},
