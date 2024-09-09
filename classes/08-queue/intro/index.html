@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Sentiment analysis - MLOps & Interviews</title>
+        <title>Intro - MLOps & Interviews</title>
       
     
     <link rel="stylesheet"
@@ -353,7 +353,7 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">07 - Lambda Functions</span>
     <ul>
       
@@ -365,7 +365,7 @@
         
   
     <li>
-      <a href="../aws_lambda/">Aws lambda</a>
+      <a href="../../07-lambda/aws_lambda/">Aws lambda</a>
     </li>
   
 
@@ -373,7 +373,7 @@
         
   
     <li>
-      <a href="../lambda_practicing/">Lambda practicing</a>
+      <a href="../../07-lambda/lambda_practicing/">Lambda practicing</a>
     </li>
   
 
@@ -381,7 +381,7 @@
         
   
     <li>
-      <a href="../api_gateway/">Api gateway</a>
+      <a href="../../07-lambda/api_gateway/">Api gateway</a>
     </li>
   
 
@@ -391,34 +391,14 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Part 2</span>
     <ul>
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Sentiment analysis</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#remembering">Remembering</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#sentiment-analysis_1">Sentiment Analysis</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#textblob-library">Textblob library</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../07-lambda/sentiment_analysis/">Sentiment analysis</a>
     </li>
   
 
@@ -426,7 +406,7 @@
         
   
     <li>
-      <a href="../sa_lambda_function/">Sa lambda function</a>
+      <a href="../../07-lambda/sa_lambda_function/">Sa lambda function</a>
     </li>
   
 
@@ -434,7 +414,7 @@
         
   
     <li>
-      <a href="../lambda_layer/">Lambda layer</a>
+      <a href="../../07-lambda/lambda_layer/">Lambda layer</a>
     </li>
   
 
@@ -451,7 +431,7 @@
         
   
     <li>
-      <a href="../lambda_quotas/">Lambda quotas</a>
+      <a href="../../07-lambda/lambda_quotas/">Lambda quotas</a>
     </li>
   
 
@@ -459,7 +439,7 @@
         
   
     <li>
-      <a href="../lambda_and_docker/">Lambda and docker</a>
+      <a href="../../07-lambda/lambda_and_docker/">Lambda and docker</a>
     </li>
   
 
@@ -467,7 +447,7 @@
         
   
     <li>
-      <a href="../aps03_lambda/">Aps03 lambda</a>
+      <a href="../../07-lambda/aps03_lambda/">Aps03 lambda</a>
     </li>
   
 
@@ -481,14 +461,30 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">08 - Queues</span>
     <ul>
       
         
   
-    <li>
-      <a href="../../08-queue/intro/">Intro</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Intro</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#quotas">Quotas</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#concurrent-executions">Concurrent Executions</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -496,7 +492,7 @@
         
   
     <li>
-      <a href="../../08-queue/concurrent_execution/">Concurrent execution</a>
+      <a href="../concurrent_execution/">Concurrent execution</a>
     </li>
   
 
@@ -504,7 +500,7 @@
         
   
     <li>
-      <a href="../../08-queue/sqs_practicing/">Sqs practicing</a>
+      <a href="../sqs_practicing/">Sqs practicing</a>
     </li>
   
 
@@ -512,7 +508,7 @@
         
   
     <li>
-      <a href="../../08-queue/sqs_and_lambda/">Sqs and lambda</a>
+      <a href="../sqs_and_lambda/">Sqs and lambda</a>
     </li>
   
 
@@ -539,11 +535,7 @@
                   
                 
                   
-                    <li>07 - Lambda Functions</li>
-                  
-                
-                  
-                    <li>Part 2</li>
+                    <li>08 - Queues</li>
                   
                 
                 <li></li>
@@ -553,127 +545,79 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="sentiment-analysis">Sentiment Analysis</h1>
-<h2 id="remembering">Remembering</h2>
-<p><a href="../aws_lambda/">In the last class</a> we saw how to build <a href="../aws_lambda/#aws-lambda_1"><strong>Lambda functions</strong></a> in AWS.</p>
-<p>We chose the <a href="../api_gateway/"><strong>API Gateway</strong></a> service to expose our Lambda functions. Thus, the function is triggered whenever the user makes a request to an endpoint.</p>
-<p><img alt="" src="../api_gateway_lambda.png" /></p>
-<div class="admonition info">
-<p class="admonition-title">Info!</p>
-<p>AWS Lambda allows machine learning models to be deployed and hosted serverlessly.</p>
-</div>
-<p>Looking back at the examples we did, they involved a <a href="../lambda_practicing/#create-function"><em>function that returned a fixed JSON</em></a> and a lambda function that <a href="../api_gateway/#practicing"><em>counted the number of words in a sentence</em></a>. No ML for now!</p>
-<p>Let's use this class to build more complex examples using AWS Lambda!</p>
-<!-- !!! progress "Click to continue" -->
-
-<h2 id="sentiment-analysis_1">Sentiment Analysis</h2>
-<p>Sentiment analysis (<strong>SA</strong>) is the process of determining whether a given phrase is positive, negative or neutral.</p>
-<p>It can be applied to analyze feedback, reviews, survey responses, social media posts and more to gauge public opinion on certain topics.</p>
-<div class="admonition exercise long tag-long-text tag-text-exercise editable" data-slug="classes/07-lambda/sentiment_analysis/long_1" id="long_1_0">
-<p class="admonition-title">Question 1<button class="editable-button"></button></p>
-<form class="exercise-form">
-<p>How can we represent the <strong>sentiment</strong> of a text as a <strong>variable</strong> in a database?</p>
-<div class="form-elements">
-<div class="grow-wrap"><textarea name="data"></textarea></div>
-
-<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
-</div>
-</form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Answer!</p>
-<p>We can represent it as a <strong>continuous score</strong>, for example, in the range <code>[-1,1]``, where</code>-1.0<code>represents a very negative text and</code>1.0` represents a very positive text.</p>
-<p>Another option is to use <strong>categorical variables</strong>, such as:</p>
-<ul>
-<li>Very negative</li>
-<li>Negative</li>
-<li>Neutral</li>
-<li>Positive</li>
-<li>Very positive</li>
-</ul>
-</div>
-</div>
-<div class="admonition exercise long tag-long-text tag-text-exercise editable" data-slug="classes/07-lambda/sentiment_analysis/long_2" id="long_2_0">
-<p class="admonition-title">Question 2<button class="editable-button"></button></p>
-<form class="exercise-form">
-<p>Is it possible to predict the sentiment of a sentence without using ML algorithms? Can you think of any way?</p>
-<div class="form-elements">
-<div class="grow-wrap"><textarea name="data"></textarea></div>
-
-<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
-</div>
-</form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Answer!</p>
-<p>One of the simplest ways is to create fixed rules. For example, count how many times a word like <code>disappointed</code> occurs in text. A high occurrence may indicate negativity!</p>
-<p>Another way is to create two lists of words: one of <em>negative</em> words and another of <em>positive</em> words. We count how many words we have from each list in the sentence we are analyzing, and if we have more positive words, we say the text has positive sentiment, otherwise we say it has negative sentiment.</p>
-<p>Furthermore, we can ask an expert to provide weights for words, for example, <code>hate</code> could have a weight of <code>-0.9</code> while <code>cool</code> could have a weight of <code>0.4</code>. Thus, we can compute whether in total we have a predominant positive or negative weight.</p>
-<p><a href="https://neptune.ai/blog/sentiment-analysis-python-textblob-vs-vader-vs-flair#:~:text=methods%20and%20packages.-,Rule%2Dbased%20sentiment%20analysis,-Rule%2Dbased%20sentiment">See more Here</a></p>
-</div>
-</div>
-<div class="admonition exercise long tag-long-text tag-text-exercise editable" data-slug="classes/07-lambda/sentiment_analysis/long_3" id="long_3_0">
-<p class="admonition-title">Question 3<button class="editable-button"></button></p>
-<form class="exercise-form">
-<p>Have you trained or have any idea how to train an ML model for sentiment analysis? Explain how.</p>
-<div class="form-elements">
-<div class="grow-wrap"><textarea name="data"></textarea></div>
-
-<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
-</div>
-</form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Answer!</p>
-<p>Considering a manually classified database, we can pre-process the text, removing punctuations and stop-words. Then we can tokenize the text and train a Naive Bayes classifier. You probably did this in Ciência dos dados (you created the Python code to calculate probabilities yourself) and Megadados (using Spark) courses.</p>
-<p>See more <a href="https://scikit-learn.org/stable/modules/naive_bayes.html">Here</a> and <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Here</a>.</p>
-</div>
-</div>
-<p>Instead of training our own sentiment analysis model, we will use a ready-made library that already provides this functionality.</p>
-<h2 id="textblob-library">Textblob library</h2>
-<p>We chose to use the <code>textblob</code> library for sentiment analysis. It provides a series of features such as:</p>
-<ul>
-<li>Calculation of n-grams.</li>
-<li>Tokenization</li>
-<li>Spelling Correction</li>
-<li>Sentiment Analysis</li>
-<li>etc.</li>
-</ul>
-<p>See the documentation <a href="https://textblob.readthedocs.io/en/dev/quickstart.html#sentiment-analysis">here</a> and <a href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.blob.TextBlob.sentiment">here</a>.</p>
-<p>Let's see an example of how to use the library. But first, do the installation:</p>
-<div class="termy">
-
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>textblob
-</code></pre></div>
-
-</div>
-
-<p><br>
-Let's use <code>textblob</code> to obtain the <em>polarity</em> of three different texts:</p>
-<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;What a damn company. You guys are the worst, you can&#39;t meet the deadline.&quot;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;Hello everybody&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">text3</span> <span class="o">=</span> <span class="s2">&quot;I am so happy to be here&quot;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">blob1</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">blob2</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">blob3</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">text3</span><span class="p">)</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Polarity of text1: </span><span class="si">{</span><span class="n">blob1</span><span class="o">.</span><span class="n">polarity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Polarity of text2: </span><span class="si">{</span><span class="n">blob2</span><span class="o">.</span><span class="n">polarity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Polarity of text3: </span><span class="si">{</span><span class="n">blob3</span><span class="o">.</span><span class="n">polarity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
+<h1 id="introduction">Introduction</h1>
+<h2 id="quotas">Quotas</h2>
+<p>In the last classes, we saw how to use <a href="../../07-lambda/aws_lambda/"><strong>Lambda</strong></a> to deploy ML applications without worrying so much about the server infrastructure needed for execution.</p>
+<p>Furthermore, we saw how to use <a href="../../07-lambda/lambda_layer/"><strong>Layers</strong></a> and <a href="../../07-lambda/lambda_and_docker/"><strong>Docker</strong></a>  images to maintain a good organization of the project and its dependencies, bypassing file size <a href="../../07-lambda/lambda_quotas/"><strong>limits</strong></a> established when creating functions in AWS Lambda.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip! 1</p>
-<p>Here it is the repository of textblob: <a href="https://github.com/sloria/textblob">https://github.com/sloria/textblob</a></p>
+<p>You can see AWS Lambda default quotas <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html"><strong>Here</strong></a>.</p>
 </div>
-<div class="admonition exercise self-progress" data-slug="classes/07-lambda/sentiment_analysis/exercise_1" id="exercise_1_0">
-<p class="admonition-title">Question 4</p>
+<div class="admonition info">
+<p class="admonition-title">Important!</p>
+<p>Using Docker with AWS Lambda offers several benefits beyond overcoming ZIP size limitations.</p>
+<p>Docker allows you to package not only your code but also the entire runtime environment, including <em>dependencies</em> and <em>system configurations</em>, into a <em>consistent</em> and <em>portable</em> container.</p>
+</div>
+<h2 id="concurrent-executions">Concurrent Executions</h2>
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/08-queue/intro/long_1" id="long_1_0">
+<p class="admonition-title">Question 1<button class="editable-button"></button></p>
 <form class="exercise-form">
-<p>Run this code locally and test it with other sentences. Then proceed to the next topic.</p>
+<p>In computer science, what is <strong>concurrency</strong>?</p>
 <div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
 </div>
 </form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Answer!</p>
+<p><a href="https://en.wikipedia.org/wiki/Concurrency_(computer_science)">Concurrency</a> is the ability of different parts or units of a program, algorithm, or problem to be executed out-of-order or in partial order, <strong>without affecting the outcome</strong>. This allows for <strong>parallel execution</strong> of the concurrent units, which can significantly **improve overall speed **of the execution in multi-processor and multi-core systems.</p>
+</div>
+</div>
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/08-queue/intro/long_2" id="long_2_0">
+<p class="admonition-title">Question 2<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>In the context of an AWS Lambda function, what is <strong>concurrency</strong>?</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Answer!</p>
+<p>In AWS Lambda, <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html"><strong>Concurrency</strong></a> is the number of in-flight requests your AWS Lambda function is handling at the same time.</p>
+</div>
+</div>
+<div class="admonition exercise short long tag-short-text tag-text-exercise editable" data-slug="classes/08-queue/intro/short_3" id="short_3_0">
+<p class="admonition-title">Question 3<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>Is there a limit on simultaneous execution of lambda functions?</p>
+<div class="form-elements">
+<input type="text" value="" name="data"/>
+
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Answer!</p>
+<p>Yes, check it <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html"><strong>Here</strong></a>. It can be increased up.</p>
+</div>
+</div>
+<div class="admonition exercise short long tag-short-text tag-text-exercise editable" data-slug="classes/08-queue/intro/short_4" id="short_4_0">
+<p class="admonition-title">Question 4<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>What happens if there are too many calls to a lambda function, so that the concurrency limit is reached?</p>
+<div class="form-elements">
+<input type="text" value="" name="data"/>
+
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Answer!</p>
+<p>Let's test it and find out!</p>
+</div>
 </div>
 
 
@@ -684,19 +628,19 @@ Let's use <code>textblob</code> to obtain the <em>polarity</em> of three differe
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../api_gateway/"
+            <a href="../../07-lambda/aps03_lambda/"
                class="ah-prev"
-               title="Api gateway">
+               title="Aps03 lambda">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">Api gateway</span>
+              <span class="nav-title">Aps03 lambda</span>
             </a>
           
           
-            <a href="../sa_lambda_function/"
+            <a href="../concurrent_execution/"
                class="ah-next"
-               title="Sa lambda function">
+               title="Concurrent execution">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Sa lambda function</span>
+              <span class="nav-title">Concurrent execution</span>
             </a>
           
         </div>
