@@ -48,7 +48,7 @@ Then, install the version of Python used by your Lambda functions and the ZIP:
 
     ```console
     $ apt update
-    $ apt install python3.10 python3-pip zip
+    $ apt install python3.12 python3-pip zip
     ```
 
 </div>
@@ -60,8 +60,8 @@ Create a folder to store the dependencies and install then:
 <div class="termy">
 
     ```console
-    $ mkdir -p layer/python/lib/python3.10/site-packages
-    $ pip3 install textblob -t layer/python/lib/python3.10/site-packages
+    $ mkdir -p layer/python/lib/python3.12/site-packages
+    $ pip3 install textblob -t layer/python/lib/python3.12/site-packages
 
     ```
 
@@ -434,7 +434,7 @@ lambda_client = boto3.client(
 
 # Fetch the layer version ARN based on the layer name
 response = lambda_client.list_layer_versions(
-    CompatibleRuntime="python3.10",  # Provide the compatible runtime of the layer
+    CompatibleRuntime="python3.12",  # Provide the compatible runtime of the layer
     LayerName=layer_name,
 )
 
