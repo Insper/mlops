@@ -619,7 +619,7 @@
 <div class="termy">
 
     <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>apt<span class="w"> </span>update
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="gp">$ </span>apt<span class="w"> </span>install<span class="w"> </span>python3.10<span class="w"> </span>python3-pip<span class="w"> </span>zip
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="gp">$ </span>apt<span class="w"> </span>install<span class="w"> </span>python3.12<span class="w"> </span>python3-pip<span class="w"> </span>zip
 </code></pre></div>
 
 </div>
@@ -628,8 +628,8 @@
 <p>Create a folder to store the dependencies and install then:</p>
 <div class="termy">
 
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>layer/python/lib/python3.10/site-packages
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="gp">$ </span>pip3<span class="w"> </span>install<span class="w"> </span>textblob<span class="w"> </span>-t<span class="w"> </span>layer/python/lib/python3.10/site-packages
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>layer/python/lib/python3.12/site-packages
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="gp">$ </span>pip3<span class="w"> </span>install<span class="w"> </span>textblob<span class="w"> </span>-t<span class="w"> </span>layer/python/lib/python3.12/site-packages
 </code></pre></div>
 
 </div>
@@ -977,7 +977,7 @@
 <a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>
 <a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="c1"># Fetch the layer version ARN based on the layer name</span>
 <a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="n">response</span> <span class="o">=</span> <span class="n">lambda_client</span><span class="o">.</span><span class="n">list_layer_versions</span><span class="p">(</span>
-<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>    <span class="n">CompatibleRuntime</span><span class="o">=</span><span class="s2">&quot;python3.10&quot;</span><span class="p">,</span>  <span class="c1"># Provide the compatible runtime of the layer</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>    <span class="n">CompatibleRuntime</span><span class="o">=</span><span class="s2">&quot;python3.12&quot;</span><span class="p">,</span>  <span class="c1"># Provide the compatible runtime of the layer</span>
 <a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>    <span class="n">LayerName</span><span class="o">=</span><span class="n">layer_name</span><span class="p">,</span>
 <a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="p">)</span>
 <a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>
