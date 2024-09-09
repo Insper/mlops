@@ -61,11 +61,11 @@ nav:
         - classes/07-lambda/lambda_quotas.md
         - classes/07-lambda/lambda_and_docker.md
         - classes/07-lambda/aps03_lambda.md
-    # - "08 - Queues":
-    #   - classes/08-queue/intro.md
-    #   - classes/08-queue/concurrent_execution.md
-    #   - classes/08-queue/sqs_practicing.md
-    #   - classes/08-queue/sqs_and_lambda.md
+    - "08 - Queues":
+      - classes/08-queue/intro.md
+      - classes/08-queue/concurrent_execution.md
+      - classes/08-queue/sqs_practicing.md
+      - classes/08-queue/sqs_and_lambda.md
     # - "09 - Interview 02":
     #   - classes/09-int02/int02.md
     # - "10 - Documentation":
