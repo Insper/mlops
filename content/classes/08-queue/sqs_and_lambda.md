@@ -47,7 +47,10 @@ To create the lambda function, use:
     - `function_name` variable.
     - `DESTINATION_SQS_URL` to the SQS URL of the destination queue (`"lambda_destination_queue_INSPER_USERNAME"`).
 
+!!! danger "Atention!"
+    Notice that the `DESTINATION_SQS_URL` must be a new queue. If you use the same queue that triggered the function, then you function will be in **INFINITE RECURSION!**. 
 
+    This could get very expensive!
 
 ```python
 import os
@@ -59,8 +62,9 @@ load_dotenv()
 # Lambda function name: send_sqs_<INSPER_USERNAME>
 function_name = ""
 
+# Change the DESTINATION_SQS_URL to the SQS URL of the destination queue
 environment_variables = {
-    "DESTINATION_SQS_URL": "",
+    "DESTINATION_SQS_URL": "xxxxxxxxxxxxx", # Update HERE
 }
 
 # Timeout in seconds. Default is 3.
