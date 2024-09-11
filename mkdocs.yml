@@ -66,8 +66,8 @@ nav:
       - classes/08-queue/concurrent_execution.md
       - classes/08-queue/sqs_practicing.md
       - classes/08-queue/sqs_and_lambda.md
-    # - "09 - Interview 02":
-    #   - classes/09-int02/int02.md
+    - "09 - Interview 02":
+      - classes/09-int02/int02.md
     # - "10 - Documentation":
     #   - classes/10-documentation/intro.md
     #   - classes/10-documentation/code_documentation.md
