@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Aws lambda - MLOps & Interviews</title>
+        <title>Ml canvas - MLOps & Interviews</title>
       
     
     <link rel="stylesheet"
@@ -353,47 +353,19 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">07 - Lambda Functions</span>
     <ul>
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Part 1</span>
     <ul>
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Aws lambda</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#faas">FaaS</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#market-solutions">Market solutions</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#aws-lambda_1">AWS Lambda</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#advantages">Advantages</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#disadvantages">Disadvantages</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../07-lambda/aws_lambda/">Aws lambda</a>
     </li>
   
 
@@ -401,7 +373,7 @@
         
   
     <li>
-      <a href="../lambda_practicing/">Lambda practicing</a>
+      <a href="../../07-lambda/lambda_practicing/">Lambda practicing</a>
     </li>
   
 
@@ -409,7 +381,7 @@
         
   
     <li>
-      <a href="../api_gateway/">Api gateway</a>
+      <a href="../../07-lambda/api_gateway/">Api gateway</a>
     </li>
   
 
@@ -426,7 +398,7 @@
         
   
     <li>
-      <a href="../sentiment_analysis/">Sentiment analysis</a>
+      <a href="../../07-lambda/sentiment_analysis/">Sentiment analysis</a>
     </li>
   
 
@@ -434,7 +406,7 @@
         
   
     <li>
-      <a href="../sa_lambda_function/">Sa lambda function</a>
+      <a href="../../07-lambda/sa_lambda_function/">Sa lambda function</a>
     </li>
   
 
@@ -442,7 +414,7 @@
         
   
     <li>
-      <a href="../lambda_layer/">Lambda layer</a>
+      <a href="../../07-lambda/lambda_layer/">Lambda layer</a>
     </li>
   
 
@@ -459,7 +431,7 @@
         
   
     <li>
-      <a href="../lambda_quotas/">Lambda quotas</a>
+      <a href="../../07-lambda/lambda_quotas/">Lambda quotas</a>
     </li>
   
 
@@ -467,7 +439,7 @@
         
   
     <li>
-      <a href="../lambda_and_docker/">Lambda and docker</a>
+      <a href="../../07-lambda/lambda_and_docker/">Lambda and docker</a>
     </li>
   
 
@@ -475,7 +447,7 @@
         
   
     <li>
-      <a href="../aps03_lambda/">Aps03 lambda</a>
+      <a href="../../07-lambda/aps03_lambda/">Aps03 lambda</a>
     </li>
   
 
@@ -547,14 +519,14 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">10 - Documentation</span>
     <ul>
       
         
   
     <li>
-      <a href="../../10-documentation/intro/">Intro</a>
+      <a href="../intro/">Intro</a>
     </li>
   
 
@@ -562,7 +534,7 @@
         
   
     <li>
-      <a href="../../10-documentation/code_documentation/">Code documentation</a>
+      <a href="../code_documentation/">Code documentation</a>
     </li>
   
 
@@ -570,15 +542,35 @@
         
   
     <li>
-      <a href="../../10-documentation/fast_api_docs/">Fast api docs</a>
+      <a href="../fast_api_docs/">Fast api docs</a>
     </li>
   
 
       
         
   
-    <li>
-      <a href="../../10-documentation/ml_canvas/">Ml canvas</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Ml canvas</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#an-option">An option</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#tasks">Tasks!</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#references">References</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -605,11 +597,7 @@
                   
                 
                   
-                    <li>07 - Lambda Functions</li>
-                  
-                
-                  
-                    <li>Part 1</li>
+                    <li>10 - Documentation</li>
                   
                 
                 <li></li>
@@ -619,74 +607,152 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="aws-lambda">AWS Lambda</h1>
-<h2 id="faas">FaaS</h2>
-<p><strong>Function as a Service</strong> (FaaS) refers to a <em>cloud computing</em> model that allows developers to build and run applications and functions <em>without having to worry about infrastructure management</em>.</p>
-<p>With <strong>FaaS</strong>, developers are able to deploy their code in the form of stateless functions or event handlers that can be invoked on-demand or in response to events.</p>
-<div class="admonition info">
-<p class="admonition-title">Info!</p>
-<p><strong>FaaS</strong> is considered a form of serverless computing. The <strong>FaaS</strong> platform takes care of:</p>
-<ul>
-<li>Underlying servers</li>
-<li>Operating systems and platforms</li>
-<li>Scaling and operating the application</li>
-</ul>
-<p>Making it simple for developers to <strong>focus</strong> only on writing code for their specific business logic or tasks.</p>
+<h1 id="ml-canvas">ML Canvas</h1>
+<p>We saw in previous topics how to document code in ML projects.</p>
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/10-documentation/ml_canvas/long_1" id="long_1_0">
+<p class="admonition-title">Question 1<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>If you were to use or maintain a ML product, what other aspects, besides the source code, would you want to know?</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
 </div>
-<h2 id="market-solutions">Market solutions</h2>
-<p>The main providers of <strong>FaaS</strong> platforms include:</p>
+</form>
+</div>
+<p>An ML product is much more than the source code that generates the models and APIs. Taking into account the life cycle of the models, it is important to know the value proposition generated by the model, who the end user is, how they will use it the model, what the data sources will be, etc.</p>
+<p>Documenting these questions will not only support the long-term survival of the model, but also ensure that these questions have been asked and check whether there is alignment between the business and data science areas.</p>
+<h2 id="an-option">An option</h2>
+<p>Instead of generating long and purposeless documentation, it is more appropriate to be concise and focus on the information that really matters to users and maintainers of the model.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip! 1</p>
+<p>When documenting, it is important to think about how to generate the most value with the least effort.</p>
+</div>
+<p>One option for documenting ML projects is using a <em>canvas</em>. In this case, the one provided by ownml.co.</p>
+<p><img alt="" src="../ml_canvas_ex.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">ML Canvas!</p>
+<p>This ML Canvas consists of a single page of concise product information!</p>
+<p>Check the <code>ml_canvas.pdf</code>, <code>ml_canvas.odt</code> and <code>ml_canvas.docx</code> files available in <a href="https://github.com/Insper/mlops/tree/main/content/modules/10-documentation/ml_canvas">this course’s <strong>repository</strong></a>.</p>
+</div>
+<p>ML Canvas documentation suggestions include:</p>
 <ul>
 <li>
-<p><strong>AWS Lambda</strong></p>
+<p><strong>Prediction task</strong>: Type of task? Entity on which predictions are made? Possible outcomes? Wait time before observation?</p>
 </li>
 <li>
-<p><strong>Google Cloud Functions</strong></p>
+<p><strong>Decisions</strong>: How are predictions turned into proposed value for the end-user? Mention parameters of the process / application that does that.</p>
 </li>
 <li>
-<p><strong>Microsoft Azure Functions</strong></p>
+<p><strong>Value proposition</strong>: Who is the end-user? What are their objectives? How will they benefit from the ML system? Mention workflow/interfaces.</p>
+</li>
+<li>
+<p><strong>Data colection</strong>: Strategy for initial train set &amp; continuous update. Mention collection rate, holdout on production entities, cost/constraints to observe outcomes.</p>
+</li>
+<li>
+<p><strong>Data sources</strong>: Where can we get (raw) information on entities and observed outcomes? Mention database tables, API methods, websites to scrape, etc.</p>
+</li>
+<li>
+<p><strong>Impact simulations</strong>: Can models be deployed? Which test data to assess performance? Cost/gain values for (in)correct decisions? Fairness constraint?</p>
+</li>
+<li>
+<p><strong>Making predictions</strong>: When do we make real-time / batch pred.? Time available for this + featurization + post-processing? Compute target?</p>
+</li>
+<li>
+<p><strong>Building models</strong>: How many prod models are needed? When would we update? Time available for this (including featurization and analysis)?</p>
+</li>
+<li>
+<p><strong>Features</strong>: Input representations available at prediction time, extracted from raw data sources.</p>
+</li>
+<li>
+<p><strong>Monitoring</strong>: Metrics to quantify value creation and measure the ML system’s impact in production (on end-users and business)?</p>
 </li>
 </ul>
-<p>We will work with AWS Lambda!</p>
-<h2 id="aws-lambda_1">AWS Lambda</h2>
-<p><strong>AWS Lambda</strong> is Amazon's flagship serverless computing platform that runs your code on high-availability compute infrastructure and performs all the administration of the compute resources.</p>
-<p>The Lambda functions can be <em>triggered</em> by various events like changes to an S3 bucket or database tables, calls from API Gateway or third party applications, or on a schedule. </p>
-<h2 id="advantages">Advantages</h2>
-<p>Some reasons why Lambda functions should be considered to deploy ML applications:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip! 2</p>
+<p>Not everything in this documentation will make sense in every project.</p>
+<p>You can remove topics or add others that you consider relevant!</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Important!</p>
+<p>Some topics, such as <strong>monitoring</strong>, will still be studied in the course. You can ignore it for now!</p>
+</div>
+<h2 id="tasks">Tasks!</h2>
+<div class="admonition exercise self-progress" data-slug="classes/10-documentation/ml_canvas/exercise_1" id="exercise_1_0">
+<p class="admonition-title">Question 2</p>
+<form class="exercise-form">
+<p>Create a copy of your <a href="../../03-batch/aps02_sql/"><strong>APS 02</strong></a> project directory and call it <code>10-docs-batch</code>.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/10-documentation/ml_canvas/exercise_2" id="exercise_2_0">
+<p class="admonition-title">Question 3</p>
+<form class="exercise-form">
+<p>Review the source codes avaiable at <code>10-docs-batch</code>.</p>
+<p>Refactor variables an methods identifiers where advisable.</p>
+<p>Comment code where advisable.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/10-documentation/ml_canvas/exercise_3" id="exercise_3_0">
+<p class="admonition-title">Question 4</p>
+<form class="exercise-form">
+<p>Document the source codes avaiable at <code>10-docs-batch</code> using <code>sphinx</code>.</p>
+<p>Remember to write <em>docstrings</em> for methods and classes.</p>
+<p>Generate documentation in <em>HTML</em> format! Check the result.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/10-documentation/ml_canvas/exercise_4" id="exercise_4_0">
+<p class="admonition-title">Question 5</p>
+<form class="exercise-form">
+<p>Build an ML Canvas for this project. You can propose new topics in Canvas and ignore what we haven't covered yet.</p>
+<p>Check the <code>ml_canvas.pdf</code>, <code>ml_canvas.odt</code> and <code>ml_canvas.docx</code> files available in <a href="https://github.com/Insper/mlops/tree/main/content/modules/10-documentation/ml_canvas">this course’s <strong>repository</strong></a>.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise long tag-text-exercise tag-long-text editable" data-slug="classes/10-documentation/ml_canvas/long_2" id="long_2_0">
+<p class="admonition-title">Question 6<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>List some reasons to make/not make a <code>README.md</code> in the repository containing all the ML Canvas information.</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
+</div>
+</form>
+</div>
+<div class="admonition exercise long tag-text-exercise tag-long-text editable" data-slug="classes/10-documentation/ml_canvas/long_3" id="long_3_0">
+<p class="admonition-title">Question 7<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>Research and propose a suitable <code>README.md</code> for this project. Justify your decisions.</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
+</div>
+</form>
+</div>
+<h2 id="references">References</h2>
 <ul>
-<li>
-<p><strong>Scalability</strong>: Lambda can automatically scale up or down to handle varying loads. This is important for ML models that may see bursty traffic or need to handle prediction requests at scale.</p>
-</li>
-<li>
-<p><strong>Event-driven</strong>: Lambda functions can be easily triggered by events like incoming data. This makes it simple to run ML predictions every time new data comes in without managing servers.</p>
-</li>
-<li>
-<p><strong>Pay-per-use</strong>: with Lambda, you only pay for the compute resources used to run your code. This saves costs for ML workloads that may be intermittent or only needed during model training cycles.</p>
-</li>
-<li>
-<p><strong>No servers to manage</strong>: Lambda handles all the infrastructure maintenance, so you can focus on coding your ML logic without worrying about servers, scaling, availability etc.</p>
-</li>
-<li>
-<p><strong>Deployment flexibility</strong>: you can host complex ML pipelines or prediction code on Lambda. Models can also be deployed as REST APIs using API Gateway for low-latency predictions.</p>
-</li>
-</ul>
-<h2 id="disadvantages">Disadvantages</h2>
-<p><strong>AWS Lambda</strong> may not always be the best choice for ML applications due to:</p>
-<ul>
-<li>
-<p><strong>Limited memory/compute</strong>: Lambda functions have strict memory limits ranging from 128MB to 10240MB. ML models often require much more RAM.</p>
-</li>
-<li>
-<p><strong>Cold start</strong>: when a Lambda function hasn't been invoked in awhile, the first invocation takes longer due to container initialization. This may not be suitable for real-time ML inferences.</p>
-</li>
-<li>
-<p><strong>Stateful dependencies</strong>: Lambda functions are stateless by design. Supporting stateful dependencies like databases for ML model training is challenging.</p>
-</li>
-<li>
-<p><strong>Long-running workloads</strong>: ML model training typically involves batch processing large datasets over long periods which exceeds Lambda's 15 minute timeout limit.</p>
-</li>
-<li>
-<p><strong>GPU/TPU support</strong>: Lambda doesn't support hardware accelerators like GPUs which are essential for many deep learning workloads.</p>
-</li>
+<li>Living Documentation. Martraire, C.</li>
+<li>Pipes figure 1.9 from Living Documentation. Martraire, C.</li>
+<li>The product is Docs. Gales, C.</li>
+<li>Documentation of Machine Learning Software. Hashemi et. al.</li>
+<li><a href="https://www.sphinx-doc.org/">https://www.sphinx-doc.org/</a></li>
+<li><a href="https://swimm.io/learn/code-collaboration/comments-in-code-best-practices-and-mistakes-to-avoid">https://swimm.io/learn/code-collaboration/comments-in-code-best-practices-and-mistakes-to-avoid</a></li>
 </ul>
 
 
@@ -697,20 +763,13 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../../06-message-broker/celery/"
+            <a href="../fast_api_docs/"
                class="ah-prev"
-               title="Celery">
+               title="Fast api docs">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">Celery</span>
+              <span class="nav-title">Fast api docs</span>
             </a>
           
-          
-            <a href="../lambda_practicing/"
-               class="ah-next"
-               title="Lambda practicing">
-              <span class="nav-label">Next</span>
-              <span class="nav-title">Lambda practicing</span>
-            </a>
           
         </div>
       </footer>

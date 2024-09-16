@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Sentiment analysis - MLOps & Interviews</title>
+        <title>Intro - MLOps & Interviews</title>
       
     
     <link rel="stylesheet"
@@ -353,7 +353,7 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">07 - Lambda Functions</span>
     <ul>
       
@@ -365,7 +365,7 @@
         
   
     <li>
-      <a href="../aws_lambda/">Aws lambda</a>
+      <a href="../../07-lambda/aws_lambda/">Aws lambda</a>
     </li>
   
 
@@ -373,7 +373,7 @@
         
   
     <li>
-      <a href="../lambda_practicing/">Lambda practicing</a>
+      <a href="../../07-lambda/lambda_practicing/">Lambda practicing</a>
     </li>
   
 
@@ -381,7 +381,7 @@
         
   
     <li>
-      <a href="../api_gateway/">Api gateway</a>
+      <a href="../../07-lambda/api_gateway/">Api gateway</a>
     </li>
   
 
@@ -391,34 +391,14 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">Part 2</span>
     <ul>
       
         
   
-
-    <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Sentiment analysis</span>
-      <ul>
-        
-          
-            
-            
-              <li class="ah-toc-item">
-                <a href="#remembering">Remembering</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#sentiment-analysis_1">Sentiment Analysis</a>
-              </li>
-            
-              <li class="ah-toc-item">
-                <a href="#textblob-library">Textblob library</a>
-              </li>
-            
-        
-      </ul>
+    <li>
+      <a href="../../07-lambda/sentiment_analysis/">Sentiment analysis</a>
     </li>
   
 
@@ -426,7 +406,7 @@
         
   
     <li>
-      <a href="../sa_lambda_function/">Sa lambda function</a>
+      <a href="../../07-lambda/sa_lambda_function/">Sa lambda function</a>
     </li>
   
 
@@ -434,7 +414,7 @@
         
   
     <li>
-      <a href="../lambda_layer/">Lambda layer</a>
+      <a href="../../07-lambda/lambda_layer/">Lambda layer</a>
     </li>
   
 
@@ -451,7 +431,7 @@
         
   
     <li>
-      <a href="../lambda_quotas/">Lambda quotas</a>
+      <a href="../../07-lambda/lambda_quotas/">Lambda quotas</a>
     </li>
   
 
@@ -459,7 +439,7 @@
         
   
     <li>
-      <a href="../lambda_and_docker/">Lambda and docker</a>
+      <a href="../../07-lambda/lambda_and_docker/">Lambda and docker</a>
     </li>
   
 
@@ -467,7 +447,7 @@
         
   
     <li>
-      <a href="../aps03_lambda/">Aps03 lambda</a>
+      <a href="../../07-lambda/aps03_lambda/">Aps03 lambda</a>
     </li>
   
 
@@ -539,14 +519,38 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">10 - Documentation</span>
     <ul>
       
         
   
-    <li>
-      <a href="../../10-documentation/intro/">Intro</a>
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Intro</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#why">Why?!</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#documentation_1">Documentation</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#audience-factor">Audience Factor</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#documentation-storage">Documentation Storage</a>
+              </li>
+            
+        
+      </ul>
     </li>
   
 
@@ -554,7 +558,7 @@
         
   
     <li>
-      <a href="../../10-documentation/code_documentation/">Code documentation</a>
+      <a href="../code_documentation/">Code documentation</a>
     </li>
   
 
@@ -562,7 +566,7 @@
         
   
     <li>
-      <a href="../../10-documentation/fast_api_docs/">Fast api docs</a>
+      <a href="../fast_api_docs/">Fast api docs</a>
     </li>
   
 
@@ -570,7 +574,7 @@
         
   
     <li>
-      <a href="../../10-documentation/ml_canvas/">Ml canvas</a>
+      <a href="../ml_canvas/">Ml canvas</a>
     </li>
   
 
@@ -597,11 +601,7 @@
                   
                 
                   
-                    <li>07 - Lambda Functions</li>
-                  
-                
-                  
-                    <li>Part 2</li>
+                    <li>10 - Documentation</li>
                   
                 
                 <li></li>
@@ -611,26 +611,13 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="sentiment-analysis">Sentiment Analysis</h1>
-<h2 id="remembering">Remembering</h2>
-<p><a href="../aws_lambda/">In the last class</a> we saw how to build <a href="../aws_lambda/#aws-lambda_1"><strong>Lambda functions</strong></a> in AWS.</p>
-<p>We chose the <a href="../api_gateway/"><strong>API Gateway</strong></a> service to expose our Lambda functions. Thus, the function is triggered whenever the user makes a request to an endpoint.</p>
-<p><img alt="" src="../api_gateway_lambda.png" /></p>
-<div class="admonition info">
-<p class="admonition-title">Info!</p>
-<p>AWS Lambda allows machine learning models to be deployed and hosted serverlessly.</p>
-</div>
-<p>Looking back at the examples we did, they involved a <a href="../lambda_practicing/#create-function"><em>function that returned a fixed JSON</em></a> and a lambda function that <a href="../api_gateway/#practicing"><em>counted the number of words in a sentence</em></a>. No ML for now!</p>
-<p>Let's use this class to build more complex examples using AWS Lambda!</p>
-<!-- !!! progress "Click to continue" -->
-
-<h2 id="sentiment-analysis_1">Sentiment Analysis</h2>
-<p>Sentiment analysis (<strong>SA</strong>) is the process of determining whether a given phrase is positive, negative or neutral.</p>
-<p>It can be applied to analyze feedback, reviews, survey responses, social media posts and more to gauge public opinion on certain topics.</p>
-<div class="admonition exercise long tag-text-exercise tag-long-text editable" data-slug="classes/07-lambda/sentiment_analysis/long_1" id="long_1_0">
+<h1 id="documentation">Documentation</h1>
+<p>Today's topic is documentation! Before answering what documentation is and how to do it, let's think about some more basic ML questions.</p>
+<h2 id="why">Why?!</h2>
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/10-documentation/intro/long_1" id="long_1_0">
 <p class="admonition-title">Question 1<button class="editable-button"></button></p>
 <form class="exercise-form">
-<p>How can we represent the <strong>sentiment</strong> of a text as a <strong>variable</strong> in a database?</p>
+<p>In your opinion, what leads a company to invest in innovative technologies such as Machine Learning? What are companies’ expectations?</p>
 <div class="form-elements">
 <div class="grow-wrap"><textarea name="data"></textarea></div>
 
@@ -639,39 +626,41 @@
 </form>
 <div class="admonition answer no-indent">
 <p class="admonition-title">Answer!</p>
-<p>We can represent it as a <strong>continuous score</strong>, for example, in the range <code>[-1,1]``, where</code>-1.0<code>represents a very negative text and</code>1.0` represents a very positive text.</p>
-<p>Another option is to use <strong>categorical variables</strong>, such as:</p>
+<p>Some reasons, among others:</p>
 <ul>
-<li>Very negative</li>
-<li>Negative</li>
-<li>Neutral</li>
-<li>Positive</li>
-<li>Very positive</li>
+<li>
+<p><strong>Increase efficiency</strong>: automate tasks using ML, freeing employees to focus on more strategic work.</p>
+</li>
+<li>
+<p><strong>Gain competitive advantage</strong>: early adopters tend to have advantages over competitor.</p>
+</li>
+<li>
+<p><strong>Increase revenue</strong>: be more precise in decision making, increasing revenue and profit.</p>
+</li>
+<li>
+<p><strong>Improve public image</strong>: the adoption of technologies can improve the market's view of the company, resulting in an improvement in share prices.</p>
+</li>
 </ul>
 </div>
 </div>
-<div class="admonition exercise long tag-text-exercise tag-long-text editable" data-slug="classes/07-lambda/sentiment_analysis/long_2" id="long_2_0">
+<p>Each person in a company may have their own expectations. Let’s now think about the technical areas:</p>
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/10-documentation/intro/long_2" id="long_2_0">
 <p class="admonition-title">Question 2<button class="editable-button"></button></p>
 <form class="exercise-form">
-<p>Is it possible to predict the sentiment of a sentence without using ML algorithms? Can you think of any way?</p>
+<p>If you were a data scientist developing a model (think of any model). What would your expectations be?</p>
 <div class="form-elements">
 <div class="grow-wrap"><textarea name="data"></textarea></div>
 
 <input class="ah-button ah-button--primary" type="submit" value="Submit"/>
 </div>
 </form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Answer!</p>
-<p>One of the simplest ways is to create fixed rules. For example, count how many times a word like <code>disappointed</code> occurs in text. A high occurrence may indicate negativity!</p>
-<p>Another way is to create two lists of words: one of <em>negative</em> words and another of <em>positive</em> words. We count how many words we have from each list in the sentence we are analyzing, and if we have more positive words, we say the text has positive sentiment, otherwise we say it has negative sentiment.</p>
-<p>Furthermore, we can ask an expert to provide weights for words, for example, <code>hate</code> could have a weight of <code>-0.9</code> while <code>cool</code> could have a weight of <code>0.4</code>. Thus, we can compute whether in total we have a predominant positive or negative weight.</p>
-<p><a href="https://neptune.ai/blog/sentiment-analysis-python-textblob-vs-vader-vs-flair#:~:text=methods%20and%20packages.-,Rule%2Dbased%20sentiment%20analysis,-Rule%2Dbased%20sentiment">See more Here</a></p>
 </div>
-</div>
-<div class="admonition exercise long tag-text-exercise tag-long-text editable" data-slug="classes/07-lambda/sentiment_analysis/long_3" id="long_3_0">
+<p>Well, a data scientist could feel satisfaction in seeing a model giving financial results for the company. This could also result in a <strong>bonus</strong> or <strong>job promotion</strong>!</p>
+<p>We know that many data science projects fail to bring results to companies. Although I agree that it is a valid thing to have a project that results in profit, this is not the only valid metric (money).</p>
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/10-documentation/intro/long_3" id="long_3_0">
 <p class="admonition-title">Question 3<button class="editable-button"></button></p>
 <form class="exercise-form">
-<p>Have you trained or have any idea how to train an ML model for sentiment analysis? Explain how.</p>
+<p>Think about your fictional colleagues who work with you on the data team. What would be their expectations regarding the projects you develop?</p>
 <div class="form-elements">
 <div class="grow-wrap"><textarea name="data"></textarea></div>
 
@@ -679,60 +668,90 @@
 </div>
 </form>
 <div class="admonition answer no-indent">
-<p class="admonition-title">Answer!</p>
-<p>Considering a manually classified database, we can pre-process the text, removing punctuations and stop-words. Then we can tokenize the text and train a Naive Bayes classifier. You probably did this in Ciência dos dados (you created the Python code to calculate probabilities yourself) and Megadados (using Spark) courses.</p>
-<p>See more <a href="https://scikit-learn.org/stable/modules/naive_bayes.html">Here</a> and <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Here</a>.</p>
+<p class="admonition-title">Answer</p>
+<p>If they need to act on the project, they hope to do so in the easiest way possible.</p>
+<p>As technical people, they can expect, for example, <strong>well-written code</strong> and some <strong>support material</strong> so they understand what the project does.</p>
 </div>
 </div>
-<p>Instead of training our own sentiment analysis model, we will use a ready-made library that already provides this functionality.</p>
-<h2 id="textblob-library">Textblob library</h2>
-<p>We chose to use the <code>textblob</code> library for sentiment analysis. It provides a series of features such as:</p>
-<ul>
-<li>Calculation of n-grams.</li>
-<li>Tokenization</li>
-<li>Spelling Correction</li>
-<li>Sentiment Analysis</li>
-<li>etc.</li>
-</ul>
-<p>See the documentation <a href="https://textblob.readthedocs.io/en/dev/quickstart.html#sentiment-analysis">here</a> and <a href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.blob.TextBlob.sentiment">here</a>.</p>
-<p>Let's see an example of how to use the library. But first, do the installation:</p>
-<div class="termy">
-
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>textblob
-</code></pre></div>
-
+<p>Besides everything, everyone expects you to be able to do ML <strong>faster</strong> and faster! Truly committed companies have already realized that it isn’t just about going fast right now but about going <strong>sustainably fast in the long run</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Important!</p>
+<p>It's not just about you, think about the team and in the long run!</p>
 </div>
-
-<p><br>
-Let's use <code>textblob</code> to obtain the <em>polarity</em> of three different texts:</p>
-<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;What a damn company. You guys are the worst, you can&#39;t meet the deadline.&quot;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;Hello everybody&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">text3</span> <span class="o">=</span> <span class="s2">&quot;I am so happy to be here&quot;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">blob1</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">blob2</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">blob3</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">text3</span><span class="p">)</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Polarity of text1: </span><span class="si">{</span><span class="n">blob1</span><span class="o">.</span><span class="n">polarity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Polarity of text2: </span><span class="si">{</span><span class="n">blob2</span><span class="o">.</span><span class="n">polarity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Polarity of text3: </span><span class="si">{</span><span class="n">blob3</span><span class="o">.</span><span class="n">polarity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip! 1</p>
-<p>Here it is the repository of textblob: <a href="https://github.com/sloria/textblob">https://github.com/sloria/textblob</a></p>
-</div>
-<div class="admonition exercise self-progress" data-slug="classes/07-lambda/sentiment_analysis/exercise_1" id="exercise_1_0">
-<p class="admonition-title">Question 4</p>
+<h2 id="documentation_1">Documentation</h2>
+<p>For application of ML methods, a data scientist should be able to consult software documentation to comprehend how to utilize a product such as an API in <strong>LightGBM</strong> or <strong>TensorFlow</strong>.</p>
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/10-documentation/intro/long_4" id="long_4_0">
+<p class="admonition-title">Question 4<button class="editable-button"></button></p>
 <form class="exercise-form">
-<p>Run this code locally and test it with other sentences. Then proceed to the next topic.</p>
+<p>How would you define Sofware Documentation in general?</p>
 <div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Answer</p>
+<p>Documentation is meant to <strong>guide users</strong> about <strong>software functionality</strong>. It is any artifact which its purpose is to communicate information about the software system to which it belongs, to individuals involved in the production of that software.</p>
+</div>
+</div>
+<p>So, at this point we are already familiar with <strong>using</strong> documentation! Isn't it cool when our knowledge about a library is close to zero and in a matter of minutes we can consult the documentation and obtain the necessary knowledge?</p>
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/10-documentation/intro/long_5" id="long_5_0">
+<p class="admonition-title">Question 5<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>What about <strong>writing</strong> documentation? Have you ever had to document a project? Do you usually document everything you develop?</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
 </div>
 </form>
 </div>
+<p>It is common for us to have an extremely technical orientation, focusing on developing code and avoiding tasks such as documentation.</p>
+<p>Many <strong>hate</strong> and <strong>postpone</strong> documentation activities! Even the professor didn't like much preparing this lesson (just kidding!)</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger!</p>
+<p>Most software engineers and data scientists tend to <strong>prefer writing code</strong> and <strong>leave behind</strong> other tasks like <strong>testing</strong>, <strong>documentation</strong>.</p>
+</div>
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/10-documentation/intro/long_6" id="long_6_0">
+<p class="admonition-title">Question 6<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>Think and describe some problems arising from having no documentation.</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Answer</p>
+<p>Someone will pay the price! It is common to have to maintain models or APIs developed months ago. Good documentation ensures efficiency in this process.</p>
+<p>Furthermore, it is common for turnover to occur in data teams. Good documentation also ensures that the software is more about the <strong>company</strong> and less about the <strong>scientists</strong> (an ongoing project, where many people can act).</p>
+</div>
+</div>
+<h2 id="audience-factor">Audience Factor</h2>
+<p>Consider your audience when making documentation decisions. Identify if they are <strong>internal</strong> or <strong>external</strong> to your organization and their level of knowledge about the product and domain.</p>
+<p>Tailor your documentation accordingly: for less knowledgeable customers, provide tutorial-focused content, diagrams, and glossary to introduce concepts. For experienced customers, focus on examples and scenarios to enhance their usage and value from the product.</p>
+<h2 id="documentation-storage">Documentation Storage</h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip! 1</p>
+<p>The best place to store documentation is on the documented thing itself.</p>
+</div>
+<p>Both the Google datacenters and the Centre Pompidou in Paris share a distinctive feature: an abundance of color-coded pipes. These pipes are adorned with printed or riveted labels for easy identification. At the Pompidou Center, for example, blue pipes signify air circulation, while green pipes represent water systems.</p>
+<p><img alt="" src="../where_documentation.png" /></p>
+<p>This is an example of documentation on the pipe itself. Another option would be to have a document that describes, using codes, the usefulness of each pipe.</p>
+<div class="admonition info">
+<p class="admonition-title">Persistent documentation</p>
+<p>Persistent documentation can be categorized into two types: <strong>external</strong> and <strong>internal</strong>.</p>
+</div>
+<p><strong>External documentation</strong> involves expressing knowledge in a format that is independent of the specific implementation technologies employed in a project. This encompasses traditional documentation methods, such as separate <strong>Microsoft Office</strong> documents.</p>
+<p>One advantage of external documentation is its <strong>flexibility</strong>, as it allows for the use of various formats and tools that best suit the needs of both the audience and the writers.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip! 2</p>
+<p>Remember, managers are not programmers!</p>
+</div>
+<p>However, a drawback of external documentation is the challenge, and sometimes impossibility, of <strong>keeping it up-to-date</strong> with the latest version of the product. Additionally, external documentation runs the risk of being lost or misplaced over time.</p>
+<p>In the next sections, we will discuss how to document ML products efficiently.</p>
 
 
 </section>
@@ -742,19 +761,19 @@ Let's use <code>textblob</code> to obtain the <em>polarity</em> of three differe
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../api_gateway/"
+            <a href="../../09-int02/int02/"
                class="ah-prev"
-               title="Api gateway">
+               title="Int02">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">Api gateway</span>
+              <span class="nav-title">Int02</span>
             </a>
           
           
-            <a href="../sa_lambda_function/"
+            <a href="../code_documentation/"
                class="ah-next"
-               title="Sa lambda function">
+               title="Code documentation">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Sa lambda function</span>
+              <span class="nav-title">Code documentation</span>
             </a>
           
         </div>
