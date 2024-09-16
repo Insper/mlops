@@ -76,7 +76,7 @@ To install `sphinx`, activate your virtual environment and do:
 <div class="termy">
 
     ```console
-    $ pip install sphinx
+    $ pip install sphinx==7.2.6
     ```
 
 </div>

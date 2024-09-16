@@ -9,3 +9,4 @@ Thanks for contributing to the course:
 - 2024/2:
     - Diogo Duarte: writing errors and errors in `aps1` autograding tests.
     - Arthur Barreto: FastAPI `@app.on_event("startup")` deprecation.
+    - Eduardo Cunha: Sphinx's version error.
