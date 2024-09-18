@@ -73,11 +73,11 @@ nav:
       - classes/10-documentation/code_documentation.md
       - classes/10-documentation/fast_api_docs.md
       - classes/10-documentation/ml_canvas.md
-    # - "11 - Logging":
-    #   - classes/11-logging/intro.md
-    #   - classes/11-logging/python_logging.md
-    #   - classes/11-logging/read_aws_logs.md
-    #   - classes/11-logging/write_logs_to_s3.md
+    - "11 - Logging":
+      - classes/11-logging/intro.md
+      - classes/11-logging/python_logging.md
+      - classes/11-logging/read_aws_logs.md
+      - classes/11-logging/write_logs_to_s3.md
     # - "12 - CI/CD":
     #   - classes/12-ci-cd/intro.md
     #   - classes/12-ci-cd/testing.md
