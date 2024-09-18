@@ -905,10 +905,11 @@ After installing, run and provide the authentication keys for our account.
 <div class="admonition danger">
 <p class="admonition-title">Atention!</p>
 <p>Change the <code>&lt;AWS_ACCOUNT_ID&gt;</code> for the <code>&lt;AWS_ACCOUNT_ID&gt;</code> used during classes, for example <code>123456789012</code></p>
+<p>Check if the AWS profile name, set with <code>aws configure</code>, really is <code>mlops</code>. Change if necessary.</p>
 </div>
 <div class="termy">
 
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">$ </span>aws<span class="w"> </span>ecr<span class="w"> </span>get-login-password<span class="w"> </span>--region<span class="w"> </span>us-east-2<span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>login<span class="w"> </span>--username<span class="w"> </span>AWS<span class="w"> </span>--password-stdin<span class="w"> </span>AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">$ </span>aws<span class="w"> </span>ecr<span class="w"> </span>get-login-password<span class="w"> </span>--region<span class="w"> </span>us-east-2<span class="w"> </span>--profile<span class="w"> </span>mlops<span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>login<span class="w"> </span>--username<span class="w"> </span>AWS<span class="w"> </span>--password-stdin<span class="w"> </span>AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com
 </code></pre></div>
 
 </div>
