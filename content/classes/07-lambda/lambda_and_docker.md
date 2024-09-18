@@ -231,10 +231,12 @@ Let's authenticate and login to ECR using the Docker CLI:
 !!! danger "Atention!"
     Change the `<AWS_ACCOUNT_ID>` for the `<AWS_ACCOUNT_ID>` used during classes, for example `123456789012`
 
+    Check if the AWS profile name, set with `aws configure`, really is `mlops`. Change if necessary.
+
 <div class="termy">
 
 ```console
-$ aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com
+$ aws ecr get-login-password --region us-east-2 --profile mlops | docker login --username AWS --password-stdin AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com
 ```
 
 </div>
