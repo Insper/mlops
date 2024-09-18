@@ -658,6 +658,11 @@
 <p>The lambda function will receive a batch of messages and, after processing them, will send them to a new queue.</p>
 <h2 id="a-lambda-that-sends-messages">A Lambda that Sends Messages</h2>
 <p>Let's start by creating a lambda function that can write to a queue (send messages):</p>
+<div class="admonition info">
+<p class="admonition-title">Important!</p>
+<p>The <code>DESTINATION_SQS_URL</code> environment variable will be set when creating the Lambda function.</p>
+<p>For now, rest assured!</p>
+</div>
 <div class="language-python highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">boto3</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">os</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
