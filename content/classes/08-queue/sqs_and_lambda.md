@@ -10,6 +10,11 @@ The lambda function will receive a batch of messages and, after processing them,
 
 Let's start by creating a lambda function that can write to a queue (send messages):
 
+!!! info "Important!"
+    The `DESTINATION_SQS_URL` environment variable will be set when creating the Lambda function.
+    
+    For now, rest assured!
+
 ```python
 import boto3
 import os
