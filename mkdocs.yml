@@ -78,10 +78,10 @@ nav:
       - classes/11-logging/python_logging.md
       - classes/11-logging/read_aws_logs.md
       - classes/11-logging/write_logs_to_s3.md
-    # - "12 - CI/CD":
-    #   - classes/12-ci-cd/intro.md
-    #   - classes/12-ci-cd/testing.md
-    #   - classes/12-ci-cd/auto_deploy.md
+    - "12 - CI/CD":
+      - classes/12-ci-cd/intro.md
+      - classes/12-ci-cd/testing.md
+      - classes/12-ci-cd/auto_deploy.md
     # - "13 - Tracking":
     #   - "Part 1":
     #     - classes/13-tracking/intro.md
