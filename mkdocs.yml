@@ -82,10 +82,10 @@ nav:
       - classes/12-ci-cd/intro.md
       - classes/12-ci-cd/testing.md
       - classes/12-ci-cd/auto_deploy.md
-    # - "13 - Tracking":
-    #   - "Part 1":
-    #     - classes/13-tracking/intro.md
-    #     - classes/13-tracking/mlflow.md
+    - "13 - Tracking":
+      - "Part 1":
+        - classes/13-tracking/intro.md
+        - classes/13-tracking/mlflow.md
     #   - "Part 2":
     #     - classes/13-tracking/centralization.md
     #     - classes/13-tracking/model_registry.md
