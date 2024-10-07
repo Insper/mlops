@@ -129,6 +129,19 @@ Let's configure the copy of the previous class project to connect to the server 
         Instead of leaving the URL hardcoded, try setting an **environment variable**.
 
 !!! exercise "Question"
+    From the `src` directory, create a `.env` file with AWS credentials:
+
+    ```
+    AWS_ACCESS_KEY_ID="*******"
+    AWS_SECRET_ACCESS_KEY="*******"
+    AWS_REGION="*******"
+    AWS_ACCOUNT_ID="*******"
+    ```
+    
+    Then, update the `src/train.py` to call `load_dotenv()`.
+
+
+!!! exercise "Question"
     From the root directory, test the code with:
     <p>
     <div class="termy">
