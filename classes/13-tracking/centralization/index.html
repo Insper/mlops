@@ -773,7 +773,7 @@
 <p>In a <code>mlruns</code> folder created by <em>MLflow</em>.</p>
 </div>
 </div>
-<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/13-tracking/centralization/long_2" id="long_2_0">
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/13-tracking/centralization/long_2" id="long_2_0">
 <p class="admonition-title">Question 2<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>How will local storage of experiments impact a project developed by multiple ML scientists and engineers?</p>
@@ -939,13 +939,13 @@
 <div class="admonition exercise self-progress" data-slug="classes/13-tracking/centralization/exercise_6" id="exercise_6_0">
 <p class="admonition-title">Question 10</p>
 <form class="exercise-form">
-<p>From the root directory, test the code with:
-<p>
-<div class="termy"></p>
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">$ </span>python<span class="w"> </span>src/train.py
+<p>From the <code>src</code> directory, create a <code>.env</code> file with AWS credentials:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>AWS_ACCESS_KEY_ID=&quot;*******&quot;
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>AWS_SECRET_ACCESS_KEY=&quot;*******&quot;
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>AWS_REGION=&quot;*******&quot;
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>AWS_ACCOUNT_ID=&quot;*******&quot;
 </code></pre></div>
-<p></div>
-</p></p>
+<p>Then, update the <code>src/train.py</code> to call <code>load_dotenv()</code>.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -955,8 +955,13 @@
 <div class="admonition exercise self-progress" data-slug="classes/13-tracking/centralization/exercise_7" id="exercise_7_0">
 <p class="admonition-title">Question 11</p>
 <form class="exercise-form">
-<p>Go to <a href="http://localhost:5000">http://localhost:5000</a> in your browser and check if the experiment results are available.</p>
-<p>Make sure your artifact URLs point to S3.</p>
+<p>From the root directory, test the code with:
+<p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span>python<span class="w"> </span>src/train.py
+</code></pre></div>
+<p></div>
+</p></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -966,7 +971,8 @@
 <div class="admonition exercise self-progress" data-slug="classes/13-tracking/centralization/exercise_8" id="exercise_8_0">
 <p class="admonition-title">Question 12</p>
 <form class="exercise-form">
-<p>In DBeaver, explore the created tables and their contents.</p>
+<p>Go to <a href="http://localhost:5000">http://localhost:5000</a> in your browser and check if the experiment results are available.</p>
+<p>Make sure your artifact URLs point to S3.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -976,6 +982,16 @@
 <div class="admonition exercise self-progress" data-slug="classes/13-tracking/centralization/exercise_9" id="exercise_9_0">
 <p class="admonition-title">Question 13</p>
 <form class="exercise-form">
+<p>In DBeaver, explore the created tables and their contents.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/13-tracking/centralization/exercise_10" id="exercise_10_0">
+<p class="admonition-title">Question 14</p>
+<form class="exercise-form">
 <p>List the contents of the bucket and check the created objects.</p>
 <div class="admonition danger">
 <p class="admonition-title">Important</p>
@@ -983,7 +999,7 @@
 </div>
 <p><p>
 <div class="termy"></p>
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span>aws<span class="w"> </span>s3api<span class="w"> </span>list-objects-v2<span class="w"> </span>--bucket<span class="w">  </span>mlflow-exp-tracking-INSPER-USERNAME
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>aws<span class="w"> </span>s3api<span class="w"> </span>list-objects-v2<span class="w"> </span>--bucket<span class="w">  </span>mlflow-exp-tracking-INSPER-USERNAME
 </code></pre></div>
 <p></div>
 </p></p>
@@ -994,8 +1010,8 @@
 </form>
 </div>
 <h2 id="interact-with-friends">Interact with friends!</h2>
-<div class="admonition exercise self-progress" data-slug="classes/13-tracking/centralization/exercise_10" id="exercise_10_0">
-<p class="admonition-title">Question 14</p>
+<div class="admonition exercise self-progress" data-slug="classes/13-tracking/centralization/exercise_11" id="exercise_11_0">
+<p class="admonition-title">Question 15</p>
 <form class="exercise-form">
 <p>Talk to your colleagues to use the same database and bucket.</p>
 <p>This way you will be able to see in practice that you can integrate the experiments and visualize each other's results.</p>
