@@ -221,14 +221,23 @@ In order to find the repository secrets configuration, go to the repository site
     ??? "Code to Test Lambda Function: Click to expand!"
         ```python
         import io
+        import os
         import boto3
         import json
+        from dotenv import load_dotenv
+
+        load_dotenv()
 
         # Lambda function name: wc_INSPER_USERNAME
         function_name = ""
 
         # Create a Boto3 client for AWS Lambda
-        lambda_client = boto3.client("lambda")
+        lambda_client = boto3.client(
+            "lambda",
+            aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+            aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+            region_name=os.getenv("AWS_REGION"),
+        )
 
         msg = {"body": "hello from mars"}
 
