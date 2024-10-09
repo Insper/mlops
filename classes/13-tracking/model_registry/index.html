@@ -716,6 +716,10 @@
   </li>
 
       
+    </ul>
+  </li>
+
+      
         
   <li class="ah-togglable-item">
     <span class="ah-togglable-handle">14 - Interview 03</span>
@@ -727,10 +731,6 @@
       <a href="../../14-int03/int03/">Int03</a>
     </li>
   
-
-      
-    </ul>
-  </li>
 
       
     </ul>
@@ -772,7 +772,7 @@
 <h1 id="model-registry">Model Registry</h1>
 <h2 id="introduction">Introduction</h2>
 <p>In the last class we saw how to <em>track</em> models using, for example, commands such as <code>mlflow.sklearn.log_model()</code>.</p>
-<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/13-tracking/model_registry/long_1" id="long_1_0">
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/13-tracking/model_registry/long_1" id="long_1_0">
 <p class="admonition-title">Question 1<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Considering what we saw in the last class, why it is important to <em>log</em> models, what do we gain from this?!</p>
@@ -809,7 +809,7 @@
 <p>To understand the effects of model registration, access the <em>Models</em> tab in the MLflow UI.</p>
 <p><img alt="" src="../mlflow_models.png" /></p>
 <p>You will see that at least one model was generated in this tab, starting at version 1, with the version being increased each time the model is registered again.</p>
-<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/13-tracking/model_registry/long_2" id="long_2_0">
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/13-tracking/model_registry/long_2" id="long_2_0">
 <p class="admonition-title">Question 2<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Is it mandatory for the model to be registered every time it is logged in?</p>
@@ -824,7 +824,7 @@
 <p>No! Many <em>runs</em> will just be experiments, part of the trial and error process. A <em>run</em> doesn't always need to be registered!</p>
 </div>
 </div>
-<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/13-tracking/model_registry/long_3" id="long_3_0">
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/13-tracking/model_registry/long_3" id="long_3_0">
 <p class="admonition-title">Question 3<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Comment out or remove the <code>registered_model_name</code> argument and run the code again. What happens?</p>
@@ -858,7 +858,7 @@
 <h2 id="docker-from-mlflow">Docker from MLflow</h2>
 <p>MLflow has many facilities for deploying models. You can use MLflow, for example, to create docker images to deploy anywhere you want, without explicitly creating APIs.</p>
 <p>To test this functionality, choose a registered version of your template.</p>
-<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/13-tracking/model_registry/long_4" id="long_4_0">
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/13-tracking/model_registry/long_4" id="long_4_0">
 <p class="admonition-title">Question 5<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Write down the chosen model and version here in the format <code>"&lt;model-name&gt;/&lt;version-number&gt;"</code></p>
