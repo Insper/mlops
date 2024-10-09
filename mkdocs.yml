@@ -89,8 +89,8 @@ nav:
       - "Part 2":
         - classes/13-tracking/centralization.md
         - classes/13-tracking/model_registry.md
-    # - "14 - Interview 03":
-    #   - classes/14-int03/int03.md
+      - "14 - Interview 03":
+        - classes/14-int03/int03.md
     # - "15 - Monitoring":
     #   - "Part 1":
     #     - classes/15-monitoring/intro.md
