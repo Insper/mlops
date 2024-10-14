@@ -91,12 +91,12 @@ nav:
         - classes/13-tracking/model_registry.md
     - "14 - Interview 03":
       - classes/14-int03/int03.md
-    # - "15 - Monitoring":
-    #   - "Part 1":
-    #     - classes/15-monitoring/intro.md
-    #     - classes/15-monitoring/metrics.md
-    #     - classes/15-monitoring/model_degradation.md
-    #     - classes/15-monitoring/data_drift_methods.md
+    - "15 - Monitoring":
+      - "Part 1":
+        - classes/15-monitoring/intro.md
+        - classes/15-monitoring/metrics.md
+        - classes/15-monitoring/model_degradation.md
+        - classes/15-monitoring/data_drift_methods.md
     #   - "Part 2":
     #     - classes/15-monitoring/data_drift_ml.md
     #     - classes/15-monitoring/performance_degradation.md
