@@ -97,9 +97,9 @@ nav:
         - classes/15-monitoring/metrics.md
         - classes/15-monitoring/model_degradation.md
         - classes/15-monitoring/data_drift_methods.md
-    #   - "Part 2":
-    #     - classes/15-monitoring/data_drift_ml.md
-    #     - classes/15-monitoring/performance_degradation.md
+      - "Part 2":
+        - classes/15-monitoring/data_drift_ml.md
+        - classes/15-monitoring/performance_degradation.md
     # - "16 - Data versioning":
     #   - "Part 1":
     #     - classes/16-data-versioning/intro.md
