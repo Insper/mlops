@@ -20,6 +20,7 @@ nav:
   - about.md
   - deadlines.md
   - contributions.md
+  - project/project.md
   - Classes:
     - "01 - Introduction":
       - classes/01-intro/intro.md
