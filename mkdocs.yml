@@ -106,9 +106,9 @@ nav:
         - classes/16-data-versioning/intro.md
         - classes/16-data-versioning/dvc.md
         - classes/16-data-versioning/s3_storage.md
-    #   - "Part 2":
-    #     - classes/16-data-versioning/pipelines.md
-    #     - classes/16-data-versioning/practicing.md
+      - "Part 2":
+        - classes/16-data-versioning/pipelines.md
+        - classes/16-data-versioning/practicing.md
     # - "17 - Feature store":
     #   - classes/17-feature-store/intro.md
     #   - classes/17-feature-store/feast.md
