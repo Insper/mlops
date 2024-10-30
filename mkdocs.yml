@@ -109,9 +109,9 @@ nav:
       - "Part 2":
         - classes/16-data-versioning/pipelines.md
         - classes/16-data-versioning/practicing.md
-    # - "17 - Feature store":
-    #   - classes/17-feature-store/intro.md
-    #   - classes/17-feature-store/feast.md
+    - "17 - Feature store":
+      - classes/17-feature-store/intro.md
+      - classes/17-feature-store/feast.md
     # - "18 - Sagemaker":
     #   - classes/18-sagemaker/intro.md
     #   - classes/18-sagemaker/sagemaker.md
