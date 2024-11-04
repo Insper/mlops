@@ -112,8 +112,8 @@ nav:
     - "17 - Feature store":
       - classes/17-feature-store/intro.md
       - classes/17-feature-store/feast.md
-    # - "18 - Sagemaker":
-    #   - classes/18-sagemaker/intro.md
-    #   - classes/18-sagemaker/sagemaker.md
+    - "18 - Sagemaker":
+      - classes/18-sagemaker/intro.md
+      - classes/18-sagemaker/sagemaker.md
     # - "19 - Interview 04":
     #   - classes/19-int04/int04.md
