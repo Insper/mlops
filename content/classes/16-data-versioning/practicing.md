@@ -47,7 +47,7 @@ Let's initialize `dvc` in our repository.
     ```
 
     !!! info ""
-        The `csv` is the same one used in the first class and can also be found [HERE](https://github.com/Insper/mlops/tree/main/content/modules/16-data-versioning/data)!
+        The `csv` is the same one used in the first class and can also be found [HERE](https://github.com/Insper/mlops/tree/main/content/classes/16-data-versioning/data)!
 
         We will discuss the remaining files next!
 

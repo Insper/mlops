@@ -23,7 +23,7 @@ One option for documenting ML projects is using a *canvas*. In this case, the on
 !!! info "ML Canvas!"
     This ML Canvas consists of a single page of concise product information!
 
-    Check the `ml_canvas.pdf`, `ml_canvas.odt` and `ml_canvas.docx` files available in [this course’s **repository**](https://github.com/Insper/mlops/tree/main/content/modules/10-documentation/ml_canvas).
+    Check the `ml_canvas.pdf`, `ml_canvas.odt` and `ml_canvas.docx` files available in [this course’s **repository**](https://github.com/Insper/mlops/tree/main/content/classes/10-documentation/ml_canvas).
 
 ML Canvas documentation suggestions include:
 
@@ -77,7 +77,7 @@ ML Canvas documentation suggestions include:
 !!! exercise "Question"
     Build an ML Canvas for this project. You can propose new topics in Canvas and ignore what we haven't covered yet.
 
-    Check the `ml_canvas.pdf`, `ml_canvas.odt` and `ml_canvas.docx` files available in [this course’s **repository**](https://github.com/Insper/mlops/tree/main/content/modules/10-documentation/ml_canvas).
+    Check the `ml_canvas.pdf`, `ml_canvas.odt` and `ml_canvas.docx` files available in [this course’s **repository**](https://github.com/Insper/mlops/tree/main/content/classes/10-documentation/ml_canvas).
 
 
 !!! exercise long "Question"

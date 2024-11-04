@@ -60,7 +60,7 @@ Let's create a `feast` project with:
     Create a `data` folder at `experiment/feature_repo/data` and paste the `channels.parquet` file there.
 
     !!! info ""
-        The `parquet` file can be found [HERE](https://github.com/Insper/mlops/tree/main/content/modules/17-feature-store/data)!
+        The `parquet` file can be found [HERE](https://github.com/Insper/mlops/tree/main/content/classes/17-feature-store/data)!
 
     Expected tree:
 
