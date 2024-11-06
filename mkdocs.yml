@@ -115,5 +115,5 @@ nav:
     - "18 - Sagemaker":
       - classes/18-sagemaker/intro.md
       - classes/18-sagemaker/sagemaker.md
-    # - "19 - Interview 04":
-    #   - classes/19-int04/int04.md
+    - "19 - Interview 04":
+      - classes/19-int04/int04.md
