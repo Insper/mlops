@@ -6,7 +6,7 @@ We will learn how to **Take Machine Learning Models to Production**!
 
 - **Monday**: 09:45 AM - 11:45 AM
 - **Wednesday**: 09:45 AM - 11:45 AM
-- Office hours on **Mondays** 02:00 PM - 03:30 PM (Teams)
+- Office hours on **Tuesday** 01:15 PM - 02:45 PM (Teams)
 
 ## Deliverables
 
