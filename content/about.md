@@ -27,11 +27,18 @@ In order for you to absorb the most from the course activities, it is mandatory 
 - Advanced computer programming
 - Cloud computing
 - Basic statistics
+- Git
+- Command line tools
+
 
 The classes require a lot of autonomy. It's a good idea to have already taken the Insper courses of:
 
 - Cloud computing
 - Machine Learning
+
+## AI Guidelines
+
+This course allows the use of generative AI tools, as long as they are used to understand concepts and explore activities (e.g., debugging). Students should understand what's happening at each step, and it's important to keep the learning objectives in mind.
 
 ## Final grade
 
