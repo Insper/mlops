@@ -26,8 +26,8 @@ nav:
       - classes/01-intro/intro.md
       - classes/01-intro/aps01_part_1.md
       - classes/01-intro/aps01_part_2.md
-  #   - "02 - Deploy: first try!":
-  #     - classes/02-api/api_deploy.md
+    - "02 - Deploy: first try!":
+      - classes/02-api/api_deploy.md
   #   - "03 - Batch prediction":
   #     - "Part 1":
   #       - classes/03-batch/intro.md
