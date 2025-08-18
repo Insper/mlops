@@ -2,3 +2,4 @@ exercise_data.json
 docs/
 verify.sh
 serve.sh
+uv.lock

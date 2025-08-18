@@ -13,31 +13,32 @@ extra_javascript:
   - js/custom.js
 
 extra_css:
-    - css/termynal.css
+  - css/termynal.css
+  - css/custom.css
 
 nav:
-  - 'Home': index.md
+  - "Home": index.md
   - about.md
   - deadlines.md
   - contributions.md
   # - project/project.md
   - Classes:
-    - "01 - Introduction":
-      - classes/01-intro/intro.md
-      - classes/01-intro/aps01_part_1.md
-      - classes/01-intro/aps01_part_2.md
-    - "02 - Deploy: first try!":
-      - classes/02-api/api_deploy.md
-  #   - "03 - Batch prediction":
-  #     - "Part 1":
-  #       - classes/03-batch/intro.md
-  #       - classes/03-batch/data_formats.md
-  #       - classes/03-batch/practicing.md
-  #     - "Part 2":
-  #       - classes/03-batch/sql.md
-  #       - classes/03-batch/db_tool.md
-  #       - classes/03-batch/dot_env.md
-  #       - classes/03-batch/aps02_sql.md
+      - "01 - Introduction":
+          - classes/01-intro/intro.md
+          - classes/01-intro/aps01_part_1.md
+          - classes/01-intro/aps01_part_2.md
+      - "02 - Deploy: first try!":
+          - classes/02-api/api_deploy.md
+      - "03 - Batch prediction":
+          - "Part 1":
+              - classes/03-batch/intro.md
+              - classes/03-batch/data_formats.md
+              - classes/03-batch/practicing.md
+          # - "Part 2":
+          #     - classes/03-batch/sql.md
+          #     - classes/03-batch/db_tool.md
+          #     - classes/03-batch/dot_env.md
+          #     - classes/03-batch/aps02_sql.md
   #   - "04 - Interview 01":
   #     - classes/04-int01/faq.md
   #     - classes/04-int01/int01.md

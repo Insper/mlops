@@ -1,0 +1,165 @@
+:root {
+  --clr-primary: #748774; /* muted green */
+  --clr-highlight: #c8a379; /* warm tan */
+  --clr-background: #f3eee7; /* lighter beige */
+  --clr-dim: #cfc7bb;
+  --clr-text: #2e302c;
+  --clr-text-dim: #6d6a65;
+  --clr-text-dim-hover: #4f4c47;
+  --clr-text-em: #748774;
+  --clr-text-strong: #5d6d5d;
+  --clr-text-error: #c14d3b;
+  --clr-text-del-background: #f9d7cf;
+  --clr-text-del-decoration: #c14d3bcc;
+  --clr-text-ins-background: #d2f4d8;
+  --clr-text-ins-decoration: #3ea16bcc;
+  --clr-text-mark-background: #fff1c2;
+  --clr-text-critic-comment-background: #e3ddd5;
+  --clr-title: #5d6d5d;
+  --clr-subtitle: #748774;
+  --clr-link: #748774;
+  --clr-link-hover: #5d6d5d;
+  --clr-bullet: #748774;
+  --clr-bullet-level-2: #e7ded3;
+  --clr-bullet-level-3: #f4f1eb;
+  --clr-bullet-level-4: white;
+  --clr-btn: #748774;
+  --clr-btn-hover: #90a490;
+  --clr-btn-text: #2e302c;
+  --clr-btn-text-hover: #0f1e10;
+  --clr-btn-text-primary: white;
+  --clr-btn-text-primary-hover: white;
+  --clr-btn-disabled: #e7ded3;
+  --clr-btn-text-disabled: white;
+  --clr-admonition-background: #f8f5f180;
+  --clr-admonition-border: #cfc7bb;
+  --clr-exercise-background: var(--clr-admonition-background);
+  --clr-exercise-disabled-background: #ece8e280;
+  --clr-exercise-answer-background: #fff5dc;
+  --clr-exercise-answer-correct-background: #d2f4d8;
+  --clr-exercise-answer-wrong-background: #fce8e6;
+  --clr-alternative-background: #f4f1eb;
+  --clr-alternative-label-background: #c8a379;
+  --clr-alternative-selected-outline: #748774;
+  --clr-alternative-wrong-outline: #e25b5b;
+  --clr-alternative-correct-outline: #3ad17e;
+  --clr-parsons-line-border: #748774;
+  --clr-parsons-drop-background: #ece8e2;
+  --clr-parsons-drop-border: #cfc7bb;
+  --clr-parsons-drop-indent-block: #dbd4ca;
+  --clr-tabbed-background: #faf8f5;
+  --clr-tabbed-border: #cbbbaa;
+  --clr-tabbed-disabled-background: #e7ded3;
+  --clr-tabbed-disabled-border: #cfc7bb;
+  --clr-tabbed-disabled-text: #6d6d6d;
+  --clr-input-background: #faf8f5;
+  --clr-input-border: #a08e7f;
+  --clr-table-head-border: #c8a379;
+  --clr-table-background-1: #ece8e2;
+  --clr-table-background-2: #f6f3ef;
+  --clr-footnote-background: #f8f5f1;
+  --clr-footnote-shadow: #d6c9be;
+  --clr-editor-inner-border: #cfc7bb;
+  --clr-editor-border: #cfc7bb;
+  --clr-code-background: #faf8f5;
+  --clr-code-comment: #7a7a73;
+  --clr-code-error-background: #fce6e3;
+  --clr-code-error-text: #b33f2b;
+  --clr-code-keyword: #748774;
+  --clr-code-literal: #a68d7d;
+  --clr-code-name: #2e302c;
+  --clr-code-punctuation: #5f5f54;
+  --clr-code-builtin: #c97d6d;
+  --clr-code-operator: #c97d6d;
+  --clr-code-generic: #1ba153;
+  --clr-code-string: #d99a6c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clr-primary: #90a490; /* lighter muted green for dark bg */
+    --clr-highlight: #d7b58c; /* softer tan */
+    --clr-background: #1e2220; /* dark earthy base */
+    --clr-dim: #3b3f3b;
+    --clr-text: #eae7e3;
+    --clr-text-dim: #b4b0ab;
+    --clr-text-dim-hover: #d1ccc5;
+    --clr-text-em: #a7bca7;
+    --clr-text-strong: #cfd9cf;
+    --clr-text-error: #ff8675;
+    --clr-text-del-background: #663b3b;
+    --clr-text-del-decoration: #ff6b6bcc;
+    --clr-text-ins-background: #355943;
+    --clr-text-ins-decoration: #3ac37fcc;
+    --clr-text-mark-background: #665c2e;
+    --clr-text-critic-comment-background: #3b3f3b;
+    --clr-title: #d7cabd;
+    --clr-subtitle: #a7bca7;
+    --clr-link: #a7bca7;
+    --clr-link-hover: #cfd9cf;
+    --clr-bullet: #a7bca7;
+    --clr-bullet-level-2: #2d322f;
+    --clr-bullet-level-3: #252a28;
+    --clr-bullet-level-4: #1e2220;
+    --clr-btn: #748774;
+    --clr-btn-hover: #90a490;
+    --clr-btn-text: #eae7e3;
+    --clr-btn-text-hover: #ffffff;
+    --clr-btn-text-primary: white;
+    --clr-btn-text-primary-hover: white;
+    --clr-btn-disabled: #3b3f3b;
+    --clr-btn-text-disabled: #b4b0ab;
+    --clr-admonition-background: #2a2f2d80;
+    --clr-admonition-border: #748774;
+    --clr-exercise-background: var(--clr-admonition-background);
+    --clr-exercise-disabled-background: #3b3f3b80;
+    --clr-exercise-answer-background: #3f3a2b;
+    --clr-exercise-answer-correct-background: #355943;
+    --clr-exercise-answer-wrong-background: #4a2f2f;
+    --clr-alternative-background: #2a2f2d;
+    --clr-alternative-label-background: #a07e5f;
+    --clr-alternative-selected-outline: #90a490;
+    --clr-alternative-wrong-outline: #ff6b6b;
+    --clr-alternative-correct-outline: #3ad17e;
+    --clr-parsons-line-border: #90a490;
+    --clr-parsons-drop-background: #1e2220;
+    --clr-parsons-drop-border: #748774;
+    --clr-parsons-drop-indent-block: #3b3f3b;
+    --clr-tabbed-background: #252a28;
+    --clr-tabbed-border: #748774;
+    --clr-tabbed-disabled-background: #3b3f3b;
+    --clr-tabbed-disabled-border: #3b3f3b;
+    --clr-tabbed-disabled-text: #a0a0a0;
+    --clr-input-background: #2d322f;
+    --clr-input-border: #5c635c;
+    --clr-table-head-border: #a07e5f;
+    --clr-table-background-1: #2a2f2d;
+    --clr-table-background-2: #353b38;
+    --clr-footnote-background: #252a28;
+    --clr-footnote-shadow: #3b3f3b;
+    --clr-editor-inner-border: #3b3f3b;
+    --clr-editor-border: #3b3f3b;
+    --clr-code-background: #1e2220;
+    --clr-code-comment: #9ca59c;
+    --clr-code-error-background: #3a1f2a;
+    --clr-code-error-text: #ff8f9b;
+    --clr-code-keyword: #a7bca7;
+    --clr-code-literal: #b8a594;
+    --clr-code-name: #eae7e3;
+    --clr-code-punctuation: #cfd9cf;
+    --clr-code-builtin: #d29b8a;
+    --clr-code-operator: #d29b8a;
+    --clr-code-generic: #4ef0a3;
+    --clr-code-string: #e6b684;
+  }
+}
+
+/* Custom styles for syntax highlighting */
+:not(.highlight) :not(pre) > code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27, 31, 35, 0.05);
+  border-radius: 3px;
+  font-style: normal;
+}
