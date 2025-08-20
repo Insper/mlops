@@ -11,7 +11,7 @@ In this assignment, we are going to create a new version of the work from the [l
 
 All assignments delivery will be made using Git repositories. Access the link below to accept the invitation and start working on the second assignment.
 
-[Invitation link](https://classroom.github.com/a/HjoSiRHT){ .ah-button }
+[Invitation link](https://classroom.github.com/a/sSdGopwa){ .ah-button }
 
 ## Configure assignment repository
 

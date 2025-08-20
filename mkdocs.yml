@@ -34,11 +34,11 @@ nav:
               - classes/03-batch/intro.md
               - classes/03-batch/data_formats.md
               - classes/03-batch/practicing.md
-          # - "Part 2":
-          #     - classes/03-batch/sql.md
-          #     - classes/03-batch/db_tool.md
-          #     - classes/03-batch/dot_env.md
-          #     - classes/03-batch/aps02_sql.md
+          - "Part 2":
+              - classes/03-batch/sql.md
+              - classes/03-batch/db_tool.md
+              - classes/03-batch/dot_env.md
+              - classes/03-batch/aps02_sql.md
   #   - "04 - Interview 01":
   #     - classes/04-int01/faq.md
   #     - classes/04-int01/int01.md
