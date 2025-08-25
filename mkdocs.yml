@@ -40,8 +40,8 @@ nav:
               - classes/03-batch/dot_env.md
               - classes/03-batch/aps02_sql.md
       - "04 - Interview 01":
-        - classes/04-int01/faq.md
-  #     - classes/04-int01/int01.md
+          - classes/04-int01/faq.md
+          - classes/04-int01/int01.md
   #   - "05 - Docker":
   #     - classes/05-docker/intro.md
   #     - classes/05-docker/s3.md
