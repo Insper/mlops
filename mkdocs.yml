@@ -22,6 +22,10 @@ nav:
   - deadlines.md
   - contributions.md
   # - project/project.md
+  - APS:
+      - "APS 01 Part 1": classes/01-intro/aps01_part_1.md
+      - "APS 01 Part 2": classes/01-intro/aps01_part_2.md
+      - "APS 02 SQL": classes/03-batch/aps02_sql.md
   - Classes:
       - "01 - Introduction":
           - classes/01-intro/intro.md
