@@ -42,11 +42,11 @@ nav:
       - "04 - Interview 01":
           - classes/04-int01/faq.md
           - classes/04-int01/int01.md
-  #   - "05 - Docker":
-  #     - classes/05-docker/intro.md
-  #     - classes/05-docker/s3.md
-  #     - classes/05-docker/docker.md
-  #   - "06 - Message Broker":
+      - "05 - Docker":
+          - classes/05-docker/intro.md
+          - classes/05-docker/s3.md
+          - classes/05-docker/docker.md
+    #   - "06 - Message Broker":
   #     - classes/06-message-broker/intro.md
   #     - classes/06-message-broker/rabbitmq.md
   #     - classes/06-message-broker/celery.md
