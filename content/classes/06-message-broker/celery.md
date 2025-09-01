@@ -201,9 +201,9 @@ Let's initialize the application with a limit of up to 10 workers. If Celery ide
     Try to create a `docker-compose.yml` file to run the entire application (RabbitMQ, Celery worker, Flower).
 
 !!! exercise "Question!"
-    The **[Celery Backend](https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/index.html)** is used to store the results of tasks.
+    The [**Celery Backend**](https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/index.html) is used to store the results of tasks.
 
-    Configure a backend (**[redis](https://redis.io/docs/latest/) or **[RabbitMQ](https://www.rabbitmq.com/)**) to save them for later retrieval.
+    Configure a backend ([**redis**](https://redis.io/docs/latest/) or [**RabbitMQ**](https://www.rabbitmq.com/)) to save them for later retrieval.
 
     !!! info "Info!"
         In case of using **Redis** as a backend, you need to start a Redis **server** in Docker compose.
