@@ -152,12 +152,20 @@
   
 
       
+        
+  
+    <li>
+      <a href="../aps03_lambda/">APS 03 Lambda</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Classes</span>
     <ul>
       
@@ -386,7 +394,7 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">07 - Lambda Functions</span>
     <ul>
       
@@ -447,6 +455,95 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../lambda_quotas/">Lambda quotas</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Lambda and docker</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#introduction">Introduction</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#create-source-code">Create Source Code</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#create-image">Create Image</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#test-locally">Test locally</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#container-registry">Container Registry</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#upload-image-to-ecr">Upload Image to ECR</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#create-function">Create Function</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#references">References</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../iac_terraform_intro/">Iac terraform intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../iac_terraform_sentiment/">Iac terraform sentiment</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../aps03_lambda/">Aps03 lambda</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -463,6 +560,18 @@
           <div class="ah-title-box">
             <ul class="ah-breadcrumbs">
               
+                
+                  
+                    <li>Classes</li>
+                  
+                
+                  
+                    <li>07 - Lambda Functions</li>
+                  
+                
+                  
+                    <li>Part 2</li>
+                  
                 
                 <li></li>
             </ul>
@@ -485,7 +594,7 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">version</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="p">}</span>
 </code></pre></div>
-<p>Our goal is to deploy this function with Docker + Lambda.</p>
+<p>Our goal is to deploy this function with <strong>Docker + Lambda</strong>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Important!</p>
 <p>Create a folder for today's class and store the suggested files in the root of this folder</p>
@@ -527,7 +636,7 @@
 </ul>
 <p>See more images <a href="https://gallery.ecr.aws/lambda/python">Here</a></p>
 </div>
-<div class="language-docker highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">public.ecr.aws/lambda/python:3.10</span>
+<div class="language-docker highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">public.ecr.aws/lambda/python:3.12</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c"># Copy requirements.txt</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span><span class="si">${</span><span class="nv">LAMBDA_TASK_ROOT</span><span class="si">}</span>
@@ -575,6 +684,16 @@
 </div>
 </p>
 
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If that doesn't work, try with double quotes:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>curl<span class="w"> </span><span class="s2">&quot;http://localhost:9500/2015-03-31/functions/function/invocations&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;{}&quot;</span>
+</code></pre></div>
+<p></div>
+</p></p>
+</div>
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/lambda_and_docker/exercise_4" id="exercise_4_0">
 <p class="admonition-title">Question 4</p>
 <form class="exercise-form">
@@ -585,16 +704,6 @@
 </div>
 </form>
 </div>
-<p>If that doesn't work, try with double quotes:</p>
-<p>
-<div class="termy">
-
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>curl<span class="w"> </span><span class="s2">&quot;http://localhost:9500/2015-03-31/functions/function/invocations&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;{}&quot;</span>
-</code></pre></div>
-
-</div>
-</p>
-
 <div class="admonition tip">
 <p class="admonition-title">Tip! 1</p>
 <p>If you prefer, make the request from Python with the <code>requests</code> library!</p>
@@ -617,8 +726,8 @@
 </details>
 </div>
 <h2 id="container-registry">Container Registry</h2>
-<p>The Amazon Elastic Container Registry (<strong>ECR</strong>) is a fully managed service that allows you to store, manage, and <strong>deploy container images</strong>. With <strong>ECR</strong>, you can securely store and manage your Docker container images.</p>
-<p>Let's upload our image to ECR. But first, we need to create a container repository:</p>
+<p>The <strong>Amazon Elastic Container Registry</strong> (<strong>ECR</strong>) is a fully managed service that allows you to store, manage, and <strong>deploy container images</strong>. With <strong>ECR</strong>, you can securely store and manage your Docker container images.</p>
+<p>Let's upload our image to <strong>ECR</strong>. But first, we need to create a container repository:</p>
 <div class="admonition danger">
 <p class="admonition-title">Atention!</p>
 <p>Change the <code>repository_name</code> variable.</p>
@@ -818,6 +927,20 @@ And push image to ECR with:</p>
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../lambda_quotas/"
+               class="ah-prev"
+               title="Lambda quotas">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Lambda quotas</span>
+            </a>
+          
+          
+            <a href="../iac_terraform_intro/"
+               class="ah-next"
+               title="Iac terraform intro">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Iac terraform intro</span>
+            </a>
           
         </div>
       </footer>

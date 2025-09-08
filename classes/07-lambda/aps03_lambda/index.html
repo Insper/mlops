@@ -152,12 +152,20 @@
   
 
       
+        
+  
+    <li>
+      <a href="./">APS 03 Lambda</a>
+    </li>
+  
+
+      
     </ul>
   </li>
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Classes</span>
     <ul>
       
@@ -386,7 +394,7 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">07 - Lambda Functions</span>
     <ul>
       
@@ -447,6 +455,83 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../lambda_quotas/">Lambda quotas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../lambda_and_docker/">Lambda and docker</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../iac_terraform_intro/">Iac terraform intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../iac_terraform_sentiment/">Iac terraform sentiment</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Aps03 lambda</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#accept-assignment">Accept assignment</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#clone-repository">Clone repository</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#part-i">Part I</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#part-2">Part 2</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#rubrics">Rubrics</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -464,6 +549,18 @@
             <ul class="ah-breadcrumbs">
               
                 
+                  
+                    <li>Classes</li>
+                  
+                
+                  
+                    <li>07 - Lambda Functions</li>
+                  
+                
+                  
+                    <li>Part 2</li>
+                  
+                
                 <li></li>
             </ul>
             
@@ -475,7 +572,7 @@
 <p>In this assignment, we are going to create a new version of the work from the <a href="../../02-api/api_deploy/#an-api-that-makes-predictions">API class</a>.</p>
 <h2 id="accept-assignment">Accept assignment</h2>
 <p>All assignments delivery will be made using Git repositories. Access the link below to accept the invitation and start working on the third assignment.</p>
-<p><a class="ah-button" href="https://classroom.github.com/a/jqj9KSVX">Invitation link</a></p>
+<p><a class="ah-button" href="https://classroom.github.com/a/qeGDHA0J"><strong>Invitation link</strong></a></p>
 <h2 id="clone-repository">Clone repository</h2>
 <p>Clone your private repository:</p>
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_1" id="exercise_1_0">
@@ -488,16 +585,24 @@
 </div>
 </form>
 </div>
-<h2 id="start-working">Start working!</h2>
-<p>Our goal is to transform the <code>predict</code> route from class 02 into a lambda function. In other words, assume the model is already trained and that the model pickle can be embedded in the Docker image.</p>
+<p>Now, it's time to start working!</p>
+<p>Our goal is to transform the <code>predict</code> route from class 02 into a lambda function. In other words, assume the model is already trained and that the model pickle can be embedded in the <strong>Docker image</strong>.</p>
 <div class="admonition info">
 <p class="admonition-title">Important!</p>
-<p>Realize that we will no longer be using FastAPI. We will create a lambda function that has a handler for <strong>predict</strong>, then we will create an API Gateway that exposes the lambda function.</p>
+<p>Notice that we will no longer be using FastAPI.</p>
+<p>We will create a <strong>lambda function</strong> that has a handler for <strong>predict</strong>, then we will create an API Gateway that exposes the lambda function.</p>
+</div>
+<h2 id="part-i">Part I</h2>
+<p>This part is about creating a Lambda function for the sentiment analysis model <strong>manually</strong>. It's a more hands-on approach compared to using the <strong>Terraform</strong> setup.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <strong>Part I</strong> is <strong>totally optional</strong>.</p>
+<p>If You prefer to use the Terraform setup right away, feel free to skip this part.</p>
 </div>
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_2" id="exercise_2_0">
 <p class="admonition-title">Question 2</p>
 <form class="exercise-form">
-<p>Create the <code>.py</code> file with the function handler.</p>
+<p>Create a proper project structure (folders and files).</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -507,7 +612,7 @@
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_3" id="exercise_3_0">
 <p class="admonition-title">Question 3</p>
 <form class="exercise-form">
-<p>Create the <code>requirements.txt</code> file with the dependencies.</p>
+<p>Create the <code>.py</code> file with the function handler.</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -516,6 +621,16 @@
 </div>
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_4" id="exercise_4_0">
 <p class="admonition-title">Question 4</p>
+<form class="exercise-form">
+<p>Create the <code>requirements.txt</code> file with the dependencies.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_5" id="exercise_5_0">
+<p class="admonition-title">Question 5</p>
 <form class="exercise-form">
 <p>Create the <code>Dockerfile</code></p>
 <div class="admonition tip">
@@ -536,20 +651,10 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_5" id="exercise_5_0">
-<p class="admonition-title">Question 5</p>
-<form class="exercise-form">
-<p>Create the Docker image</p>
-<div class="form-elements">
-<input type="hidden" name="data" value="OK" />
-<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
-</div>
-</form>
-</div>
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_6" id="exercise_6_0">
 <p class="admonition-title">Question 6</p>
 <form class="exercise-form">
-<p>Test the Docker image locally</p>
+<p>Create the Docker image</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -559,7 +664,7 @@
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_7" id="exercise_7_0">
 <p class="admonition-title">Question 7</p>
 <form class="exercise-form">
-<p>Create a new repository <code>aps03_&lt;INSPER_USERNAME&gt;</code> in ECR</p>
+<p>Test the Docker image locally</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -569,7 +674,7 @@
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_8" id="exercise_8_0">
 <p class="admonition-title">Question 8</p>
 <form class="exercise-form">
-<p>Tag and push your image to the ECR repository</p>
+<p>Create a new repository <code>aps03_&lt;INSPER_USERNAME&gt;</code> in ECR</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -579,7 +684,7 @@
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_9" id="exercise_9_0">
 <p class="admonition-title">Question 9</p>
 <form class="exercise-form">
-<p>Create a lambda function associated with your image</p>
+<p>Tag and push your image to the ECR repository</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -589,7 +694,7 @@
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_10" id="exercise_10_0">
 <p class="admonition-title">Question 10</p>
 <form class="exercise-form">
-<p>Test the lambda function</p>
+<p>Create a lambda function associated with your image</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -599,8 +704,7 @@
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_11" id="exercise_11_0">
 <p class="admonition-title">Question 11</p>
 <form class="exercise-form">
-<p>Create an API Gateway and test it.</p>
-<p>Leave in the README an example of how to test your API Gateway (curl command or Python code).</p>
+<p>Test the lambda function</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
@@ -610,6 +714,44 @@
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_12" id="exercise_12_0">
 <p class="admonition-title">Question 12</p>
 <form class="exercise-form">
+<p>Create an API Gateway and test it.</p>
+<p>Leave in the README an example of how to test your API Gateway (curl command or Python code).</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<h2 id="part-2">Part 2</h2>
+<p>This APS requires that you use the <strong>Terraform</strong> setup to create the Lambda function and API Gateway.</p>
+<p>Use the past pages as a reference.</p>
+<p>It's advisable to study about and implement:</p>
+<ul>
+<li>How to use Terraform Modular Configuration (project structure)?</li>
+<li>How to perform Variable Validation (e.g Lambda memory size)?</li>
+<li>How to use Remote State (S3) to store Terraform state remotely for team collaboration?</li>
+</ul>
+<div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_13" id="exercise_13_0">
+<p class="admonition-title">Question 13</p>
+<form class="exercise-form">
+<p>Create a good <code>README.md</code> file.</p>
+<ul>
+<li>
+<p>Explain how to deploy your project.</p>
+</li>
+<li>
+<p>Leave in the <code>README.md</code> an example of how to test your API Gateway (curl command, bash script or Python code).</p>
+</li>
+</ul>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_14" id="exercise_14_0">
+<p class="admonition-title">Question 14</p>
+<form class="exercise-form">
 <p>Commit and push: mission accomplished!</p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -617,6 +759,10 @@
 </div>
 </form>
 </div>
+<h2 id="rubrics">Rubrics</h2>
+<ul>
+<li>To be released</li>
+</ul>
 
 
 </section>
@@ -625,6 +771,13 @@
       </main>
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
+          
+            <a href="../iac_terraform_sentiment/"
+               class="ah-prev"
+               title="Iac terraform sentiment">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Iac terraform sentiment</span>
+            </a>
           
           
         </div>
