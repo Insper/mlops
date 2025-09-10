@@ -6,7 +6,7 @@ In this assignment, we are going to create a new version of the work from the [A
 
 All assignments delivery will be made using Git repositories. Access the link below to accept the invitation and start working on the third assignment.
 
-[Invitation link](https://classroom.github.com/a/jqj9KSVX){ .ah-button }
+[**Invitation link**](https://classroom.github.com/a/qeGDHA0J){ .ah-button }
 
 ## Clone repository
 
@@ -15,12 +15,26 @@ Clone your private repository:
 !!! exercise "Question"
     Create a `.gitignore` and make sure the `.env` is in it!
 
-## Start working!
+Now, it's time to start working!
 
-Our goal is to transform the `predict` route from class 02 into a lambda function. In other words, assume the model is already trained and that the model pickle can be embedded in the Docker image.
+Our goal is to transform the `predict` route from class 02 into a lambda function. In other words, assume the model is already trained and that the model pickle can be embedded in the **Docker image**.
 
 !!! info "Important!"
-    Realize that we will no longer be using FastAPI. We will create a lambda function that has a handler for **predict**, then we will create an API Gateway that exposes the lambda function.
+    Notice that we will no longer be using FastAPI.
+    
+    We will create a **lambda function** that has a handler for **predict**, then we will create an API Gateway that exposes the lambda function.
+
+## Part I
+
+This part is about creating a Lambda function for the sentiment analysis model **manually**. It's a more hands-on approach compared to using the **Terraform** setup.
+
+!!! warning
+    The **Part I** is **totally optional**.
+
+    If You prefer to use the Terraform setup right away, feel free to skip this part.
+
+!!! exercise "Question"
+    Create a proper project structure (folders and files).
 
 !!! exercise "Question"
     Create the `.py` file with the function handler.
@@ -67,5 +81,28 @@ Our goal is to transform the `predict` route from class 02 into a lambda functio
 
     Leave in the README an example of how to test your API Gateway (curl command or Python code).
 
+## Part 2
+
+This APS requires that you use the **Terraform** setup to create the Lambda function and API Gateway.
+
+Use the past pages as a reference.
+
+It's advisable to study about and implement:
+
+- How to use Terraform Modular Configuration (project structure)?
+- How to perform Variable Validation (e.g Lambda memory size)?
+- How to use Remote State (S3) to store Terraform state remotely for team collaboration?
+
+!!! exercise "Question"
+    Create a good `README.md` file.
+    
+    - Explain how to deploy your project.
+
+    - Leave in the `README.md` an example of how to test your API Gateway (curl command, bash script or Python code).
+
 !!! exercise "Question"
     Commit and push: mission accomplished!
+
+## Rubrics
+
+- To be released

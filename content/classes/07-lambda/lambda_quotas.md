@@ -1,6 +1,6 @@
 # Lambda Quotas
 
-In the last classes we saw how to create functions that run serverless, that is, we don't need to worry about the infrastructure needed to execute the functions.
+In the last class we saw how to create functions that run serverless, that is, we don't need to worry about the infrastructure needed to execute the functions.
 
 Ideally, we would like to run any function, with any time and memory requirement on AWS Lambda. But there are limits.
 
@@ -13,7 +13,7 @@ Ideally, we would like to run any function, with any time and memory requirement
 Considering ML applications, it is common for them to use packages such as `sklearn`, `XGBoost`, `lightgbm`, `pandas`, etc. Since dependencies need to be packaged in ZIP, it is common to use hundreds of MiB or a few GiB.
 
 !!! exercise short "Question"
-    Note the "Deployment package (.zip file archive) size" topic. What is the file size limit for a ZIP we want to deploy?
+    Note the *"Deployment package (.zip file archive) size"* topic. What is the file size limit for a **ZIP** we want to deploy?
 
     !!! answer "Answer"
         50 MB (zipped, for direct upload), 250 MB (unzipped), 3 MB (console editor).

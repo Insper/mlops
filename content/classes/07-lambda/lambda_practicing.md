@@ -49,39 +49,87 @@ Let's create our own function in AWS Lambda.
 
 Let's use this code to list the functions available in our account:
 
-```python
-import boto3
-import os
-from dotenv import load_dotenv
+=== "Without pagination"
+    ```python
+    import boto3
+    import os
+    from dotenv import load_dotenv
 
-load_dotenv()
+    load_dotenv()
 
-# Create a Boto3 client for AWS Lambda
-lambda_client = boto3.client(
-    "lambda",
-    aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
-    aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
-    region_name=os.getenv("AWS_REGION"),
-)
-
-
-# Call the list_functions API to retrieve all Lambda functions
-response = lambda_client.list_functions(MaxItems=1000)
-
-# Extract the list of Lambda functions from the response
-functions = response["Functions"]
-
-print(f"You have {len(functions)} Lambda functions")
+    # Create a Boto3 client for AWS Lambda
+    lambda_client = boto3.client(
+        "lambda",
+        aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+        aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+        region_name=os.getenv("AWS_REGION"),
+    )
 
 
-# Print the name of each Lambda function
-if len(functions) > 0:
-    print("Here are their names:")
+    # Call the list_functions API to retrieve all Lambda functions
+    response = lambda_client.list_functions(MaxItems=1000)
 
-for function in functions:
-    function_name = function["FunctionName"]
-    print(function_name)
-```
+    # Extract the list of Lambda functions from the response
+    functions = response["Functions"]
+
+    print(f"You have {len(functions)} Lambda functions")
+
+
+    # Print the name of each Lambda function
+    if len(functions) > 0:
+        print("Here are their names:")
+
+    for function in functions:
+        function_name = function["FunctionName"]
+        print(function_name)
+    ```
+
+=== "With pagination"
+    If you have many functions, you may need to paginate through the results:
+
+    ```python
+    import boto3
+    import os
+    from dotenv import load_dotenv
+
+    load_dotenv(override=True)
+
+    # Create a Boto3 client for AWS Lambda
+    lambda_client = boto3.client(
+        "lambda",
+        aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+        aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+        region_name=os.getenv("AWS_REGION"),
+    )
+
+    # List all Lambda functions with pagination
+    functions = []
+    next_marker = None
+
+    while True:
+        if next_marker:
+            response = lambda_client.list_functions(Marker=next_marker)
+        else:
+            response = lambda_client.list_functions()
+
+        functions.extend(response["Functions"])
+
+        # Check if there are more functions to fetch
+        next_marker = response.get("NextMarker")
+        if not next_marker:
+            break
+
+    print(f"You have {len(functions)} Lambda functions")
+
+    # Print the name of each Lambda function
+    if functions:
+        print("Here are their names:")
+
+    for function in functions:
+        function_name = function["FunctionName"]
+        print(function_name)
+
+    ```
 
 !!! exercise "Question"
     Run the Python code and check out the functions currently available in our account!
@@ -132,6 +180,39 @@ lambda_response = lambda_client.create_function(
 
 print("Function ARN:", lambda_response["FunctionArn"])
 ```
+
+??? tip "Tip: How to delete Lambda function"
+    If you want to delete a function, you can use the following code:
+
+    ```python
+    import boto3
+    import os
+    from dotenv import load_dotenv
+
+    load_dotenv(override=True)
+
+    # Provide function name, e.g. sayHello_<YOUR_INSPER_USERNAME>
+    function_name = ""
+
+    if len(function_name) == 0:
+        raise ValueError("No function name provided!")
+
+    lambda_client = boto3.client(
+        "lambda",
+        aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+        aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+        region_name=os.getenv("AWS_REGION"),
+    )
+
+    try:
+        response = lambda_client.delete_function(FunctionName=function_name)
+        print(f"Lambda function '{function_name}' deleted successfully!")
+    except lambda_client.exceptions.ResourceNotFoundException:
+        print(f"Lambda function '{function_name}' not found.")
+    except Exception as e:
+        print("Error while deleting Lambda function:", str(e))
+
+    ```
 
 !!! exercise long "Question"
     Run the Python code to create the function. Then write down the returned ARN

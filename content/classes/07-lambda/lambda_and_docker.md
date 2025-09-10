@@ -19,7 +19,7 @@ def hello_from_docker(event, context):
     }
 ```
 
-Our goal is to deploy this function with Docker + Lambda.
+Our goal is to deploy this function with **Docker + Lambda**.
 
 !!! danger "Important!"
     Create a folder for today's class and store the suggested files in the root of this folder
@@ -48,7 +48,7 @@ Our goal is to deploy this function with Docker + Lambda.
         See more images [Here](https://gallery.ecr.aws/lambda/python)
 
     ```docker
-    FROM public.ecr.aws/lambda/python:3.10
+    FROM public.ecr.aws/lambda/python:3.12
 
     # Copy requirements.txt
     COPY requirements.txt ${LAMBDA_TASK_ROOT}
@@ -65,6 +65,19 @@ Our goal is to deploy this function with Docker + Lambda.
 
 Let's name the image `lambda-ex-image` and give it the `test` tag:
 
+!!! warning "Warning"
+    If you are using a Mac with an M chip, you may encounter an error during the build process.
+
+    Then, try running:
+
+    <div class="termy">
+
+    ```console
+    $ docker build --platform linux/amd64 --provenance=false --no-cache -t lambda-ex-image:test .
+    ```
+
+    </div>
+
 <div class="termy">
 
 ```console
@@ -72,6 +85,8 @@ $ docker build --platform linux/amd64 -t lambda-ex-image:test .
 ```
 
 </div>
+
+
 
 ## Test locally
 
@@ -100,20 +115,21 @@ $ curl "http://localhost:9500/2015-03-31/functions/function/invocations" -d '{}'
 </div>
 </p>
 
+!!! warning "Warning"
+    If that doesn't work, try with double quotes:
+
+    <p>
+    <div class="termy">
+
+    ```console
+    $ curl "http://localhost:9500/2015-03-31/functions/function/invocations" -d "{}"
+    ```
+
+    </div>
+    </p>
+
 !!! exercise "Question"
     Check if you can get the expected return, as defined in the *handler* of the lambda function.
-
-If that doesn't work, try with double quotes:
-
-<p>
-<div class="termy">
-
-```console
-$ curl "http://localhost:9500/2015-03-31/functions/function/invocations" -d "{}"
-```
-
-</div>
-</p>
 
 !!! tip "Tip!"
     If you prefer, make the request from Python with the `requests` library!
@@ -137,9 +153,9 @@ $ curl "http://localhost:9500/2015-03-31/functions/function/invocations" -d "{}"
 
 ## Container Registry
 
-The Amazon Elastic Container Registry (**ECR**) is a fully managed service that allows you to store, manage, and **deploy container images**. With **ECR**, you can securely store and manage your Docker container images.
+The **Amazon Elastic Container Registry** (**ECR**) is a fully managed service that allows you to store, manage, and **deploy container images**. With **ECR**, you can securely store and manage your Docker container images.
 
-Let's upload our image to ECR. But first, we need to create a container repository:
+Let's upload our image to **ECR**. But first, we need to create a container repository:
 
 !!! danger "Atention!"
     Change the `repository_name` variable.
