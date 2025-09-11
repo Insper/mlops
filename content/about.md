@@ -12,7 +12,7 @@ We will learn how to **Take Machine Learning Models to Production**!
 
 Students will need to submit some assignments:
 
-- `APS`: practical activities developed during and after classes.
+- `APS`: practical assigments, developed during and after classes.
 - `INT`: some classes will focus on technical interviews in machine learning. These classes will require previous preparation by the students, who will interview each other during those classes.
 - `PRO`: in the last classes, students will have to apply the knowledge acquired in a project involving the deploy of an ML model.
 

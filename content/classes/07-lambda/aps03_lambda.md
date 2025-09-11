@@ -28,11 +28,6 @@ Our goal is to transform the `predict` route from class 02 into a lambda functio
 
 This part is about creating a Lambda function for the sentiment analysis model **manually**. It's a more hands-on approach compared to using the **Terraform** setup.
 
-!!! warning
-    The **Part I** is **totally optional**.
-
-    If You prefer to use the Terraform setup right away, feel free to skip this part.
-
 !!! exercise "Question"
     Create a proper project structure (folders and files).
 
@@ -64,6 +59,11 @@ This part is about creating a Lambda function for the sentiment analysis model *
 !!! exercise "Question"
     Test the Docker image locally
 
+!!! warning
+    In the upcoming exercises, you will write scripts to provision resources (repository creation, functions, API, etc.).
+    
+    If You prefer, you may use the Terraform setup right away (as will be required in Part 2).
+
 !!! exercise "Question"
     Create a new repository `aps03_<INSPER_USERNAME>` in ECR
 
@@ -94,15 +94,39 @@ It's advisable to study about and implement:
 - How to use Remote State (S3) to store Terraform state remotely for team collaboration?
 
 !!! exercise "Question"
+    Redo all the steps from Part I using Terraform to provision infrastructure (where applicable).
+
+!!! exercise "Question"
     Create a good `README.md` file.
     
     - Explain how to deploy your project.
 
     - Leave in the `README.md` an example of how to test your API Gateway (curl command, bash script or Python code).
 
+## Delivering the assignment
+
 !!! exercise "Question"
-    Commit and push: mission accomplished!
+    Commit and push before the [deadline](../../deadlines.md): mission accomplished!
+
+After pushing the code on GitHub, to achieve the highest grade, the student must inform the professor (in class or during office hours) that they wish to present the project. The presentation will involve showing that the project works and discussing its components, possibly demonstrating that they studied or learned beyond the project requirements (if that was the case).
+
+Before starting this stage, it is advisable to have the repository open (both on GitHub’s website and in VSCode), have the deployment completed and functional on AWS, and have code or calls ready to demonstrate its operation.
+
+Students who do not present their project to the professor will have their maximum grade restricted at a B.
+
+## Deadlines
+
+- **Github submission Deadline**: available [here](../../deadlines.md)
+- **Presentation deadline (only for maximum concept)**: october 15th.
+
+
 
 ## Rubrics
 
-- To be released
+| Concept | Criteria |
+|---------|----------|
+| I (Insufficient) | Did not complete the required steps, major components missing, or solution does not work. |
+| D (Developing) | Attempted some steps, but with significant errors or missing parts; solution is incomplete or unreliable. |
+| C (Essential) | Completed all required steps from Part 1; solution works but lacks polish or best practices, improvements possible. |
+| B (Above Average) | Solution is robust (both Part 1 and 2), well-documented (wrote a good README), follows best practices. |
+| A (Excellent) | Presented the project to the professor during class or office hours. Demonstrates deep understanding and extra effort. The Terraform infrastructure state is maintained centrally in S3. |
