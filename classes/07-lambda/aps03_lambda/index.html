@@ -754,6 +754,7 @@
             <section class="progress-section show">
 <h1 id="aps-03">APS 03</h1>
 <p>In this assignment, we are going to create a new version of the work from the <a href="../../02-api/api_deploy/#an-api-that-makes-predictions">API class</a>.</p>
+<p>We will create a <strong>Lambda function</strong> that will make predictions using a pre-trained model. The Lambda function will be exposed through an <strong>API Gateway</strong>.</p>
 <h2 id="accept-assignment">Accept assignment</h2>
 <p>All assignments delivery will be made using Git repositories. Access the link below to accept the invitation and start working on the third assignment.</p>
 <p><a class="ah-button" href="https://classroom.github.com/a/qeGDHA0J"><strong>Invitation link</strong></a></p>
@@ -777,7 +778,12 @@
 <p>We will create a <strong>lambda function</strong> that has a handler for <strong>predict</strong>, then we will create an API Gateway that exposes the lambda function.</p>
 </div>
 <h2 id="part-i">Part I</h2>
-<p>This part is about creating a Lambda function for the sentiment analysis model <strong>manually</strong>. It's a more hands-on approach compared to using the <strong>Terraform</strong> setup.</p>
+<p>This part is about creating a Lambda function for the model prediction <strong>manually</strong>. It's a more hands-on approach compared to using the <strong>Terraform</strong> setup.</p>
+<div class="admonition info">
+<p class="admonition-title">Info!</p>
+<p>Use the work from class 02 as a reference.</p>
+<p>You can copy the model pickles from class 02 (Ignore the training part).</p>
+</div>
 <div class="admonition exercise self-progress" data-slug="classes/07-lambda/aps03_lambda/exercise_2" id="exercise_2_0">
 <p class="admonition-title">Question 2</p>
 <form class="exercise-form">
@@ -956,7 +962,7 @@
 </div>
 <p>After pushing the code on GitHub, to achieve the highest grade, the student must inform the professor (in class or during office hours) that they wish to present the project. The presentation will involve showing that the project works and discussing its components, possibly demonstrating that they studied or learned beyond the project requirements (if that was the case).</p>
 <p>Before starting this stage, it is advisable to have the repository open (both on GitHub’s website and in VSCode), have the deployment completed and functional on AWS, and have code or calls ready to demonstrate its operation.</p>
-<p>Students who do not present their project to the professor will have their maximum grade restricted at a B.</p>
+<p>Students who do not present their project to the professor will have their maximum grade restricted at a <strong>B</strong>.</p>
 <h2 id="deadlines">Deadlines</h2>
 <ul>
 <li><strong>Github submission Deadline</strong>: available <a href="../../../deadlines/">here</a></li>
