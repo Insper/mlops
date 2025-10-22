@@ -139,7 +139,7 @@ Install it, then initialize Flower with:
 </div>
 <br>
 
-Access **http://0.0.0.0:5555** and browse the available options in the menu.
+Access **http://localhost:5555** and browse the available options in the menu.
 
 ![](flower_init.png)
 

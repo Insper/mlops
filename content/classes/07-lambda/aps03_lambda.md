@@ -2,6 +2,8 @@
 
 In this assignment, we are going to create a new version of the work from the [API class](../02-api/api_deploy.md#an-api-that-makes-predictions).
 
+We will create a **Lambda function** that will make predictions using a pre-trained model. The Lambda function will be exposed through an **API Gateway**.
+
 ## Accept assignment
 
 All assignments delivery will be made using Git repositories. Access the link below to accept the invitation and start working on the third assignment.
@@ -26,7 +28,12 @@ Our goal is to transform the `predict` route from class 02 into a lambda functio
 
 ## Part I
 
-This part is about creating a Lambda function for the sentiment analysis model **manually**. It's a more hands-on approach compared to using the **Terraform** setup.
+This part is about creating a Lambda function for the model prediction **manually**. It's a more hands-on approach compared to using the **Terraform** setup.
+
+!!! info "Info!"
+    Use the work from class 02 as a reference.
+
+    You can copy the model pickles from class 02 (Ignore the training part).
 
 !!! exercise "Question"
     Create a proper project structure (folders and files).
@@ -112,7 +119,7 @@ After pushing the code on GitHub, to achieve the highest grade, the student must
 
 Before starting this stage, it is advisable to have the repository open (both on GitHub’s website and in VSCode), have the deployment completed and functional on AWS, and have code or calls ready to demonstrate its operation.
 
-Students who do not present their project to the professor will have their maximum grade restricted at a B.
+Students who do not present their project to the professor will have their maximum grade restricted at a **B**.
 
 ## Deadlines
 
