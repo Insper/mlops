@@ -929,6 +929,31 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">17 - Feature store</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../17-feature-store/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../17-feature-store/feast/">Feast</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -1293,7 +1318,7 @@
 <p>We verified that we are able to call the execution of each step separately. For now we don't have a defined pipeline yet. Let's do this!</p>
 <p>We discussed that the <em>pipeline</em> will be made up of one or more <em>stages</em>.</p>
 <p>We will create the preprocessing <em>stage</em>. But first, let's discuss this <em>stage</em>:</p>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/16-data-versioning/practicing/long_1" id="long_1_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/16-data-versioning/practicing/long_1" id="long_1_0">
 <p class="admonition-title">Question! 11<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>What are the dependencies for <code>src/preproc.py</code> to run successfully?</p>
@@ -1413,7 +1438,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/16-data-versioning/practicing/long_4" id="long_4_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/16-data-versioning/practicing/long_4" id="long_4_0">
 <p class="admonition-title">Question! 16<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Use <code>dvc repro</code> to rerun the pipeline. What happens?</p>
@@ -1438,7 +1463,7 @@
 </div>
 </div>
 <h2 id="train-stage">Train Stage</h2>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/16-data-versioning/practicing/long_5" id="long_5_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/16-data-versioning/practicing/long_5" id="long_5_0">
 <p class="admonition-title">Question! 17<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>What are the dependencies for <code>src/train.py</code> to run successfully?</p>
@@ -1528,7 +1553,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/16-data-versioning/practicing/long_10" id="long_10_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/16-data-versioning/practicing/long_10" id="long_10_0">
 <p class="admonition-title">Question! 22<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Run the pipeline and check generated files.</p>
@@ -1539,7 +1564,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/16-data-versioning/practicing/long_11" id="long_11_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/16-data-versioning/practicing/long_11" id="long_11_0">
 <p class="admonition-title">Question! 23<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Rerun the pipeline. What happens?</p>
@@ -1550,7 +1575,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/16-data-versioning/practicing/long_12" id="long_12_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/16-data-versioning/practicing/long_12" id="long_12_0">
 <p class="admonition-title">Question! 24<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>In the <code>train</code> function of the <code>train.py</code> file, edit the <code>RandomForestClassifier</code> parameters. 
@@ -1587,7 +1612,7 @@ Change <code>n_estimators</code> from <code>50</code> to <code>100</code>.</p>
 </p></p>
 </div>
 </div>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/16-data-versioning/practicing/long_13" id="long_13_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/16-data-versioning/practicing/long_13" id="long_13_0">
 <p class="admonition-title">Question! 25<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Let's now change something in <code>preproc.py</code>. In the <code>preprocess</code> function, add the <code>campaign</code> column to the list of columns to be removed (<code>df.drop</code>).</p>
@@ -1633,6 +1658,13 @@ Change <code>n_estimators</code> from <code>50</code> to <code>100</code>.</p>
               <span class="nav-title">Pipelines</span>
             </a>
           
+          
+            <a href="../../17-feature-store/intro/"
+               class="ah-next"
+               title="Intro">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Intro</span>
+            </a>
           
         </div>
       </footer>

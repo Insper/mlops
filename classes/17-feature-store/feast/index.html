@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>Feast - MLOps & Interviews</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '../../..';
+      
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
+      
+      
+      var dashboardEnabled = false;
+      var tagTree = {};
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../../../css/termynal.css"><link rel="stylesheet" href="../../../css/custom.css">
+  </head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href="../../.."
+           title="MLOps &amp; Interviews"
+           class="ah-logo"
+           aria-label="MLOps & Interviews">
+          MLOps &amp; Interviews
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="../../..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../about/">About</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../deadlines/">Deadlines</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../contributions/">Contributions</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../../project/project/">Project</a>
+    </li>
+  
+
+            
+              
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">APS</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../01-intro/aps01_part_1/">APS 01 Part 1</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../01-intro/aps01_part_2/">APS 01 Part 2</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/aps02_sql/">APS 02 SQL</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/aps03_lambda/">APS 03 Lambda</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+            
+              
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Classes</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">01 - Introduction</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../01-intro/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../01-intro/aps01_part_1/">APS 01 Part 1</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../01-intro/aps01_part_2/">APS 01 Part 2</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">02 - Deploy: first try!</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../02-api/api_deploy/">Api deploy</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">03 - Batch prediction</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 1</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../03-batch/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/data_formats/">Data formats</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/practicing/">Practicing</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../03-batch/sql/">Sql</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/db_tool/">Db tool</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/dot_env/">Dot env</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../03-batch/aps02_sql/">APS 02 SQL</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">04 - Interview 01</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../04-int01/faq/">Faq</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../04-int01/int01/">Int01</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">05 - Docker</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../05-docker/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../05-docker/s3/">S3</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../05-docker/docker/">Docker</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">06 - Message Broker</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../06-message-broker/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../06-message-broker/rabbitmq/">Rabbitmq</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../06-message-broker/celery/">Celery</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">07 - Lambda Functions</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 1</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/aws_lambda/">Aws lambda</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/lambda_practicing/">Lambda practicing</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/api_gateway/">Api gateway</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/sentiment_analysis/">Sentiment analysis</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/sa_lambda_function/">Sa lambda function</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/lambda_layer/">Lambda layer</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/lambda_quotas/">Lambda quotas</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/lambda_and_docker/">Lambda and docker</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/iac_terraform_intro/">Iac terraform intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/iac_terraform_sentiment/">Iac terraform sentiment</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../07-lambda/aps03_lambda/">APS 03 Lambda</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">08 - Queues</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../08-queue/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../08-queue/concurrent_execution/">Concurrent execution</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../08-queue/sqs_practicing/">Sqs practicing</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../08-queue/sqs_and_lambda/">Sqs and lambda</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">09 - Interview 02</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../09-int02/int02/">Int02</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">10 - Documentation</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../10-documentation/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../10-documentation/code_documentation/">Code documentation</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../10-documentation/fast_api_docs/">Fast api docs</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../10-documentation/ml_canvas/">Ml canvas</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">11 - Logging</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../11-logging/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../11-logging/python_logging/">Python logging</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../11-logging/read_aws_logs/">Read aws logs</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../11-logging/write_logs_to_s3/">Write logs to s3</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">12 - CI/CD</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../12-ci-cd/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../12-ci-cd/testing/">Testing</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../12-ci-cd/auto_deploy/">Auto deploy</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">13 - Tracking</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 1</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../13-tracking/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../13-tracking/mlflow/">Mlflow</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../13-tracking/centralization/">Centralization</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../13-tracking/model_registry/">Model registry</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">14 - Interview 03</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../14-int03/int03/">Int03</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">15 - Monitoring</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../15-monitoring/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../15-monitoring/metrics/">Metrics</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../15-monitoring/model_degradation/">Model degradation</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../15-monitoring/data_drift_methods/">Data drift methods</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../15-monitoring/data_drift_ml/">Data drift ml</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../15-monitoring/performance_degradation/">Performance degradation</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">16 - Data versioning</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 1</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../16-data-versioning/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../16-data-versioning/dvc/">Dvc</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../16-data-versioning/s3_storage/">S3 storage</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../16-data-versioning/pipelines/">Pipelines</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../16-data-versioning/practicing/">Practicing</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">17 - Feature store</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Feast</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#install-feast">Install feast</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#create-folder-and-initialize-feast">Create folder and Initialize feast</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#configure-feature_storeyaml">Configure feature_store.yaml</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#define-feature-repository">Define feature repository</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#apply-changes">Apply changes</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#use-features">Use features</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#user-interface">User interface</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+    </ul>
+  </li>
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                  
+                    <li>Classes</li>
+                  
+                
+                  
+                    <li>17 - Feature store</li>
+                  
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<h1 id="feast">Feast</h1>
+<p>Feast is an open-source <strong>feature store</strong> designed to simplify and accelerate the management and serving of ML features. </p>
+<p>It aims to provide a scalable and reliable platform for feature storage, retrieval, and serving, enabling efficient development and deployment of ML models.</p>
+<div class="admonition info">
+<p class="admonition-title">Info!</p>
+<p>Feast enables organizations to consistently define, store, and serve ML features and decouple ML from data infrastructure.</p>
+</div>
+<h2 id="install-feast">Install <code>feast</code></h2>
+<div class="admonition exercise self-progress" data-slug="classes/17-feature-store/feast/exercise_1" id="exercise_1_0">
+<p class="admonition-title">Question! 1</p>
+<form class="exercise-form">
+<p>Create (or activate) a virtual environment to be used in class.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/17-feature-store/feast/exercise_2" id="exercise_2_0">
+<p class="admonition-title">Question! 2</p>
+<form class="exercise-form">
+<p>After activating the environment, we install <code>feast</code> with:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>feast
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<h2 id="create-folder-and-initialize-feast">Create folder and Initialize <code>feast</code></h2>
+<p>Let's create a <code>feast</code> project with:</p>
+<div class="admonition exercise self-progress" data-slug="classes/17-feature-store/feast/exercise_3" id="exercise_3_0">
+<p class="admonition-title">Question! 3</p>
+<form class="exercise-form">
+<p>Make sure you are at the folder you want to store this class and run:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>feast<span class="w"> </span>init<span class="w"> </span>-m<span class="w"> </span>experiment
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>experiment/feature_repo
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/17-feature-store/feast/exercise_4" id="exercise_4_0">
+<p class="admonition-title">Question! 4</p>
+<form class="exercise-form">
+<p>Explore newly created folders and files!</p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="go">experiment</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="go">├── feature_repo</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="go">│   ├── feature_store.yaml</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="go">│   └── __init__.py</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="go">└── __init__.py</span>
+</code></pre></div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/17-feature-store/feast/exercise_5" id="exercise_5_0">
+<p class="admonition-title">Question! 5</p>
+<form class="exercise-form">
+<p>Create a <code>data</code> folder at <code>experiment/feature_repo/data</code> and paste the <code>channels.parquet</code> file there.</p>
+<div class="admonition info">
+<p>The <code>parquet</code> file can be found <a href="https://github.com/Insper/mlops/tree/main/content/classes/17-feature-store/data">HERE</a>!</p>
+</div>
+<p>Expected tree:</p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="go">experiment</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="go">├── feature_repo</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="go">│   ├── data</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="go">│   │   └── channels.parquet</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="go">│   ├── feature_store.yaml</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="go">│   └── __init__.py</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="go">└── __init__.py</span>
+</code></pre></div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/17-feature-store/feast/exercise_6" id="exercise_6_0">
+<p class="admonition-title">Question! 6</p>
+<form class="exercise-form">
+<p>Create a <code>notebooks</code> folder at <code>experiment/notebooks</code> and paste the following code just to check <code>"channels.parquet</code> file content.</p>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">dfc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">&quot;../feature_repo/data/channels.parquet&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">dfc</span>
+</code></pre></div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<h2 id="configure-feature_storeyaml">Configure <code>feature_store.yaml</code></h2>
+<p>In this file we must configure the data sources. For now we will use data stored locally.</p>
+<div class="admonition exercise self-progress" data-slug="classes/17-feature-store/feast/exercise_7" id="exercise_7_0">
+<p class="admonition-title">Question! 7</p>
+<form class="exercise-form">
+<p>Change the <code>experiment/feature_repo/feature_store.yaml</code> file content to:</p>
+<div class="language-yaml highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exp</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">registry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/registry.db</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nt">online_store</span><span class="p">:</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sqlite</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/online_store.db</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nt">entity_key_serialization_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+</code></pre></div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<h2 id="define-feature-repository">Define feature repository</h2>
+<div class="admonition exercise self-progress" data-slug="classes/17-feature-store/feast/exercise_8" id="exercise_8_0">
+<p class="admonition-title">Question! 8</p>
+<form class="exercise-form">
+<p>Create a <code>experiment/feature_repo/define_repo.py</code> file with the following content.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Important!</p>
+<p>Change the <code>path="/full/path/to/experiment/feature_repo/data/channels.parquet"</code></p>
+<p>Enter the full path to the parquet file!</p>
+</div>
+<details>
+<summary>Click to see <code>define_repo.py</code> source code</summary>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kn">from</span> <span class="nn">feast</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="n">Entity</span><span class="p">,</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">FeatureService</span><span class="p">,</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">FeatureView</span><span class="p">,</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="n">Field</span><span class="p">,</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="n">FileSource</span><span class="p">,</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">PushSource</span><span class="p">,</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="n">RequestSource</span><span class="p">,</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">)</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="kn">from</span> <span class="nn">feast.on_demand_feature_view</span> <span class="kn">import</span> <span class="n">on_demand_feature_view</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="kn">from</span> <span class="nn">feast.types</span> <span class="kn">import</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">String</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="n">channel</span> <span class="o">=</span> <span class="n">Entity</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="n">join_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;channel_id&quot;</span><span class="p">])</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="n">channel_stats_source</span> <span class="o">=</span> <span class="n">FileSource</span><span class="p">(</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;channel_daily_stats_source&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/path/to/experiment/feature_repo/data/channels.parquet&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>    <span class="n">timestamp_field</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>    <span class="n">created_timestamp_column</span><span class="o">=</span><span class="s2">&quot;created&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="p">)</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="c1"># Here we define a Feature View that will allow us to serve the</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="c1"># channel data to our model online.</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="n">channel_stats_fv</span> <span class="o">=</span> <span class="n">FeatureView</span><span class="p">(</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;channel_daily_stats&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>    <span class="n">entities</span><span class="o">=</span><span class="p">[</span><span class="n">channel</span><span class="p">],</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>    <span class="n">ttl</span><span class="o">=</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>    <span class="c1"># The list of features defined below act as a schema to both define features</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>    <span class="c1"># for both materialization of features into a store, and are used as references</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>    <span class="c1"># during retrieval for building a training dataset or serving features</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>    <span class="n">schema</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>        <span class="n">Field</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;channel_name&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">String</span><span class="p">),</span>
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>        <span class="n">Field</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;k_subscribers&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">Int64</span><span class="p">),</span>
+<a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>        <span class="n">Field</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;30_days_k_views&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">Int64</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Average daily channel stats&quot;</span><span class="p">),</span>
+<a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>    <span class="p">],</span>
+<a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>    <span class="n">online</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>    <span class="n">source</span><span class="o">=</span><span class="n">channel_stats_source</span><span class="p">,</span>
+<a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>    <span class="c1"># Tags are user defined key/value pairs that are attached to each</span>
+<a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>    <span class="c1"># feature view</span>
+<a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>    <span class="n">tags</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;team&quot;</span><span class="p">:</span> <span class="s2">&quot;youtube_analytics&quot;</span><span class="p">},</span>
+<a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a><span class="p">)</span>
+</code></pre></div>
+</details>
+<h2 id="apply-changes">Apply changes</h2>
+<div class="admonition exercise self-progress" data-slug="classes/17-feature-store/feast/exercise_9" id="exercise_9_0">
+<p class="admonition-title">Question! 9</p>
+<form class="exercise-form">
+<p>To apply the changes, navigate to the <code>experiment/feature_repo</code> folder and run the command:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">$ </span>feast<span class="w"> </span>apply
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<h2 id="use-features">Use features</h2>
+<p>Let's see how to use the features. To do this, we will query historical data.</p>
+<div class="admonition exercise self-progress" data-slug="classes/17-feature-store/feast/exercise_10" id="exercise_10_0">
+<p class="admonition-title">Question! 10</p>
+<form class="exercise-form">
+<p>Create a <code>experiment/get_features.py</code> file with the following content.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<details>
+<summary>Click to see <code>get_features.py</code> source code</summary>
+<div class="language-python highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span> <span class="nn">feast</span> <span class="kn">import</span> <span class="n">FeatureStore</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">store</span> <span class="o">=</span> <span class="n">FeatureStore</span><span class="p">(</span><span class="n">repo_path</span><span class="o">=</span><span class="s2">&quot;feature_repo&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># The keys and filters for the information we want to obtain.</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">entity_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="p">{</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        <span class="s2">&quot;channel_id&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>        <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>            <span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>            <span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>            <span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>        <span class="p">],</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    <span class="p">}</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="p">)</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="c1"># The features we want to obtain.</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="n">feature_vector</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get_historical_features</span><span class="p">(</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>    <span class="n">entity_df</span><span class="o">=</span><span class="n">entity_df</span><span class="p">,</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>    <span class="n">features</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>        <span class="s2">&quot;channel_daily_stats:channel_name&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>        <span class="s2">&quot;channel_daily_stats:k_subscribers&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>    <span class="p">],</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="p">)</span><span class="o">.</span><span class="n">to_df</span><span class="p">()</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="n">pprint</span><span class="p">(</span><span class="n">feature_vector</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<div class="admonition exercise self-progress" data-slug="classes/17-feature-store/feast/exercise_11" id="exercise_11_0">
+<p class="admonition-title">Question! 11</p>
+<form class="exercise-form">
+<p>Test by running:</p>
+<p><p>
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">$ </span>python<span class="w"> </span>get_features.py
+</code></pre></div>
+<p></div>
+</p></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise self-progress" data-slug="classes/17-feature-store/feast/exercise_12" id="exercise_12_0">
+<p class="admonition-title">Question! 12</p>
+<form class="exercise-form">
+<p>Change the code to also return the <code>channel_daily_stats:30_days_k_views</code> feature.</p>
+<p>Run it and check if it worked.</p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Submit" value="Mark as done" />
+</div>
+</form>
+</div>
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="classes/17-feature-store/feast/long_1" id="long_1_0">
+<p class="admonition-title">Question! 13<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>Change the code to also return data for the date <code>2023-11-04</code> for both channel ids <code>1</code> and <code>5</code>. What happens?</p>
+<div class="form-elements">
+<div class="grow-wrap"><textarea name="data"></textarea></div>
+
+<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
+</div>
+</form>
+</div>
+<h2 id="user-interface">User interface</h2>
+<p>We can also access the <strong>Feast</strong> Web interface. To do this, being in <code>exp/feature_repo</code>, run:</p>
+<p>
+<div class="termy">
+
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">$ </span>feast<span class="w"> </span>ui
+</code></pre></div>
+
+</div>
+</p>
+
+<p>This was an introduction to <strong>feast</strong>. The tool has many additional features. To learn more, visit <a href="https://docs.feast.dev/">https://docs.feast.dev/</a>.</p>
+
+
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+            <a href="../intro/"
+               class="ah-prev"
+               title="Intro">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Intro</span>
+            </a>
+          
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="../../../js/tabs.js"></script><script src="../../../js/termynal.js"></script><script src="../../../js/custom.js"></script>
+    
+  </body>
+</html>
