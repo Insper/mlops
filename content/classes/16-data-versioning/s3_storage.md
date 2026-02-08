@@ -16,6 +16,11 @@ It is possible to use *dvc* with a *remote* pointing to an **S3** bucket.
 
 Create another repository and repeat the procedures from the previous handout.
 
+!!! warning "Attention!"
+    Make sure you have an **AWS** account and the **MLops** profile configured and **set as default**.
+
+    Visit the [**Set profile** section](../07-lambda/sa_lambda_function.md#set-profile) if you need help.
+
 Some important steps:
 
 !!! exercise "Question!"

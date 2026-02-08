@@ -69,7 +69,7 @@ The MLFlow server could also run centrally (like on an EC2 instance). However, w
     <div class="termy">
 
     ```console
-    $ aws s3api create-bucket --bucket mlflow-exp-tracking-INSPER-USERNAME --region us-east-2 --create-bucket-configuration LocationConstraint=us-east-2
+    $ aws s3api create-bucket --bucket mlflow-exp-tracking-INSPER-USERNAME --region us-east-2 --create-bucket-configuration LocationConstraint=us-east-2 --profile mlops
     ```
 
     </div>
