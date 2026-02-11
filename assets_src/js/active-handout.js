@@ -10,7 +10,6 @@ import { initCodeEditorPlugin, initEditor } from "./code-editor";
 import * as clientDB from "./client-db";
 import { getSubmissionCache, sendAndCacheData } from "./telemetry";
 import { initDashboard } from "./dashboard";
-import { initClipBoard } from "./clipboard-code";
 
 function onLoad() {
   initAuth();
@@ -26,7 +25,6 @@ function onLoad() {
   initMenuPlugin();
   initCodeEditorPlugin();
 
-  initClipBoard();
   applyRegisteredInitializers();
 }
 

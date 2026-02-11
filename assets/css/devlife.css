@@ -228,7 +228,6 @@ html .md-typeset.md-typeset details > :last-child {
 }
 
 @media screen and (max-width: 55rem) {
-
   .md-content {
     margin-top: 0;
     margin-bottom: 0;
@@ -289,6 +288,16 @@ html .md-typeset.md-typeset details > :last-child {
   pre {
     overflow-x: hidden;
     page-break-inside: avoid;
+  }
+
+  blockquote {
+    border: 2.25px solid #000000;
+    box-shadow: none;
+    line-height: 1.15;
+    min-height: 1rem;
+    padding: 0.5rem;
+    page-break-inside: avoid;
+    text-align: center;
   }
 
   .md-typeset.md-typeset .admonition,
