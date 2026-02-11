@@ -6,7 +6,7 @@ For that we will use `cookiecutter` to define a **template repository**. Then, w
 
 ## Accept assignment
 
-In order to do this, you will need to [**Accept the part 2 of the assignment**](https://classroom.github.com/a/Cn5-Pjk2). We will use this repository as our ML repository template for new projects.
+In order to do this, you will need to [**Accept the part 2 of the assignment**](https://classroom.github.com/a/UsnWz52t). We will use this repository as our ML repository template for new projects.
 
 !!! danger "Atention"
     Please note that **APS 01** is divided into **two assignments**!

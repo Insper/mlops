@@ -18,7 +18,7 @@ In this activity, we will work on producing a **repository template**, defining 
 
 All assignments delivery will be made using Git repositories. Access the link below to accept the invitation and start working on the first assignment.
 
-[Invitation link](https://classroom.github.com/a/qPUyXLjB){ .ah-button }
+[Invitation link](https://classroom.github.com/a/uQAa_dgI){ .ah-button }
 
 !!! important
     You should have received a new private repository. Copy your repo address below. It will be used in the rest of the guide.
