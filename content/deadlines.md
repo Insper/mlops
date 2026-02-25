@@ -7,8 +7,8 @@ The deadline assumes the end of the day (*11:59:59 PM*), unless otherwise specif
 | Start Date | Assignment                                       | Deadline |
 |------------|--------------------------------------------------|----------|
 | Feb-09     | [Aps01](classes/01-intro/aps01_part_1.md)        | Feb-22   |
-<!-- | Aug-20     | [Aps02](classes/03-batch/aps02_sql.md)           | Sep-07   |
-| Sep-08     | [Aps03](classes/07-lambda/aps03_lambda.md)       | Oct-05   |
+| Feb-25     | [Aps02](classes/03-batch/aps02_sql.md)           | Mar-10   |
+<!--| Sep-08     | [Aps03](classes/07-lambda/aps03_lambda.md)       | Oct-05   |
 | Oct-10     | [Project - Del. 01](project/project.md)          | Oct-16   |
 | Oct-10     | [Project - Del. 02](project/project.md)          | Nov-09   |
 | Oct-10     | [Project - Final Del.](project/project.md)       | Nov-30   |
