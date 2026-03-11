@@ -582,7 +582,7 @@
 <p>Then, run the following code to create the role and attach the necessary policies:</p>
 <div class="termy">
 
-<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>aws<span class="w"> </span>iam<span class="w"> </span>create-role<span class="w"> </span>--role-name<span class="w"> </span>mlops-role-basic-lambda<span class="w"> </span>--assume-role-policy-document<span class="w"> </span>file://trust-policy-basic.json<span class="w"> </span>--profile<span class="w"> </span>mlops<span class="w"> </span>--region<span class="w"> </span>us-east-1
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>aws<span class="w"> </span>iam<span class="w"> </span>create-role<span class="w"> </span>--role-name<span class="w"> </span>mlops-role-basic-lambda<span class="w"> </span>--assume-role-policy-document<span class="w"> </span>file://trust-policy-basic.json<span class="w"> </span>--profile<span class="w"> </span>mlops<span class="w"> </span>--region<span class="w"> </span>us-east-2
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$<span class="w"> </span>aws<span class="w"> </span>iam<span class="w"> </span>attach-role-policy<span class="w"> </span>--role-name<span class="w"> </span>mlops-role-basic-lambda<span class="w"> </span>--policy-arn<span class="w"> </span>arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole<span class="w"> </span>--profile<span class="w"> </span>mlops
 </code></pre></div>
 
