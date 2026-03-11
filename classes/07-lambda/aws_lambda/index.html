@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
       
-        <title>Intro - MLOps & Interviews</title>
+        <title>Aws lambda - MLOps & Interviews</title>
       
     
     <link rel="stylesheet"
@@ -353,26 +353,68 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">06 - Message Broker</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../06-message-broker/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../06-message-broker/rabbitmq/">Rabbitmq</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../06-message-broker/celery/">Celery</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">07 - Lambda Functions</span>
+    <ul>
+      
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Part 1</span>
     <ul>
       
         
   
 
     <li class="active ah-togglable-item opened">
-      <span class="ah-togglable-handle">Intro</span>
+      <span class="ah-togglable-handle">Aws lambda</span>
       <ul>
         
           
             
             
               <li class="ah-toc-item">
-                <a href="#introduction">Introduction</a>
+                <a href="#faas">FaaS</a>
               </li>
             
               <li class="ah-toc-item">
-                <a href="#message-broker_1">Message Broker</a>
+                <a href="#market-solutions">Market solutions</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#aws-lambda_1">AWS Lambda</a>
               </li>
             
               <li class="ah-toc-item">
@@ -380,7 +422,7 @@
               </li>
             
               <li class="ah-toc-item">
-                <a href="#alternatives">Alternatives</a>
+                <a href="#disadvantages">Disadvantages</a>
               </li>
             
         
@@ -392,7 +434,7 @@
         
   
     <li>
-      <a href="../rabbitmq/">Rabbitmq</a>
+      <a href="../config_aws_cli/">Config aws cli</a>
     </li>
   
 
@@ -400,29 +442,7 @@
         
   
     <li>
-      <a href="../celery/">Celery</a>
-    </li>
-  
-
-      
-    </ul>
-  </li>
-
-      
-        
-  <li class="ah-togglable-item">
-    <span class="ah-togglable-handle">07 - Lambda Functions</span>
-    <ul>
-      
-        
-  <li class="ah-togglable-item">
-    <span class="ah-togglable-handle">Part 1</span>
-    <ul>
-      
-        
-  
-    <li>
-      <a href="../../07-lambda/aws_lambda/">Aws lambda</a>
+      <a href="../lambda_practicing/">Lambda practicing</a>
     </li>
   
 
@@ -430,7 +450,7 @@
         
   
     <li>
-      <a href="../../07-lambda/config_aws_cli/">Config aws cli</a>
+      <a href="../api_gateway/">Api gateway</a>
     </li>
   
 
@@ -438,7 +458,7 @@
         
   
     <li>
-      <a href="../../07-lambda/lambda_practicing/">Lambda practicing</a>
+      <a href="../sentiment_analysis/">Sentiment analysis</a>
     </li>
   
 
@@ -446,7 +466,7 @@
         
   
     <li>
-      <a href="../../07-lambda/api_gateway/">Api gateway</a>
+      <a href="../sa_lambda_function/">Sa lambda function</a>
     </li>
   
 
@@ -454,23 +474,7 @@
         
   
     <li>
-      <a href="../../07-lambda/sentiment_analysis/">Sentiment analysis</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../../07-lambda/sa_lambda_function/">Sa lambda function</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../../07-lambda/lambda_layer/">Lambda layer</a>
+      <a href="../lambda_layer/">Lambda layer</a>
     </li>
   
 
@@ -501,7 +505,11 @@
                   
                 
                   
-                    <li>06 - Message Broker</li>
+                    <li>07 - Lambda Functions</li>
+                  
+                
+                  
+                    <li>Part 1</li>
                   
                 
                 <li></li>
@@ -511,76 +519,75 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="message-broker">Message Broker</h1>
-<h2 id="introduction">Introduction</h2>
-<p>An ML application will usually be made up of several interconnected parts. We have already seen in previous classes how to create an API, so applications that need prediction by an ML model can access a specific route.</p>
-<p>We have also seen that a model can read data and write prediction results to a DBMS (database management system).</p>
-<h2 id="message-broker_1">Message Broker</h2>
-<p>Today we will see how to work with <strong>message brokers</strong>. A message broker is a middleware software component that allows applications to exchange messages asynchronously. It acts as an intermediary to route messages between publishers and subscribers.</p>
-<p>Think, for example, of an ML model that analyzes a store's delivery data for complaint prevention.</p>
-<p><img alt="" src="../example_delivery.png" /></p>
-<p>Suppose that, for some deliveries, he recommends sending a message explaining the situation (reason for the delay). This sending (Telegram, Email, WhatsApp) will not be done by the ML model and will require calling an extra application.</p>
-<p>An alternative is to add the model's predict result to a queue, so that the sending application (Telegram, Email, WhatsApp) handles the messages according to their availability. The application responsible for managing this queue is the <strong>message broker</strong>.</p>
-<div class="admonition exercise short tag-text-exercise tag-short-text editable" data-slug="classes/06-message-broker/intro/short_1" id="short_1_0">
-<p class="admonition-title">Question 1<button class="editable-button"></button></p>
-<form class="exercise-form">
-<p>Could the message broker be used to create a queue of JSON from customers for a model to process? For example:
-<div class="language-JSON highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;job&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;entrepreneur&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;marital&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;married&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;education&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;primary&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&quot;balance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">558</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;housing&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">186</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">&quot;campaign&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
-</code></pre></div></p>
-<div class="form-elements">
-<input type="text" value="" name="data"/>
-
-<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
+<h1 id="aws-lambda">AWS Lambda</h1>
+<h2 id="faas">FaaS</h2>
+<p><strong>Function as a Service</strong> (FaaS) refers to a <em>cloud computing</em> model that allows developers to build and run applications and functions <em>without having to worry about infrastructure management</em>.</p>
+<p>With <strong>FaaS</strong>, developers are able to deploy their code in the form of stateless functions or event handlers that can be invoked on-demand or in response to events.</p>
+<div class="admonition info">
+<p class="admonition-title">Info!</p>
+<p><strong>FaaS</strong> is considered a form of serverless computing. The <strong>FaaS</strong> platform takes care of:</p>
+<ul>
+<li>Underlying servers</li>
+<li>Operating systems and platforms</li>
+<li>Scaling and operating the application</li>
+</ul>
+<p>Making it simple for developers to <strong>focus</strong> only on writing code for their specific business logic or tasks.</p>
 </div>
-</form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Answer</p>
-<p>Yes! In general, the message broker does not care about the actual message content or format. Messages can contain serialized objects, JSON strings, binary files - essentially any type of content that can be serialized into a byte stream.</p>
-</div>
-</div>
+<h2 id="market-solutions">Market solutions</h2>
+<p>The main providers of <strong>FaaS</strong> platforms include:</p>
+<ul>
+<li>
+<p><strong>AWS Lambda</strong></p>
+</li>
+<li>
+<p><strong>Google Cloud Functions</strong></p>
+</li>
+<li>
+<p><strong>Microsoft Azure Functions</strong></p>
+</li>
+</ul>
+<p>We will work with AWS Lambda!</p>
+<h2 id="aws-lambda_1">AWS Lambda</h2>
+<p><strong>AWS Lambda</strong> is Amazon's flagship serverless computing platform that runs your code on high-availability compute infrastructure and performs all the administration of the compute resources.</p>
+<p>The Lambda functions can be <em>triggered</em> by various events like changes to an S3 bucket or database tables, calls from API Gateway or third party applications, or on a schedule. </p>
 <h2 id="advantages">Advantages</h2>
-<p>The main advantages of using message brokers are:</p>
+<p>Some reasons why Lambda functions should be considered to deploy ML applications:</p>
 <ul>
 <li>
-<p><strong><span style="color: green;">Asynchronous communication</span></strong>: messages can be sent and received asynchronously. This allows work to be queued when systems are <strong>overloaded</strong> and prevents failures from stopping the flow of work.</p>
+<p><strong>Scalability</strong>: Lambda can automatically scale up or down to handle varying loads. This is important for ML models that may see bursty traffic or need to handle prediction requests at scale.</p>
 </li>
 <li>
-<p><strong><span style="color: green;">Decoupling of services/applications</span></strong>: a message broker allows different parts of a distributed system to communicate <strong>without the need of direct knowledge</strong> of each other.</p>
+<p><strong>Event-driven</strong>: Lambda functions can be easily triggered by events like incoming data. This makes it simple to run ML predictions every time new data comes in without managing servers.</p>
 </li>
 <li>
-<p><strong><span style="color: green;">Scalability</span></strong>: more <strong>consumers/producers can be added easily</strong> without modifying code as load increases.</p>
+<p><strong>Pay-per-use</strong>: with Lambda, you only pay for the compute resources used to run your code. This saves costs for ML workloads that may be intermittent or only needed during model training cycles.</p>
 </li>
 <li>
-<p><strong><span style="color: green;">Reliability</span></strong>: message brokers guarantee at-least-once delivery of messages, so <strong>messages aren't lost if a receiver fails</strong>.</p>
+<p><strong>No servers to manage</strong>: Lambda handles all the infrastructure maintenance, so you can focus on coding your ML logic without worrying about servers, scaling, availability etc.</p>
 </li>
 <li>
-<p><strong><span style="color: green;">Durability</span></strong>: messages can <strong>survive recipient or broker failures</strong> through persistent storage and retries.</p>
-</li>
-<li>
-<p><strong><span style="color: green;">Location transparency</span></strong>: services remain <strong>agnostic to location or availability</strong> of other services using the broker.</p>
-</li>
-<li>
-<p><strong><span style="color: green;">Manageability</span></strong>: brokers provide <strong>centralized tools for administration</strong>, monitoring and management of messaging infrastructure.</p>
+<p><strong>Deployment flexibility</strong>: you can host complex ML pipelines or prediction code on Lambda. Models can also be deployed as REST APIs using API Gateway for low-latency predictions.</p>
 </li>
 </ul>
-<h2 id="alternatives">Alternatives</h2>
-<p>There are several message broker that we could use, such as:</p>
+<h2 id="disadvantages">Disadvantages</h2>
+<p><strong>AWS Lambda</strong> may not always be the best choice for ML applications due to:</p>
 <ul>
-<li>RabbitMQ</li>
-<li>Apache Kafka</li>
-<li>Azure Service Bus</li>
-<li>AWS SQS/SNS</li>
+<li>
+<p><strong>Limited memory/compute</strong>: Lambda functions have strict memory limits ranging from 128MB to 10240MB. ML models often require much more RAM.</p>
+</li>
+<li>
+<p><strong>Cold start</strong>: when a Lambda function hasn't been invoked in awhile, the first invocation takes longer due to container initialization. This may not be suitable for real-time ML inferences.</p>
+</li>
+<li>
+<p><strong>Stateful dependencies</strong>: Lambda functions are stateless by design. Supporting stateful dependencies like databases for ML model training is challenging.</p>
+</li>
+<li>
+<p><strong>Long-running workloads</strong>: ML model training typically involves batch processing large datasets over long periods which exceeds Lambda's 15 minute timeout limit.</p>
+</li>
+<li>
+<p><strong>GPU/TPU support</strong>: Lambda doesn't support hardware accelerators like GPUs which are essential for many deep learning workloads.</p>
+</li>
 </ul>
-<p>In this class, we will work with RabbitMQ.</p>
 
 
 </section>
@@ -590,19 +597,19 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../../05-docker/docker/"
+            <a href="../../06-message-broker/celery/"
                class="ah-prev"
-               title="Docker">
+               title="Celery">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">Docker</span>
+              <span class="nav-title">Celery</span>
             </a>
           
           
-            <a href="../rabbitmq/"
+            <a href="../config_aws_cli/"
                class="ah-next"
-               title="Rabbitmq">
+               title="Config aws cli">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Rabbitmq</span>
+              <span class="nav-title">Config aws cli</span>
             </a>
           
         </div>
