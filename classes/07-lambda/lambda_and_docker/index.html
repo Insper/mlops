@@ -157,7 +157,7 @@
 
             
               
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">Classes</span>
     <ul>
       
@@ -386,7 +386,7 @@
 
       
         
-  <li class="ah-togglable-item">
+  <li class="ah-togglable-item opened">
     <span class="ah-togglable-handle">07 - Lambda Functions</span>
     <ul>
       
@@ -455,6 +455,95 @@
   </li>
 
       
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">Part 2</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../lambda_quotas/">Lambda quotas</a>
+    </li>
+  
+
+      
+        
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">Lambda and docker</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#introduction">Introduction</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#create-source-code">Create Source Code</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#create-image">Create Image</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#test-locally">Test locally</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#container-registry">Container Registry</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#upload-image-to-ecr">Upload Image to ECR</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#create-function">Create Function</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#references">References</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../iac_terraform_intro/">Iac terraform intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../iac_terraform_sentiment/">Iac terraform sentiment</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../aps03_lambda/">Aps03 lambda</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
     </ul>
   </li>
 
@@ -471,6 +560,18 @@
           <div class="ah-title-box">
             <ul class="ah-breadcrumbs">
               
+                
+                  
+                    <li>Classes</li>
+                  
+                
+                  
+                    <li>07 - Lambda Functions</li>
+                  
+                
+                  
+                    <li>Part 2</li>
+                  
                 
                 <li></li>
             </ul>
@@ -684,7 +785,9 @@
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span>--image-scanning-configuration<span class="w"> </span><span class="nv">scanOnPush</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span>--image-tag-mutability<span class="w"> </span>MUTABLE<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span>--query<span class="w"> </span><span class="s1">&#39;repository.{repositoryArn:repositoryArn, repositoryUri:repositoryUri}&#39;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span>--output<span class="w"> </span>text
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span>--output<span class="w"> </span>text<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span>--profile<span class="w"> </span>mlops<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span>--region<span class="w"> </span>us-east-2
 </code></pre></div>
 <p></div>
 </p></p>
@@ -696,7 +799,7 @@
 <p>Write down the <code>repositoryUri</code></p>
 </div>
 <h2 id="upload-image-to-ecr">Upload Image to ECR</h2>
-<p>Before uploading our Docker image to ECR, we need to configure the AWS Command Line Interface (AWS CLI). If you didn't, <a href="../sa_lambda_function/#aws-cli-command-line-interface"><strong>check this out in our previous class</strong></a>.</p>
+<p>Before uploading our Docker image to ECR, we need to configure the AWS Command Line Interface (AWS CLI). If you didn't, <a href="../config_aws_cli"><strong>check this out in our previous class</strong></a>.</p>
 <!-- Before uploading our Docker image to ECR, we need to configure the AWS Command Line Interface (AWS CLI).
 
 !!! info "Install!"
@@ -834,6 +937,20 @@ And push image to ECR with:</p>
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
+            <a href="../lambda_quotas/"
+               class="ah-prev"
+               title="Lambda quotas">
+              <span class="nav-label">Previous</span>
+              <span class="nav-title">Lambda quotas</span>
+            </a>
+          
+          
+            <a href="../iac_terraform_intro/"
+               class="ah-next"
+               title="Iac terraform intro">
+              <span class="nav-label">Next</span>
+              <span class="nav-title">Iac terraform intro</span>
+            </a>
           
         </div>
       </footer>
