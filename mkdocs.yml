@@ -26,9 +26,9 @@ nav:
       - "APS 01 Part 1": classes/01-intro/aps01_part_1.md
       - "APS 01 Part 2": classes/01-intro/aps01_part_2.md
       - "APS 02 SQL": classes/03-batch/aps02_sql.md
-    #   - "APS 03 Lambda": classes/07-lambda/aps03_lambda.md
-#   - Interviews:
-#       - classes/04-int01/int01.md
+      - "APS 03 Lambda": classes/07-lambda/aps03_lambda.md
+  - Interviews:
+      - classes/04-int01/int01.md
 #       - classes/09-int02/int02.md
 #       - classes/14-int03/int03.md
 #       - classes/19-int04/int04.md
@@ -76,11 +76,11 @@ nav:
               - classes/07-lambda/iac_terraform_intro.md
               - classes/07-lambda/iac_terraform_sentiment.md
               - classes/07-lambda/aps03_lambda.md
-    #   - "08 - Queues":
-    #       - classes/08-queue/intro.md
-    #       - classes/08-queue/concurrent_execution.md
-    #       - classes/08-queue/sqs_practicing.md
-    #       - classes/08-queue/sqs_and_lambda.md
+      - "08 - Queues":
+          - classes/08-queue/intro.md
+          - classes/08-queue/concurrent_execution.md
+          - classes/08-queue/sqs_practicing.md
+          - classes/08-queue/sqs_and_lambda.md
     #   - "09 - Interview 02":
     #       - classes/09-int02/int02.md
     #   - "10 - Documentation":
