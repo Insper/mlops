@@ -124,7 +124,7 @@ Students who do not present their project to the professor will have their maxim
 ## Deadlines
 
 - **Github submission Deadline**: available [here](../../deadlines.md)
-- **Presentation deadline (only for maximum concept)**: october 15th.
+- **Presentation deadline (only for maximum concept)**: april 15th.
 
 
 
