@@ -221,7 +221,7 @@ Let's upload our image to **ECR**. But first, we need to create a container repo
 
 ## Upload Image to ECR
 
-Before uploading our Docker image to ECR, we need to configure the AWS Command Line Interface (AWS CLI). If you didn't, [**check this out in our previous class**](../config_aws_cli).
+Before uploading our Docker image to ECR, we need to configure the AWS Command Line Interface (AWS CLI). If you didn't, [**check this out in our previous class**](config_aws_cli.md).
 
 <!-- Before uploading our Docker image to ECR, we need to configure the AWS Command Line Interface (AWS CLI).
 
