@@ -97,13 +97,13 @@ nav:
       - classes/11-ci-cd/intro.md
       - classes/11-ci-cd/testing.md
       - classes/11-ci-cd/auto_deploy.md
-    # - "13 - Tracking":
-    #   - "Part 1":
-    #     - classes/13-tracking/intro.md
-    #     - classes/13-tracking/mlflow.md
+    - "13 - Tracking":
+      - "Part 1":
+        - classes/12-tracking/intro.md
+        - classes/12-tracking/mlflow.md
     #   - "Part 2":
-    #     - classes/13-tracking/centralization.md
-    #     - classes/13-tracking/model_registry.md
+    #     - classes/12-tracking/centralization.md
+    #     - classes/12-tracking/model_registry.md
     # - "14 - Interview 03":
     #   - classes/14-int03/int03.md
     # - "15 - Monitoring":
