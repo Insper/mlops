@@ -97,7 +97,7 @@ nav:
       - classes/11-ci-cd/intro.md
       - classes/11-ci-cd/testing.md
       - classes/11-ci-cd/auto_deploy.md
-    - "13 - Tracking":
+    - "12 - Tracking":
       - "Part 1":
         - classes/12-tracking/intro.md
         - classes/12-tracking/mlflow.md
