@@ -985,7 +985,7 @@
 <div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/13-logging/structured_logging/long_5" id="long_5_0">
 <p class="admonition-title">Question 6<button class="editable-button"></button></p>
 <form class="exercise-form">
-<p>Imagine a user submits a request to your ML API. The API pre-processes the input, calls the model, logs the prediction, and writes to a database. If a bug occurs in the database write, how do you know which <em>specific request</em> caused it — without a correlation ID?</p>
+<p>Imagine a user submits a request to your ML API. The API pre-processes the input, calls the model, logs the prediction, and writes to a database. If a bug occurs in the database write, how do you know which <em>specific request</em> caused it, without a correlation ID?</p>
 <div class="form-elements">
 <div class="grow-wrap"><textarea name="data"></textarea></div>
 
@@ -1043,7 +1043,7 @@
 <a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>
 <a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a><span class="c1"># Simulate two concurrent requests</span>
 <a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a><span class="n">handle_request</span><span class="p">({</span><span class="s2">&quot;feature_1&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;feature_2&quot;</span><span class="p">:</span> <span class="s2">&quot;yes&quot;</span><span class="p">})</span>
-<a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a><span class="n">handle_request</span><span class="p">({</span><span class="s2">&quot;feature_2&quot;</span><span class="p">:</span> <span class="s2">&quot;no&quot;</span><span class="p">})</span>  <span class="c1"># Missing feature_1 — will fail</span>
+<a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a><span class="n">handle_request</span><span class="p">({</span><span class="s2">&quot;feature_2&quot;</span><span class="p">:</span> <span class="s2">&quot;no&quot;</span><span class="p">})</span>  <span class="c1"># Missing feature_1 (will fail)</span>
 </code></pre></div>
 <div class="admonition exercise self-progress" data-slug="classes/13-logging/structured_logging/exercise_2" id="exercise_2_0">
 <p class="admonition-title">Question 7</p>
