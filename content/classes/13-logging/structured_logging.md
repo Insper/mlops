@@ -128,7 +128,7 @@ In a production system, a single user action may trigger multiple log events acr
 A **correlation ID** (also called a **request ID** or **trace ID**) is a unique identifier attached to every log event belonging to the same request.
 
 !!! exercise text long "Question"
-    Imagine a user submits a request to your ML API. The API pre-processes the input, calls the model, logs the prediction, and writes to a database. If a bug occurs in the database write, how do you know which *specific request* caused it — without a correlation ID?
+    Picture someone sending a request to your ML API: the service cleans the input, runs the model, records the prediction, and then saves data to the database. If the database step fails, how can you identify exactly which request triggered the error when there is no correlation ID?
 
     !!! answer "Answer!"
         You can't, unless the request timestamp perfectly isolates the logs (fragile). With a correlation ID, you simply filter all logs by `request_id = "abc-123"` and get the full picture in one query.
@@ -181,7 +181,7 @@ def handle_request(payload: dict):
 
 # Simulate two concurrent requests
 handle_request({"feature_1": 42, "feature_2": "yes"})
-handle_request({"feature_2": "no"})  # Missing feature_1 — will fail
+handle_request({"feature_2": "no"})  # Missing feature_1 (will fail)
 ```
 
 !!! exercise "Question"

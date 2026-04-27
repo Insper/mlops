@@ -30,7 +30,7 @@ nav:
   - Interviews:
     - classes/04-int01/int01.md
     - classes/09-int02/int02.md
-#       - classes/14-int03/int03.md
+    - classes/14-int03/int03.md
 #       - classes/19-int04/int04.md
   - Classes:
     - "01 - Introduction":
@@ -104,8 +104,8 @@ nav:
       - classes/13-logging/python_logging.md
       - classes/13-logging/structured_logging.md
       - classes/13-logging/read_aws_logs.md
-    # - "14 - Interview 03":
-    #   - classes/14-int03/int03.md
+    - "14 - Interview 03":
+      - classes/14-int03/int03.md
     # - "15 - Monitoring":
     #   # - "Part 1":
     #   - classes/15-monitoring/intro.md
