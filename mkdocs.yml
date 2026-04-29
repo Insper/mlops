@@ -106,15 +106,15 @@ nav:
       - classes/13-logging/read_aws_logs.md
     - "14 - Interview 03":
       - classes/14-int03/int03.md
-    # - "15 - Monitoring":
-    #   # - "Part 1":
-    #   - classes/15-monitoring/intro.md
-    #   - classes/15-monitoring/metrics.md
-    #   - classes/15-monitoring/model_degradation.md
-    #   - classes/15-monitoring/data_drift_methods.md
-    #   # - "Part 2":
-    #   - classes/15-monitoring/data_drift_ml.md
-    #   - classes/15-monitoring/performance_degradation.md
+    - "15 - Monitoring":
+      # - "Part 1":
+      - classes/15-monitoring/intro.md
+      - classes/15-monitoring/metrics.md
+      - classes/15-monitoring/model_degradation.md
+      - classes/15-monitoring/data_drift_methods.md
+      # - "Part 2":
+      - classes/15-monitoring/data_drift_ml.md
+      - classes/15-monitoring/performance_degradation.md
     # - "16 - Data versioning":
     #   - "Part 1":
     #     - classes/16-data-versioning/intro.md
