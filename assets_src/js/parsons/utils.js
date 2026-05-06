@@ -64,9 +64,7 @@ export function submitExercise(exercise) {
     answerText += line.innerText + "\n";
   });
   if (hasAnswer) {
-    correct =
-      lineContainers.length > 0 &&
-      queryParsonsLineContainers(origArea).length === 0;
+    correct = lineContainers.length > 0
     correct = correct && answerText === correctAnswer;
   }
 
