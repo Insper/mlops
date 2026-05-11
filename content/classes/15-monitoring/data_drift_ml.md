@@ -9,7 +9,7 @@ Well, maybe all this ML has left us confused. So let's learn by example, calmly!
 
 ## Churn Database
 
-For the experiment, we will use simulated data and also the *churn* database presented in class [13-tracking/mlflow/](../13-tracking/mlflow.md).
+For the experiment, we will use simulated data and also the *churn* database presented in class [12-tracking/mlflow/](../12-tracking/mlflow.md).
 
 A sample of the database:
 

@@ -9,7 +9,7 @@ The deadline assumes the end of the day (*11:59:59 PM*), unless otherwise specif
 | Feb-09     | [Aps01](classes/01-intro/aps01_part_1.md)        | Feb-22   |
 | Feb-25     | [Aps02](classes/03-batch/aps02_sql.md)           | Mar-10   |
 | Mar-16     | [Aps03](classes/07-lambda/aps03_lambda.md)       | Apr-07   |
-<!--| Oct-10     | [Project - Del. 01](project/project.md)          | Oct-16   |
-| Oct-10     | [Project - Del. 02](project/project.md)          | Nov-09   |
-| Oct-10     | [Project - Final Del.](project/project.md)       | Nov-30   |
-| Nov-26     | [Interview 04](classes/19-int04/int04.md)        | Dec-03   | -->
+| May-11     | [Project - Delivery 01](project/project.md)      | May-17   |
+| May-11     | [Project - Delivery 02](project/project.md)      | May-24   |
+| May-11     | [Project - Final Delivery](project/project.md)   | Jun-05   |
+| May-13     | [Interview 04](classes/19-int04/int04.md)        | May-13   |

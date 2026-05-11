@@ -21,7 +21,7 @@ nav:
   - about.md
   - deadlines.md
   - contributions.md
-  # - project/project.md
+  - project/project.md
   - APS:
     - "APS 01 Part 1": classes/01-intro/aps01_part_1.md
     - "APS 01 Part 2": classes/01-intro/aps01_part_2.md
@@ -31,7 +31,7 @@ nav:
     - classes/04-int01/int01.md
     - classes/09-int02/int02.md
     - classes/14-int03/int03.md
-#       - classes/19-int04/int04.md
+    - classes/19-int04/int04.md
   - Classes:
     - "01 - Introduction":
       - classes/01-intro/intro.md
@@ -126,8 +126,8 @@ nav:
     - "17 - Feature store":
       - classes/17-feature-store/intro.md
       - classes/17-feature-store/feast.md
-    # - "18 - Sagemaker":
-    #   - classes/18-sagemaker/intro.md
-    #   - classes/18-sagemaker/sagemaker.md
-    # - "19 - Interview 04":
-    #   - classes/19-int04/int04.md
+    - "18 - Sagemaker":
+      - classes/18-sagemaker/intro.md
+      - classes/18-sagemaker/sagemaker.md
+    - "19 - Interview 04":
+      - classes/19-int04/int04.md
