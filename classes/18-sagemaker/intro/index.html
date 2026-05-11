@@ -905,8 +905,33 @@
 
       
         
-  <li class="ah-togglable-item opened">
+  <li class="ah-togglable-item">
     <span class="ah-togglable-handle">17 - Feature store</span>
+    <ul>
+      
+        
+  
+    <li>
+      <a href="../../17-feature-store/intro/">Intro</a>
+    </li>
+  
+
+      
+        
+  
+    <li>
+      <a href="../../17-feature-store/feast/">Feast</a>
+    </li>
+  
+
+      
+    </ul>
+  </li>
+
+      
+        
+  <li class="ah-togglable-item opened">
+    <span class="ah-togglable-handle">18 - Sagemaker</span>
     <ul>
       
         
@@ -928,32 +953,7 @@
         
   
     <li>
-      <a href="../feast/">Feast</a>
-    </li>
-  
-
-      
-    </ul>
-  </li>
-
-      
-        
-  <li class="ah-togglable-item">
-    <span class="ah-togglable-handle">18 - Sagemaker</span>
-    <ul>
-      
-        
-  
-    <li>
-      <a href="../../18-sagemaker/intro/">Intro</a>
-    </li>
-  
-
-      
-        
-  
-    <li>
-      <a href="../../18-sagemaker/sagemaker/">Sagemaker</a>
+      <a href="../sagemaker/">Sagemaker</a>
     </li>
   
 
@@ -980,7 +980,7 @@
                   
                 
                   
-                    <li>17 - Feature store</li>
+                    <li>18 - Sagemaker</li>
                   
                 
                 <li></li>
@@ -990,47 +990,15 @@
           </div>
           
             <section class="progress-section show">
-<h1 id="introduction">Introduction</h1>
-<p>Suppose you were hired as a data scientist by a company that doesn't do ML at all. In order for a model to be built, one of the first activities would involve carrying out <strong>data engineering</strong> to have data available for the models to consume.</p>
-<p>As the iterations of adding new data and building new features took place, we hope that the model's performance will increase to an acceptable value and a new ML product will be born in the company!</p>
-<p>After starting the development of a new project in the company, a likely feeling is that part of the features developed could be reused.</p>
-<p>For example, the average purchase ticket, total sales, place of residence of a customer, profession, etc. These are examples of useful features for different models (credit, complaints, churn, etc.).</p>
-<p>In software development, we talk a lot about <strong>reuse</strong>.</p>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/17-feature-store/intro/long_1" id="long_1_0">
-<p class="admonition-title">Question! 1<button class="editable-button"></button></p>
-<form class="exercise-form">
-<p>Explain, in your own words, what <strong>code reuse</strong> is.</p>
-<div class="form-elements">
-<div class="grow-wrap"><textarea name="data"></textarea></div>
-
-<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
-</div>
-</form>
-<div class="admonition answer no-indent">
-<p class="admonition-title">Answer!</p>
-<p>It is the use of <strong>existing software</strong>, or software knowledge, to <strong>build new software</strong>. It involves creating software components in a modular and reusable manner so that they can be easily incorporated into different projects without the need to reinvent or rebuild the same functionality. Reuse can lead to <strong>faster development</strong> cycles and <strong>reduced costs</strong>.</p>
-</div>
-</div>
-<p>With the use version control and code Organization, among other, code reuse is facilitated and can also occur in ML projects. After all, ML projects also involve a lot of programming.</p>
-<p>However, data is an important part in the development of ML projects. The efficient management and governance of data play a crucial role in ensuring project success.</p>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="classes/17-feature-store/intro/long_2" id="long_2_0">
-<p class="admonition-title">Question! 2<button class="editable-button"></button></p>
-<form class="exercise-form">
-<p>How can we guarantee the reuse and availability of features in ML projects?</p>
-<div class="form-elements">
-<div class="grow-wrap"><textarea name="data"></textarea></div>
-
-<input class="ah-button ah-button--primary" type="submit" value="Submit"/>
-</div>
-</form>
-</div>
-<p>Today we will explore <strong>feature stores</strong>. A <strong>feature store</strong> acts as a centralized repository for storing, managing, and serving ML <strong>data features</strong>, providing a unified and reliable source of data for model development and deployment.</p>
+<h1 id="aws-sagemaker">AWS Sagemaker</h1>
+<p>In the first classes, we explored alternatives for ML deployment, both on-premise and in the cloud. The use of cloud services, Docker, and serverless resources allows developers to have fewer concerns about infrastructure and to focus more on product development.</p>
+<p>We learned that the ML lifecycle involves various challenges associated with model development, training, and deployment. Libraries, tracking tools, model registries, data versioning, and more aim to facilitate different stages of this cycle, and any assistance is welcome!</p>
+<p>Today, we will work with AWS SageMaker, which provides a complete end-to-end workflow for ML. It makes it easier for developers and data scientists to build, train, and deploy ML models.</p>
 <div class="admonition info">
-<p class="admonition-title">Info!</p>
-<p>Features refer to data attributes or variables that are used as inputs to train and make predictions</p>
+<p class="admonition-title">From the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html">AWS</a></p>
+<p>Amazon SageMaker is a fully managed <strong>machine learning service</strong>. With SageMaker, data scientists and developers can quickly and easily build and train machine learning models, and then directly deploy them into a production-ready hosted environment.</p>
 </div>
-<p>The solution we will explore will be <strong>Feast</strong>: a standalone, open-source feature store that organizations use to store and serve features consistently for offline training and online inference.</p>
-<p>Go to the next topic!</p>
+<p>In the upcoming topics, we will explore some solutions offered by SageMaker and the problems it solves. Since the platform is packed with numerous features, we will only be able to cover a portion of them in this class.</p>
 
 
 </section>
@@ -1040,19 +1008,19 @@
       <footer class="ah-footer ah-typeset">
         <div class="ah-footer-nav">
           
-            <a href="../../16-data-versioning/practicing/"
+            <a href="../../17-feature-store/feast/"
                class="ah-prev"
-               title="Practicing">
+               title="Feast">
               <span class="nav-label">Previous</span>
-              <span class="nav-title">Practicing</span>
+              <span class="nav-title">Feast</span>
             </a>
           
           
-            <a href="../feast/"
+            <a href="../sagemaker/"
                class="ah-next"
-               title="Feast">
+               title="Sagemaker">
               <span class="nav-label">Next</span>
-              <span class="nav-title">Feast</span>
+              <span class="nav-title">Sagemaker</span>
             </a>
           
         </div>
