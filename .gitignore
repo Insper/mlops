@@ -1,4 +1,4 @@
-exercise_data.json
+exercise_data*.json
 docs/
 verify.sh
 serve.sh
