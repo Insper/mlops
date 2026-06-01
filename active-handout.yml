@@ -1,4 +1,3 @@
-
 theme:
   name: active-handout-theme
   locale: en
@@ -7,7 +6,7 @@ docs_dir: content
 site_dir: docs
 
 extra_javascript:
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  # - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
